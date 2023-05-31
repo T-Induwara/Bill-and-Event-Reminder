@@ -24,7 +24,6 @@ body{
     align-items: center;
     justify-content: space-between;
     padding:2rem 1rem 2rem 1rem;
-    background-color: #d4f79d;
     z-index:100 !important;
 }
 .nav-logo{
