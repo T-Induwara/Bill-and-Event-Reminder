@@ -28,12 +28,9 @@
                 src:url('../font/Poppins-SemiBold.ttf');
             }
             /*Default and mobile css*/
-            .hero-section{
-                margin-top:-6.9rem;
-            }
             .hero-left-col{
                 background-color: var(--bg);
-                min-height:100vh;
+                min-height:50vh;
                 z-index:10
             }
             .hero-right-col{
@@ -44,44 +41,44 @@
                 justify-content: center;
                 align-items: center;
                 background-color: var(--primary);
-                min-height:100vh;
+                min-height:50vh;
                 z-index:5
             }
             .hero-rocket-img{
-                width:60px;
+                width:40px;
                 position:absolute;
                 top:10rem;
-                left:32vw;
+                left:55vw;
             }
             .hero-girl-img{
-                width:18%;
+                width:28%;
                 position:absolute;
                 top:15rem;
-                left:6vw;
+                left:12vw;
             }
             .hero-boy-img{
-                width:40%;
+                width:80%;
                 position:absolute;
-                top:16rem;
-                left:17em;
+                top:13rem;
+                left:4rem;
             }
             .hero-right-col h1,p,a{
                 margin-top:2rem;
             }
             .hero-right-col h1{
                 font-family:Poppins-S;
-                font-size:55px;
+                font-size:40px;
             }
             .hero-right-col p{
                 font-family:Poppins-R;
-                font-size:20px;
-                padding-left:12rem;
-                padding-right:12rem;
+                font-size:15px;
+                padding-left:2rem;
+                padding-right:2rem;
             }
             .hero-right-col a{
                 color:var(--primary);
                 font-family:Poppins-S;
-                font-size:25px;
+                font-size:20px;
                 width:200px;
                 padding-top:10px;
                 padding-bottom:10px;
@@ -99,72 +96,79 @@
                 .hero-section{
                     margin-top:-6.9rem;
                 }
-                .hero-left-col{
-                    background-color: var(--bg);
-                    min-height:50vh;
-                    z-index:10
-                }
-                .hero-right-col{
-                    color:var(--bg);
-                    text-align: center;
-                    display:flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: var(--primary);
-                    min-height:50vh;
-                    z-index:5
-                }
                 .hero-rocket-img{
-                    width:60px;
-                    position:absolute;
+                    width:50px;
                     top:10rem;
-                    left:32vw;
+                    left:38vw;
                 }
                 .hero-girl-img{
-                    width:18%;
-                    position:absolute;
+                    width:20%;
                     top:15rem;
                     left:6vw;
                 }
                 .hero-boy-img{
-                    width:40%;
-                    position:absolute;
-                    top:16rem;
-                    left:17em;
-                }
-                .hero-right-col h1,p,a{
-                    margin-top:2rem;
+                    width:50%;
+                    top:12%;
+                    left:45%;
                 }
                 .hero-right-col h1{
-                    font-family:Poppins-S;
                     font-size:55px;
                 }
                 .hero-right-col p{
-                    font-family:Poppins-R;
                     font-size:20px;
                     padding-left:12rem;
                     padding-right:12rem;
                 }
                 .hero-right-col a{
-                    color:var(--primary);
-                    font-family:Poppins-S;
                     font-size:25px;
                     width:200px;
                     padding-top:10px;
                     padding-bottom:10px;
-                    background-color:var(--bg);
-                    transition:0.6s;
                 }
-                .hero-right-col a:hover{
-                    color:var(--bg);
-                    background-color:var(--cta);
-                    transition:0.6s;
+            }
+            @media only screen and (max-width:1179px){
+                .nav-list a{
+                    color:var(--primary) !important;
                 }
             }
 
-
             /*Desktop css*/
+            @media only screen and (min-width:1280px){
+                .hero-left-col{
+                    min-height:100vh;
+                }
+                .hero-right-col{
+                    min-height:100vh;
+                }
+                .hero-rocket-img{
+                    width:60px;
+                    top:10rem;
+                    left:32vw;
+                }
+                .hero-girl-img{
+                    width:18%;
+                    top:15rem;
+                    left:6vw;
+                }
+                .hero-boy-img{
+                    width:40%;
+                    top:16rem;
+                    left:17em;
+                }
+                .hero-right-col h1{
+                    font-size:55px;
+                }
+                .hero-right-col p{
+                    font-size:20px;
+                }
+                .hero-right-col a{
+                    font-size:25px;
+                    width:200px;
+                    padding-top:10px;
+                    padding-bottom:10px;
+                }
+            }
+
         </style>
     </head>
     <body>
