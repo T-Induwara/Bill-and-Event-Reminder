@@ -53,6 +53,7 @@ a{
     color:var(--primary) !important;
     transition: 0.6s;
 }
+/*Nav menu completed*/
 
 @media only screen and (max-width:767px){
     .nav-list{
@@ -81,6 +82,7 @@ a{
     .co-btn{
         display:none;
     }
+    /*Nav menu completed*/
 }
 
 /*For tablet*/
@@ -104,6 +106,7 @@ a{
     .m-nav-btn{
         display:none !important;
     }
+    /*Nav menu completed*/
 }
 
 /*For pc*/
@@ -124,4 +127,5 @@ a{
         font-size:25px;
         padding:7px 30px 7px 30px !important;
     }
+    /*Nav menu completed*/
 }
