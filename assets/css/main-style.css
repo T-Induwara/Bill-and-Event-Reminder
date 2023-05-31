@@ -66,6 +66,7 @@ a{
         background-color:var(--bg);
         z-index:0 !important;
         border-radius:10px;
+        display:none;
     }
     .nav-list a{
         padding:20px 0px 20px 0px;
