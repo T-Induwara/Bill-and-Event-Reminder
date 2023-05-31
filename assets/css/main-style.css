@@ -1,3 +1,10 @@
+:root{
+	--primary: #001f3f;
+	--accent: #39cccc;
+	--bg: #f8f8f8;
+	--txt: #333333;
+	--cta: #ff851b;
+}
 body{
     margin:0 !important;
     padding:0 !important;
@@ -11,6 +18,78 @@ body{
     src:url('../font/Poppins-SemiBold.ttf');
 }
 
-h1{
+/*Default and mobile*/
+.nav-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 3rem 2rem 3rem;
+    background-color: #d4f79d;
+}
+.nav-logo{
+    color:var(--primary);
+    font-family:Poppins-S;
+    font-size:31px;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.nav-list a{
+    color:var(--primary);
     font-family: Poppins-R;
+    font-size:20px;
+    padding:0px 20px 0px 20px;
+}
+.nav-log-btn{
+    color:var(--bg) !important;
+    font-size:25px;
+    background-color:var(--cta);
+    padding:7px 30px 7px 30px !important;
+    border-radius:5px;
+    transition: 0.6s;
+}
+.nav-log-btn:hover{
+    color:var(--primary) !important;
+    transition: 0.6s;
+}
+
+/*For tablet*/
+@media only screen and (min-width:768px){
+    .nav-container{
+        align-items: center;
+        justify-content: space-between;
+        padding:2rem 1rem 2rem 1rem;
+    }
+    .nav-logo{
+        font-size:28px;
+    }
+    .nav-list a{
+        font-size:18px;
+        padding:0px 10px 0px 10px;
+    }
+    .nav-log-btn{
+        font-size:25px;
+        padding:7px 30px 7px 30px !important;
+    }
+}
+
+/*For pc*/
+@media only screen and (min-width:1280px){
+    .nav-container{
+        align-items: center;
+        justify-content: space-between;
+        padding:2rem 3rem 2rem 3rem;
+    }
+    .nav-logo{
+        font-size:31px;
+    }
+    .nav-list a{
+        font-size:20px;
+        padding:0px 20px 0px 20px;
+    }
+    .nav-log-btn{
+        font-size:25px;
+        padding:7px 30px 7px 30px !important;
+    }
 }
