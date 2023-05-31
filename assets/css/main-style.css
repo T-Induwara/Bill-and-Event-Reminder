@@ -156,7 +156,13 @@ a{
     /*Footer codes started*/
     .footer-img{
         display:none;
+    }.foo-desc{
+        text-align: center;
     }
+    .foo-urls,.foo-social{
+        margin-top:30px;
+    }
+    
     /*Footer codes completed*/
 }
 
@@ -184,7 +190,58 @@ a{
     /*Nav menu completed*/
     /*Footer codes started*/
     .footer-container{
-        flex-direction:row;
+        display:flex;
+        flex-direction: row;
+        padding:3rem 3rem 3rem 3rem;
+    }
+    .foo-desc,.foo-urls,.foo-social{
+        flex:33.3%;
+    }
+    .foo-desc p{
+        font-size:15px;
+    }
+    .foo-desc h1{
+        font-size:25px;
+    }
+    .foo-urls{
+        flex-direction: column;
+        justify-content:space-between;
+    }
+    .foo-list{
+        flex-direction:column;
+    }
+    .foo-list a{
+        font-size:15px;
+        padding-top:20px;
+    }
+    .foo-list .nav-log-btn{
+        margin-top:20px !important;
+    }
+    .footer-img{
+        width:70%;
+        display:block;
+        margin-right:auto;
+        margin-left:auto;
+        margin-bottom:-3rem;
+    }
+    .foo-social{
+        text-align: center;
+    }
+    .foo-social h3{
+        font-size:20px;
+    }
+    .foo-social p{
+        font-size:15px;
+    }
+    .social-icons{
+        flex-direction: row;
+        justify-content:space-evenly;
+    }
+    .social-icons img{
+        width:20px;
+    }
+    .foo-email-h,.foo-phone-h{
+        padding-top:20px;
     }
     .footer-img{
         display:none;
@@ -215,7 +272,6 @@ a{
     .footer-container{
         display:flex;
         flex-direction: row;
-        background-color:#f7fd9b;
         padding:3rem 4rem 3rem 4rem;
     }
     .foo-desc,.foo-urls,.foo-social{
@@ -236,6 +292,10 @@ a{
     }
     .foo-list a{
         font-size:15px;
+        padding-top:0px;
+    }
+    .foo-list .nav-log-btn{
+        margin-top:0px !important;
     }
     .footer-img{
         width:70%;
