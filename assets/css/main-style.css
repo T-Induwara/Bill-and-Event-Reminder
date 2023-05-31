@@ -58,12 +58,68 @@ a{
 .footer-container{
     display:flex;
     flex-direction: column;
+    background-color:#f7fd9b;
+    padding:2rem 1rem 2rem 1rem;
 }
 .foo-desc,.foo-urls,.foo-social{
     flex:33.3%;
 }
+.foo-desc p{
+    color:var(--primary);
+    font-family:Poppins-R;
+    font-size:15px;
+}
+.foo-desc h1{
+    color:var(--primary);
+    font-family:Poppins-S;
+    font-size:25px;
+}
+.foo-urls{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.foo-list{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items:center;
+}
+.foo-list a{
+    color:var(--primary);
+    font-family:Poppins-R;
+    font-size:15px;
+}
 .footer-img{
-    width:20%;
+    width:70%;
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom:-2rem;
+}
+.foo-social{
+    text-align: center;
+}
+.foo-social h3{
+    color:var(--primary);
+    font-family:Poppins-S;
+    font-size:25px;
+}
+.foo-social p{
+    color:var(--primary);
+    font-family:Poppins-R;
+    font-size:15px;
+}
+.social-icons{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+.social-icons img{
+    width:20px;
+}
+.foo-email-h,.foo-phone-h{
+    padding-top:20px;
 }
 /*Footer codes completed*/
 
@@ -95,8 +151,12 @@ a{
     .co-btn{
         display:none;
     }
+    
     /*Nav menu completed*/
     /*Footer codes started*/
+    .footer-img{
+        display:none;
+    }
     /*Footer codes completed*/
 }
 
@@ -126,6 +186,9 @@ a{
     .footer-container{
         flex-direction:row;
     }
+    .footer-img{
+        display:none;
+    }
     /*Footer codes completed*/
 }
 
@@ -149,5 +212,59 @@ a{
     }
     /*Nav menu completed*/
     /*Footer codes started*/
+    .footer-container{
+        display:flex;
+        flex-direction: row;
+        background-color:#f7fd9b;
+        padding:3rem 4rem 3rem 4rem;
+    }
+    .foo-desc,.foo-urls,.foo-social{
+        flex:33.3%;
+    }
+    .foo-desc p{
+        font-size:15px;
+    }
+    .foo-desc h1{
+        font-size:25px;
+    }
+    .foo-urls{
+        flex-direction: column;
+        justify-content:space-between;
+    }
+    .foo-list{
+        flex-direction:row;
+    }
+    .foo-list a{
+        font-size:15px;
+    }
+    .footer-img{
+        width:70%;
+        display:block;
+        margin-right:auto;
+        margin-left:auto;
+        margin-bottom:-3rem;
+    }
+    .foo-social{
+        text-align: center;
+    }
+    .foo-social h3{
+        font-size:25px;
+    }
+    .foo-social p{
+        font-size:15px;
+    }
+    .social-icons{
+        flex-direction: row;
+        justify-content:space-evenly;
+    }
+    .social-icons img{
+        width:20px;
+    }
+    .foo-email-h,.foo-phone-h{
+        padding-top:20px;
+    }
+    .footer-img{
+        display:block;
+    }
     /*Footer codes completed*/
 }
