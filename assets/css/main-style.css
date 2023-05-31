@@ -20,11 +20,11 @@ body{
 
 /*Default and mobile*/
 .nav-container{
+    position:relative;
     display:flex;
     align-items: center;
     justify-content: space-between;
     padding:2rem 1rem 2rem 1rem;
-    background-color: var(--bg);
     z-index:100 !important;
 }
 .nav-logo{

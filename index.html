@@ -7,15 +7,97 @@
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <script type="text/js" src="assets/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+        <style>
+            :root{
+                --primary: #001f3f;
+                --accent: #39cccc;
+                --bg: #f8f8f8;
+                --txt: #333333;
+                --cta: #ff851b;
+            }
+            body{
+                margin:0 !important;
+                padding:0 !important;
+            }
+            @font-face{
+                font-family:Poppins-R;
+                src:url('../font/Poppins-Regular.ttf');
+            }
+            @font-face{
+                font-family:Poppins-S;
+                src:url('../font/Poppins-SemiBold.ttf');
+            }
+            /*Default and mobile css*/
+            .hero-section{
+                margin-top:-6.9rem;
+            }
+            .hero-left-col{
+                background-color: var(--bg);
+                min-height:100vh;
+                z-index:10
+            }
+            .hero-right-col{
+                color:var(--bg);
+                text-align: center;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--primary);
+                min-height:100vh;
+                z-index:5
+            }
+            .hero-rocket-img{
+                width:60px;
+                position:absolute;
+                top:10rem;
+                left:32vw;
+            }
+            .hero-girl-img{
+                width:18%;
+                position:absolute;
+                top:15rem;
+                left:6vw;
+            }
+            .hero-boy-img{
+                width:40%;
+                position:absolute;
+                top:16rem;
+                left:17em;
+            }
+            .hero-right-col h1{
+                font-family:Poppins-S;
+                font-size:60px;
+            }
+            .hero-right-col p{
+                font-family:Poppins-R;
+                font-size:20px;
+                padding-left:12rem;
+                padding-right:12rem;
+            }
+            .hero-right-col a{
+                color:var(--primary);
+                font-family:Poppins-S;
+                font-size:25px;
+                width:200px;
+                padding-top:10px;
+                padding-bottom:10px;
+                background-color:var(--bg);
+            }
+
+            /*Tablet css*/
+
+            /*Desktop css*/
+        </style>
     </head>
     <body>
         <header>
             <div class="nav-container">
                 <div class="nav-logo"><a href="index.html">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="index.html">Home</a>
-                    <a href="assets/aboutus.html">About Us</a>
-                    <a href="assets/contact.html">Contact Us</a>
+                    <a href="index.html" style="color:#f8f8f8;">Home</a>
+                    <a href="assets/aboutus.html" style="color:#f8f8f8;">About Us</a>
+                    <a href="assets/contact.html" style="color:#f8f8f8;">Contact Us</a>
                     <a href="#" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <div class="m-nav-btn">
@@ -25,10 +107,19 @@
             </div>
         </header>
         <main>
-            <div class="container-fluid">
+            <div class="container-fluid hero-section">
                 <div class="row">
-                    <div class="col-lg-6"></div>
-                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6 hero-left-col">
+                        <img src="assets/images/home/Saly-43.webp" alt="hero section rocket" class="hero-rocket-img">
+                        <img src="assets/images/home/Saly-2.webp" alt="hero section girl" class="hero-girl-img">
+                        <img src="assets/images/home/Saly-16.webp" alt="hero section boy" class="hero-boy-img">
+
+                    </div>
+                    <div class="col-lg-6 hero-right-col">
+                        <h1>Stay Organized.<br> Never Miss a Bill or Event.</h1>
+                        <p>RemindMeister keeps your life on track with automated bill reminders and event notifications.</p>
+                        <a href="#"><div>Discover</div></a>
+                    </div>
                 </div>
             </div>
         </main>
