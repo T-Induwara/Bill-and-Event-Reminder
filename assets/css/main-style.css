@@ -24,6 +24,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding:2rem 1rem 2rem 1rem;
+    background-color: var(--bg);
     z-index:100 !important;
 }
 .nav-logo{
@@ -58,7 +59,7 @@ a{
 .footer-container{
     display:flex;
     flex-direction: column;
-    background-color:#f7fd9b;
+    background-color: var(--bg);
     padding:2rem 1rem 2rem 1rem;
 }
 .foo-desc,.foo-urls,.foo-social{
@@ -129,12 +130,13 @@ a{
         position:absolute;
         display:flex;
         flex-direction: column;
-        top:0px;
+        top:5rem;
         right:0px;
-        padding:80px 80px 30px 40px;
+        padding:20px 80px 30px 40px;
         background-color:var(--bg);
         z-index:0 !important;
         border-radius:10px;
+        filter: drop-shadow(-5px 10px 8px rgba(124, 124, 124, 0.473));
         display:none;
     }
     .nav-list a{
