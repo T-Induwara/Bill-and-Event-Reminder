@@ -106,13 +106,23 @@
                 font-family:Poppins-S;
             }
             .po-icons{
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
                 margin-top:3em;
             }
             .po-icons img{
                 width:120px;
                 margin:0px 40px 0px 40px;
+            }
+            @media only screen and (max-width:767px){
+                /*Begining of powered by section mobile css*/
+                .po-icons{
+                    align-items: center;
+                }
+                .po-icons img{
+                    margin-bottom:3rem;
+                    width:150px;
+                }
             }
 
             /*Tablet css*/
@@ -153,6 +163,20 @@
                     padding-bottom:10px;
                 }
                 /*Begining of powered by section tablet css*/
+                .powered-section{
+                    background-color: var(--bg);
+                    padding:4em 0em 4em 0em !important;
+                }
+                .po-icons{
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top:3em;
+                }
+                .po-icons img{
+                    width:120px;
+                    margin:0px 40px 0px 40px;
+                }
+
             }
             
             @media only screen and (max-width:1179px){
@@ -188,6 +212,8 @@
                 }
                 .hero-right-col h1{
                     font-size:55px;
+                    padding-left:2rem;
+                    padding-right:2rem;
                 }
                 .hero-right-col p{
                     font-size:20px;
@@ -199,6 +225,9 @@
                     padding-bottom:10px;
                 }
                 /*Begining of powered by section desktop css*/
+                .powered-section{
+                    padding:4em 0em 4em 0em !important;
+                }
             }
 
         </style>
