@@ -65,9 +65,12 @@
                 top:16rem;
                 left:17em;
             }
+            .hero-right-col h1,p,a{
+                margin-top:2rem;
+            }
             .hero-right-col h1{
                 font-family:Poppins-S;
-                font-size:60px;
+                font-size:55px;
             }
             .hero-right-col p{
                 font-family:Poppins-R;
@@ -83,9 +86,83 @@
                 padding-top:10px;
                 padding-bottom:10px;
                 background-color:var(--bg);
+                transition:0.6s;
+            }
+            .hero-right-col a:hover{
+                color:var(--bg);
+                background-color:var(--cta);
+                transition:0.6s;
             }
 
             /*Tablet css*/
+            @media only screen and (min-width:768px){
+                .hero-section{
+                    margin-top:-6.9rem;
+                }
+                .hero-left-col{
+                    background-color: var(--bg);
+                    min-height:50vh;
+                    z-index:10
+                }
+                .hero-right-col{
+                    color:var(--bg);
+                    text-align: center;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--primary);
+                    min-height:50vh;
+                    z-index:5
+                }
+                .hero-rocket-img{
+                    width:60px;
+                    position:absolute;
+                    top:10rem;
+                    left:32vw;
+                }
+                .hero-girl-img{
+                    width:18%;
+                    position:absolute;
+                    top:15rem;
+                    left:6vw;
+                }
+                .hero-boy-img{
+                    width:40%;
+                    position:absolute;
+                    top:16rem;
+                    left:17em;
+                }
+                .hero-right-col h1,p,a{
+                    margin-top:2rem;
+                }
+                .hero-right-col h1{
+                    font-family:Poppins-S;
+                    font-size:55px;
+                }
+                .hero-right-col p{
+                    font-family:Poppins-R;
+                    font-size:20px;
+                    padding-left:12rem;
+                    padding-right:12rem;
+                }
+                .hero-right-col a{
+                    color:var(--primary);
+                    font-family:Poppins-S;
+                    font-size:25px;
+                    width:200px;
+                    padding-top:10px;
+                    padding-bottom:10px;
+                    background-color:var(--bg);
+                    transition:0.6s;
+                }
+                .hero-right-col a:hover{
+                    color:var(--bg);
+                    background-color:var(--cta);
+                    transition:0.6s;
+                }
+            }
+
 
             /*Desktop css*/
         </style>
