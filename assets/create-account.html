@@ -7,6 +7,19 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
+
+        <style>
+            body{
+                margin:0 !important;
+                padding:0 !important;
+            }
+            .container{
+                display: flex;
+            }
+            .login-image {
+                width: 15%;
+            }           
+        </style>
     </head>
     <body>
         <header>
@@ -24,7 +37,60 @@
                 </div>
             </div>
         </header>
-        <main></main>
+        <main>
+            <div class="container">
+                <div class="form-title">Create Account</div>
+                <div class="content">
+                    <form>
+
+                        <div class="full-name">
+
+                            <div class="first-name">
+                                <label >First name:</label>
+                                <input type="text">                                
+                            </div>
+                             
+                            <div class="last-name">
+                                <label >Last name:</label>
+                                <input type="text">                                 
+                            </div>
+                          
+                        </div>
+
+                        <div class="contact-detail">
+
+                            <div class="phone">
+                                <label >Phone:</label>
+                                <input type="text">                                
+                            </div>
+
+                            <div class="email">
+                                <label >E-mail:</label>
+                                <input type="text">                                  
+                            </div>
+
+                        </div>
+
+                         <div class="password-container">
+                            <div class="password">
+                                <label >Password:</label>
+                                <input type="text">                                
+                            </div>
+
+                            <div class="confirm-password">
+                                <label >Confirm Password:</label>
+                                <input type="text">                                  
+                            </div>
+                         </div>
+
+                        <input type="submit" value="Create Account">
+
+                    </form>
+                 <span>Don't have an account?</span>
+                </div>
+                <img src="images/login-signup/Saly-35.webp" alt="login-image" class="login-image">
+            </div>
+        </main>
         <footer>
             <div class="footer-container">
                 <div class="foo-desc">
