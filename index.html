@@ -241,6 +241,64 @@
             .pricing-s-row{
                 margin-top:0rem;
             }
+            /*Begining of feedback section mobile css*/
+            .feedback-section{
+                padding:4em 2em 4em 2em;
+                background-color: var(--primary);
+            }
+            .feedback-section p, .feedback-section h1,.usr-section h3{
+                text-align: center;
+                color:var(--bg);
+            }
+            .feedback-section p{
+                font-family: Poppins-R;
+            }
+            .feedback-section h1,.usr-section h3,.feedback p{
+                font-family: Poppins-S;
+            }
+            .feedback p,.usr-section h3{
+                color:var(--primary);
+            }
+            .fback-col{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top:1rem;
+            }
+            .feedback{
+                flex-direction: column;
+                align-items: center;
+                background-color:var(--bg);
+                border-radius: 20px;
+                width:70%;
+                padding:1rem;
+                margin-top:2rem;
+            }
+            .f-bk-2{
+                margin-left:20rem;
+            }
+            .stars{
+                width:35%;
+            }
+            .usr-section{
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top:1rem;
+            }
+            .usr-section img{
+                width:12%;
+            }
+            .usr-section h3{
+                margin-left:1rem;
+            }
+            .fback-img-col img{
+                width:40%;
+                display:block;
+                margin-top:10rem;
+                margin-left:auto;
+                margin-right:auto;
+            }
 
             @media only screen and (max-width:767px){
                 /*Begining of powered by section mobile css*/
@@ -381,6 +439,7 @@
                 .pricing-s-row{
                     margin-top:2rem;
                 }
+                /*Begining of feedback section tablet css*/
             }
             
             @media only screen and (max-width:1179px){
@@ -526,6 +585,7 @@
                 .pricing-s-row{
                     margin-top:2rem;
                 }
+                /*Begining of feedback section desktop css*/
             }
 
         </style>
@@ -633,27 +693,27 @@
                 <p>Client testimonials</p>
                 <h1>What our customers are saying?</h1>
                 <div class="row">
-                    <div class="col-lg-6 fback-col">
-                        <div class="feedback">
+                    <div class="col-lg-6 fback-col d-flex">
+                        <div class="feedback d-flex">
                             <p>"I absolutely love the online bill and event reminder system provided by this website!</p>
-                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews">
-                            <div class="usr-section">
+                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews" class="stars">
+                            <div class="usr-section d-flex">
                                 <img src="assets/images/home/reviews/Jane Shanel.webp" alt="jane image">
                                 <h3>Jane Shanel</h3>
                             </div>
                         </div>
-                        <div class="feedback">
+                        <div class="feedback d-flex f-bk-2">
                             <p>"I absolutely love the online bill and event reminder system provided by this website!</p>
-                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews">
-                            <div class="usr-section">
+                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews" class="stars">
+                            <div class="usr-section d-flex">
                                 <img src="assets/images/home/reviews/John Wick.webp" alt="john image">
                                 <h3>John Wick</h3>
                             </div>
                         </div>
-                        <div class="feedback">
+                        <div class="feedback d-flex">
                             <p>"I absolutely love the online bill and event reminder system provided by this website!</p>
-                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews">
-                            <div class="usr-section">
+                            <img src="assets/images/home/reviews/stars.webp" alt="star reviews" class="stars">
+                            <div class="usr-section d-flex">
                                 <img src="assets/images/home/reviews/Mia Rosey.webp" alt="mia image">
                                 <h3>Mia Rosey</h3>
                             </div>
