@@ -34,10 +34,8 @@
             main{
                 margin: 0;
                 padding: 0;
-                height: 80vh;
-                position: relative;
-                font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
+                min-height: 110vh;
+                position: relative;      
                 text-align: center;
                 background-color: var(--bg);
             }
@@ -53,7 +51,7 @@
             width: 100%;
             align-items: center;
             transform: translate(-50%,-50%);
-            filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+            filter: drop-shadow(0px 0px 10px rgb(213, 211, 211));
             
          }
 
@@ -64,15 +62,18 @@
                margin-bottom: 5rem;
                font-size: 60px;
                font-weight: bolder;
+               font-family:Poppins-S;
+               color: var(--primary);
          }
 
          .feild{
             margin: 0rem;
             padding: 2rem;
             width: 100%;
-            background-color: white;
+            background-color: var(--bg);
             border-radius: 1rem;
             text-align: center;
+            font-family:Poppins-R;
          }
         
         .center form{
@@ -83,22 +84,24 @@
             width: 100%;
         }
 
-        .loginimage{
-            margin-top: 5.5rem;
-            margin-left: 0;
-            padding-left: 0;
+        .loginimage img{
             position: absolute;
+            top: 35rem;
+            left: 8rem;
+            width: 40%;
+           
 
         }
 
         form .textfeild{
             margin-top:  1rem;
+            margin-bottom: 2rem;
             padding: 0;
             justify-content: center;
             align-items: center;
             width: 100%;
-            border-bottom: 1px solid black;
-            border-radius: 1px;
+            border-bottom: 2px solid black;
+            border-radius: 8px;
            
         }
 
@@ -114,6 +117,8 @@
             background: none;
             outline: none;
             text-align: center;
+            font-weight: 500;
+            font-family:Poppins-R;
 
         }
 
@@ -141,11 +146,15 @@
 
 
         #login2{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
             width: 70%;
-            height: 40px;
             border: none;
             background: var(--cta);
             border-radius: 0.5rem;
+            font-family:Poppins-S;
             font-size: 20px;
             color: white;
             background: #fb9134;
@@ -183,8 +192,107 @@
          
             
             /*Tablet css*/
+
+        @media only screen and (min-width:768px) {
+        
+        main{
+                margin: 0;
+                padding: 0;
+                min-height: 80vh;
+               
+        }
+            
+        .center{
+            margin-top:0rem;
+            padding: 7rem;
+            height: 300px;  
+            
+         }
+
+        .center h1{
+               margin-top: 1rem;
+               margin-bottom: 3rem;
+         }
+
+         
+        .loginimage img{
+            position: absolute;
+            top: 38rem;
+            left: 15rem;
+            width: 25%;
+        }
+
+        form .textfeild{
+            margin-top:  2rem;
+            margin-bottom: 3rem;
+              
+        }
+
+        #login2{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            width: 70%;
+            
+        }
+        
+        
+            
+        }    
             
             /*Desktop css*/
+
+         @media only screen and (min-width:1280px){
+
+        .center{
+            padding: 45rem;
+            height: 800px; 
+
+        }
+
+        .center h1{
+               margin-top: 3rem;
+               margin-bottom: 4rem;
+               font-size: 80px;
+               font-weight: bolder;
+
+         }
+
+        
+
+        .loginimage img{
+            position: absolute;
+            top: 66rem;
+            left: 32rem;
+            width: 13%;
+        }
+
+        #login2{
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            width: 40%;
+            
+        }
+
+        form .textfeild{
+            margin-left: 5rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            width: 80%;
+           
+        }
+
+        .feild{
+            padding: 2rem;
+            width: 100%;
+         }
+            
+        }    
 
         </style>
     </head>
@@ -211,7 +319,7 @@
          <div class="center">
 
             <div class="loginimage">
-                <img src="images/login-signup/Saly-32.webp" width="100px" height="150px">
+                <img src="images/login-signup/Saly-32.webp" >
             </div>
 
             <h1 class="login">Log in</h1>
@@ -232,7 +340,7 @@
                     <a href="fogetpassword.html">Forget password</a>
                  </div>
                 
-                 <input id="login2" type="submit" value="Login">
+                 <input id="login2" type="submit" value="Log in">
               
                  <div class="create_account">
                     <a href="createaccount.html">Don't Have an account?</a>
