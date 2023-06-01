@@ -9,16 +9,127 @@
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
 
         <style>
-            body{
+
+
+           /* tablet*/
+           @media only screen and (min-width:768px){
+
+            }
+
+          /* desktop */
+             @media only screen and (min-width:1280px){
+
+                body{
                 margin:0 !important;
                 padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+
+                display:flex ;
+                justify-content:center ;
+                align-content:center ;
             }
             .container{
                 display: flex;
+                align-items: center;
+                justify-content:flex-start;
+                align-content:center;
+                flex-direction: column;
+                
+            }
+
+            .content{
+                display:flex ;
+                align-items:center ;
+                justify-content:space-between;
+                align-content:space-between ; 
+                flex-direction: column;      
+                margin: 1rem;   
+                /*box-shadow:16px 16px 10px rgb(146, 141, 141);*/
+                filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                border-radius: 10px;     
+                background-color: var(--bg);
+                margin-bottom: 4rem;
+            }
+            .form-title{
+                font-family:Poppins-S;
+                font-size: 3em;
+                
+
+            }
+            form{
+                
+                margin: 1rem;
+            
+            }
+            .full-name{
+                display:flex;
+            }
+            .contact-detail{
+                display:flex;
+            }
+            .password-container{
+                display:flex;
+                padding-bottom: 1rem;
+            }
+            .first-name, .last-name, .phone, .email, .password, .confirm-password{
+                display: flex;
+                flex-direction:column;
+                margin:1rem;
+               
             }
             .login-image {
-                width: 15%;
-            }           
+                width: 12%;
+                
+                position:absolute;
+                top:19rem;
+                right: 21rem;
+
+            }
+            input[type=text]{
+                border: none;
+                border-bottom: 1px solid #333333;
+                border-radius:5px;
+                background-color: var(--bg);
+  
+            }
+            input::placeholder {
+             text-align: center; 
+            }
+
+            input[type=submit]{
+                background-color:#ff851b;
+                width:25rem;
+                padding:0.5rem;
+                border-radius: 5px;
+                color:#f8f8f8;
+                border: none;
+                font-family:Poppins-S;
+                cursor: pointer;
+                transition:0.6s;
+                
+            }  
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition:0.6s;
+            }
+            span{
+           
+                font-family:Poppins-R;
+                font-size: 0.8em;
+                margin-bottom: 2rem;
+                opacity: 0.6;
+            }
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus, input:focus{
+              outline: none;
+             }
+    
+            
+            }
+
         </style>
     </head>
     <body>
@@ -37,7 +148,8 @@
                 </div>
             </div>
         </header>
-        <main>
+
+        <main >
             <div class="container">
                 <div class="form-title">Create Account</div>
                 <div class="content">
@@ -46,13 +158,12 @@
                         <div class="full-name">
 
                             <div class="first-name">
-                                <label >First name:</label>
-                                <input type="text">                                
+                                <input type="text" placeholder="First name">                                
                             </div>
                              
                             <div class="last-name">
-                                <label >Last name:</label>
-                                <input type="text">                                 
+                              
+                                <input type="text" placeholder="Last name">                                 
                             </div>
                           
                         </div>
@@ -60,33 +171,33 @@
                         <div class="contact-detail">
 
                             <div class="phone">
-                                <label >Phone:</label>
-                                <input type="text">                                
+                                
+                                <input type="text" placeholder="Phone">                                
                             </div>
 
                             <div class="email">
-                                <label >E-mail:</label>
-                                <input type="text">                                  
+                                
+                                <input type="text" placeholder="E-mail">                                  
                             </div>
 
                         </div>
 
                          <div class="password-container">
                             <div class="password">
-                                <label >Password:</label>
-                                <input type="text">                                
+                                
+                                <input type="text" placeholder="Password">                                
                             </div>
 
                             <div class="confirm-password">
-                                <label >Confirm Password:</label>
-                                <input type="text">                                  
+                                
+                                <input type="text" placeholder="Confirm Password">                                  
                             </div>
                          </div>
 
                         <input type="submit" value="Create Account">
 
                     </form>
-                 <span>Don't have an account?</span>
+                 <span>Have an account?</span>
                 </div>
                 <img src="images/login-signup/Saly-35.webp" alt="login-image" class="login-image">
             </div>
