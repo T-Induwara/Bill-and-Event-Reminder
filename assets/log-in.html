@@ -15,9 +15,11 @@
                 --txt: #333333;
                 --cta: #ff851b;
             }
+
             body{
                 margin:0 !important;
                 padding:0 !important;
+                background-color: var(--bg);
             }
             @font-face{
                 font-family:Poppins-R;
@@ -28,13 +30,282 @@
                 src:url('../font/Poppins-SemiBold.ttf');
             }
             /*Default and mobile css*/
+            
+            main{
+                margin: 0;
+                padding: 0;
+                min-height: 110vh;
+                position: relative;      
+                text-align: center;
+                background-color: var(--bg);
+            }
+           
+         .center{
+            margin-top:4rem;
+            padding: 2rem;
+            padding-bottom: 0;
+            position: absolute;
+            height: 300px;
+            left: 50%;
+            top: 100px;
+            width: 100%;
+            align-items: center;
+            transform: translate(-50%,-50%);
+            filter: drop-shadow(0px 0px 10px rgb(213, 211, 211));
+            
+         }
 
+         .center h1{
+               text-align: center;
+               justify-content: center;
+               margin-top: 2rem;
+               margin-bottom: 5rem;
+               font-size: 60px;
+               font-weight: bolder;
+               font-family:Poppins-S;
+               color: var(--primary);
+         }
+
+         .feild{
+            margin: 0rem;
+            padding: 2rem;
+            width: 100%;
+            background-color: var(--bg);
+            border-radius: 1rem;
+            text-align: center;
+            font-family:Poppins-R;
+         }
+        
+        .center form{
+            margin:0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .loginimage img{
+            position: absolute;
+            top: 37rem;
+            left: 7rem;
+            width: 40%;
+           
+
+        }
+
+        form .textfeild{
+            margin-top:  1rem;
+            margin-bottom: 2rem;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-bottom: 2px solid black;
+            border-radius: 8px;
+           
+        }
+
+        .textfeild input{
+            margin:0;
+            padding: 0 ;
+            width: 100%;
+            height: 40px;
+            display: grid;
+            justify-content: center;
+            font-size: 20px;
+            border: none;
+            background: none;
+            outline: none;
+            text-align: center;
+            font-weight: 500;
+            font-family:Poppins-R;
+
+        }
+
+        input:hover{
+            color: var(--cta);
+        }
+
+        .forgetpassword{
+           margin-top: 0.5rem;
+           margin-bottom: 1rem;
+        }
+        
+        .forgetpassword a{
+            color: var(--txt);
+            font-size: 15px;
+            opacity: 70%;
+            cursor: pointer;
+        }
+        
+        .forgetpassword a:hover{
+            text-decoration:solid;
+            color: var(--cta);
+            opacity: 100%;
+        }
+
+
+        #login2{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            width: 70%;
+            border: none;
+            background: var(--cta);
+            border-radius: 0.5rem;
+            font-family:Poppins-S;
+            font-size: 20px;
+            color: white;
+            background: #fb9134;
+            cursor: pointer;
+            outline: none;
+            opacity: 90%;
+            filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+        }
+
+        #login2:hover{
+            text-decoration:solid;
+            background: var(--cta);
+            color: azure;
+            opacity: 100%;
+        }
+
+        .create_account{
+            margin-top: 0.5rem;
+        
+        }
+
+        .create_account a{
+            color: var(--txt);
+            font-size: 15px;
+            opacity: 70%;
+            cursor: pointer;
+        }
+
+        .create_account a:hover{
+            text-decoration:solid;
+            color: var(--cta);
+            opacity: 100%;
+        }
+
+         
+            
             /*Tablet css*/
 
+        @media only screen and (min-width:768px) {
+        
+        main{
+                margin: 0;
+                padding: 0;
+                min-height: 80vh;
+               
+        }
+            
+        .center{
+            margin-top:0rem;
+            padding: 7rem;
+            height: 300px;  
+            
+         }
+
+        .center h1{
+               margin-top: 1rem;
+               margin-bottom: 3rem;
+         }
+
+         
+        .loginimage img{
+            position: absolute;
+            top: 40rem;
+            left: 18rem;
+            width: 25%;
+        }
+
+        form .textfeild{
+            margin-top:  2rem;
+            margin-bottom: 3rem;
+              
+        }
+
+        #login2{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            width: 70%;
+            
+        }
+        
+        
+            
+        }    
+            
             /*Desktop css*/
+
+         @media only screen and (min-width:1280px){
+
+        .center{
+            padding-top: 15rem;
+            padding: 45rem;
+            height: 800px; 
+
+        }
+
+        .center h1{
+               margin-top: 2rem;
+               margin-bottom: 4rem;
+               font-size: 80px;
+               font-weight: bolder;
+
+         }
+
+         .feild{
+            padding: 4rem;
+            width: 100%;
+            height: 40vh;
+            line-height: 3rem;
+         }
+
+        
+
+        .loginimage img{
+            position: absolute;
+            top: 29rem;
+            left: 30rem;
+            width: 13%;
+        }
+
+        #login2{
+            margin: 0;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            width: 40%;
+            font-size: 25px;
+            
+        }
+
+        form .textfeild{
+            margin-left: 5rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            width: 80%;
+           
+        }
+
+        .feild{
+            padding: 2rem;
+            width: 100%;
+         }
+            
+        }    
 
         </style>
     </head>
+
+
     <body>
         <header>
             <div class="nav-container">
@@ -51,7 +322,42 @@
                 </div>
             </div>
         </header>
-        <main></main>
+        <main>
+
+         <div class="center">
+
+            <h1 class="login">Log in</h1>
+            
+            <div class="feild">
+                <form method="post">
+                 <div class="textfeild">
+                    <input  type="text" placeholder="Email address" required="required">
+                    <span></span> 
+                    
+                 </div>
+                 <div class="textfeild">
+                    <input  type="text" placeholder="Password" required="required"> 
+                    <span></span>
+                    
+                 </div>
+                 <div class="forgetpassword">
+                    <a href="fogetpassword.html">Forget password</a>
+                 </div>
+                
+                 <input id="login2" type="submit" value="Log in">
+              
+                 <div class="create_account">
+                    <a href="createaccount.html">Don't Have an account?</a>
+                 </div>
+                 </div>
+                
+                </form>
+            </div>
+
+          <div class="loginimage">
+            <img src="images/login-signup/Saly-32.webp" >
+          </div>
+        </main>
         <footer>
             <div class="footer-container">
                 <div class="foo-desc">
