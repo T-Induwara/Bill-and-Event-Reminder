@@ -29,12 +29,116 @@
             }
             /*Default and mobile css*/
 
-            /*Tablet css*/
+            header{
+                background-color: var(--bg);
+            }
 
+            main{
+                background-color: var(--bg);
+                margin: 0;
+                padding: 0;
+                display: grid;
+            }
+
+            .feildback{
+                box-sizing: border-box;
+                margin-top: 10%;
+                margin-bottom: ;
+                margin-left: 20%;
+                margin-right: 20%;
+                border-radius: 1rem;
+            
+                background-color: white;
+                align-items: center;
+                text-align: center;
+            }
+
+            .login{
+                
+                text-align: center;
+                color:var(--primary);
+                font-size: 60px;
+                font-weight:bolder;
+            }
+            
+            #input1{
+                margin: 2rem;
+                padding: 0;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-width: 2px;
+                border-radius: 0.5rem;
+                width: 300px;
+                color: var(--txt);
+                font-weight: 500;
+                text-align: center;
+                line-height: 3rem;
+            }
+
+            #input2{
+                margin: 1rem;
+                margin-bottom: 0;
+                padding: 0;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-width: 2px;
+                border-radius: 0.5rem;
+                width: 300px;
+                color: var(--txt);
+                font-weight: 500;
+                text-align: center;
+                line-height: 3rem;
+            }   
+
+            .forgetpassword{
+                margin-top: 0.5rem;
+                background: none;
+                border: none;
+                font-family:Poppins-R;
+                src:url('../font/Poppins-Regular.ttf');
+                font-size: 13px;
+                color: var(--txt);
+                font-weight: 550;
+                opacity: 60%;
+            }
+
+            .login2{
+                margin-top: 1rem;
+                padding: 0.5rem 5rem 0.5rem 5rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: var(--cta);
+                font-family:Poppins-R;
+                src:url('../font/Poppins-Regular.ttf');
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--bg);
+            
+            }
+
+            .creataccount{
+                margin-top:0.5rem;
+                margin-bottom: 2rem;
+                background: none;
+                border: none;
+                font-family:Poppins-R;
+                src:url('../font/Poppins-Regular.ttf');
+                font-size: 13px;
+                color: var(--txt);
+                font-weight: 550;
+                opacity: 60%;
+            }
+        
+            /*Tablet css*/
+            
             /*Desktop css*/
 
         </style>
     </head>
+
+
     <body>
         <header>
             <div class="nav-container">
@@ -51,7 +155,32 @@
                 </div>
             </div>
         </header>
-        <main></main>
+        <main>
+           
+            <div class="login">Log in</div>
+
+            <div class="feildback">
+                <div class="addemail">
+                    <input id="input1" type="text" placeholder="Email address" required="required"> 
+                    
+                </div>
+                <div class="addpassword">
+                    <input id="input2" type="text" placeholder="Password" required="required"> 
+                    
+                </div>
+                <button class="forgetpassword"><a href="forgetpassword.html"></a>Forgot password</button>
+                <br>
+                <button class="login2">Log in</button>
+                <br>
+                <button class="creataccount"><a href="createaccount.html"></a>Don't have an account?</button>
+                <br>
+            </div>
+
+            <div class="loginimage">
+                <img src="images/login-signup/Saly-32.webp" width="200px" height="300px">
+            </div>
+
+        </main>
         <footer>
             <div class="footer-container">
                 <div class="foo-desc">
