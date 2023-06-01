@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Account - RemindMeister</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script type="text/js" src="js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main-style.css">
+
+        <style>
+
+            body{
+                margin:0 !important;
+                padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+           min-height:100vh;
+           display:flex ;
+           justify-content:center ;
+           align-content:center ;
+           }
+
+        .form-container{
+           display: flex;
+           align-items: center;
+           justify-content:flex-start;
+           align-content:center;
+           flex-direction: column;
+
+           }
+
+        .content{
+           display:flex ;
+           align-items:center ;
+           justify-content:space-between;
+           align-content:space-between ; 
+           flex-direction: column;      
+           margin: 1rem;   
+           filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+           border-radius: 10px;     
+           background-color: var(--bg);
+           margin-bottom: 4rem;
+        }
+
+       .form-title{
+          font-family:Poppins-S;
+          font-size: 2em;
+          margin-top: 2rem;
+          margin-bottom:2rem;
+        }
+
+        form{
+          margin: 1rem;
+
+        }
+
+        .password-container{
+
+          padding-bottom: 1rem;
+       }
+
+       .first-name, .last-name, .phone, .email, .password, .confirm-password{
+          display: flex;
+          flex-direction:row;
+          margin:1rem;
+
+         }
+
+         .login-image {
+            width: 22%;
+            position:absolute;
+            top:39rem;
+            right: 10rem; 
+
+        }
+        input[type=text]{
+            border: none;
+            border-bottom: 1px solid var(--txt);
+            border-radius:5px;
+            background-color: var(--bg);
+
+       }
+
+       input::placeholder {
+           text-align: center; 
+       }
+
+       input[type=submit]{
+          background-color:var(--cta);
+          width:13.4rem;
+          padding:0.5rem;
+          border-radius: 5px;
+          color:var(--bg);
+          border: none;
+          font-family:Poppins-S;
+          cursor: pointer;
+          transition:0.6s;
+
+        }  
+
+        input[type=submit]:hover {
+          color: var(--primary);
+          transition:0.6s;
+        }
+
+        #return-login{
+
+         font-family:Poppins-R;
+         font-size: 0.8em;
+         margin-bottom: 2rem;
+         opacity: 0.6;
+        }
+        #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }
+
+        /*remove outline on html form fields when active status*/
+        textarea:focus, input:focus{
+        outline: none;
+        }
+
+
+
+
+
+           /* tablet*/
+           @media only screen and (min-width:768px){
+
+            body{
+                margin:0 !important;
+                padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+                min-height:60vh !important;
+                display:flex ;
+                justify-content:center ;
+                align-content:center ;
+            }
+            .form-container{
+                display: flex;
+                align-items: center;
+                justify-content:flex-start;
+                align-content:center;
+                flex-direction: column;
+                
+            }
+
+            .content{
+                display:flex ;
+                align-items:center ;
+                justify-content:space-between;
+                align-content:space-between ; 
+                flex-direction: column;      
+                margin: 1rem;   
+                /*box-shadow:16px 16px 10px rgb(146, 141, 141);*/
+                filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                border-radius: 10px;     
+                background-color: var(--bg);
+                margin-bottom: 4rem;
+            }
+            .form-title{
+                font-family:Poppins-S;
+                font-size: 3em;
+                margin-top: 4rem;
+
+            }
+            form{
+                
+                margin: 1rem;
+            
+            }
+            .full-name{
+                display:flex;
+            }
+            .contact-detail{
+                display:flex;
+            }
+            .password-container{
+                display:flex;
+                padding-bottom: 1rem;
+            }
+            .first-name, .last-name, .phone, .email, .password, .confirm-password{
+                display: flex;
+                flex-direction:column;
+                margin:1rem;
+               
+            }
+            .login-image {
+                width: 20%;
+                position:absolute;
+                top:34rem;
+                right: 21rem;
+
+            }
+            input[type=text]{
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius:5px;
+                background-color: var(--bg);
+  
+            }
+            input::placeholder {
+             text-align: center; 
+            }
+
+            input[type=submit]{
+                background-color:var(--cta);
+                width:25rem;
+                padding:0.5rem;
+                border-radius: 5px;
+                color:var(--bg);
+                border: none;
+                font-family:Poppins-S;
+                cursor: pointer;
+                transition:0.6s;
+                
+            }  
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition:0.6s;
+            }
+            #return-login{
+           
+                font-family:Poppins-R;
+                font-size: 0.8em;
+                margin-bottom: 2rem;
+                opacity: 0.6;
+            }
+            #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }            
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus, input:focus{
+              outline: none;
+             }
+    
+            
+
+            }
+
+          /* desktop */
+             @media only screen and (min-width:1280px){
+
+                body{
+                margin:0 !important;
+                padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+                min-height:60vh !important;
+                display:flex ;
+                justify-content:center ;
+                align-content:center ;
+            }
+            .form-container{
+                display: flex;
+                align-items: center;
+                justify-content:flex-start;
+                align-content:center;
+                flex-direction: column;
+                
+            }
+
+            .content{
+                display:flex ;
+                align-items:center ;
+                justify-content:space-between;
+                align-content:space-between ; 
+                flex-direction: column;      
+                margin: 1rem;   
+                filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                border-radius: 10px;     
+                background-color: var(--bg);
+                margin-bottom: 4rem;
+            }
+            .form-title{
+                font-family:Poppins-S;
+                font-size: 3em;
+                margin-top: 2rem;
+
+            }
+            form{
+                
+                margin: 1rem;
+            
+            }
+            .full-name{
+                display:flex;
+            }
+            .contact-detail{
+                display:flex;
+            }
+            .password-container{
+                display:flex;
+                padding-bottom: 1rem;
+            }
+            .first-name, .last-name, .phone, .email, .password, .confirm-password{
+                display: flex;
+                flex-direction:column;
+                margin:1rem;
+               
+            }
+            .login-image {
+                width: 12%;
+                
+                position:absolute;
+                top:19rem;
+                right: 21rem;
+
+            }
+            input[type=text]{
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius:5px;
+                background-color: var(--bg);
+  
+            }
+            input::placeholder {
+             text-align: center; 
+            }
+
+            input[type=submit]{
+                background-color:var(--cta);
+                width:25rem;
+                padding:0.5rem;
+                border-radius: 5px;
+                color:var(--bg);
+                border: none;
+                font-family:Poppins-S;
+                cursor: pointer;
+                transition:0.6s;
+                
+            }  
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition:0.6s;
+            }
+            #return-login{
+           
+                font-family:Poppins-R;
+                font-size: 0.8em;
+                margin-bottom: 2rem;
+                opacity: 0.6;
+            }
+            #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }
+
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus, input:focus{
+              outline: none;
+             }
+    
+            
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="nav-container">
+                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+                <div class="nav-list" id="nav-list">
+                    <a href="../index.html">Home</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                </div>
+                <div class="m-nav-btn">
+                    <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
+                    <img src="images/header/m-close.webp" alt="m close btn" class="co-btn" id="co-btn">
+                </div>
+            </div>
+        </header>
+
+        <main >
+            <div class="form-container">
+                <div class="form-title">Create Account</div>
+                <div class="content">
+                    <form>
+
+                        <div class="full-name">
+
+                            <div class="first-name">
+                                <input type="text" placeholder="First name">                                
+                            </div>
+                             
+                            <div class="last-name">
+                              
+                                <input type="text" placeholder="Last name">                                 
+                            </div>
+                          
+                        </div>
+
+                        <div class="contact-detail">
+
+                            <div class="phone">
+                                
+                                <input type="text" placeholder="Phone">                                
+                            </div>
+
+                            <div class="email">
+                                
+                                <input type="text" placeholder="E-mail">                                  
+                            </div>
+
+                        </div>
+
+                         <div class="password-container">
+                            <div class="password">
+                                
+                                <input type="text" placeholder="Password">                                
+                            </div>
+
+                            <div class="confirm-password">
+                                
+                                <input type="text" placeholder="Confirm Password">                                  
+                            </div>
+                         </div>
+
+                        <input type="submit" value="Create Account">
+
+                    </form>
+                 <a id="return-login" href="../index.html">Have an account?</a>
+                </div>
+                <img src="images/login-signup/Saly-35.webp" alt="login-image" class="login-image">
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="foo-desc">
+                    <p>RemindMeister is your ultimate companion for staying organized and on top of your bills and events. With its user-friendly interface, smart reminders, and seamless integration, managing your schedule has never been easier. Say goodbye to missed deadlines and hello to a more efficient and stress-free life.</p>
+                    <h1>REMINDMEISTER</h1>
+                </div>
+                <div class="foo-urls">
+                    <div class="foo-list">
+                        <a href="../index.html">Home</a>
+                        <a href="aboutus.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                    </div>
+                    <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
+                </div>
+                <div class="foo-social">
+                    <h3>Our Social Medias</h3>
+                    <div class="social-icons">
+                        <img src="images/footer/social-icons/ic_baseline-facebook.webp" alt="facebook icon">
+                        <img src="images/footer/social-icons/mdi_youtube.webp" alt="youtube icon">
+                        <img src="images/footer/social-icons/mdi_linkedin.webp" alt="linkedin icon">
+                        <img src="images/footer/social-icons/mdi_twitter.webp" alt="twitter icon">
+                        <img src="images/footer/social-icons/ri_whatsapp-fill.webp" alt="whatsapp icon">
+                        <img src="images/footer/social-icons/ri_instagram-fill.webp" alt="instragram icon">
+                    </div>
+                    <h3 class="foo-email-h">E-mail</h3>
+                    <p><a href="mailto:hello@remindmeister.com">HELLO@REMINDMEISTER.COM</a></p>
+                    <h3 class="foo-phone-h">Phone</h3>
+                    <p><a href="tel+94112546782">+94 11 2546782</a></p>
+                </div>
+            </div>
+        </footer>
+        <script src="js/main-script.js"></script>
+    </body>
+</html>
