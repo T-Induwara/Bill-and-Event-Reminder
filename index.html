@@ -117,9 +117,15 @@
             /*Begining of benefit section mobile css*/
             .benefit-section{
                 background-color: var(--primary);
+                padding:3em 5em 3em 5em;
             }
             .benefit-titles{
                 color:var(--bg);
+                flex-direction: column;
+                justify-content: center;
+            }
+            .benefit-titles p,.benefit-titles h1,.benefit-titles div{
+                margin-top:2rem;
             }
             .benefit-titles p{
                 font-family:Poppins-R;
@@ -127,13 +133,24 @@
             .benefit-titles h1{
                 font-family:Poppins-S;
             }
-
+            .benefit-desc{
+                padding-right:3rem;
+            }
+            .benefit-titles div{
+                color:var(--primary);
+                font-family: Poppins-S;
+                background-color: var(--bg);
+                width:150px;
+                padding:10px 0px 10px 0px;
+                text-align: center;
+            }
             .benefit-cols img{
                 width:25%;
             }
             .b-left-col,.b-right-col{
                 flex:50%;
             }
+
 
             @media only screen and (max-width:767px){
                 /*Begining of powered by section mobile css*/
@@ -302,15 +319,15 @@
             </div>
             <div class="container-fluid benefit-section">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="benefit-titles">
+                    <div class="col-lg-5 pre-benefit-titles d-flex">
+                        <div class="benefit-titles d-flex">
                             <p>Why choose our service?</p>
                             <h1>The benefits</h1>
                             <p class="benefit-desc">Choose RemindMeister for hassle free bill management and event tracking. Our intuitive interface, reliable reminders, and seamless integration make staying organized a breeze.</p>
                             <div class="benefit-btn">Get Started</div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <div class="benefit-cols d-flex">
                             <div class="b-left-col">
                                 <div class="left-col-desc">
