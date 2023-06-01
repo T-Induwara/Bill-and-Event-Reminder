@@ -5,6 +5,9 @@
 	--txt: #333333;
 	--cta: #ff851b;
 }
+html{
+    overflow-x: hidden;
+}
 body{
     margin:0 !important;
     padding:0 !important;
