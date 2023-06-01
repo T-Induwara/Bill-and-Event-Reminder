@@ -117,12 +117,14 @@
             /*Begining of benefit section mobile css*/
             .benefit-section{
                 background-color: var(--primary);
-                padding:3em 5em 3em 5em;
+                padding:3em 2em 3em 2em;
             }
             .benefit-titles{
                 color:var(--bg);
                 flex-direction: column;
                 justify-content: center;
+                align-items: center;
+                text-align: center;
             }
             .benefit-titles p,.benefit-titles h1,.benefit-titles div{
                 margin-top:2rem;
@@ -134,7 +136,7 @@
                 font-family:Poppins-S;
             }
             .benefit-desc{
-                padding-right:3rem;
+                padding-right:0rem;
             }
             .benefit-titles div{
                 color:var(--primary);
@@ -155,6 +157,9 @@
             .left-col-desc .b-features{
                 text-align: right;
             }
+            .benefit-cols{
+                flex-direction: column;
+            }
             .sch-img{
                 width:30%;
                 margin-bottom:-4rem;
@@ -163,12 +168,12 @@
             .edit-img{
                 width:55%;
                 margin-bottom:-3rem;
-                margin-left:12rem;
+                margin-left:10rem;
             }
             .cal-img{
                 width:40%;
                 margin-top:-4rem;
-                margin-left:14rem;
+                margin-left:12rem;
             }
             .right-col-desc{
                 margin-top:2rem;
@@ -248,7 +253,60 @@
                     margin:0px 40px 0px 40px;
                 }
                 /*Begining of benefit section tablet css*/
-
+                .benefit-section{
+                    padding:3em 5em 3em 5em;
+                }
+                .benefit-titles{
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .benefit-titles p,.benefit-titles h1,.benefit-titles div{
+                    margin-top:2rem;
+                }
+                .benefit-desc{
+                    padding-right:3rem;
+                }
+                .benefit-titles div{
+                    width:150px;
+                    padding:10px 0px 10px 0px;
+                    text-align: center;
+                }
+                .b-left-col,.b-right-col{
+                    flex:50%;
+                }.b-left-col .left-col-desc{
+                    margin-top:10rem;
+                }
+                .left-col-desc,.right-col-desc{
+                    padding:0rem 1rem 0rem 1rem;
+                }
+                .left-col-desc .b-features{
+                    text-align: right;
+                }
+                .benefit-cols{
+                flex-direction: row;
+            }
+                .sch-img{
+                    width:30%;
+                    margin-bottom:-4rem;
+                    margin-left:-3rem;
+                }
+                .edit-img{
+                    width:55%;
+                    margin-bottom:-3rem;
+                    margin-left:12rem;
+                }
+                .cal-img{
+                    width:40%;
+                    margin-top:-4rem;
+                    margin-left:14rem;
+                }
+                .right-col-desc{
+                    margin-top:2rem;
+                }
+                .b-features{
+                    border-radius:10px;
+                    padding:2rem;
+                }
             }
             
             @media only screen and (max-width:1179px){
@@ -300,7 +358,78 @@
                 .powered-section{
                     padding:4em 0em 4em 0em !important;
                 }
+                .powered-section{
+                    background-color: var(--bg);
+                    padding:4em 0em 4em 0em !important;
+                }
+                .po-section-titles{
+                    text-align: center;
+                }
+                .po-section-titles p{
+                    font-family:Poppins-S;
+                }
+                .po-section-titles h1{
+                    font-family:Poppins-S;
+                }
+                .po-icons{
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-top:3em;
+                }
+                .po-icons img{
+                    width:120px;
+                    margin:0px 40px 0px 40px;
+                }
                 /*Begining of benefit section desktop css*/
+                .benefit-section{
+                    padding:3em 5em 3em 5em;
+                }
+                .benefit-titles{
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items:start;
+                    text-align: left;
+                }
+                .benefit-titles p,.benefit-titles h1,.benefit-titles div{
+                    margin-top:2rem;
+                }
+                .benefit-desc{
+                    padding-right:3rem;
+                }
+                .benefit-titles div{
+                    width:150px;
+                    padding:10px 0px 10px 0px;
+                    text-align: center;
+                }
+                .b-left-col,.b-right-col{
+                    flex:50%;
+                }.b-left-col .left-col-desc{
+                    margin-top:10rem;
+                }
+                .left-col-desc,.right-col-desc{
+                    padding:0rem 1rem 0rem 1rem;
+                }
+                .left-col-desc .b-features{
+                    text-align: right;
+                }
+                .sch-img{
+                    width:30%;
+                    margin-bottom:-4rem;
+                    margin-left:-3rem;
+                }
+                .edit-img{
+                    width:55%;
+                    margin-bottom:-3rem;
+                    margin-left:12rem;
+                }
+                .cal-img{
+                    width:40%;
+                    margin-top:-4rem;
+                    margin-left:14rem;
+                }
+                .right-col-desc{
+                    margin-top:2rem;
+                }
             }
 
         </style>
