@@ -53,6 +53,7 @@
             width: 100%;
             align-items: center;
             transform: translate(-50%,-50%);
+            filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
             
          }
 
@@ -80,6 +81,14 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+        }
+
+        .loginimage{
+            margin-top: 5.5rem;
+            margin-left: 0;
+            padding-left: 0;
+            position: absolute;
+
         }
 
         form .textfeild{
@@ -143,6 +152,7 @@
             cursor: pointer;
             outline: none;
             opacity: 90%;
+            filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
         }
 
         #login2:hover{
@@ -199,34 +209,37 @@
         <main>
 
          <div class="center">
+
+            <div class="loginimage">
+                <img src="images/login-signup/Saly-32.webp" width="100px" height="150px">
+            </div>
+
             <h1 class="login">Log in</h1>
             
             <div class="feild">
-             <form method="post">
-                <div class="textfeild">
+                <form method="post">
+                 <div class="textfeild">
                     <input  type="text" placeholder="Email address" required="required">
                     <span></span> 
                     
-                </div>
-                <div class="textfeild">
+                 </div>
+                 <div class="textfeild">
                     <input  type="text" placeholder="Password" required="required"> 
                     <span></span>
                     
-                </div>
-                <div class="forgetpassword">
+                 </div>
+                 <div class="forgetpassword">
                     <a href="fogetpassword.html">Forget password</a>
-                </div>
+                 </div>
                 
-                <input id="login2" type="submit" value="Login">
+                 <input id="login2" type="submit" value="Login">
               
-                <div class="create_account">
-                    <a href="createaccount.html">Don't Have an acount?</a>
-                </div>
-              </div>
-             </form>
-            </div>
-            <div class="loginimage">
-                <img src="images/login-signup/Saly-32.webp" width="200px" height="300px">
+                 <div class="create_account">
+                    <a href="createaccount.html">Don't Have an account?</a>
+                 </div>
+                 </div>
+                
+                </form>
             </div>
 
          </div>
