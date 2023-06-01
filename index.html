@@ -189,6 +189,58 @@
             .b-features p{
                 font-family: Poppins-R;
             }
+            /*Begining of sub plan section mobile css*/
+            .sub-plans-section{
+                background-color: var(--bg);
+                text-align: center;
+                padding:3em 2em 3em 2em;
+            }
+            .sub-plans-section p{
+                font-family: Poppins-R;
+            }
+            .sub-plans-section h1{
+                font-family: Poppins-S;
+            }
+            .pricing-f-row,.pricing-s-row{
+                flex-direction: column;
+                justify-content: center;
+            }
+            .pricing-f-row div,.pricing-s-row div{
+                font-family: Poppins-S;
+                color:var(--bg);
+                font-size:25px;
+                background-color: var(--cta);
+                padding:2rem 3rem 2rem 3rem;
+                margin:1rem;
+                border-radius:7px;
+                transition:0.6s;
+            }
+            .bronze-p:hover{
+                transition:0.6s;
+                filter: drop-shadow(0px 0px 8px #53535398);
+            }
+            .silver-p:hover{
+                transition:0.6s;
+                filter: drop-shadow(0px 0px 8px #53535398);
+            }
+            .gold-p:hover{
+                transition:0.6s;
+                filter: drop-shadow(0px 0px 8px #53535398);
+            }
+            .diamond-p:hover{
+                transition:0.6s;
+                filter: drop-shadow(0px 0px 8px #53535398);
+            }
+            .diamondp-p:hover{
+                transition:0.6s;
+                filter: drop-shadow(0px 0px 8px #53535398);
+            }
+            .pricing-f-row{
+                margin-top:3rem;
+            }
+            .pricing-s-row{
+                margin-top:0rem;
+            }
 
             @media only screen and (max-width:767px){
                 /*Begining of powered by section mobile css*/
@@ -284,7 +336,7 @@
                 }
                 .benefit-cols{
                 flex-direction: row;
-            }
+                }
                 .sch-img{
                     width:30%;
                     margin-bottom:-4rem;
@@ -306,6 +358,28 @@
                 .b-features{
                     border-radius:10px;
                     padding:2rem;
+                }
+                /*Begining of sub plan section tablet css*/
+                .sub-plans-section{
+                    padding:3em 2em 3em 2em;
+                }
+                .pricing-f-row,.pricing-s-row{
+                    flex-direction: row;
+                    justify-content: center;
+                }
+                .pricing-f-row div,.pricing-s-row div{
+                    font-size:25px;
+                    padding:1rem 3rem 1rem 3rem;
+                    margin-left:2rem;
+                    margin-right:2rem;
+                    border-radius:7px;
+                    transition:0.6s;
+                }
+                .pricing-f-row{
+                    margin-top:3rem;
+                }
+                .pricing-s-row{
+                    margin-top:2rem;
                 }
             }
             
@@ -372,7 +446,7 @@
                     font-family:Poppins-S;
                 }
                 .po-icons{
-                    flex-direction: column;
+                    flex-direction: row;
                     justify-content: center;
                     margin-top:3em;
                 }
@@ -428,6 +502,28 @@
                     margin-left:14rem;
                 }
                 .right-col-desc{
+                    margin-top:2rem;
+                }
+                /*Begining of sub plan section desktop css*/
+                .sub-plans-section{
+                    padding:3em 2em 3em 2em;
+                }
+                .pricing-f-row,.pricing-s-row{
+                    flex-direction: row;
+                    justify-content: center;
+                }
+                .pricing-f-row div,.pricing-s-row div{
+                    font-size:25px;
+                    padding:2rem 4rem 2rem 4rem;
+                    margin-left:2rem;
+                    margin-right:2rem;
+                    border-radius:7px;
+                    transition:0.6s;
+                }
+                .pricing-f-row{
+                    margin-top:3rem;
+                }
+                .pricing-s-row{
                     margin-top:2rem;
                 }
             }
@@ -523,14 +619,14 @@
             <div class="container-fluid sub-plans-section">
                 <p>Best Pricing for you</p>
                 <h1>Subscription Plans</h1>
-                <div class="pricing-f-row">
+                <div class="pricing-f-row d-flex">
                     <div class="bronze-p">Bronze</div>
                     <div class="silver-p">Silver</div>
-                    <div class="Gold-p">Gold</div>
+                    <div class="gold-p">Gold</div>
                 </div>
-                <div class="pricing-s-row">
-                    <div class="Diamond-p">Diamond</div>
-                    <div class="Diamondp-p">Diamond+</div>
+                <div class="pricing-s-row d-flex">
+                    <div class="diamond-p">Diamond</div>
+                    <div class="diamondp-p">Diamond+</div>
                 </div>
             </div>
         </main>
