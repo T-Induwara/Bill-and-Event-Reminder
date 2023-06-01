@@ -10,16 +10,124 @@
 
         <style>
 
+            body{
+                margin:0 !important;
+                padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+
+           display:flex ;
+           justify-content:center ;
+           align-content:center ;
+           }
+
+        .container{
+           display: flex;
+           align-items: center;
+           justify-content:flex-start;
+           align-content:center;
+           flex-direction: column;
+
+           }
+
+        .content{
+           display:flex ;
+           align-items:center ;
+           justify-content:space-between;
+           align-content:space-between ; 
+           flex-direction: column;      
+           margin: 1rem;   
+           filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+           border-radius: 10px;     
+           background-color: var(--bg);
+           margin-bottom: 4rem;
+        }
+
+       .form-title{
+          font-family:Poppins-S;
+          font-size: 2em;
+        }
+
+        form{
+          margin: 1rem;
+
+        }
+
+        .password-container{
+
+          padding-bottom: 1rem;
+       }
+
+       .first-name, .last-name, .phone, .email, .password, .confirm-password{
+          display: flex;
+          flex-direction:row;
+          margin:1rem;
+
+         }
+
+         .login-image {
+            width: 22%;
+            position:absolute;
+            top:35rem;
+            right: 10rem; 
+
+        }
+        input[type=text]{
+            border: none;
+            border-bottom: 1px solid var(--txt);
+            border-radius:5px;
+            background-color: var(--bg);
+
+       }
+
+       input::placeholder {
+           text-align: center; 
+       }
+
+       input[type=submit]{
+          background-color:var(--cta);
+          width:13.4rem;
+          padding:0.5rem;
+          border-radius: 5px;
+          color:var(--bg);
+          border: none;
+          font-family:Poppins-S;
+          cursor: pointer;
+          transition:0.6s;
+
+        }  
+
+        input[type=submit]:hover {
+          color: var(--primary);
+          transition:0.6s;
+        }
+
+        #return-login{
+
+         font-family:Poppins-R;
+         font-size: 0.8em;
+         margin-bottom: 2rem;
+         opacity: 0.6;
+        }
+        #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }
+
+        /*remove outline on html form fields when active status*/
+        textarea:focus, input:focus{
+        outline: none;
+        }
+
+
+
+
 
            /* tablet*/
            @media only screen and (min-width:768px){
 
-            }
-
-          /* desktop */
-             @media only screen and (min-width:1280px){
-
-                body{
+            body{
                 margin:0 !important;
                 padding:0 !important;
                 background-color: var(--bg);
@@ -80,16 +188,15 @@
                
             }
             .login-image {
-                width: 12%;
-                
+                width: 20%;
                 position:absolute;
-                top:19rem;
+                top:30.5rem;
                 right: 21rem;
 
             }
             input[type=text]{
                 border: none;
-                border-bottom: 1px solid #333333;
+                border-bottom: 1px solid var(--txt);
                 border-radius:5px;
                 background-color: var(--bg);
   
@@ -99,11 +206,11 @@
             }
 
             input[type=submit]{
-                background-color:#ff851b;
+                background-color:var(--cta);
                 width:25rem;
                 padding:0.5rem;
                 border-radius: 5px;
-                color:#f8f8f8;
+                color:var(--bg);
                 border: none;
                 font-family:Poppins-S;
                 cursor: pointer;
@@ -114,13 +221,136 @@
                 color: var(--primary);
                 transition:0.6s;
             }
-            span{
+            #return-login{
            
                 font-family:Poppins-R;
                 font-size: 0.8em;
                 margin-bottom: 2rem;
                 opacity: 0.6;
             }
+            #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }            
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus, input:focus{
+              outline: none;
+             }
+    
+            
+
+            }
+
+          /* desktop */
+             @media only screen and (min-width:1280px){
+
+                body{
+                margin:0 !important;
+                padding:0 !important;
+                background-color: var(--bg);
+            }
+            main{
+
+                display:flex ;
+                justify-content:center ;
+                align-content:center ;
+            }
+            .container{
+                display: flex;
+                align-items: center;
+                justify-content:flex-start;
+                align-content:center;
+                flex-direction: column;
+                
+            }
+
+            .content{
+                display:flex ;
+                align-items:center ;
+                justify-content:space-between;
+                align-content:space-between ; 
+                flex-direction: column;      
+                margin: 1rem;   
+                filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                border-radius: 10px;     
+                background-color: var(--bg);
+                margin-bottom: 4rem;
+            }
+            .form-title{
+                font-family:Poppins-S;
+                font-size: 3em;
+                
+
+            }
+            form{
+                
+                margin: 1rem;
+            
+            }
+            .full-name{
+                display:flex;
+            }
+            .contact-detail{
+                display:flex;
+            }
+            .password-container{
+                display:flex;
+                padding-bottom: 1rem;
+            }
+            .first-name, .last-name, .phone, .email, .password, .confirm-password{
+                display: flex;
+                flex-direction:column;
+                margin:1rem;
+               
+            }
+            .login-image {
+                width: 12%;
+                
+                position:absolute;
+                top:19rem;
+                right: 21rem;
+
+            }
+            input[type=text]{
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius:5px;
+                background-color: var(--bg);
+  
+            }
+            input::placeholder {
+             text-align: center; 
+            }
+
+            input[type=submit]{
+                background-color:var(--cta);
+                width:25rem;
+                padding:0.5rem;
+                border-radius: 5px;
+                color:var(--bg);
+                border: none;
+                font-family:Poppins-S;
+                cursor: pointer;
+                transition:0.6s;
+                
+            }  
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition:0.6s;
+            }
+            #return-login{
+           
+                font-family:Poppins-R;
+                font-size: 0.8em;
+                margin-bottom: 2rem;
+                opacity: 0.6;
+            }
+            #return-login:hover{
+                color:var(--primary);
+                opacity:1;
+            }
+
 
             /*remove outline on html form fields when active status*/
             textarea:focus, input:focus{
@@ -197,11 +427,12 @@
                         <input type="submit" value="Create Account">
 
                     </form>
-                 <span>Have an account?</span>
+                 <a id="return-login" href="../index.html">Have an account?</a>
                 </div>
                 <img src="images/login-signup/Saly-35.webp" alt="login-image" class="login-image">
             </div>
         </main>
+
         <footer>
             <div class="footer-container">
                 <div class="foo-desc">
