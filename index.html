@@ -84,6 +84,7 @@
                 padding-top:10px;
                 padding-bottom:10px;
                 background-color:var(--bg);
+                border-radius:7px;
                 transition:0.6s;
             }
             .hero-right-col a:hover{
@@ -299,6 +300,47 @@
                 margin-left:auto;
                 margin-right:auto;
             }
+            /*Begining of join now section mobile css*/
+            .join-section{
+                background-color: var(--bg);
+                padding:4em 2em 4em 2em;
+            }
+            .j-sec-img img{
+                width:50%;
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            .j-sec-content{
+                justify-content: center;
+                align-items: center;
+            }
+            .join-content h1,.join-content div{
+                font-family: Poppins-S;
+            }
+            .join-content{
+                flex-direction: column;
+                justify-content: center;
+                margin-left:-13rem;
+            }
+            .join-content p{
+                font-family: Poppins-R;
+                text-align: right;
+            }
+            .join-btn{
+                color:var(--bg);
+                font-size:30px;
+                text-align: center;
+                padding:1rem 3rem 1rem 3rem;
+                background-color: var(--cta);
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .join-btn:hover{
+                color:var(--bg);
+                background-color: var(--primary);
+                transition: 0.6s;
+            }
 
             @media only screen and (max-width:767px){
                 /*Begining of powered by section mobile css*/
@@ -485,6 +527,7 @@
                     margin-left:auto;
                     margin-right:auto;
                 }
+                /*Begining of join now section tablet css*/
             }
             
             @media only screen and (max-width:1179px){
@@ -492,7 +535,6 @@
                     color:var(--primary) !important;
                 }
             }
-
 
             /*Desktop css*/
             @media only screen and (min-width:1280px){
@@ -676,6 +718,7 @@
                     margin-left:auto;
                     margin-right:auto;
                 }
+                /*Begining of join now section mobile css*/
             }
 
         </style>
@@ -708,7 +751,7 @@
                     <div class="col-lg-6 hero-right-col">
                         <h1>Stay Organized.<br> Never Miss a Bill or Event.</h1>
                         <p>RemindMeister keeps your life on track with automated bill reminders and event notifications.</p>
-                        <a href="#"><div>Discover</div></a>
+                        <a href="assets/aboutus.html"><div>Discover</div></a>
                     </div>
                 </div>
             </div>
@@ -811,6 +854,22 @@
                     </div>
                     <div class="col-lg-6 fback-img-col">
                         <img src="assets/images/home/feedback-img.webp" alt="feedback column image">
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid join-section">
+                <div class="row">
+                    <div class="col-lg-6 j-sec-img">
+                        <img src="assets/images/home/Saly-22.webp" alt="join with us btn">
+                    </div>
+                    <div class="col-lg-6 j-sec-content d-flex">
+                        <div class="join-content d-flex">
+                            <h1>Join with us</h1>
+                            <p>So curious, right?</p>
+                            <a href="assets/log-in.html">
+                                <div class="join-btn">JOIN NOW</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
