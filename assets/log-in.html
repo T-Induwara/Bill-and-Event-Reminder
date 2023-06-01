@@ -15,9 +15,11 @@
                 --txt: #333333;
                 --cta: #ff851b;
             }
+
             body{
                 margin:0 !important;
                 padding:0 !important;
+                background-color: var(--bg);
             }
             @font-face{
                 font-family:Poppins-R;
@@ -28,109 +30,148 @@
                 src:url('../font/Poppins-SemiBold.ttf');
             }
             /*Default and mobile css*/
-
-            header{
-                background-color: var(--bg);
-            }
-
+            
             main{
-                background-color: var(--bg);
                 margin: 0;
                 padding: 0;
-                display: grid;
-            }
-
-            .feildback{
-                box-sizing: border-box;
-                margin-top: 10%;
-                margin-bottom: ;
-                margin-left: 20%;
-                margin-right: 20%;
-                border-radius: 1rem;
-            
-                background-color: white;
-                align-items: center;
-                text-align: center;
-            }
-
-            .login{
-                
-                text-align: center;
-                color:var(--primary);
-                font-size: 60px;
-                font-weight:bolder;
-            }
-            
-            #input1{
-                margin: 2rem;
-                padding: 0;
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                border-width: 2px;
-                border-radius: 0.5rem;
-                width: 300px;
-                color: var(--txt);
-                font-weight: 500;
-                text-align: center;
-                line-height: 3rem;
-            }
-
-            #input2{
-                margin: 1rem;
-                margin-bottom: 0;
-                padding: 0;
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                border-width: 2px;
-                border-radius: 0.5rem;
-                width: 300px;
-                color: var(--txt);
-                font-weight: 500;
-                text-align: center;
-                line-height: 3rem;
-            }   
-
-            .forgetpassword{
-                margin-top: 0.5rem;
-                background: none;
-                border: none;
+                height: 80vh;
+                position: relative;
                 font-family:Poppins-R;
                 src:url('../font/Poppins-Regular.ttf');
-                font-size: 13px;
-                color: var(--txt);
-                font-weight: 550;
-                opacity: 60%;
+                text-align: center;
+                background-color: var(--bg);
             }
-
-            .login2{
-                margin-top: 1rem;
-                padding: 0.5rem 5rem 0.5rem 5rem;
-                border: none;
-                border-radius: 0.5rem;
-                background-color: var(--cta);
-                font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
-                font-size: 20px;
-                font-weight: 600;
-                color: var(--bg);
+           
+         .center{
+            margin-top:4rem;
+            padding: 2rem;
+            padding-bottom: 0;
+            position: absolute;
+            height: 300px;
+            left: 50%;
+            top: 100px;
+            width: 100%;
+            align-items: center;
+            transform: translate(-50%,-50%);
             
-            }
+         }
 
-            .creataccount{
-                margin-top:0.5rem;
-                margin-bottom: 2rem;
-                background: none;
-                border: none;
-                font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
-                font-size: 13px;
-                color: var(--txt);
-                font-weight: 550;
-                opacity: 60%;
-            }
+         .center h1{
+               text-align: center;
+               justify-content: center;
+               margin-top: 2rem;
+               margin-bottom: 5rem;
+               font-size: 60px;
+               font-weight: bolder;
+         }
+
+         .feild{
+            margin: 0rem;
+            padding: 2rem;
+            width: 100%;
+            background-color: white;
+            border-radius: 1rem;
+            text-align: center;
+         }
         
+        .center form{
+            margin:0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        form .textfeild{
+            margin-top:  1rem;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-radius: 1px;
+           
+        }
+
+        .textfeild input{
+            margin:0;
+            padding: 0 ;
+            width: 100%;
+            height: 40px;
+            display: grid;
+            justify-content: center;
+            font-size: 20px;
+            border: none;
+            background: none;
+            outline: none;
+            text-align: center;
+
+        }
+
+        input:hover{
+            color: var(--cta);
+        }
+
+        .forgetpassword{
+           margin-top: 0.5rem;
+           margin-bottom: 1rem;
+        }
+        
+        .forgetpassword a{
+            color: var(--txt);
+            font-size: 15px;
+            opacity: 70%;
+            cursor: pointer;
+        }
+        
+        .forgetpassword a:hover{
+            text-decoration:solid;
+            color: var(--cta);
+            opacity: 100%;
+        }
+
+
+        #login2{
+            width: 70%;
+            height: 40px;
+            border: none;
+            background: var(--cta);
+            border-radius: 0.5rem;
+            font-size: 20px;
+            color: white;
+            background: #fb9134;
+            cursor: pointer;
+            outline: none;
+            opacity: 90%;
+        }
+
+        #login2:hover{
+            text-decoration:solid;
+            background: var(--cta);
+            color: azure;
+            opacity: 100%;
+        }
+
+        .create_account{
+            margin-top: 0.5rem;
+        
+        }
+
+        .create_account a{
+            color: var(--txt);
+            font-size: 15px;
+            opacity: 70%;
+            cursor: pointer;
+        }
+
+        .create_account a:hover{
+            text-decoration:solid;
+            color: var(--cta);
+            opacity: 100%;
+        }
+
+         
+            
             /*Tablet css*/
             
             /*Desktop css*/
@@ -156,30 +197,39 @@
             </div>
         </header>
         <main>
-           
-            <div class="login">Log in</div>
 
-            <div class="feildback">
-                <div class="addemail">
-                    <input id="input1" type="text" placeholder="Email address" required="required"> 
+         <div class="center">
+            <h1 class="login">Log in</h1>
+            
+            <div class="feild">
+             <form method="post">
+                <div class="textfeild">
+                    <input  type="text" placeholder="Email address" required="required">
+                    <span></span> 
                     
                 </div>
-                <div class="addpassword">
-                    <input id="input2" type="text" placeholder="Password" required="required"> 
+                <div class="textfeild">
+                    <input  type="text" placeholder="Password" required="required"> 
+                    <span></span>
                     
                 </div>
-                <button class="forgetpassword"><a href="forgetpassword.html"></a>Forgot password</button>
-                <br>
-                <button class="login2">Log in</button>
-                <br>
-                <button class="creataccount"><a href="createaccount.html"></a>Don't have an account?</button>
-                <br>
+                <div class="forgetpassword">
+                    <a href="fogetpassword.html">Forget password</a>
+                </div>
+                
+                <input id="login2" type="submit" value="Login">
+              
+                <div class="create_account">
+                    <a href="createaccount.html">Don't Have an acount?</a>
+                </div>
+              </div>
+             </form>
             </div>
-
             <div class="loginimage">
                 <img src="images/login-signup/Saly-32.webp" width="200px" height="300px">
             </div>
 
+         </div>
         </main>
         <footer>
             <div class="footer-container">
