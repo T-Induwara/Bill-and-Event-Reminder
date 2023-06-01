@@ -144,14 +144,34 @@
                 padding:10px 0px 10px 0px;
                 text-align: center;
             }
-            .benefit-cols img{
-                width:25%;
-            }
             .b-left-col,.b-right-col{
                 flex:50%;
+            }.b-left-col .left-col-desc{
+                margin-top:10rem;
             }
             .left-col-desc,.right-col-desc{
-                padding:0rem 2rem 0rem 2rem;
+                padding:0rem 1rem 0rem 1rem;
+            }
+            .left-col-desc .b-features{
+                text-align: right;
+            }
+            .sch-img{
+                width:30%;
+                margin-bottom:-4rem;
+                margin-left:-3rem;
+            }
+            .edit-img{
+                width:55%;
+                margin-bottom:-3rem;
+                margin-left:12rem;
+            }
+            .cal-img{
+                width:40%;
+                margin-top:-4rem;
+                margin-left:14rem;
+            }
+            .right-col-desc{
+                margin-top:2rem;
             }
             .b-features{
                 background-color: var(--accent);
@@ -344,7 +364,7 @@
                         <div class="benefit-cols d-flex">
                             <div class="b-left-col">
                                 <div class="left-col-desc">
-                                    <img src="assets/images/home/Saly-26.webp" alt="schedule image">
+                                    <img src="assets/images/home/Saly-26.webp" alt="schedule image" class="sch-img">
                                     <div class="b-features">
                                         <h3>Schedule Bills & Events</h3>
                                         <p>Effortlessly schedule and manage your bills and events with RemindMeister's intuitive interface, ensuring you never miss a due date or important occasion.</p>
@@ -353,18 +373,18 @@
                             </div>
                             <div class="b-right-col">
                                 <div class="right-col-desc">
-                                    <img src="assets/images/home/Saly-25.webp" alt="edit bills image">
+                                    <img src="assets/images/home/Saly-25.webp" alt="edit bills image" class="edit-img">
                                     <div class="b-features">
                                         <h3>Edit Your Added Bills & Events</h3>
                                         <p>Easily make changes and updates to your added bills and events at any time. RemindMeister provides flexibility and control to adapt to your evolving schedule.</p>
                                     </div>
                                 </div>
                                 <div class="right-col-desc">
-                                    <img src="assets/images/home/Saly-42.webp" alt="calendar intergration image">
                                     <div class="b-features">
                                         <h3>Calendar Intergration</h3>
                                         <p>Seamlessly sync RemindMeister with your favorite calendar app, ensuring all your bill payment dates and events are conveniently consolidated in one place.</p>
                                     </div>
+                                    <img src="assets/images/home/Saly-42.webp" alt="calendar intergration image" class="cal-img">
                                 </div>
                             </div>
                         </div>
