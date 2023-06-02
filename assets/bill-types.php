@@ -27,6 +27,12 @@
                 font-family:Poppins-S;
                 src:url('../font/Poppins-SemiBold.ttf');
             }
+            /*Default css for mobile*/
+
+            /*CSS for tablet*/
+
+            /*CSS for desktop*/
+
         </style>
     </head>
     <body>
@@ -49,6 +55,24 @@
             <?php
                 print("Hello World")
             ?>
+            <div class="container-fluid dashboard-header">
+                <div class="row">
+                    <div class="col-lg-6 pg-title">
+                        <div class="title-col">
+                            <h1>BILL TYPES</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pg-usr-window">
+                        <div class="usr-col">
+                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image">
+                            <div class="usr-col-details">
+                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
+                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
         <footer>
