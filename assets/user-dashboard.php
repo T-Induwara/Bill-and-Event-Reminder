@@ -152,6 +152,34 @@
                     </div>
                 </div>
             </div>
+
+            <div class="main-center">
+                <div class="category">
+                    <div class="type">
+                        <button class="sub" type="submit">
+                            <div class="icon">
+                              <img src="/assets/images/user-dashboard/add-bills.webp">
+                            </div>
+                            <p>Add Bills</p>
+                        </button>
+                        <button class="sub" type="submit">
+                            <div class="icon">
+                              <img src="/assets/images/user-dashboard/add-events.webp">
+                            </div>
+                            <p>Add Bills</p>
+                        </button>
+                        <button class="sub" type="submit">
+                            <div class="icon">
+                              <img src="/assets/images/user-dashboard/view-reminders.webp">
+                            </div>
+                            <p>Add Bills</p>
+                        </button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
         <footer>
             <div class="footer-container">
