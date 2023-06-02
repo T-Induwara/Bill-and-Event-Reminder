@@ -30,7 +30,6 @@
             /*Default css for mobile*/
             .dashboard-header{
                 padding:2em 3em 2em 3em;
-                background-color: #ff851b;
             }
             .usr-col{
                 margin-top:1rem;
@@ -61,6 +60,38 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
+            /*css for event section on mobile*/
+            .evn-types-section{
+            }
+            .ev-row{
+                flex-direction: row;
+                justify-content: center;
+                margin-top:5rem;
+                margin-bottom:5rem;
+            }
+            .events div img{
+                margin: auto;  
+                position: absolute;
+                left:0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 40%;
+            }
+            .events div{
+                width:100px;
+                height:100px;
+                background-color: var(--bg);
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                border-radius:10px;
+                margin-left:4rem;
+                margin-right:4rem;
+            }
+            .ev-name{
+                font-family: Poppins-S;
+                text-align: center;
+                margin-top:1rem;
+            }
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -89,6 +120,7 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+                /*css for event section on tablet*/
             }
 
             /*CSS for desktop*/
@@ -112,6 +144,7 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+                /*css for event section on desktop*/
             }
         </style>
     </head>
@@ -154,11 +187,57 @@
                 </div>
             </div>
             <div class="evn-types-section">
-                <div class="row-1">
-
+                <div class="ev-row d-flex">
+                    <div class="events">
+                        <div class="ev-wedding" id="ev-wedding">
+                            <img src="images/user-dashboard/event-types/weddings.webp" alt="wedding icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-bday" id="ev-bday">
+                            <img src="images/user-dashboard/event-types/birthdays.webp" alt="bday icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-anni" id="ev-anni">
+                            <img src="images/user-dashboard/event-types/anniversaries.webp" alt="anniversary icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-gt" id="ev-gt">
+                            <img src="images/user-dashboard/event-types/get-together.webp" alt="get together icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
                 </div>
-                <div class="row-2">
-                    
+                <div class="ev-row d-flex">
+                    <div class="events">
+                        <div class="ev-party" id="ev-party">
+                            <img src="images/user-dashboard/event-types/office-parties.webp" alt="party icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-shop" id="ev-shop">
+                            <img src="images/user-dashboard/event-types/shopping.webp" alt="shopping icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-conf" id="ev-conf">
+                            <img src="images/user-dashboard/event-types/conference.webp" alt="conference icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
+                    <div class="events">
+                        <div class="ev-oth" id="ev-oth">
+                            <img src="images/user-dashboard/event-types/other-events.webp" alt="other events icon">
+                        </div>
+                        <p class="ev-name" id="ev-name">Weddings</p>
+                    </div>
                 </div>
             </div>
         </main>
