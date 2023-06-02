@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bill Types - RemindMeister</title>
+        <title>Event Types - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-lg-6 pg-title">
                         <div class="title-col">
-                            <h1>BILL TYPES</h1>
+                            <h1>EVENT TYPES</h1>
                         </div>
                     </div>
                     <div class="col-lg-6 pg-usr-window">
