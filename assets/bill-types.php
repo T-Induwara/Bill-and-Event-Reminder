@@ -28,6 +28,9 @@
                 src:url('../font/Poppins-SemiBold.ttf');
             }
             /*Default css for mobile*/
+            .dashboard-header{
+                padding:4em 2em 4em 2em;
+            }
 
             /*CSS for tablet*/
 
