@@ -65,6 +65,7 @@ a{
     flex-direction: column;
     background-color: var(--bg);
     padding:2rem 1rem 2rem 1rem;
+    border-top:1px solid var(--primary);
 }
 .foo-desc,.foo-urls,.foo-social{
     flex:33.3%;
