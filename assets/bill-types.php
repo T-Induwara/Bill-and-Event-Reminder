@@ -7,6 +7,27 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
+        <style>
+            :root{
+                --primary: #001f3f;
+                --accent: #39cccc;
+                --bg: #f8f8f8;
+                --txt: #333333;
+                --cta: #ff851b;
+            }
+            body{
+                margin:0 !important;
+                padding:0 !important;
+            }
+            @font-face{
+                font-family:Poppins-R;
+                src:url('../font/Poppins-Regular.ttf');
+            }
+            @font-face{
+                font-family:Poppins-S;
+                src:url('../font/Poppins-SemiBold.ttf');
+            }
+        </style>
     </head>
     <body>
         <header>
