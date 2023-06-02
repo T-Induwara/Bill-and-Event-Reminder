@@ -153,7 +153,14 @@
                     </div>
                 </div>
             </div>
+            <div class="evn-types-section">
+                <div class="row-1">
 
+                </div>
+                <div class="row-2">
+                    
+                </div>
+            </div>
         </main>
         <footer>
             <div class="footer-container">
