@@ -25,7 +25,10 @@
             </div>
         </header>
         <main>
-            
+            <?php
+                print("Hello World")
+            ?>
+
         </main>
         <footer>
             <div class="footer-container">
