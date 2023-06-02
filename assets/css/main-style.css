@@ -11,6 +11,7 @@ html{
 body{
     margin:0 !important;
     padding:0 !important;
+    background-color: var(--bg);
 }
 @font-face{
     font-family:Poppins-R;
