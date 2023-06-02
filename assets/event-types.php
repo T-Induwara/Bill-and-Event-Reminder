@@ -31,6 +31,24 @@
             .dashboard-header{
                 padding:4em 2em 4em 2em;
             }
+            .usr-col{
+                flex-direction:row;
+                justify-content: center;
+                align-items: center;
+            }
+            .usr-col-details{
+                flex-direction: column;
+            }
+            .usr-image{
+                width:8%;
+            }
+            .title-col h1,.usr-name{
+                font-family:Poppins-S;
+            }
+            
+            .usr-mail{
+                font-family: Poppins-R;
+            }
 
             /*CSS for tablet*/
 
@@ -66,9 +84,9 @@
                         </div>
                     </div>
                     <div class="col-lg-6 pg-usr-window">
-                        <div class="usr-col">
-                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image">
-                            <div class="usr-col-details">
+                        <div class="usr-col d-flex">
+                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
+                            <div class="usr-col-details d-flex">
                                 <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
                                 <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
                             </div>
