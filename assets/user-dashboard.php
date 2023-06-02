@@ -29,13 +29,89 @@
             }
             /*Default css for mobile*/
             .dashboard-header{
-                padding:4em 2em 4em 2em;
+                padding:2em 3em 2em 3em;
+            }
+            .usr-col{
+                margin-top:1rem;
+                flex-direction:row;
+                justify-content:center;
+                align-items: center;
+            }
+            .usr-col-details{
+                flex-direction: column;
+                margin-left:0.5rem;
+            }
+            .usr-image{
+                margin-top:-0.5rem;
+                width:15%;
+            }
+            .title-col h1,.usr-name{
+                font-family:Poppins-S;
+            }
+            .title-col h1{
+                font-size:40px;
+                text-align: center;
+            }
+            .usr-name{
+                font-size: 25px;
+            }
+            .usr-mail{
+                margin-top:-0.8rem;
+                font-family: Poppins-R;
+                font-size: 15px;
             }
 
             /*CSS for tablet*/
+            @media only screen and (min-width:768px){
+                .dashboard-header{
+                    padding:2em 2em 2em 2em;
+                }
+                .usr-col{
+                    margin-top:0.5rem;
+                    justify-content:end;
+                }
+                .usr-col-details{
+                    flex-direction: column;
+                    margin-left:0.5rem;
+                }
+                .usr-image{
+                    width:15%;
+                }
+                .title-col h1{
+                    font-size:50px;
+                    text-align: left;
+                }
+                .usr-name{
+                    font-size: 28px;
+                }
+                .usr-mail{
+                    margin-top:-1rem;
+                    font-size: 15px;
+                }
+            }
 
             /*CSS for desktop*/
-
+            @media only screen and (min-width:1280px){
+                .dashboard-header{
+                    padding:2em 3em 2em 3em;
+                }
+                .usr-col-details{
+                    margin-left:1rem;
+                }
+                .usr-image{
+                    width:8%;
+                }
+                .title-col h1{
+                    font-size:50px;
+                }
+                .usr-name{
+                    font-size: 28px;
+                }
+                .usr-mail{
+                    margin-top:-1rem;
+                    font-size: 15px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -60,15 +136,15 @@
             ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
-                    <div class="col-lg-6 pg-title">
+                    <div class="col-md-6 pg-title">
                         <div class="title-col">
                             <h1>USER DASHBOARD</h1>
                         </div>
                     </div>
-                    <div class="col-lg-6 pg-usr-window">
-                        <div class="usr-col">
-                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image">
-                            <div class="usr-col-details">
+                    <div class="col-md-6 pg-usr-window">
+                        <div class="usr-col d-flex">
+                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
+                            <div class="usr-col-details d-flex">
                                 <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
                                 <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
                             </div>
@@ -76,7 +152,6 @@
                     </div>
                 </div>
             </div>
-
         </main>
         <footer>
             <div class="footer-container">
