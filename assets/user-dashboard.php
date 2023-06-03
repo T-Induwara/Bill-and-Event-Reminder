@@ -18,6 +18,7 @@
             body{
                 margin:0 !important;
                 padding:0 !important;
+                background-color: var(--bg);
             }
             @font-face{
                 font-family:Poppins-R;
@@ -61,6 +62,51 @@
                 font-size: 15px;
             }
 
+            .category{
+                margin: 0rem;
+                padding: 3rem 3rem 6rem 3rem;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+            }
+
+            .subbutton{
+                margin: 0rem;
+                margin-bottom:0rem;
+                padding: 3rem;
+                display: grid;
+
+            }
+
+            .subbutton img{
+                margin-top: 0rem ;
+                margin-left: 3rem;
+                margin-right: 3rem;
+                margin-bottom: 0rem;
+                padding:2rem;
+                width: 60%;
+                background: var(--bg);
+                display: grid;
+                justify-content: center;
+                align-items: center ;
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+            }
+
+            #dis{
+                margin: 0;
+                padding-top: 1rem;
+                text-align: center;
+                font-family:Poppins-S;
+                
+            }
+
+          
+            
+
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
                 .dashboard-header{
@@ -88,6 +134,43 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+
+
+                .category{
+                margin: 0rem;
+                padding: 3rem 1rem 3rem 1rem;
+                width: 100%;
+                height: 60vh;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+                }
+                
+                .subbutton{
+                padding: 0rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                }
+
+             
+
+                .subbutton img{
+                margin-top: 0rem ;
+                margin-left: 3rem;
+                margin-right: 3rem;
+                margin-bottom: 0rem;
+                padding:2rem;
+                width: 50%;
+                display: grid;
+                justify-content: center;
+                align-items: center ;
+              
+               }
+
+                
             }
 
             /*CSS for desktop*/
@@ -111,6 +194,26 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+
+                .category{
+                margin: 0rem;
+                padding: 3rem 1rem 5rem 1rem;
+                width: 100%;
+                height: 60vh;
+                
+                }
+
+                .subbutton{
+                margin: 0 1rem 2rem 1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                }
+
+
             }
         </style>
     </head>
@@ -153,31 +256,19 @@
                 </div>
             </div>
 
-            <div class="main-center">
-                <div class="category">
-                    <div class="type">
-                        <button class="sub" type="submit">
-                            <div class="icon">
-                              <img src="/assets/images/user-dashboard/add-bills.webp">
-                            </div>
-                            <p>Add Bills</p>
-                        </button>
-                        <button class="sub" type="submit">
-                            <div class="icon">
-                              <img src="/assets/images/user-dashboard/add-events.webp">
-                            </div>
-                            <p>Add Bills</p>
-                        </button>
-                        <button class="sub" type="submit">
-                            <div class="icon">
-                              <img src="/assets/images/user-dashboard/view-reminders.webp">
-                            </div>
-                            <p>Add Bills</p>
-                        </button>
-                        
-                        </div>
-                    </div>
-                </div>
+            <div class="category">
+               <div class="subbutton">
+                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
+                   <p id="dis">Add Bills</p>
+               </div>   
+               <div class="subbutton">
+                   <img id="img2" alt="image" src="/assets/images/user-dashboard/add-events.webp">
+                   <p id="dis">Add Events</p>
+               </div>   
+               <div class="subbutton">
+                   <img id="img3" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
+                   <p id="dis">View Reminders</p>
+               </div>  
             </div>
 
         </main>
