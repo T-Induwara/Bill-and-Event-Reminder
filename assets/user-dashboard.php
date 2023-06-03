@@ -92,6 +92,7 @@
                 border-radius: 10px;
                 filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
                 background: var(--bg);
+                transition: 0.6s;
 
             }
 
