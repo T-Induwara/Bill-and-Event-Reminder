@@ -61,8 +61,6 @@
                 font-size: 15px;
             }
             /*css for event section on mobile*/
-            .evn-types-section{
-            }
             .ev-row{
                 flex-direction: row;
                 justify-content: center;
@@ -188,25 +186,25 @@
             </div>
             <div class="evn-types-section">
                 <div class="ev-row d-flex">
-                    <div class="events">
+                    <div class="events" id="wedding-col">
                         <div class="ev-wedding" id="ev-wedding">
                             <img src="images/user-dashboard/event-types/weddings.webp" alt="wedding icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="bday-col">
                         <div class="ev-bday" id="ev-bday">
                             <img src="images/user-dashboard/event-types/birthdays.webp" alt="bday icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="anniv-col">
                         <div class="ev-anni" id="ev-anni">
                             <img src="images/user-dashboard/event-types/anniversaries.webp" alt="anniversary icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="get-to-col">
                         <div class="ev-gt" id="ev-gt">
                             <img src="images/user-dashboard/event-types/get-together.webp" alt="get together icon">
                         </div>
@@ -214,25 +212,25 @@
                     </div>
                 </div>
                 <div class="ev-row d-flex">
-                    <div class="events">
+                    <div class="events" id="party-col">
                         <div class="ev-party" id="ev-party">
                             <img src="images/user-dashboard/event-types/office-parties.webp" alt="party icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="shop-col">
                         <div class="ev-shop" id="ev-shop">
                             <img src="images/user-dashboard/event-types/shopping.webp" alt="shopping icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="conf-col">
                         <div class="ev-conf" id="ev-conf">
                             <img src="images/user-dashboard/event-types/conference.webp" alt="conference icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
-                    <div class="events">
+                    <div class="events" id="other-col">
                         <div class="ev-oth" id="ev-oth">
                             <img src="images/user-dashboard/event-types/other-events.webp" alt="other events icon">
                         </div>
