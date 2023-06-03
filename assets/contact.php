@@ -41,11 +41,12 @@
         }
 
         .title {
-            padding-left: 4rem;
-            padding-right: 3rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
             padding-top: 4rem;
             font-family: Poppins-S;
             font-size: 2em;
+            text-align: center;
         }
 
         .hand-img {
