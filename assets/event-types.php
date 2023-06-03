@@ -173,7 +173,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>EVENT TYPES</h1>
+                            <h1 id="ev-pg-title">EVENT TYPES</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -279,11 +279,18 @@
             console.log("Internal js loaded");
 
             var weddingCol = document.getElementById("ev-wedding");
+            var bdayCol = document.getElementById("ev-bday");
+            var anniCol = document.getElementById("ev-anni");
+            var gtCol = document.getElementById("ev-gt");
+            var partyCol = document.getElementById("ev-party");
+            var shopCol = document.getElementById("ev-shop");
+            var confCol = document.getElementById("ev-conf");
+            var othCol = document.getElementById("ev-oth");
+
             var btns = document.querySelectorAll('.ev');
             btns.forEach((c) => {//In here I added click event listner for all the col s and then print the innerHTML value into input area
                 c.addEventListener('mouseover', function () {
-                console.log("gg clicked");
-                c.style.background = "var(--primary)";
+                c.style.background = "var(--cta)";
                 c.style.transition = "0.6s"
             });
             c.addEventListener('mouseleave', function () {
