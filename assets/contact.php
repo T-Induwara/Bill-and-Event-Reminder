@@ -407,7 +407,7 @@
                 <a href="../index.html">Home</a>
                 <a href="aboutus.html">About Us</a>
                 <a href="contact.html">Contact Us</a>
-                <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
             </div>
             <div class="m-nav-btn">
                 <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -471,7 +471,7 @@
                     <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
             </div>
