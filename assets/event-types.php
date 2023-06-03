@@ -435,7 +435,7 @@
                     <div class="frm-title" id="frm-title">
                         <h1 class="title-main" id="title-main">Weddings</h1>
                     </div>
-                    <form action="connect.php" method="post">
+                    <form action="success.php" method="post">
                         <div class="frm-divs d-flex">
                             <label for="eventTitle">Add event title</label>
                             <input type="text" name="eventTitle" placeholder="My event...">
