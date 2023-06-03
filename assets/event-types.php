@@ -269,22 +269,6 @@
                     border-radius:10px;
                     padding:3rem 6rem 3rem 6rem;
                 }
-                .frm-title{
-                    border:1px solid rgba(0, 0, 0, 0.19);
-                    border-radius:7px;
-                    padding:1rem 1rem 1rem 1rem;
-                }
-                .title-main{
-                    text-align: center;
-                    font-family: Poppins-S;
-                }
-                form{
-                    margin-top:2rem;
-                }
-                form label,.frm-divs p{
-                    font-family:Poppins-R;
-                    margin-right:2rem;
-                }
                 .frm-divs{
                     flex-direction:row;
                     justify-content: space-between;
@@ -293,59 +277,6 @@
                 }
                 .frm-divs input{
                     margin-top:0rem;
-                }
-                input{
-                    width:300px;
-                    text-align: center;
-                }
-                input[type=text],input[type=date],input[type=time]{
-                    outline:none;
-                    border:none;
-                    border-bottom:1px solid var(--primary);
-                    background-color: var(--bg);
-                    border-radius:5px;
-                    padding:0.5rem 1.5rem 0.5rem 1.5rem;
-                }
-                input[type=text],input[type=date],input[type=time]:focus{
-                    outline:none;
-                }
-                .rad-btns{
-                    flex-direction: row;
-                    align-items: center;
-                }
-                .rad-btns input{
-                    margin-right:0.5rem;
-                }
-                input[type=radio]{
-                    appearance: none;
-                    -moz-appearance: none;
-                    -webkit-appearance: none;
-                    outline: none;
-                    width:20px;
-                    height:20px;
-                    /* Define the custom radio button design */
-                    border-radius: 50%;
-                    border: 1px solid var(--primary);
-                }
-                input[type=radio]:checked{
-                    background-color: var(--cta);
-                }
-                .frm-sub-btn{
-                    display:block;
-                    margin-left:auto;
-                    margin-right:auto;
-                    margin-top:2rem;
-                    font-family: Poppins-S;
-                    color:var(--bg);
-                    background-color: var(--primary);
-                    padding:0.7rem 2rem 0.7rem 2rem;
-                    border-radius:7px;
-                    transition: 0.6s;
-                    border:none;
-                }
-                .frm-sub-btn:hover{
-                    background-color: var(--cta);
-                    transition: 0.6s;
                 }
             }
 
