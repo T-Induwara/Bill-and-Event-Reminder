@@ -90,6 +90,9 @@
                 text-align: center;
                 margin-top:1rem;
             }
+            .events div:hover{
+                cursor: pointer;
+            }
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -187,54 +190,54 @@
             <div class="evn-types-section">
                 <div class="ev-row d-flex">
                     <div class="events" id="wedding-col">
-                        <div class="ev-wedding" id="ev-wedding">
+                        <div class="ev-wedding ev" id="ev-wedding">
                             <img src="images/user-dashboard/event-types/weddings.webp" alt="wedding icon">
                         </div>
                         <p class="ev-name" id="ev-name">Weddings</p>
                     </div>
                     <div class="events" id="bday-col">
-                        <div class="ev-bday" id="ev-bday">
+                        <div class="ev-bday ev" id="ev-bday">
                             <img src="images/user-dashboard/event-types/birthdays.webp" alt="bday icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Birthdays</p>
                     </div>
                     <div class="events" id="anniv-col">
-                        <div class="ev-anni" id="ev-anni">
+                        <div class="ev-anni ev" id="ev-anni">
                             <img src="images/user-dashboard/event-types/anniversaries.webp" alt="anniversary icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Anniversaries</p>
                     </div>
                     <div class="events" id="get-to-col">
-                        <div class="ev-gt" id="ev-gt">
+                        <div class="ev-gt ev" id="ev-gt">
                             <img src="images/user-dashboard/event-types/get-together.webp" alt="get together icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Get Together</p>
                     </div>
                 </div>
                 <div class="ev-row d-flex">
                     <div class="events" id="party-col">
-                        <div class="ev-party" id="ev-party">
+                        <div class="ev-party ev" id="ev-party">
                             <img src="images/user-dashboard/event-types/office-parties.webp" alt="party icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Party</p>
                     </div>
                     <div class="events" id="shop-col">
-                        <div class="ev-shop" id="ev-shop">
+                        <div class="ev-shop ev" id="ev-shop">
                             <img src="images/user-dashboard/event-types/shopping.webp" alt="shopping icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Shopping</p>
                     </div>
                     <div class="events" id="conf-col">
-                        <div class="ev-conf" id="ev-conf">
+                        <div class="ev-conf ev" id="ev-conf">
                             <img src="images/user-dashboard/event-types/conference.webp" alt="conference icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Conference</p>
                     </div>
                     <div class="events" id="other-col">
-                        <div class="ev-oth" id="ev-oth">
+                        <div class="ev-oth ev" id="ev-oth">
                             <img src="images/user-dashboard/event-types/other-events.webp" alt="other events icon">
                         </div>
-                        <p class="ev-name" id="ev-name">Weddings</p>
+                        <p class="ev-name" id="ev-name">Other</p>
                     </div>
                 </div>
             </div>
@@ -272,5 +275,22 @@
             </div>
         </footer>
         <script src="js/main-script.js"></script>
+        <script>
+            console.log("Internal js loaded");
+
+            var weddingCol = document.getElementById("ev-wedding");
+            var btns = document.querySelectorAll('.ev');
+            btns.forEach((c) => {//In here I added click event listner for all the col s and then print the innerHTML value into input area
+                c.addEventListener('mouseover', function () {
+                console.log("gg clicked");
+                c.style.background = "var(--primary)";
+                c.style.transition = "0.6s"
+            });
+            c.addEventListener('mouseleave', function () {
+                c.style.background = "var(--bg)";
+                c.style.transition = "0.6s"
+            });
+})
+        </script>
     </body>
 </html>
