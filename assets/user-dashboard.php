@@ -10,7 +10,7 @@
         <style>
             :root{
                 --primary: #001f3f;
-                --accent: #39cccc;
+                --accent: ;
                 --bg: #f8f8f8;
                 --txt: #333333;
                 --cta: #ff851b;
@@ -73,11 +73,14 @@
                 
             }
 
+            
+
             .subbutton{
                 margin: 0rem;
                 margin-bottom:0rem;
                 padding: 3rem;
                 display: grid;
+                opacity: 90%;
 
             }
 
@@ -102,6 +105,17 @@
                 text-align: center;
                 font-family:Poppins-S;
                 
+            }
+
+            .subbutton:hover{
+                opacity: 100%;
+                color: var(--cta);
+
+            }
+
+            img:hover{
+                background-color: var(--cta);
+                filter: drop-shadow(0px 0px 10px var(--primary));
             }
 
           
@@ -257,15 +271,15 @@
             </div>
 
             <div class="category">
-               <div class="subbutton">
+               <div class="subbutton" href="">
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
                    <p id="dis">Add Bills</p>
                </div>   
-               <div class="subbutton">
+               <div class="subbutton" href="">
                    <img id="img2" alt="image" src="/assets/images/user-dashboard/add-events.webp">
                    <p id="dis">Add Events</p>
                </div>   
-               <div class="subbutton">
+               <div class="subbutton" href="">
                    <img id="img3" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
                    <p id="dis">View Reminders</p>
                </div>  
