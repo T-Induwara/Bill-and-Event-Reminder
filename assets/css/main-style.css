@@ -11,6 +11,7 @@ html{
 body{
     margin:0 !important;
     padding:0 !important;
+    background-color: var(--bg);
 }
 @font-face{
     font-family:Poppins-R;
@@ -64,6 +65,7 @@ a{
     flex-direction: column;
     background-color: var(--bg);
     padding:2rem 1rem 2rem 1rem;
+    border-top:1px solid var(--primary);
 }
 .foo-desc,.foo-urls,.foo-social{
     flex:33.3%;
@@ -265,7 +267,7 @@ a{
         font-size:31px;
     }
     .nav-list a{
-        font-size:20px;
+        font-size:17px;
         padding:0px 20px 0px 20px;
     }
     .nav-log-btn{
