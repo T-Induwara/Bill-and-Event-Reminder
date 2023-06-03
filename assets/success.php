@@ -60,41 +60,6 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-            /*css for event section on mobile*/
-            .evn-types-section{
-                padding:2rem 0rem 8rem 0rem;
-            }
-            .ev-row{
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            .row-sub{
-                flex-direction: row;
-            }
-            .events div img{
-                margin: auto;  
-                position: absolute;
-                left:0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                width: 40%;
-            }
-            .events div{
-                width:80px;
-                height:80px;
-                background-color: var(--bg);
-                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
-                border-radius:10px;
-                margin-left:3rem;
-                margin-right:3rem;
-            }
-            .ev-name{
-                font-family: Poppins-S;
-                text-align: center;
-                margin-top:1rem;
-            }
             /*css for form section on mobile*/
             .event-frm-section{
                 padding:4rem 1rem 6rem 1rem;
@@ -187,9 +152,6 @@
                 background-color: var(--cta);
                 transition: 0.6s;
             }
-            .frm-outer-container{
-                display:none;
-            }
 
             @media only screen and (max-width:767px){
                 .row-sub{
@@ -224,39 +186,6 @@
                 .usr-mail{
                     margin-top:-1rem;
                     font-size: 15px;
-                }
-                /*css for event section on tablet*/
-                .evn-types-section{
-                    padding:0rem;
-                }
-                .ev-row{
-                    flex-direction: row;
-                    justify-content: center;
-                    margin-top:5rem;
-                    margin-bottom:5rem;
-                }
-                .events div img{
-                    margin: auto;  
-                    position: absolute;
-                    left:0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                    width: 40%;
-                }
-                .events div{
-                    width:80px;
-                    height:80px;
-                    border-radius:10px;
-                    margin-left:3rem;
-                    margin-right:3rem;
-                }
-                .ev-name{
-                    text-align: center;
-                    margin-top:1rem;
-                }
-                .events div:hover{
-                    cursor: pointer;
                 }
                 /*css for form section on tablet*/
                 .event-frm-section{
@@ -304,33 +233,6 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-                /*css for event section on desktop*/
-                .ev-row{
-                    flex-direction: row;
-                    justify-content: center;
-                    margin-top:5rem;
-                    margin-bottom:5rem;
-                }
-                .events div img{
-                    margin: auto;  
-                    position: absolute;
-                    left:0;
-                    right: 0;
-                    top: 0;
-                    bottom: 0;
-                    width: 40%;
-                }
-                .events div{
-                    width:100px;
-                    height:100px;
-                    border-radius:10px;
-                    margin-left:4rem;
-                    margin-right:4rem;
-                }
-                .ev-name{
-                    text-align: center;
-                    margin-top:1rem;
-                }
                 /*css for form section on desktop*/
                 
             }
@@ -344,7 +246,7 @@
                     <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -357,7 +259,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1 id="ev-pg-title">EVENT TYPES</h1>
+                            <h1 id="ev-pg-title">Add Event</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -375,36 +277,19 @@
                 <div class="event-frm-section d-flex" id="evn-frm-section">
                     <div class="frm-container d-flex">
                         <div class="frm-title" id="frm-title">
-                            <h1 class="title-main" id="title-main">Weddings</h1>
+                            <h1 class="title-main" id="title-main">Congratulations!</h1>
                         </div>
-                        <form action="success.php" method="post">
-                            <div class="frm-divs d-flex">
-                                <label for="eventTitle">Add event title</label>
-                                <input type="text" name="eventTitle" placeholder="My event...">
-                            </div>
-                            <div class="frm-divs d-flex">
-                                <label for="eventDesc">Add event description</label>
-                                <input type="text" name="eventDesc" placeholder="My event is about...">
-                            </div>
-                            <div class="frm-divs d-flex">
-                                <label for="time">Set reminder time</label>
-                                <input type="time" name="time">
-                            </div>
-                            <div class="frm-divs d-flex">
-                                <label for="date">Set reminder date</label>
-                                <input type="date" name="date">
-                            </div>
-                            <div class="frm-divs d-flex">
-                                <p>Select reminder method</p>
-                                <div class="rad-btns d-flex">
-                                    <input type="radio" name="eventRemMethod" value="SMS">
-                                    <label for="sms">SMS</label>
-                                    <input type="radio" name="eventRemMethod" value="Email">
-                                    <label for="email">E-mail</label>
-                                </div>
-                            </div>
-                            <input type="submit" value="Add reminder" class="frm-sub-btn">
-                        </form>
+                        <div class="center-title">
+                            <p>Your event reminder added successfully!</p>
+                        </div>
+                        <div class="btm-btns d-flex">
+                            <a href="user-dashboard.php">
+                                <div class="dboard-btn">Dashboard</div>
+                            </a>
+                            <a href="event-types.php">
+                                <div class="another-r-btn">Add another reminder</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -420,7 +305,7 @@
                         <a href="../index.html">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.html">Contact Us</a>
-                        <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
@@ -444,65 +329,6 @@
         <script src="js/main-script.js"></script>
         <script>
             console.log("Internal js loaded");
-
-            var weddingCol = document.getElementById("ev-wedding");
-            var bdayCol = document.getElementById("ev-bday");
-            var anniCol = document.getElementById("ev-anni");
-            var gtCol = document.getElementById("ev-gt");
-            var partyCol = document.getElementById("ev-party");
-            var shopCol = document.getElementById("ev-shop");
-            var confCol = document.getElementById("ev-conf");
-            var othCol = document.getElementById("ev-oth");
-
-            var pgName = document.getElementById("ev-pg-title");
-
-            var eventSection = document.getElementById("evn-types-section");
-            var frmSection = document.getElementById("evn-frm-section");
-
-            var btns = document.querySelectorAll('.ev');
-            var evNames = document.querySelectorAll('.ev-name');
-            var frmName = document.getElementById("title-main");
-            var frmOutContainer = document.getElementById("frm-outer-container");
-
-            btns.forEach((c) => {//In here I added forEach with mouseover and mouseleave to mimic css hover effect for all divs at once
-                c.addEventListener('mouseover', function () {
-                    c.style.background = "var(--cta)";
-                    c.style.transition = "0.6s"
-                });
-                c.addEventListener('mouseleave', function () {
-                    c.style.background = "var(--bg)";
-                    c.style.transition = "0.6s"
-                });
-                c.addEventListener('click', function () {
-                    pgName.innerHTML = "Add Events";
-                    eventSection.style.display = "none";
-                    frmOutContainer.style.display = "block";
-                });
-            });
-            weddingCol.addEventListener("click",function(){
-                frmName.innerHTML = "Weddings";
-            });
-            bdayCol.addEventListener("click",function(){
-                frmName.innerHTML = "Birthdays";
-            });
-            anniCol.addEventListener("click",function(){
-                frmName.innerHTML = "Anniversary";
-            });
-            gtCol.addEventListener("click",function(){
-                frmName.innerHTML = "Get Together";
-            });
-            partyCol.addEventListener("click",function(){
-                frmName.innerHTML = "Parties";
-            });
-            shopCol.addEventListener("click",function(){
-                frmName.innerHTML = "Shopping";
-            });
-            confCol.addEventListener("click",function(){
-                frmName.innerHTML = "Conference";
-            });
-            othCol.addEventListener("click",function(){
-                frmName.innerHTML = "Other";
-            });
         </script>
     </body>
 </html>

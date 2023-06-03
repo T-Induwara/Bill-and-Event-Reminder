@@ -565,6 +565,7 @@
             othCol.addEventListener("click",function(){
                 frmName.innerHTML = "Other";
             });
+            
         </script>
     </body>
 </html>
