@@ -95,6 +95,8 @@
                 text-align: center;
                 margin-top:1rem;
             }
+            /*css for form section on mobile*/
+
             @media only screen and (max-width:767px){
                 .row-sub{
                     margin-top:2rem;
@@ -162,6 +164,7 @@
                 .events div:hover{
                     cursor: pointer;
                 }
+                /*css for form section on tablet*/
             }
 
             /*CSS for desktop*/
@@ -212,6 +215,7 @@
                     text-align: center;
                     margin-top:1rem;
                 }
+                /*css for form section on desktop*/
             }
         </style>
     </head>
