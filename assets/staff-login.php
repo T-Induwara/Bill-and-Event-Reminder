@@ -45,12 +45,17 @@
                 justify-content: center;
                 align-items: center;
                 background-color: var(--bg);
-                border-radius: 10px;
-               filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                border-radius: 20px;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
 
             }
+            input[type=email],input[type=password]
+            {   
+
+	            outline:none;
+            }
             form{
-                padding: 2rem 1rem;
+                padding: 4rem 2rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -59,92 +64,101 @@
                
             }
             .email{
-                font-family:Poppins-S; 
+                font-family:Poppins-R; 
                 padding: 0.5rem 1.5rem;     
                 font-size: 1.3rem;
                 text-align: center;
-                border-radius: 10px;
+                border-radius: 7px;
                 margin-bottom: 1rem;
                 color: var(--primary);
                 border-color:var(--bg) ;
+                background-color: var(--bg);
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
                
              }
              .password{
-                font-family:Poppins-S; 
+                font-family:Poppins-R; 
                 padding: 0.5rem 1.5rem;     
                 font-size: 1.3rem;
                 text-align: center;
-                border-radius: 10px;
+                border-radius: 7px;
+                background-color: var(--bg);
                 margin-bottom: 1rem;
                 border-color:var(--bg) ;
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
              }
              h2{
-                font-family:Poppins-S; 
+                font-family:Poppins-R; 
                 font-size: 0.9rem;
                 color: var(--txt);
                 margin-bottom: 1rem;
              }
-             button{
+             .BTN{
                 font-family:Poppins-R; 
-                font-size: 1.8rem;
-                padding: 0.5rem 3.5rem;
-                border-radius: 0.8rem;
+                font-size: 1.5rem;
+                padding: 0.5rem 4rem;
+                border-radius: 7px;
                 background-color: var(--cta);
                 color: var(--bg);
                 cursor: pointer;
+                border: none;
              }
 
              @media only screen and (min-width:768px){
-                h1{
+                .heading{
                   font-size: 5rem;  
                 }
                form{
-                    padding: 4rem;
+                    padding: 6rem;
                }
                .email{
                     padding: 1rem 2rem;
                     font-size: 2rem;
-                    border-radius: 1rem;
+                    border-radius: 7px;
                     margin-bottom: 2rem;
                }
                .password{
                     padding: 1rem 2rem;
                     font-size: 2rem;
-                    border-radius: 1rem;
+                    border-radius: 7px;
                     margin-bottom: 2rem;
                }
                h2{
                      font-size: 1.2rem;
                      margin-bottom: 2rem;
                }
-               button{
+               .BTN{
                     font-size: 2.5rem;
-                    padding:1rem 5rem;
-                    border-radius: 1.2rem;
+                    padding:0.8rem 6rem;
+                    border-radius: 7px;
                }
 
              }
 
              @media only screen and (min-width:1280px){
-                h1{
-                    font-size: 4.2rem;
+                .heading{
+                    font-size: 4.5rem;
                 }
                 form{
-                    padding: 2rem;
+                    padding: 5rem;
                 }
                 .email,.password{
-                    padding: 1rem 3.5rem;
-                    font-size: 2.1rem;
-                    border-radius: 1.5rem;
+                    padding: 1rem 4rem;
+                    font-size: 1.5rem;
+                    border-radius: 7px;
                     margin-bottom: 2.3rem;
                 }
                 h2{
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                 }
-                button{
+                .BTN{
                     font-size: 2.5rem;
-                    padding: 1rem 6rem;
-                    border-radius: 1.3rem;
+                    padding: 0.4rem 8rem;
+                    border-radius: 7px;
                     
                 }
                 
@@ -162,7 +176,7 @@
                         <input type="email" placeholder="Staff E-mail address" class="email">
                         <input type="password" placeholder="Staff password" class="password">
                         <h2>Forgot Password</h2>
-                        <button id="btn" class="BTN">Log in</button>
+                        <input type="submit" id="btn" class="BTN" value="Log in">
                     </form>
                 </div>
             </div>
