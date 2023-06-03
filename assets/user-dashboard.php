@@ -248,9 +248,6 @@
             </div>
         </header>
         <main>
-            <?php
-                print("Hello World")
-            ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
