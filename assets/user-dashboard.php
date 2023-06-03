@@ -233,7 +233,7 @@
                     <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -268,7 +268,7 @@
                    </div>
                    <p id="dis">Add Bills</p> 
               </a>    
-              <a id="but" href="">  
+              <a id="but" href="event-types.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
                    </div>
@@ -295,7 +295,7 @@
                         <a href="../index.html">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.html">Contact Us</a>
-                        <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
