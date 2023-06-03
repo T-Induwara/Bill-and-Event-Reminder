@@ -187,8 +187,8 @@
                 background-color: var(--cta);
                 transition: 0.6s;
             }
-            .event-frm-section{
-                display:none !important;
+            .frm-outer-container{
+                display:none;
             }
 
             @media only screen and (max-width:767px){
@@ -524,6 +524,7 @@
             var btns = document.querySelectorAll('.ev');
             var evNames = document.querySelectorAll('.ev-name');
             var frmName = document.getElementById("title-main");
+            var frmOutContainer = document.getElementById("frm-outer-container");
 
             btns.forEach((c) => {//In here I added forEach with mouseover and mouseleave to mimic css hover effect for all divs at once
                 c.addEventListener('mouseover', function () {
@@ -537,7 +538,7 @@
                 c.addEventListener('click', function () {
                     pgName.innerHTML = "Add Events";
                     eventSection.style.display = "none";
-                    frmSection.style.display = "block";
+                    frmOutContainer.style.display = "block";
                 });
             });
             weddingCol.addEventListener("click",function(){
