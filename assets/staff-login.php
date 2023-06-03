@@ -3,9 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-          Staff Login
-        </title>
+        <title>Staff Login - Online Bill & Event Reminder</title>
         <style>
             :root{
                 --primary: #001f3f;
@@ -22,11 +20,11 @@
             }
             @font-face{
                 font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
+                src:url('font/Poppins-Regular.ttf');
             }
             @font-face{
                 font-family:Poppins-S;
-                src:url('../font/Poppins-SemiBold.ttf');
+                src:url('font/Poppins-SemiBold.ttf');
             }
             .login-container{
                 min-height: 100vh;
@@ -36,7 +34,7 @@
                 align-items: center;
             }
             .heading{
-                font-family:poppins-S;
+                font-family:Poppins-S !important;
                 font-size: 3.2rem;
                 color:var(--primary);
                 text-align: center;
@@ -160,11 +158,11 @@
             <div class="login-container">
                 <h1 class="heading">Staff Log in</h1>
                 <div class="details">
-                <form action="staff-login.php" method="post">
-                    <input type="email" placeholder="Staff E-mail address" class="email">
-                    <input type="password" placeholder="Staff password" class="password">
-                    <h2>Forgot Password</h2>
-                    <button id="btn" class="BTN">Log in</button>
+                    <form action="staff-login.php" method="post">
+                        <input type="email" placeholder="Staff E-mail address" class="email">
+                        <input type="password" placeholder="Staff password" class="password">
+                        <h2>Forgot Password</h2>
+                        <button id="btn" class="BTN">Log in</button>
                     </form>
                 </div>
             </div>
