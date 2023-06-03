@@ -18,29 +18,51 @@
 
         .content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 50vh;
+            grid-template-areas: "a" "b" "c" "d";
 
         }
 
         .title {
-            padding-left: 5rem;
-            padding-right: 12rem;
+            grid-area: a;
+        }
+
+        .hand {
+            grid-area: b;
+        }
+
+        .inquiry-form {
+            grid-area: c;
+        }
+
+        .man {
+            grid-area: d;
+        }
+
+        .title {
+            padding-left: 4rem;
+            padding-right: 3rem;
+            padding-top: 4rem;
             font-family: Poppins-S;
             font-size: 2em;
         }
 
         .hand-img {
-            width: 40%;
+            width: 60%;
             display: block;
             margin-left: auto;
+            margin-top: 3rem;
             margin-right: auto;
         }
 
         .man-img {
-            width: 26%;
+            width: 40%;
             display: block;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
         }
 
         .inquiry-form {
@@ -55,22 +77,25 @@
         form {
             background-color: var(--bg);
             margin: 1rem;
-            padding: 2rem;
+            padding: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
             border-radius: 15px;
         }
 
         #inquiry,
         #inq-summary {
-            width: 25rem;
+            width: 21rem;
         }
 
         #email,
         #phone {
-            width: 12.5rem;
+            width: 10rem;
         }
 
         .contact-detail {
             display: flex;
+            gap: 1rem;
         }
 
         input[type=text] {
@@ -79,7 +104,8 @@
             border-radius: 5px;
             background-color: var(--bg);
             font-family: Poppins-R;
-            padding: 1rem;
+            padding: 0.1rem;
+            margin-top: 3rem;
 
         }
 
@@ -89,9 +115,10 @@
 
         input[type=submit] {
             background-color: var(--cta);
-            width: 25rem;
-            padding: 0.5rem;
+            width: 21rem;
+            padding: 1rem;
             margin-top: 2rem;
+            margin-bottom: 2rem;
             border-radius: 5px;
             color: var(--bg);
             border: none;
@@ -109,6 +136,264 @@
         textarea:focus,
         input:focus {
             outline: none;
+        }
+
+        /*tablet*/
+        @media only screen and (min-width:768px) {
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: var(--bg);
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 40vh;
+                grid-template-areas: "a b" "c d";
+            }
+
+            .title {
+                grid-area: a;
+            }
+
+            .hand {
+                grid-area: b;
+            }
+
+            .inquiry-form {
+                grid-area: d;
+            }
+
+            .man {
+                grid-area: c;
+            }
+
+            .title {
+                padding-left: 5rem;
+                padding-right: 3rem;
+                padding-top: 3rem;
+                font-family: Poppins-S;
+                font-size: 2em;
+            }
+
+            .hand-img {
+                width: 50%;
+                display: block;
+                margin-left: auto;
+                margin-top: 8rem;
+                margin-right: auto;
+            }
+
+            .man-img {
+                width: 40%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3rem;
+            }
+
+            .inquiry-form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+
+
+            }
+
+            form {
+                background-color: var(--bg);
+                margin: 1rem;
+                padding: 1rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                border-radius: 15px;
+            }
+
+            #inquiry,
+            #inq-summary {
+                width: 23rem;
+            }
+
+            #email,
+            #phone {
+                width: 11rem;
+            }
+
+            .contact-detail {
+                display: flex;
+                gap: 1rem;
+            }
+
+            input[type=text] {
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius: 5px;
+                background-color: var(--bg);
+                font-family: Poppins-R;
+                padding: 0.1rem;
+                margin-top: 3rem;
+
+            }
+
+            input::placeholder {
+                text-align: center;
+            }
+
+            input[type=submit] {
+                background-color: var(--cta);
+                width: 23rem;
+                padding: 1rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                border-radius: 5px;
+                color: var(--bg);
+                border: none;
+                font-family: Poppins-S;
+                cursor: pointer;
+                transition: 0.6s;
+            }
+
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition: 0.6s;
+            }
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus,
+            input:focus {
+                outline: none;
+            }
+        }
+
+        @media only screen and (min-width:1280px) {
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: var(--bg);
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 70vh;
+                grid-template-areas: "a b" "c d";
+            }
+
+            .title {
+                grid-area: a;
+            }
+
+            .hand {
+                grid-area: b;
+            }
+
+            .inquiry-form {
+                grid-area: d;
+            }
+
+            .man {
+                grid-area: c;
+            }
+
+            .title {
+                padding-left: 5rem;
+                padding-right: 4rem;
+                padding-top: 3rem;
+                font-family: Poppins-S;
+                font-size: 2.5em;
+            }
+
+            .hand-img {
+                width: 60%;
+                display: block;
+                margin-left: auto;
+                margin-top: 8rem;
+                margin-right: auto;
+            }
+
+            .man-img {
+                width: 26%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3rem;
+            }
+
+            .inquiry-form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+
+
+            }
+
+            form {
+                background-color: var(--bg);
+                margin: 1rem;
+                padding: 1rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                border-radius: 15px;
+            }
+
+            #inquiry,
+            #inq-summary {
+                width: 25rem;
+            }
+
+            #email,
+            #phone {
+                width: 12rem;
+            }
+
+            .contact-detail {
+                display: flex;
+                gap: 1rem;
+            }
+
+            input[type=text] {
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius: 5px;
+                background-color: var(--bg);
+                font-family: Poppins-R;
+                padding: 0.1rem;
+                margin-top: 3rem;
+
+            }
+
+            input::placeholder {
+                text-align: center;
+            }
+
+            input[type=submit] {
+                background-color: var(--cta);
+                width: 25rem;
+                padding: 1rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                border-radius: 5px;
+                color: var(--bg);
+                border: none;
+                font-family: Poppins-S;
+                cursor: pointer;
+                transition: 0.6s;
+            }
+
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition: 0.6s;
+            }
+
+            /*remove outline on html form fields when active status*/
+            textarea:focus,
+            input:focus {
+                outline: none;
+            }
+
         }
     </style>
 </head>
@@ -143,7 +428,7 @@
                 <img src="images/contact-us/Saly-38.webp" alt="" class="man-img">
             </div>
             <div class="inquiry-form">
-                <form>
+                <form method="GET" action="create-account.html">
                     <div class="inq-summary">
                         <input type="text" placeholder="Inquiry Summary" id="inq-summary">
                     </div>
