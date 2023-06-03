@@ -64,7 +64,7 @@
 
             .category{
                 margin: 0rem;
-                padding: 3rem 3rem 6rem 3rem;
+                padding: 4rem 3rem 4rem 3rem;
                 width: 100%;
                 height: 100vh;
                 display: flex;
@@ -73,49 +73,46 @@
                 
             }
 
+            #but{
+                margin:0 3rem 0 3rem;
+                padding:0 2rem 3rem 2rem;
+                display: flex;
+                width: 70%;
+                flex-direction:column ;
+                justify-content: center;
+            }
+
             
 
             .subbutton{
                 margin: 0rem;
-                margin-bottom:0rem;
-                padding: 3rem;
-                display: grid;
-                opacity: 90%;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                background: var(--bg);
 
             }
 
             .subbutton img{
-                margin-top: 0rem ;
-                margin-left: 3rem;
-                margin-right: 3rem;
-                margin-bottom: 0rem;
-                padding:2rem;
-                width: 60%;
-                background: var(--bg);
-                display: grid;
-                justify-content: center;
-                align-items: center ;
-                border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                margin: 0rem;
+                padding:1rem;
+                width: 100%;
             }
 
             #dis{
-                margin: 0;
-                padding-top: 1rem;
+                margin:0;
+                margin-bottom: 0rem;
+                padding-top:1rem;
                 text-align: center;
                 font-family:Poppins-S;
                 
             }
 
             .subbutton:hover{
-                opacity: 100%;
-                color: var(--cta);
-
-            }
-
-            img:hover{
                 background-color: var(--cta);
-                filter: drop-shadow(0px 0px 10px var(--primary));
+                transition: 0.6s;
             }
 
           
@@ -152,37 +149,25 @@
 
                 .category{
                 margin: 0rem;
-                padding: 3rem 1rem 3rem 1rem;
+                padding: 3rem 2rem 3rem 2rem;
                 width: 100%;
-                height: 60vh;
+                height: 40vh;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 
                 }
-                
-                .subbutton{
-                padding: 0rem;
+
+                #but{
+                margin:0 3rem 0 3rem;
+                padding:0 1rem 0rem 1rem;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                }
-
-             
-
-                .subbutton img{
-                margin-top: 0rem ;
-                margin-left: 3rem;
-                margin-right: 3rem;
-                margin-bottom: 0rem;
-                padding:2rem;
-                width: 50%;
-                display: grid;
+                width: 70%;
+                flex-direction:column ;
                 justify-content: center;
-                align-items: center ;
-              
-               }
+            }
+                
+                
 
                 
             }
@@ -211,21 +196,29 @@
 
                 .category{
                 margin: 0rem;
-                padding: 3rem 1rem 5rem 1rem;
+                padding: 5rem 7rem 8rem 7rem;
                 width: 100%;
                 height: 60vh;
                 
                 }
 
-                .subbutton{
-                margin: 0 1rem 2rem 1rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
+                #but{
+                margin:0 3rem 0 3rem;
+                padding:3rem 5rem 3rem 5rem;
+                width: 100%;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
+                flex-direction:column ;
+                justify-content: center;
+            }
 
-                }
+            .subbutton img{
+                margin: 0rem;
+                padding:1rem;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
 
 
             }
@@ -271,18 +264,25 @@
             </div>
 
             <div class="category">
-               <div class="subbutton" href="">
+              <a id="but" href="">  
+                   <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
-                   <p id="dis">Add Bills</p>
-               </div>   
-               <div class="subbutton" href="">
-                   <img id="img2" alt="image" src="/assets/images/user-dashboard/add-events.webp">
-                   <p id="dis">Add Events</p>
-               </div>   
-               <div class="subbutton" href="">
-                   <img id="img3" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
-                   <p id="dis">View Reminders</p>
-               </div>  
+                   </div>
+                   <p id="dis">Add Bills</p> 
+              </a>    
+              <a id="but" href="">  
+                   <div class="subbutton" >
+                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
+                   </div>
+                   <p id="dis">Add Events</p> 
+              </a>    
+              <a id="but" href="">  
+                   <div class="subbutton" >
+                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
+                   </div>
+                   <p id="dis">View Reminders</p> 
+              </a>    
+               
             </div>
 
         </main>
