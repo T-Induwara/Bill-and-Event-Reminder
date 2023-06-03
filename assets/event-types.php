@@ -312,7 +312,7 @@
                     </div>
                 </div>
             </div>
-            <div class="event-frm-section" id="event-frm-section">
+            <div class="event-frm-section" id="evn-frm-section">
                 <div class="frm-container">
                     <div class="frm-title" id="frm-title">
                         <h1 class="title-main" id="title-main">Weddings</h1>
@@ -393,9 +393,15 @@
             var confCol = document.getElementById("ev-conf");
             var othCol = document.getElementById("ev-oth");
 
+            var pgName = document.getElementById("ev-pg-title");
+
+            var eventSection = document.getElementById("evn-types-section");
+            var frmSection = document.getElementById("evn-frm-section");
+
             var btns = document.querySelectorAll('.ev');
             var evNames = document.querySelectorAll('.ev-name');
             var frmName = document.getElementById("title-main");
+
             btns.forEach((c) => {//In here I added forEach with mouseover and mouseleave to mimic css hover effect for all divs at once
                 c.addEventListener('mouseover', function () {
                     c.style.background = "var(--cta)";
@@ -404,6 +410,11 @@
                 c.addEventListener('mouseleave', function () {
                     c.style.background = "var(--bg)";
                     c.style.transition = "0.6s"
+                });
+                c.addEventListener('click', function () {
+                    pgName.innerHTML = "Add Events";
+                    eventSection.style.display = "none";
+                    frmSection.style.display = "block";
                 });
             });
             weddingCol.addEventListener("click",function(){
