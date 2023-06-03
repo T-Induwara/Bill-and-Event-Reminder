@@ -85,12 +85,12 @@
 
         #inquiry,
         #inq-summary {
-            width: 21rem;
+            width: 20rem;
         }
 
         #email,
         #phone {
-            width: 10rem;
+            width: 9.5rem;
         }
 
         .contact-detail {
@@ -115,7 +115,7 @@
 
         input[type=submit] {
             background-color: var(--cta);
-            width: 21rem;
+            width: 20rem;
             padding: 1rem;
             margin-top: 2rem;
             margin-bottom: 2rem;
