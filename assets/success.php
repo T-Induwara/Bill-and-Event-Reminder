@@ -152,6 +152,52 @@
                 background-color: var(--cta);
                 transition: 0.6s;
             }
+            /*CSS for center window on mobile*/
+            .center-title{
+                margin-top:3rem;
+            }
+            .center-title p{
+                font-family: Poppins-R;
+                text-align: center;
+            }
+            .btm-btns{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top:2rem;
+            }
+            .btm-btns a div{
+                font-family: Poppins-S;
+            }
+            .dboard-btn{
+                background-color: var(--bg);
+                color:var(--primary);
+                border:1px solid var(--primary);
+                padding:0.7rem 2rem 0.7rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .another-r-btn{
+                background-color: var(--primary);
+                color:var(--bg);
+                border:1px solid var(--bg);
+                padding:0.7rem 2rem 0.7rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+                margin-top:1rem;
+            }
+            .dboard-btn:hover{
+                background-color: var(--primary);
+                color:var(--bg);
+                border:1px solid var(--bg);
+                transition: 0.6s;
+            }
+            .another-r-btn:hover{
+                background-color: var(--cta);
+                color:var(--bg);
+                border:1px solid var(--cta);
+                transition: 0.6s;
+            }
 
             @media only screen and (max-width:767px){
                 .row-sub{
@@ -187,28 +233,52 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-                /*css for form section on tablet*/
-                .event-frm-section{
-                    padding:4rem 3rem 6rem 3rem;
-                    flex-direction: column;
+                /*CSS for center window on tablet*/
+                .center-title{
+                    margin-top:3rem;
+                }
+                .center-title p{
+                    font-family: Poppins-R;
+                    text-align: center;
+                }
+                .btm-btns{
+                    flex-direction: row;
                     justify-content: center;
-                    align-items: center;
+                    margin-top:3rem;
                 }
-                .frm-container{
-                    flex-direction: column;
-                    filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                .btm-btns a div{
+                    font-family: Poppins-S;
+                }
+                .dboard-btn{
                     background-color: var(--bg);
-                    border-radius:10px;
-                    padding:3rem 6rem 3rem 6rem;
+                    color:var(--primary);
+                    border:1px solid var(--primary);
+                    padding:0.7rem 2rem 0.7rem 2rem;
+                    border-radius:7px;
+                    margin-right:1rem;
+                    transition: 0.6s;
                 }
-                .frm-divs{
-                    flex-direction:row;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-top:2rem;
-                }
-                .frm-divs input{
+                .another-r-btn{
+                    background-color: var(--primary);
+                    color:var(--bg);
+                    border:1px solid var(--bg);
+                    padding:0.7rem 2rem 0.7rem 2rem;
+                    border-radius:7px;
+                    margin-left:1rem;
+                    transition: 0.6s;
                     margin-top:0rem;
+                }
+                .dboard-btn:hover{
+                    background-color: var(--primary);
+                    color:var(--bg);
+                    border:1px solid var(--bg);
+                    transition: 0.6s;
+                }
+                .another-r-btn:hover{
+                    background-color: var(--cta);
+                    color:var(--bg);
+                    border:1px solid var(--cta);
+                    transition: 0.6s;
                 }
             }
 
@@ -233,7 +303,7 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-                /*css for form section on desktop*/
+                /*CSS for center window on desktop*/
                 
             }
         </style>
