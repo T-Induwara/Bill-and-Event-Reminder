@@ -56,7 +56,6 @@
         </header>
         <main>
             <?php
-                print("Hello World")
             ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
