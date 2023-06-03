@@ -250,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            <div class="evn-types-section">
+            <div class="evn-types-section" id="evn-types-section">
                 <div class="ev-row d-flex">
                     <div class="row-sub d-flex">
                         <div class="events" id="wedding-col">
@@ -271,7 +271,7 @@
                             <div class="ev-anni ev" id="ev-anni">
                                 <img src="images/user-dashboard/event-types/anniversaries.webp" alt="anniversary icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Anniversaries</p>
+                            <p class="ev-name" id="ev-name">Anniversary</p>
                         </div>
                         <div class="events" id="get-to-col">
                             <div class="ev-gt ev" id="ev-gt">
@@ -287,7 +287,7 @@
                             <div class="ev-party ev" id="ev-party">
                                 <img src="images/user-dashboard/event-types/office-parties.webp" alt="party icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Party</p>
+                            <p class="ev-name" id="ev-name">Parties</p>
                         </div>
                         <div class="events" id="shop-col">
                             <div class="ev-shop ev" id="ev-shop">
@@ -312,7 +312,41 @@
                     </div>
                 </div>
             </div>
-            <div class=""></div>
+            <div class="event-frm-section" id="event-frm-section">
+                <div class="frm-container">
+                    <div class="frm-title" id="frm-title">
+                        <h1 class="title-main" id="title-main">Weddings</h1>
+                    </div>
+                    <form action="connect.php" method="post">
+                        <div class="frm-divs d-flex">
+                            <label for="eventTitle">Add event title</label>
+                            <input type="text" name="eventTitle" placeholder="My event...">
+                        </div>
+                        <div class="frm-divs d-flex">
+                            <label for="eventDesc">Add event description</label>
+                            <input type="text" name="eventDesc" placeholder="My event is about...">
+                        </div>
+                        <div class="frm-divs d-flex">
+                            <label for="time">Set reminder time</label>
+                            <input type="time" name="time">
+                        </div>
+                        <div class="frm-divs d-flex">
+                            <label for="date">Set reminder date</label>
+                            <input type="date" name="date">
+                        </div>
+                        <div class="frm-divs d-flex">
+                            <p>Select reminder method</p>
+                            <div class="d-flex">
+                                <input type="radio" name="eventRemMethod" value="SMS">
+                                <label for="sms">SMS</label>
+                                <input type="radio" name="eventRemMethod" value="Email">
+                                <label for="email">E-mail</label>
+                            </div>
+                        </div>
+                        <input type="submit" value="Add reminder">
+                    </form>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="footer-container">
@@ -360,16 +394,42 @@
             var othCol = document.getElementById("ev-oth");
 
             var btns = document.querySelectorAll('.ev');
-            btns.forEach((c) => {//In here I added click event listner for all the col s and then print the innerHTML value into input area
+            var evNames = document.querySelectorAll('.ev-name');
+            var frmName = document.getElementById("title-main");
+            btns.forEach((c) => {//In here I added forEach with mouseover and mouseleave to mimic css hover effect for all divs at once
                 c.addEventListener('mouseover', function () {
-                c.style.background = "var(--cta)";
-                c.style.transition = "0.6s"
+                    c.style.background = "var(--cta)";
+                    c.style.transition = "0.6s"
+                });
+                c.addEventListener('mouseleave', function () {
+                    c.style.background = "var(--bg)";
+                    c.style.transition = "0.6s"
+                });
             });
-            c.addEventListener('mouseleave', function () {
-                c.style.background = "var(--bg)";
-                c.style.transition = "0.6s"
+            weddingCol.addEventListener("click",function(){
+                frmName.innerHTML = "Weddings";
             });
-})
+            bdayCol.addEventListener("click",function(){
+                frmName.innerHTML = "Birthdays";
+            });
+            anniCol.addEventListener("click",function(){
+                frmName.innerHTML = "Anniversary";
+            });
+            gtCol.addEventListener("click",function(){
+                frmName.innerHTML = "Get Together";
+            });
+            partyCol.addEventListener("click",function(){
+                frmName.innerHTML = "Parties";
+            });
+            shopCol.addEventListener("click",function(){
+                frmName.innerHTML = "Shopping";
+            });
+            confCol.addEventListener("click",function(){
+                frmName.innerHTML = "Conference";
+            });
+            othCol.addEventListener("click",function(){
+                frmName.innerHTML = "Other";
+            });
         </script>
     </body>
 </html>
