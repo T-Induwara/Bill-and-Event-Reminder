@@ -169,6 +169,8 @@
     </head>
     <body>
         <main>
+            <?php
+            ?>
             <div class="login-container">
                 <h1 class="heading">Staff Log in</h1>
                 <div class="details">
