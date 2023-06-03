@@ -416,6 +416,8 @@
         </div>
     </header>
     <main>
+        <?php
+        ?>
         <div class="content">
 
             <div class="title">
