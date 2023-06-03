@@ -187,6 +187,9 @@
                 background-color: var(--cta);
                 transition: 0.6s;
             }
+            .event-frm-section{
+                display:none !important;
+            }
 
             @media only screen and (max-width:767px){
                 .row-sub{
@@ -430,39 +433,41 @@
                     </div>
                 </div>
             </div>
-            <div class="event-frm-section d-flex" id="evn-frm-section">
-                <div class="frm-container d-flex">
-                    <div class="frm-title" id="frm-title">
-                        <h1 class="title-main" id="title-main">Weddings</h1>
-                    </div>
-                    <form action="success.php" method="post">
-                        <div class="frm-divs d-flex">
-                            <label for="eventTitle">Add event title</label>
-                            <input type="text" name="eventTitle" placeholder="My event...">
+            <div class="frm-outer-container" id="frm-outer-container">
+                <div class="event-frm-section d-flex" id="evn-frm-section">
+                    <div class="frm-container d-flex">
+                        <div class="frm-title" id="frm-title">
+                            <h1 class="title-main" id="title-main">Weddings</h1>
                         </div>
-                        <div class="frm-divs d-flex">
-                            <label for="eventDesc">Add event description</label>
-                            <input type="text" name="eventDesc" placeholder="My event is about...">
-                        </div>
-                        <div class="frm-divs d-flex">
-                            <label for="time">Set reminder time</label>
-                            <input type="time" name="time">
-                        </div>
-                        <div class="frm-divs d-flex">
-                            <label for="date">Set reminder date</label>
-                            <input type="date" name="date">
-                        </div>
-                        <div class="frm-divs d-flex">
-                            <p>Select reminder method</p>
-                            <div class="rad-btns d-flex">
-                                <input type="radio" name="eventRemMethod" value="SMS">
-                                <label for="sms">SMS</label>
-                                <input type="radio" name="eventRemMethod" value="Email">
-                                <label for="email">E-mail</label>
+                        <form action="success.php" method="post">
+                            <div class="frm-divs d-flex">
+                                <label for="eventTitle">Add event title</label>
+                                <input type="text" name="eventTitle" placeholder="My event...">
                             </div>
-                        </div>
-                        <input type="submit" value="Add reminder" class="frm-sub-btn">
-                    </form>
+                            <div class="frm-divs d-flex">
+                                <label for="eventDesc">Add event description</label>
+                                <input type="text" name="eventDesc" placeholder="My event is about...">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="time">Set reminder time</label>
+                                <input type="time" name="time">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="date">Set reminder date</label>
+                                <input type="date" name="date">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <p>Select reminder method</p>
+                                <div class="rad-btns d-flex">
+                                    <input type="radio" name="eventRemMethod" value="SMS">
+                                    <label for="sms">SMS</label>
+                                    <input type="radio" name="eventRemMethod" value="Email">
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <input type="submit" value="Add reminder" class="frm-sub-btn">
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
