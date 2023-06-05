@@ -208,6 +208,7 @@
             .ret-btn:hover{
                 background-color:var(--cta);
                 color:var(--bg);
+                cursor:pointer;
                 transition: 0.6s;
             }
 
@@ -599,6 +600,12 @@
             othCol.addEventListener("click",function(){
                 frmName.innerHTML = "Other";
             });
+
+            var retBtn = document.getElementById("ret-btn-frm");
+            retBtn.addEventListener("click",function(){
+                eventSection.style.display = "block";
+                frmOutContainer.style.display = "none";
+            })
             
         </script>
     </body>
