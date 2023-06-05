@@ -21,11 +21,11 @@
             }
             @font-face{
                 font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
+                src:url('font/Poppins-Regular.ttf');
             }
             @font-face{
                 font-family:Poppins-S;
-                src:url('../font/Poppins-SemiBold.ttf');
+                src:url('font/Poppins-SemiBold.ttf');
             }
             /*Default css for mobile*/
             .dashboard-header{
@@ -190,10 +190,35 @@
             .frm-outer-container{
                 display:none;
             }
+            /*CSS for dashboard and return btns*/
+            .pg-return-btn{
+                flex-direction: row;
+                justify-content: center;
+                padding-bottom:8rem;
+            }
+            .ret-btn{
+                background-color:var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                font-size:15px;
+                padding:1rem 2rem 1rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .ret-btn:hover{
+                background-color:var(--cta);
+                color:var(--bg);
+                cursor:pointer;
+                transition: 0.6s;
+            }
 
             @media only screen and (max-width:767px){
                 .row-sub{
                     margin-top:2rem;
+                }
+                .pg-return-btn{
+                    padding-top:4rem;
+                    padding-bottom:0rem !important;
                 }
                 
             }
@@ -434,6 +459,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="pg-return-btn d-flex">
+                    <a href="user-dashboard.php">
+                        <div class="ret-btn">Dashboard</div>
+                    </a>
+                </div>
             </div>
             <div class="frm-outer-container" id="frm-outer-container">
                 <div class="event-frm-section d-flex" id="evn-frm-section">
@@ -470,6 +500,9 @@
                             <input type="submit" value="Add reminder" class="frm-sub-btn">
                         </form>
                     </div>
+                </div>
+                <div class="pg-return-btn d-flex">
+                    <div class="ret-btn" id="ret-btn-frm">Return</div>
                 </div>
             </div>
         </main>
@@ -567,6 +600,11 @@
             othCol.addEventListener("click",function(){
                 frmName.innerHTML = "Other";
             });
+            var retBtn = document.getElementById("ret-btn-frm");
+            retBtn.addEventListener("click",function(){
+                eventSection.style.display = "block";
+                frmOutContainer.style.display = "none";
+            })
             
         </script>
     </body>

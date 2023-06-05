@@ -21,21 +21,344 @@
             }
             @font-face{
                 font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
+                src:url('font/Poppins-Regular.ttf');
             }
             @font-face{
                 font-family:Poppins-S;
-                src:url('../font/Poppins-SemiBold.ttf');
+                src:url('font/Poppins-SemiBold.ttf');
             }
             /*Default css for mobile*/
             .dashboard-header{
-                padding:4em 2em 4em 2em;
+                padding:2em 3em 2em 3em;
+            }
+            .usr-col{
+                margin-top:1rem;
+                flex-direction:row;
+                justify-content:center;
+                align-items: center;
+            }
+            .usr-col-details{
+                flex-direction: column;
+                margin-left:0.5rem;
+            }
+            .usr-image{
+                margin-top:-0.5rem;
+                width:15%;
+            }
+            .title-col h1,.usr-name{
+                font-family:Poppins-S;
+            }
+            .title-col h1{
+                font-size:40px;
+                text-align: center;
+            }
+            .usr-name{
+                font-size: 25px;
+            }
+            .usr-mail{
+                margin-top:-0.8rem;
+                font-family: Poppins-R;
+                font-size: 15px;
+            }
+            /*css for event section on mobile*/
+            .evn-types-section{
+                padding:2rem 0rem 8rem 0rem;
+            }
+            .ev-row{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .row-sub{
+                flex-direction: row;
+            }
+            .events div img{
+                margin: auto;  
+                position: absolute;
+                left:0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 40%;
+            }
+            .events div{
+                width:80px;
+                height:80px;
+                background-color: var(--bg);
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                border-radius:10px;
+                margin-left:3rem;
+                margin-right:3rem;
+            }
+            .ev-name{
+                font-family: Poppins-S;
+                text-align: center;
+                margin-top:1rem;
+            }
+            /*css for form section on mobile*/
+            .event-frm-section{
+                padding:4rem 1rem 6rem 1rem;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .frm-container{
+                flex-direction: column;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                background-color: var(--bg);
+                border-radius:10px;
+                padding:3rem 1.5rem 3rem 1.5rem;
+            }
+            .frm-title{
+                border:1px solid rgba(0, 0, 0, 0.19);
+                border-radius:7px;
+                padding:1rem 1rem 1rem 1rem;
+            }
+            .title-main{
+                text-align: center;
+                font-family: Poppins-S;
+            }
+            form{
+                margin-top:2rem;
+            }
+            form label,.frm-divs p{
+                font-family:Poppins-R;
+                margin-right:2rem;
+            }
+            .frm-divs{
+                flex-direction:column;
+                justify-content: space-between;
+                align-items: center;
+                margin-top:2rem;
+            }
+            .frm-divs input{
+                margin-top:1rem;
+            }
+            input{
+                width:300px;
+                text-align: center;
+            }
+            input[type=text],input[type=date],input[type=time]{
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary);
+                background-color: var(--bg);
+                border-radius:5px;
+                padding:0.5rem 1.5rem 0.5rem 1.5rem;
+            }
+            input[type=text],input[type=date],input[type=time]:focus{
+                outline:none;
+            }
+            .rad-btns{
+                flex-direction: row;
+                align-items: center;
+            }
+            .rad-btns input{
+                margin-right:0.5rem;
+            }
+            input[type=radio]{
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                width:20px;
+                height:20px;
+                /* Define the custom radio button design */
+                border-radius: 50%;
+                border: 1px solid var(--primary);
+            }
+            input[type=radio]:checked{
+                background-color: var(--cta);
+            }
+            .frm-sub-btn{
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+                margin-top:2rem;
+                font-family: Poppins-S;
+                color:var(--bg);
+                background-color: var(--primary);
+                padding:0.7rem 2rem 0.7rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+                border:none;
+            }
+            .frm-sub-btn:hover{
+                background-color: var(--cta);
+                transition: 0.6s;
+            }
+            .frm-outer-container{
+                display:none;
+            }
+            /*CSS for dashboard and return btns*/
+            .pg-return-btn{
+                flex-direction: row;
+                justify-content: center;
+                padding-bottom:8rem;
+            }
+            .ret-btn{
+                background-color:var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                font-size:15px;
+                padding:1rem 2rem 1rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .ret-btn:hover{
+                background-color:var(--cta);
+                color:var(--bg);
+                cursor:pointer;
+                transition: 0.6s;
+            }
+
+            @media only screen and (max-width:767px){
+                .row-sub{
+                    margin-top:2rem;
+                }
+                .pg-return-btn{
+                    padding-top:4rem;
+                    padding-bottom:0rem !important;
+                }
+                
             }
 
             /*CSS for tablet*/
+            @media only screen and (min-width:768px){
+                .dashboard-header{
+                    padding:2em 2em 2em 2em;
+                }
+                .usr-col{
+                    margin-top:0.5rem;
+                    justify-content:end;
+                }
+                .usr-col-details{
+                    flex-direction: column;
+                    margin-left:0.5rem;
+                }
+                .usr-image{
+                    width:15%;
+                }
+                .title-col h1{
+                    font-size:50px;
+                    text-align: left;
+                }
+                .usr-name{
+                    font-size: 28px;
+                }
+                .usr-mail{
+                    margin-top:-1rem;
+                    font-size: 15px;
+                }
+                /*css for event section on tablet*/
+                .evn-types-section{
+                    padding:0rem;
+                }
+                .ev-row{
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top:5rem;
+                    margin-bottom:5rem;
+                }
+                .events div img{
+                    margin: auto;  
+                    position: absolute;
+                    left:0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 40%;
+                }
+                .events div{
+                    width:80px;
+                    height:80px;
+                    border-radius:10px;
+                    margin-left:3rem;
+                    margin-right:3rem;
+                }
+                .ev-name{
+                    text-align: center;
+                    margin-top:1rem;
+                }
+                .events div:hover{
+                    cursor: pointer;
+                }
+                /*css for form section on tablet*/
+                .event-frm-section{
+                    padding:4rem 3rem 6rem 3rem;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .frm-container{
+                    flex-direction: column;
+                    filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                    background-color: var(--bg);
+                    border-radius:10px;
+                    padding:3rem 6rem 3rem 6rem;
+                }
+                .frm-divs{
+                    flex-direction:row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top:2rem;
+                }
+                .frm-divs input{
+                    margin-top:0rem;
+                }
+            }
 
             /*CSS for desktop*/
-
+            @media only screen and (min-width:1280px){
+                .dashboard-header{
+                    padding:2em 3em 2em 3em;
+                }
+                .usr-col-details{
+                    margin-left:1rem;
+                }
+                .usr-image{
+                    width:8%;
+                }
+                .title-col h1{
+                    font-size:50px;
+                }
+                .usr-name{
+                    font-size: 28px;
+                }
+                .usr-mail{
+                    margin-top:-1rem;
+                    font-size: 15px;
+                }
+                /*css for event section on desktop*/
+                .ev-row{
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top:5rem;
+                    margin-bottom:5rem;
+                }
+                .events div img{
+                    margin: auto;  
+                    position: absolute;
+                    left:0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 40%;
+                }
+                .events div{
+                    width:100px;
+                    height:100px;
+                    border-radius:10px;
+                    margin-left:4rem;
+                    margin-right:4rem;
+                }
+                .ev-name{
+                    text-align: center;
+                    margin-top:1rem;
+                }
+                /*css for form section on desktop*/
+                
+            }
         </style>
     </head>
     <body>
@@ -59,15 +382,15 @@
             ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
-                    <div class="col-lg-6 pg-title">
+                    <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>BILL TYPES</h1>
+                            <h1 id="ev-pg-title">BILL TYPES</h1>
                         </div>
                     </div>
-                    <div class="col-lg-6 pg-usr-window">
-                        <div class="usr-col">
-                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image">
-                            <div class="usr-col-details">
+                    <div class="col-md-6 pg-usr-window">
+                        <div class="usr-col d-flex">
+                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
+                            <div class="usr-col-details d-flex">
                                 <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
                                 <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
                             </div>
@@ -75,7 +398,113 @@
                     </div>
                 </div>
             </div>
-
+            <div class="evn-types-section" id="evn-types-section">
+                <div class="ev-row d-flex">
+                    <div class="row-sub d-flex">
+                        <div class="events" id="wedding-col">
+                            <div class="ev-wedding ev" id="bl-phone">
+                                <img src="images/user-dashboard/bill-types/phone.webp" alt="wedding icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Phone</p>
+                        </div>
+                        <div class="events" id="bday-col">
+                            <div class="ev-bday ev" id="bl-int">
+                                <img src="images/user-dashboard/bill-types/internet.webp" alt="bday icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Internet</p>
+                        </div>
+                    </div>
+                    <div class="row-sub d-flex">
+                        <div class="events" id="anniv-col">
+                            <div class="ev-anni ev" id="bl-insu">
+                                <img src="images/user-dashboard/bill-types/insurance.webp" alt="anniversary icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Insurance</p>
+                        </div>
+                        <div class="events" id="get-to-col">
+                            <div class="ev-gt ev" id="bl-finan">
+                                <img src="images/user-dashboard/bill-types/finance.webp" alt="get together icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Finance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ev-row d-flex ev-row1">
+                    <div class="row-sub d-flex">
+                        <div class="events" id="party-col">
+                            <div class="ev-party ev" id="bl-cdpay">
+                                <img src="images/user-dashboard/bill-types/cards.webp" alt="party icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Card payments</p>
+                        </div>
+                        <div class="events" id="shop-col">
+                            <div class="ev-shop ev" id="bl-water">
+                                <img src="images/user-dashboard/bill-types/water.webp" alt="shopping icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Water</p>
+                        </div>
+                    </div>
+                    <div class="row-sub d-flex">
+                        <div class="events" id="conf-col">
+                            <div class="ev-conf ev" id="bl-elec">
+                                <img src="images/user-dashboard/bill-types/electricity.webp" alt="conference icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Electricity</p>
+                        </div>
+                        <div class="events" id="other-col">
+                            <div class="ev-oth ev" id="bl-oth">
+                                <img src="images/user-dashboard/bill-types/other-bills.webp" alt="other events icon">
+                            </div>
+                            <p class="ev-name" id="ev-name">Other</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pg-return-btn d-flex">
+                    <a href="user-dashboard.php">
+                        <div class="ret-btn">Dashboard</div>
+                    </a>
+                </div>
+            </div>
+            <div class="frm-outer-container" id="frm-outer-container">
+                <div class="event-frm-section d-flex" id="evn-frm-section">
+                    <div class="frm-container d-flex">
+                        <div class="frm-title" id="frm-title">
+                            <h1 class="title-main" id="title-main">Weddings</h1>
+                        </div>
+                        <form action="success-b.php" method="post">
+                            <div class="frm-divs d-flex">
+                                <label for="eventTitle">Add bill title</label>
+                                <input type="text" name="eventTitle" placeholder="My event...">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="eventDesc">Add bill description</label>
+                                <input type="text" name="eventDesc" placeholder="My event is about...">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="time">Set reminder time</label>
+                                <input type="time" name="time">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="date">Set reminder date</label>
+                                <input type="date" name="date">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <p>Select reminder method</p>
+                                <div class="rad-btns d-flex">
+                                    <input type="radio" name="eventRemMethod" value="SMS">
+                                    <label for="sms">SMS</label>
+                                    <input type="radio" name="eventRemMethod" value="Email">
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <input type="submit" value="Add reminder" class="frm-sub-btn">
+                        </form>
+                    </div>
+                </div>
+                <div class="pg-return-btn d-flex">
+                    <div class="ret-btn" id="ret-btn-frm">Return</div>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="footer-container">
@@ -88,7 +517,7 @@
                         <a href="../index.html">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.html">Contact Us</a>
-                        <a href="#" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
@@ -110,5 +539,74 @@
             </div>
         </footer>
         <script src="js/main-script.js"></script>
+        <script>
+            console.log("Internal js loaded");
+
+            var phnCol = document.getElementById("bl-phone");
+            var intCol = document.getElementById("bl-int");
+            var insuCol = document.getElementById("bl-insu");
+            var financeCol = document.getElementById("bl-finan");
+            var cdpayCol = document.getElementById("bl-cdpay");
+            var waterCol = document.getElementById("bl-water");
+            var elecCol = document.getElementById("bl-elec");
+            var othCol = document.getElementById("bl-oth");
+
+            var pgName = document.getElementById("ev-pg-title");
+
+            var eventSection = document.getElementById("evn-types-section");
+            var frmSection = document.getElementById("evn-frm-section");
+
+            var btns = document.querySelectorAll('.ev');
+            var evNames = document.querySelectorAll('.ev-name');
+            var frmName = document.getElementById("title-main");
+            var frmOutContainer = document.getElementById("frm-outer-container");
+
+            btns.forEach((c) => {
+                c.addEventListener('mouseover', function () {
+                    c.style.background = "var(--cta)";
+                    c.style.transition = "0.6s"
+                });
+                c.addEventListener('mouseleave', function () {
+                    c.style.background = "var(--bg)";
+                    c.style.transition = "0.6s"
+                });
+                c.addEventListener('click', function () {
+                    pgName.innerHTML = "Add Events";
+                    eventSection.style.display = "none";
+                    frmOutContainer.style.display = "block";
+                });
+            });
+            phnCol.addEventListener("click",function(){
+                frmName.innerHTML = "Phone";
+            });
+            intCol.addEventListener("click",function(){
+                frmName.innerHTML = "Internet";
+            });
+            insuCol.addEventListener("click",function(){
+                frmName.innerHTML = "Insurance";
+            });
+            financeCol.addEventListener("click",function(){
+                frmName.innerHTML = "Finance";
+            });
+            cdpayCol.addEventListener("click",function(){
+                frmName.innerHTML = "Card Payments";
+            });
+            waterCol.addEventListener("click",function(){
+                frmName.innerHTML = "Water";
+            });
+            elecCol.addEventListener("click",function(){
+                frmName.innerHTML = "Electricity";
+            });
+            othCol.addEventListener("click",function(){
+                frmName.innerHTML = "Other";
+            });
+
+            var retBtn = document.getElementById("ret-btn-frm");
+            retBtn.addEventListener("click",function(){
+                eventSection.style.display = "block";
+                frmOutContainer.style.display = "none";
+            })
+            
+        </script>
     </body>
 </html>

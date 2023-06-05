@@ -22,11 +22,11 @@
             }
             @font-face{
                 font-family:Poppins-R;
-                src:url('../font/Poppins-Regular.ttf');
+                src:url('font/Poppins-Regular.ttf');
             }
             @font-face{
                 font-family:Poppins-S;
-                src:url('../font/Poppins-SemiBold.ttf');
+                src:url('font/Poppins-SemiBold.ttf');
             }
             /*Default css for mobile*/
             .dashboard-header{
@@ -264,7 +264,7 @@
             </div>
 
             <div class="category">
-              <a id="but" href="">  
+              <a id="but" href="bill-types.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
                    </div>

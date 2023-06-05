@@ -1,0 +1,4 @@
+user inquiries - create, read, view, delete
+faqs - create, read, view, delete
+bill types - create, read, view, delete
+event types - create, read, view, delete

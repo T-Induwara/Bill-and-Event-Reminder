@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Event Submission successfull - RemindMeister</title>
+        <title>Bill Submission successfull - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -325,8 +325,6 @@
             </div>
         </header>
         <main>
-            <?php
-            ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -352,13 +350,13 @@
                             <h1 class="title-main" id="title-main">Congratulations!</h1>
                         </div>
                         <div class="center-title">
-                            <p>Your event reminder added successfully!</p>
+                            <p>Your bill reminder added successfully!</p>
                         </div>
                         <div class="btm-btns d-flex">
                             <a href="user-dashboard.php">
                                 <div class="dboard-btn">Dashboard</div>
                             </a>
-                            <a href="event-types.php">
+                            <a href="bill-types.php">
                                 <div class="another-r-btn">Add another reminder</div>
                             </a>
                         </div>
