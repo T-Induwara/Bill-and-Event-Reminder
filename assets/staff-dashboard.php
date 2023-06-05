@@ -126,6 +126,13 @@
                 font-family: Poppins-S;
                 font-size:20px;
                 border-radius:7px;
+                transition: 0.6s;
+            }
+            .log-o-btn:hover{
+                background-color: var(--primary);
+                color:var(--bg);
+                transition: 0.6s;
+                cursor: pointer;
             }
           
             
@@ -186,6 +193,7 @@
                 }
                 .bottom-btns{
                     justify-content: end;
+                    margin-right:4rem;
                 }
 
                 
@@ -217,25 +225,23 @@
                 }
 
                 .category{
-                padding: 5rem 7rem 4rem 7rem;
-                width: 100%;
-                height: 60vh;
-                flex-direction: row;
-                
+                    padding: 5rem 7rem 4rem 7rem;
+                    width: 100%;
+                    height: 60vh;
+                    flex-direction: row;
                 }
 
                 #but{
-                margin:0 3rem 0 3rem;
-                padding:3rem 5rem 2rem 5rem;
-                width: 25%;
-                display: flex;
-                flex-direction:column ;
-                justify-content: center;
+                    margin:0 3rem 0 3rem;
+                    padding:3rem 5rem 2rem 5rem;
+                    width: 25%;
+                    display: flex;
+                    flex-direction:column ;
+                    justify-content: center;
                 }
                 #but p{
-                    font-size:15px;
+                    font-size:18px;
                 }
-
                 #img1{
                     margin: 0rem;
                     padding:0.5rem;
@@ -244,8 +250,6 @@
                     flex-direction: row;
                     align-items: center;
                 }
-
-
             }
         </style>
     </head>
