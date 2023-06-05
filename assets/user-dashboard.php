@@ -262,13 +262,13 @@
             </div>
 
             <div class="category">
-              <a id="but" href="">  
+              <a id="but" href="bill-types.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
                    </div>
                    <p id="dis">Add Bills</p> 
               </a>    
-              <a id="but" href="">  
+              <a id="but" href="event-types.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
                    </div>

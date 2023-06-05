@@ -354,13 +354,12 @@
         </header>
         <main>
             <?php
-                print("Hello World")
             ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1 id="ev-pg-title">EVENT TYPES</h1>
+                            <h1 id="ev-pg-title">BILL TYPES</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -379,29 +378,29 @@
                     <div class="row-sub d-flex">
                         <div class="events" id="wedding-col">
                             <div class="ev-wedding ev" id="ev-wedding">
-                                <img src="images/user-dashboard/event-types/weddings.webp" alt="wedding icon">
+                                <img src="images/user-dashboard/bill-types/phone.webp" alt="wedding icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Weddings</p>
+                            <p class="ev-name" id="ev-name">Phone</p>
                         </div>
                         <div class="events" id="bday-col">
                             <div class="ev-bday ev" id="ev-bday">
-                                <img src="images/user-dashboard/event-types/birthdays.webp" alt="bday icon">
+                                <img src="images/user-dashboard/bill-types/internet.webp" alt="bday icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Birthdays</p>
+                            <p class="ev-name" id="ev-name">Internet</p>
                         </div>
                     </div>
                     <div class="row-sub d-flex">
                         <div class="events" id="anniv-col">
                             <div class="ev-anni ev" id="ev-anni">
-                                <img src="images/user-dashboard/event-types/anniversaries.webp" alt="anniversary icon">
+                                <img src="images/user-dashboard/bill-types/insurance.webp" alt="anniversary icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Anniversary</p>
+                            <p class="ev-name" id="ev-name">Insurance</p>
                         </div>
                         <div class="events" id="get-to-col">
                             <div class="ev-gt ev" id="ev-gt">
-                                <img src="images/user-dashboard/event-types/get-together.webp" alt="get together icon">
+                                <img src="images/user-dashboard/bill-types/finance.webp" alt="get together icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Get Together</p>
+                            <p class="ev-name" id="ev-name">Finance</p>
                         </div>
                     </div>
                 </div>
@@ -409,27 +408,27 @@
                     <div class="row-sub d-flex">
                         <div class="events" id="party-col">
                             <div class="ev-party ev" id="ev-party">
-                                <img src="images/user-dashboard/event-types/office-parties.webp" alt="party icon">
+                                <img src="images/user-dashboard/bill-types/cards.webp" alt="party icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Parties</p>
+                            <p class="ev-name" id="ev-name">Card payments</p>
                         </div>
                         <div class="events" id="shop-col">
                             <div class="ev-shop ev" id="ev-shop">
-                                <img src="images/user-dashboard/event-types/shopping.webp" alt="shopping icon">
+                                <img src="images/user-dashboard/bill-types/water.webp" alt="shopping icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Shopping</p>
+                            <p class="ev-name" id="ev-name">Water</p>
                         </div>
                     </div>
                     <div class="row-sub d-flex">
                         <div class="events" id="conf-col">
                             <div class="ev-conf ev" id="ev-conf">
-                                <img src="images/user-dashboard/event-types/conference.webp" alt="conference icon">
+                                <img src="images/user-dashboard/bill-types/electricity.webp" alt="conference icon">
                             </div>
-                            <p class="ev-name" id="ev-name">Conference</p>
+                            <p class="ev-name" id="ev-name">Electricity</p>
                         </div>
                         <div class="events" id="other-col">
                             <div class="ev-oth ev" id="ev-oth">
-                                <img src="images/user-dashboard/event-types/other-events.webp" alt="other events icon">
+                                <img src="images/user-dashboard/bill-types/other-bills.webp" alt="other events icon">
                             </div>
                             <p class="ev-name" id="ev-name">Other</p>
                         </div>
@@ -444,11 +443,11 @@
                         </div>
                         <form action="success.php" method="post">
                             <div class="frm-divs d-flex">
-                                <label for="eventTitle">Add event title</label>
+                                <label for="eventTitle">Add bill title</label>
                                 <input type="text" name="eventTitle" placeholder="My event...">
                             </div>
                             <div class="frm-divs d-flex">
-                                <label for="eventDesc">Add event description</label>
+                                <label for="eventDesc">Add bill description</label>
                                 <input type="text" name="eventDesc" placeholder="My event is about...">
                             </div>
                             <div class="frm-divs d-flex">
@@ -545,25 +544,25 @@
                 });
             });
             weddingCol.addEventListener("click",function(){
-                frmName.innerHTML = "Weddings";
+                frmName.innerHTML = "Phone";
             });
             bdayCol.addEventListener("click",function(){
-                frmName.innerHTML = "Birthdays";
+                frmName.innerHTML = "Internet";
             });
             anniCol.addEventListener("click",function(){
-                frmName.innerHTML = "Anniversary";
+                frmName.innerHTML = "Insurance";
             });
             gtCol.addEventListener("click",function(){
-                frmName.innerHTML = "Get Together";
+                frmName.innerHTML = "Finance";
             });
             partyCol.addEventListener("click",function(){
-                frmName.innerHTML = "Parties";
+                frmName.innerHTML = "Card Payments";
             });
             shopCol.addEventListener("click",function(){
-                frmName.innerHTML = "Shopping";
+                frmName.innerHTML = "Water";
             });
             confCol.addEventListener("click",function(){
-                frmName.innerHTML = "Conference";
+                frmName.innerHTML = "Electricity";
             });
             othCol.addEventListener("click",function(){
                 frmName.innerHTML = "Other";
