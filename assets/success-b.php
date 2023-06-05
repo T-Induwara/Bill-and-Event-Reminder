@@ -350,13 +350,13 @@
                             <h1 class="title-main" id="title-main">Congratulations!</h1>
                         </div>
                         <div class="center-title">
-                            <p>Your event reminder added successfully!</p>
+                            <p>Your bill reminder added successfully!</p>
                         </div>
                         <div class="btm-btns d-flex">
                             <a href="user-dashboard.php">
                                 <div class="dboard-btn">Dashboard</div>
                             </a>
-                            <a href="event-types.php">
+                            <a href="bill-types.php">
                                 <div class="another-r-btn">Add another reminder</div>
                             </a>
                         </div>
