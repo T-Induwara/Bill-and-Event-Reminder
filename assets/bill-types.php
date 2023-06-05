@@ -377,13 +377,13 @@
                 <div class="ev-row d-flex">
                     <div class="row-sub d-flex">
                         <div class="events" id="wedding-col">
-                            <div class="ev-wedding ev" id="ev-wedding">
+                            <div class="ev-wedding ev" id="bl-phone">
                                 <img src="images/user-dashboard/bill-types/phone.webp" alt="wedding icon">
                             </div>
                             <p class="ev-name" id="ev-name">Phone</p>
                         </div>
                         <div class="events" id="bday-col">
-                            <div class="ev-bday ev" id="ev-bday">
+                            <div class="ev-bday ev" id="bl-int">
                                 <img src="images/user-dashboard/bill-types/internet.webp" alt="bday icon">
                             </div>
                             <p class="ev-name" id="ev-name">Internet</p>
@@ -391,13 +391,13 @@
                     </div>
                     <div class="row-sub d-flex">
                         <div class="events" id="anniv-col">
-                            <div class="ev-anni ev" id="ev-anni">
+                            <div class="ev-anni ev" id="bl-insu">
                                 <img src="images/user-dashboard/bill-types/insurance.webp" alt="anniversary icon">
                             </div>
                             <p class="ev-name" id="ev-name">Insurance</p>
                         </div>
                         <div class="events" id="get-to-col">
-                            <div class="ev-gt ev" id="ev-gt">
+                            <div class="ev-gt ev" id="bl-finan">
                                 <img src="images/user-dashboard/bill-types/finance.webp" alt="get together icon">
                             </div>
                             <p class="ev-name" id="ev-name">Finance</p>
@@ -407,13 +407,13 @@
                 <div class="ev-row d-flex ev-row1">
                     <div class="row-sub d-flex">
                         <div class="events" id="party-col">
-                            <div class="ev-party ev" id="ev-party">
+                            <div class="ev-party ev" id="bl-cdpay">
                                 <img src="images/user-dashboard/bill-types/cards.webp" alt="party icon">
                             </div>
                             <p class="ev-name" id="ev-name">Card payments</p>
                         </div>
                         <div class="events" id="shop-col">
-                            <div class="ev-shop ev" id="ev-shop">
+                            <div class="ev-shop ev" id="bl-water">
                                 <img src="images/user-dashboard/bill-types/water.webp" alt="shopping icon">
                             </div>
                             <p class="ev-name" id="ev-name">Water</p>
@@ -421,13 +421,13 @@
                     </div>
                     <div class="row-sub d-flex">
                         <div class="events" id="conf-col">
-                            <div class="ev-conf ev" id="ev-conf">
+                            <div class="ev-conf ev" id="bl-elec">
                                 <img src="images/user-dashboard/bill-types/electricity.webp" alt="conference icon">
                             </div>
                             <p class="ev-name" id="ev-name">Electricity</p>
                         </div>
                         <div class="events" id="other-col">
-                            <div class="ev-oth ev" id="ev-oth">
+                            <div class="ev-oth ev" id="bl-oth">
                                 <img src="images/user-dashboard/bill-types/other-bills.webp" alt="other events icon">
                             </div>
                             <p class="ev-name" id="ev-name">Other</p>
@@ -509,14 +509,14 @@
         <script>
             console.log("Internal js loaded");
 
-            var weddingCol = document.getElementById("ev-wedding");
-            var bdayCol = document.getElementById("ev-bday");
-            var anniCol = document.getElementById("ev-anni");
-            var gtCol = document.getElementById("ev-gt");
-            var partyCol = document.getElementById("ev-party");
-            var shopCol = document.getElementById("ev-shop");
-            var confCol = document.getElementById("ev-conf");
-            var othCol = document.getElementById("ev-oth");
+            var phnCol = document.getElementById("bl-phone");
+            var intCol = document.getElementById("bl-int");
+            var insuCol = document.getElementById("bl-insu");
+            var financeCol = document.getElementById("bl-finan");
+            var cdpayCol = document.getElementById("bl-cdpay");
+            var waterCol = document.getElementById("bl-water");
+            var elecCol = document.getElementById("bl-elec");
+            var othCol = document.getElementById("bl-oth");
 
             var pgName = document.getElementById("ev-pg-title");
 
@@ -543,25 +543,25 @@
                     frmOutContainer.style.display = "block";
                 });
             });
-            weddingCol.addEventListener("click",function(){
+            phnCol.addEventListener("click",function(){
                 frmName.innerHTML = "Phone";
             });
-            bdayCol.addEventListener("click",function(){
+            intCol.addEventListener("click",function(){
                 frmName.innerHTML = "Internet";
             });
-            anniCol.addEventListener("click",function(){
+            insuCol.addEventListener("click",function(){
                 frmName.innerHTML = "Insurance";
             });
-            gtCol.addEventListener("click",function(){
+            financeCol.addEventListener("click",function(){
                 frmName.innerHTML = "Finance";
             });
-            partyCol.addEventListener("click",function(){
+            cdpayCol.addEventListener("click",function(){
                 frmName.innerHTML = "Card Payments";
             });
-            shopCol.addEventListener("click",function(){
+            waterCol.addEventListener("click",function(){
                 frmName.innerHTML = "Water";
             });
-            confCol.addEventListener("click",function(){
+            elecCol.addEventListener("click",function(){
                 frmName.innerHTML = "Electricity";
             });
             othCol.addEventListener("click",function(){
