@@ -44,7 +44,7 @@
             }
             .usr-image{
                 margin-top:-0.5rem;
-                width:15%;
+                width:25%;
             }
             .title-col h1,.usr-name{
                 font-family:Poppins-S;
@@ -57,9 +57,12 @@
                 font-size: 25px;
             }
             .usr-mail{
-                margin-top:-0.8rem;
+                margin-top:-0.5rem;
                 font-family: Poppins-R;
                 font-size: 15px;
+            }
+            .usr-clear{
+                margin-top:-1rem;
             }
 
             .category{
@@ -132,10 +135,10 @@
                 }
                 .usr-col-details{
                     flex-direction: column;
-                    margin-left:0.5rem;
+                    margin-left:1rem;
                 }
                 .usr-image{
-                    width:15%;
+                    width:20%;
                 }
                 .title-col h1{
                     font-size:50px;
@@ -145,8 +148,11 @@
                     font-size: 28px;
                 }
                 .usr-mail{
-                    margin-top:-1rem;
+                    margin-top:-0.5rem;
                     font-size: 15px;
+                }
+                .usr-clear{
+                    margin-top:-1rem;
                 }
 
 
@@ -187,17 +193,20 @@
                     margin-left:1rem;
                 }
                 .usr-image{
-                    width:8%;
+                    width:10%;
                 }
                 .title-col h1{
                     font-size:50px;
                 }
                 .usr-name{
-                    font-size: 28px;
+                    font-size: 25px;
                 }
                 .usr-mail{
-                    margin-top:-1rem;
+                    margin-top:-0.50rem;
                     font-size: 15px;
+                }
+                .usr-clear{
+                    margin-top:-1rem;
                 }
 
                 .category{
@@ -247,16 +256,16 @@
                     </div>
                     <div class="col-md-6 pg-usr-window">
                         <div class="usr-col d-flex">
-                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
+                            <img src="images/junior-support-dashboard/usr-image.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name">Ashley Williams</h2>
+                                <p class="usr-mail" id="usr-mail">Agent ID : OBE-JA01</p>
+                                <p class="usr-mail usr-clear" id="usr-clearance">Clearance : Junior</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="category">
               <a id="but" href="bill-types.php">  
                    <div class="subbutton" >
