@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Staff Dashboard - RemindMeister</title>
+        <title>Manage FAQ - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -31,6 +31,11 @@
             /*Default css for mobile*/
             .dashboard-header{
                 padding:2em 3em 2em 3em;
+            }
+            .pg-title{
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
             }
             .usr-col{
                 margin-top:1rem;
@@ -114,7 +119,7 @@
             }
             .bottom-btns{
                 flex-direction: row;
-                justify-content: center;
+                justify-content:space-between;
                 align-items: center;
                 margin-top:2rem;
                 margin-bottom:4rem;
@@ -192,8 +197,7 @@
                     padding:2rem;
                 }
                 .bottom-btns{
-                    justify-content: end;
-                    margin-right:4rem;
+                    margin:0rem 4rem 0rem 4rem;
                 }
 
                 
@@ -259,9 +263,9 @@
             ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
-                    <div class="col-md-6 pg-title">
+                    <div class="col-md-6 pg-title d-flex">
                         <div class="title-col">
-                            <h1>STAFF DASHBOARD</h1>
+                            <h1>MANAGE F.A.Qs</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -292,9 +296,15 @@
                
             </div>
             <div class="bottom-btns d-flex">
-                <div class="log-o-btn">Log out</div>
+                <div class="dash-btn d-flex">
+                    <img src="images/junior-support-dashboard/dashboard.webp" alt="dashboard btn">
+                    <p>Dashboard</p>
+                </div>
+                <div class="log-o-btn">
+                    <img src="images/junior-support-dashboard/add.webp" alt="add btn">
+                    <p>Dashboard</p>
+                </div>
             </div>
-
         </main>
         <script src="js/main-script.js"></script>
     </body>

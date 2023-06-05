@@ -32,6 +32,11 @@
             .dashboard-header{
                 padding:2em 3em 2em 3em;
             }
+            .pg-title{
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+            }
             .usr-col{
                 margin-top:1rem;
                 flex-direction:row;
