@@ -67,7 +67,7 @@
 
             .category{
                 margin: 0rem;
-                padding: 4rem 3rem 4rem 3rem;
+                padding: 4rem 3rem 0rem 3rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -82,9 +82,6 @@
                 flex-direction:column ;
                 justify-content: center;
             }
-
-            
-
             .subbutton{
                 margin: 0rem;
                 padding: 1rem;
@@ -94,25 +91,20 @@
                 filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
                 background: var(--bg);
                 transition: 0.6s;
-
             }
-
             #img1{
                 margin: 0rem;
                 padding:0rem;
                 width: 100%;
                 padding:1rem;
             }
-
             #dis{
                 margin:0;
                 margin-bottom: 0rem;
                 padding-top:1rem;
                 text-align: center;
                 font-family:Poppins-S;
-                
             }
-
             .subbutton:hover{
                 background-color: var(--cta);
                 transition: 0.6s;
@@ -120,7 +112,21 @@
             #but p{
                 font-family: Poppins-R;
             }
-
+            .bottom-btns{
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top:2rem;
+                margin-bottom:4rem;
+            }
+            .log-o-btn{
+                background-color: var(--cta);
+                color:var(--bg);
+                padding:1rem 2rem 1rem 2rem;
+                font-family: Poppins-S;
+                font-size:20px;
+                border-radius:7px;
+            }
           
             
 
@@ -157,10 +163,9 @@
 
 
                 .category{
-                margin-top: 4rem;
-                padding: 3rem 2rem 3rem 2rem;
+                padding: 3rem 2rem 8rem 2rem;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 
                 }
@@ -179,7 +184,9 @@
                 #img1{
                     padding:2rem;
                 }
-                
+                .bottom-btns{
+                    justify-content: end;
+                }
 
                 
             }
@@ -210,8 +217,7 @@
                 }
 
                 .category{
-                margin-top: 4rem;
-                padding: 5rem 7rem 8rem 7rem;
+                padding: 5rem 7rem 4rem 7rem;
                 width: 100%;
                 height: 60vh;
                 flex-direction: row;
@@ -220,7 +226,7 @@
 
                 #but{
                 margin:0 3rem 0 3rem;
-                padding:3rem 5rem 3rem 5rem;
+                padding:3rem 5rem 2rem 5rem;
                 width: 25%;
                 display: flex;
                 flex-direction:column ;
@@ -280,6 +286,9 @@
                    <p id="dis">Manage F.A.Qs</p> 
               </a>  
                
+            </div>
+            <div class="bottom-btns d-flex">
+                <div class="log-o-btn">Log out</div>
             </div>
 
         </main>
