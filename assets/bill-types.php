@@ -528,7 +528,7 @@
             var frmName = document.getElementById("title-main");
             var frmOutContainer = document.getElementById("frm-outer-container");
 
-            btns.forEach((c) => {//In here I added forEach with mouseover and mouseleave to mimic css hover effect for all divs at once
+            btns.forEach((c) => {
                 c.addEventListener('mouseover', function () {
                     c.style.background = "var(--cta)";
                     c.style.transition = "0.6s"
