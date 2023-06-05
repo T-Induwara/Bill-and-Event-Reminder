@@ -190,6 +190,8 @@
             .frm-outer-container{
                 display:none;
             }
+            /*CSS for dashboard and return btns*/
+            
 
             @media only screen and (max-width:767px){
                 .row-sub{
