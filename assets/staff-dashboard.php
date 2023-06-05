@@ -65,8 +65,6 @@
             .category{
                 margin: 0rem;
                 padding: 4rem 3rem 4rem 3rem;
-                width: 100%;
-                height: 100vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -96,10 +94,11 @@
 
             }
 
-            .subbutton img{
+            #img1{
                 margin: 0rem;
-                padding:1rem;
+                padding:0rem;
                 width: 100%;
+                padding:1rem;
             }
 
             #dis{
@@ -114,6 +113,9 @@
             .subbutton:hover{
                 background-color: var(--cta);
                 transition: 0.6s;
+            }
+            #but p{
+                font-family: Poppins-R;
             }
 
           
@@ -149,25 +151,28 @@
 
 
                 .category{
-                margin: 0rem;
+                margin-top: 4rem;
                 padding: 3rem 2rem 3rem 2rem;
-                width: 100%;
-                height: 40vh;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
                 
                 }
 
                 #but{
-                margin:0 3rem 0 3rem;
+                margin:4rem 3rem 0 3rem;
                 padding:0 1rem 0rem 1rem;
                 display: flex;
-                width: 70%;
+                width: 40%;
                 flex-direction:column ;
                 justify-content: center;
-            }
-                
+                }
+                #but p{
+                    font-size:25px;
+                }
+                #img1{
+                    padding:2rem;
+                }
                 
 
                 
@@ -196,30 +201,34 @@
                 }
 
                 .category{
-                margin: 0rem;
+                margin-top: 4rem;
                 padding: 5rem 7rem 8rem 7rem;
                 width: 100%;
                 height: 60vh;
+                flex-direction: row;
                 
                 }
 
                 #but{
                 margin:0 3rem 0 3rem;
                 padding:3rem 5rem 3rem 5rem;
-                width: 100%;
+                width: 25%;
                 display: flex;
                 flex-direction:column ;
                 justify-content: center;
-            }
+                }
+                #but p{
+                    font-size:15px;
+                }
 
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
+                #img1{
+                    margin: 0rem;
+                    padding:0.5rem;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
 
 
             }
@@ -253,20 +262,14 @@
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
                    </div>
-                   <p id="dis">Add Bills</p> 
+                   <p id="dis">View user inquiries</p> 
               </a>    
               <a id="but" href="event-types.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
                    </div>
-                   <p id="dis">Add Events</p> 
-              </a>    
-              <a id="but" href="">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
-                   </div>
-                   <p id="dis">View Reminders</p> 
-              </a>    
+                   <p id="dis">Manage F.A.Qs</p> 
+              </a>  
                
             </div>
 
