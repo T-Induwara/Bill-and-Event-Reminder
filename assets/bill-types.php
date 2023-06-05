@@ -434,6 +434,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="pg-return-btn d-flex">
+                    <a href="user-dashboard.php">
+                        <div class="ret-btn">Dashboard</div>
+                    </a>
+                </div>
             </div>
             <div class="frm-outer-container" id="frm-outer-container">
                 <div class="event-frm-section d-flex" id="evn-frm-section">
@@ -470,6 +475,9 @@
                             <input type="submit" value="Add reminder" class="frm-sub-btn">
                         </form>
                     </div>
+                </div>
+                <div class="pg-return-btn d-flex">
+                    <div class="ret-btn" id="ret-btn-frm">Return</div>
                 </div>
             </div>
         </main>
