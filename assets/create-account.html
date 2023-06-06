@@ -18,6 +18,7 @@
                 display:flex ;
                 justify-content:center ;
                 align-content:center ;
+                padding:1rem 0rem 8rem 0rem;
             }
             .form-container{
                 display: flex;
@@ -38,6 +39,7 @@
                 background-color: var(--bg);
                 margin-bottom: 4rem;
                 width:85vw;
+                padding:2rem;
             }
             .form-title{
                 font-family:Poppins-S;
@@ -47,7 +49,7 @@
             }
             form{
                 margin: 1rem;
-
+                width:100%;
             }
             .password-container{
                 padding-bottom: 1rem;
@@ -57,10 +59,10 @@
                 flex-direction:row;
             }
             .login-image {
-                width: 22%;
+                width: 40%;
                 position:absolute;
-                top:39rem;
-                right: 10rem;
+                top:58rem;
+                right: 8rem;
             }
             input[type=email],input[type=tel],input[type=text],input[type=password]{
                 border: none;
@@ -73,7 +75,7 @@
             }
             input[type=submit]{
                 background-color:var(--cta);
-                width:13.4rem;
+                width:100%;
                 padding:0.5rem;
                 border-radius: 5px;
                 color:var(--bg);
@@ -151,26 +153,28 @@
                 }
                 .full-name{
                     display:flex;
+                    justify-content: space-around;
                 }
                 .contact-detail{
                     display:flex;
+                    justify-content: space-around;
                 }
                 .password-container{
                     display:flex;
+                    justify-content: space-around;
                     padding-bottom: 1rem;
                 }
                 .first-name, .last-name, .phone, .email, .password, .confirm-password{
                     display: flex;
                     flex-direction:column;
                     margin:1rem;
-                
+                    width:100%;
                 }
                 .login-image {
                     width: 20%;
                     position:absolute;
-                    top:36rem;
-                    right: 21rem;
-
+                    top:40rem;
+                    right: 20rem;
                 }
                 input[type=text]{
                     border: none;
@@ -193,14 +197,13 @@
                     font-family:Poppins-S;
                     cursor: pointer;
                     transition:0.6s;
-                    
+                    margin-top:1rem;
                 }  
                 input[type=submit]:hover {
                     color: var(--primary);
                     transition:0.6s;
                 }
                 #return-login{
-            
                     font-family:Poppins-R;
                     font-size: 0.8em;
                     margin-bottom: 2rem;
@@ -236,9 +239,7 @@
                     justify-content:flex-start;
                     align-content:center;
                     flex-direction: column;
-                    
                 }
-
                 .content{
                     display:flex ;
                     align-items:center ;
@@ -250,17 +251,15 @@
                     border-radius: 10px;     
                     background-color: var(--bg);
                     margin-bottom: 4rem;
+                    width:50vw;
                 }
                 .form-title{
                     font-family:Poppins-S;
                     font-size: 3em;
                     margin-top: 2rem;
-
                 }
                 form{
-                    
                     margin: 1rem;
-                
                 }
                 .full-name{
                     display:flex;
@@ -275,14 +274,14 @@
                 .first-name, .last-name, .phone, .email, .password, .confirm-password{
                     display: flex;
                     flex-direction:column;
-                    margin:1rem;
+                    margin-top:2rem;
                 
                 }
                 .login-image {
                     width: 12%;
                     position:absolute;
-                    top:19rem;
-                    right: 21rem;
+                    top:22rem;
+                    right: 15rem;
 
                 }
                 input[type=text]{
@@ -309,7 +308,8 @@
                     
                 }  
                 input[type=submit]:hover {
-                    color: var(--primary);
+                    background-color: var(--primary);
+                    color: var(--bg);
                     transition:0.6s;
                 }
                 #return-login{
