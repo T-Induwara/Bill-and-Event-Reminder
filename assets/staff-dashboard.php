@@ -288,7 +288,7 @@
                    </div>
                    <p id="dis">View user inquiries</p> 
               </a>    
-              <a id="but" href="event-types.php">  
+              <a id="but" href="manage-faq.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
                    </div>

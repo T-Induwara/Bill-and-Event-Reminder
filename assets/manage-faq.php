@@ -71,9 +71,13 @@
             }
             .faq-pholder{
                 height:60vh;
+                background-color: var(--bg);
+                margin:0rem 2rem 0rem 2rem;
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
             }
             .bottom-btns{
-                flex-direction: row;
+                flex-direction: column;
                 justify-content:space-between;
                 align-items: center;
                 margin-top:2rem;
@@ -81,11 +85,18 @@
             }
             .dash-btn,.add-btn{
                 flex-direction: row;
-                justify-content: center;
-                align-items:center;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .add-btn{
+                margin-top:2rem;
             }
             .dash-btn img,.add-btn img{
-                width:10%;
+                width:20px;
+            }
+            .dash-btn p,.add-btn p{
+                margin:0;
+                padding-left:1rem;
             }
             .dash-btn{
                 background-color: var(--bg);
@@ -106,8 +117,14 @@
                 border-radius:7px;
                 transition: 0.6s;
             }
+            .dash-btn:hover{
+                background-color: var(--cta);
+                color:var(--bg);
+                border:1px solid var(--cta);
+                cursor: pointer;
+            }
             .add-btn:hover{
-                background-color: var(--primary);
+                background-color: var(--cta);
                 color:var(--bg);
                 transition: 0.6s;
                 cursor: pointer;
@@ -145,11 +162,23 @@
                 .usr-clear{
                     margin-top:-1rem;
                 }
+                .faq-pholder{
+                    height:70vh;
+                    margin:0rem 4rem 0rem 4rem;
+                }
                 .bottom-btns{
                     margin:0rem 4rem 0rem 4rem;
                 }
-
-                
+                .add-btn{
+                    margin-top:0rem;
+                }
+                .bottom-btns{
+                    flex-direction: row;
+                    justify-content:space-between;
+                    align-items: center;
+                    margin-top:2rem;
+                    margin-bottom:4rem;
+                }
             }
 
             /*CSS for desktop*/
@@ -175,6 +204,9 @@
                 }
                 .usr-clear{
                     margin-top:-1rem;
+                }
+                .faq-pholder{
+                    height:60vh;
                 }
             }
         </style>
@@ -202,14 +234,17 @@
                     </div>
                 </div>
             </div>
-            <div class="faq-pholder">
+            <div class="faq-pholder d-flex">
                <!--This placeholder to show the database faq table content-->
+               <div class="faq-container"></div>
             </div>
             <div class="bottom-btns d-flex">
-                <div class="dash-btn d-flex">
-                    <img src="images/junior-support-dashboard/dashboard.webp" alt="dashboard btn">
-                    <p>Dashboard</p>
-                </div>
+                <a href="staff-dashboard.php">
+                    <div class="dash-btn d-flex">
+                        <img src="images/junior-support-dashboard/dashboard.webp" alt="dashboard btn">
+                        <p>Dashboard</p>
+                    </div>
+                </a>
                 <div class="add-btn d-flex">
                     <img src="images/junior-support-dashboard/add.webp" alt="add btn">
                     <p>Add</p>
