@@ -281,23 +281,18 @@
                 grid-auto-rows: 70vh;
                 grid-template-areas: "a b" "c d";
             }
-
             .title {
                 grid-area: a;
             }
-
             .hand {
                 grid-area: b;
             }
-
             .inquiry-form {
                 grid-area: d;
             }
-
             .man {
                 grid-area: c;
             }
-
             .title {
                 padding-left: 5rem;
                 padding-right: 4rem;
@@ -305,7 +300,6 @@
                 font-family: Poppins-S;
                 font-size: 2.5em;
             }
-
             .hand-img {
                 width: 60%;
                 display: block;
@@ -313,7 +307,6 @@
                 margin-top: 8rem;
                 margin-right: auto;
             }
-
             .man-img {
                 width: 26%;
                 display: block;
