@@ -99,7 +99,7 @@
             gap: 1rem;
         }
 
-        input[type=text] {
+        input[type=text],input[type=email],input[type=tel] {
             border: none;
             border-bottom: 1px solid var(--txt);
             border-radius: 5px;
@@ -227,7 +227,7 @@
                 gap: 1rem;
             }
 
-            input[type=text] {
+            input[type=text],input[type=email],input[type=tel] {
                 border: none;
                 border-bottom: 1px solid var(--txt);
                 border-radius: 5px;
@@ -246,7 +246,7 @@
                 background-color: var(--cta);
                 width: 23rem;
                 padding: 1rem;
-                margin-top: 2rem;
+                margin-top: 3rem;
                 margin-bottom: 2rem;
                 border-radius: 5px;
                 color: var(--bg);
@@ -281,31 +281,25 @@
                 grid-auto-rows: 70vh;
                 grid-template-areas: "a b" "c d";
             }
-
             .title {
                 grid-area: a;
             }
-
             .hand {
                 grid-area: b;
             }
-
             .inquiry-form {
                 grid-area: d;
             }
-
             .man {
                 grid-area: c;
             }
-
             .title {
                 padding-left: 5rem;
                 padding-right: 4rem;
-                padding-top: 3rem;
+                padding-top: 8rem;
                 font-family: Poppins-S;
                 font-size: 2.5em;
             }
-
             .hand-img {
                 width: 60%;
                 display: block;
@@ -313,7 +307,6 @@
                 margin-top: 8rem;
                 margin-right: auto;
             }
-
             .man-img {
                 width: 26%;
                 display: block;
@@ -355,7 +348,7 @@
                 gap: 1rem;
             }
 
-            input[type=text] {
+            input[type=text],input[type=email],input[type=tel] {
                 border: none;
                 border-bottom: 1px solid var(--txt);
                 border-radius: 5px;
@@ -385,7 +378,8 @@
             }
 
             input[type=submit]:hover {
-                color: var(--primary);
+                background-color: var(--primary);
+                color: var(--bg);
                 transition: 0.6s;
             }
 
@@ -406,7 +400,7 @@
             <div class="nav-list" id="nav-list">
                 <a href="../index.html">Home</a>
                 <a href="aboutus.html">About Us</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="contact.php">Contact Us</a>
                 <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
             </div>
             <div class="m-nav-btn">
@@ -419,11 +413,9 @@
         <?php
         ?>
         <div class="content">
-
             <div class="title">
                 Connect with Us: Reach Out and Let's Make RemindMeister Even Better!
             </div>
-
             <div class="hand">
                 <img src="images/contact-us/Saly-31.webp" alt="" class="hand-img">
             </div>
@@ -435,25 +427,18 @@
                     <div class="inq-summary">
                         <input type="text" placeholder="Inquiry Summary" id="inq-summary">
                     </div>
-
                     <div class="inquiry">
                         <input type="text" placeholder="inquiry" id="inquiry">
                     </div>
-
                     <div class="contact-detail">
-
                         <div class="email">
-                            <input type="text" placeholder="Email" id="email">
+                            <input type="email" placeholder="Email" id="email">
                         </div>
-
                         <div class="Phone">
-                            <input type="text" placeholder="Phone number" id="phone">
+                            <input type="tel" placeholder="Phone number" id="phone">
                         </div>
-
                     </div>
-
                     <input type="submit" value="Send">
-
                 </form>
             </div>
         </div>
@@ -472,7 +457,7 @@
                 <div class="foo-list">
                     <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
-                    <a href="contact.html">Contact Us</a>
+                    <a href="contact.php">Contact Us</a>
                     <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">

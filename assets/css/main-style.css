@@ -55,7 +55,8 @@ a{
     transition: 0.6s;
 }
 .nav-log-btn:hover{
-    color:var(--primary) !important;
+    background-color: var(--primary);
+    color:var(--bg) !important;
     transition: 0.6s;
 }
 /*Nav menu completed*/
