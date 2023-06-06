@@ -419,11 +419,9 @@
         <?php
         ?>
         <div class="content">
-
             <div class="title">
                 Connect with Us: Reach Out and Let's Make RemindMeister Even Better!
             </div>
-
             <div class="hand">
                 <img src="images/contact-us/Saly-31.webp" alt="" class="hand-img">
             </div>
@@ -435,25 +433,18 @@
                     <div class="inq-summary">
                         <input type="text" placeholder="Inquiry Summary" id="inq-summary">
                     </div>
-
                     <div class="inquiry">
                         <input type="text" placeholder="inquiry" id="inquiry">
                     </div>
-
                     <div class="contact-detail">
-
                         <div class="email">
-                            <input type="text" placeholder="Email" id="email">
+                            <input type="email" placeholder="Email" id="email">
                         </div>
-
                         <div class="Phone">
-                            <input type="text" placeholder="Phone number" id="phone">
+                            <input type="tel" placeholder="Phone number" id="phone">
                         </div>
-
                     </div>
-
                     <input type="submit" value="Send">
-
                 </form>
             </div>
         </div>
