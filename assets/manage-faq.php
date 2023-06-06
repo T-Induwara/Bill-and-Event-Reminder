@@ -69,53 +69,8 @@
             .usr-clear{
                 margin-top:-1rem;
             }
-
-            .category{
-                margin: 0rem;
-                padding: 4rem 3rem 0rem 3rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                
-            }
-
-            #but{
-                margin:0 3rem 0 3rem;
-                padding:0 2rem 3rem 2rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-            .subbutton{
-                margin: 0rem;
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-                background: var(--bg);
-                transition: 0.6s;
-            }
-            #img1{
-                margin: 0rem;
-                padding:0rem;
-                width: 100%;
-                padding:1rem;
-            }
-            #dis{
-                margin:0;
-                margin-bottom: 0rem;
-                padding-top:1rem;
-                text-align: center;
-                font-family:Poppins-S;
-            }
-            .subbutton:hover{
-                background-color: var(--cta);
-                transition: 0.6s;
-            }
-            #but p{
-                font-family: Poppins-R;
+            .faq-pholder{
+                height:60vh;
             }
             .bottom-btns{
                 flex-direction: row;
@@ -124,8 +79,26 @@
                 margin-top:2rem;
                 margin-bottom:4rem;
             }
-            .log-o-btn{
-                background-color: var(--cta);
+            .dash-btn,.add-btn{
+                flex-direction: row;
+                justify-content: center;
+                align-items:center;
+            }
+            .dash-btn img,.add-btn img{
+                width:10%;
+            }
+            .dash-btn{
+                background-color: var(--bg);
+                color:var(--primary);
+                padding:1rem 2rem 1rem 2rem;
+                border:1px solid var(--primary);
+                font-family: Poppins-S;
+                font-size:20px;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .add-btn{
+                background-color: var(--primary);
                 color:var(--bg);
                 padding:1rem 2rem 1rem 2rem;
                 font-family: Poppins-S;
@@ -133,7 +106,7 @@
                 border-radius:7px;
                 transition: 0.6s;
             }
-            .log-o-btn:hover{
+            .add-btn:hover{
                 background-color: var(--primary);
                 color:var(--bg);
                 transition: 0.6s;
@@ -172,30 +145,6 @@
                 .usr-clear{
                     margin-top:-1rem;
                 }
-
-
-                .category{
-                padding: 3rem 2rem 8rem 2rem;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                
-                }
-
-                #but{
-                margin:4rem 3rem 0 3rem;
-                padding:0 1rem 0rem 1rem;
-                display: flex;
-                width: 40%;
-                flex-direction:column ;
-                justify-content: center;
-                }
-                #but p{
-                    font-size:25px;
-                }
-                #img1{
-                    padding:2rem;
-                }
                 .bottom-btns{
                     margin:0rem 4rem 0rem 4rem;
                 }
@@ -227,33 +176,6 @@
                 .usr-clear{
                     margin-top:-1rem;
                 }
-
-                .category{
-                    padding: 5rem 7rem 4rem 7rem;
-                    width: 100%;
-                    height: 60vh;
-                    flex-direction: row;
-                }
-
-                #but{
-                    margin:0 3rem 0 3rem;
-                    padding:3rem 5rem 2rem 5rem;
-                    width: 25%;
-                    display: flex;
-                    flex-direction:column ;
-                    justify-content: center;
-                }
-                #but p{
-                    font-size:18px;
-                }
-                #img1{
-                    margin: 0rem;
-                    padding:0.5rem;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
             }
         </style>
     </head>
@@ -280,29 +202,17 @@
                     </div>
                 </div>
             </div>
-            <div class="category">
-              <a id="but" href="bill-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
-                   </div>
-                   <p id="dis">View user inquiries</p> 
-              </a>    
-              <a id="but" href="event-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
-                   </div>
-                   <p id="dis">Manage F.A.Qs</p> 
-              </a>  
-               
+            <div class="faq-pholder">
+               <!--This placeholder to show the database faq table content-->
             </div>
             <div class="bottom-btns d-flex">
                 <div class="dash-btn d-flex">
                     <img src="images/junior-support-dashboard/dashboard.webp" alt="dashboard btn">
                     <p>Dashboard</p>
                 </div>
-                <div class="log-o-btn">
+                <div class="add-btn d-flex">
                     <img src="images/junior-support-dashboard/add.webp" alt="add btn">
-                    <p>Dashboard</p>
+                    <p>Add</p>
                 </div>
             </div>
         </main>
