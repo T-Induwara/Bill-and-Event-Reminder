@@ -16,11 +16,10 @@
                 background-color: var(--bg);
             }
             main{
-           min-height:100vh;
-           display:flex ;
-           justify-content:center ;
-           align-content:center ;
-           }
+                display:flex ;
+                justify-content:center ;
+                align-content:center ;
+            }
 
         .form-container{
            display: flex;
@@ -42,6 +41,7 @@
            border-radius: 10px;     
            background-color: var(--bg);
            margin-bottom: 4rem;
+           width:85vw;
         }
 
        .form-title{
@@ -64,7 +64,6 @@
        .first-name, .last-name, .phone, .email, .password, .confirm-password{
           display: flex;
           flex-direction:row;
-          margin:1rem;
 
          }
 
@@ -114,11 +113,17 @@
         #return-login:hover{
                 color:var(--primary);
                 opacity:1;
-            }
+        }
 
         /*remove outline on html form fields when active status*/
         textarea:focus, input:focus{
         outline: none;
+        }
+        @media only screen and (max-width:767px){
+            input{
+                width:100%;
+                margin-top:3rem !important;
+            }
         }
 
 
@@ -134,7 +139,6 @@
                 background-color: var(--bg);
             }
             main{
-                min-height:60vh !important;
                 display:flex ;
                 justify-content:center ;
                 align-content:center ;
@@ -252,7 +256,6 @@
                 background-color: var(--bg);
             }
             main{
-                min-height:60vh !important;
                 display:flex ;
                 justify-content:center ;
                 align-content:center ;
