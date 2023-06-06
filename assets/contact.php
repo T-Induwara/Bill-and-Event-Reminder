@@ -99,7 +99,7 @@
             gap: 1rem;
         }
 
-        input[type=text] {
+        input[type=text],input[type=email],input[type=tel] {
             border: none;
             border-bottom: 1px solid var(--txt);
             border-radius: 5px;
@@ -227,7 +227,7 @@
                 gap: 1rem;
             }
 
-            input[type=text] {
+            input[type=text],input[type=email],input[type=tel] {
                 border: none;
                 border-bottom: 1px solid var(--txt);
                 border-radius: 5px;
@@ -246,7 +246,7 @@
                 background-color: var(--cta);
                 width: 23rem;
                 padding: 1rem;
-                margin-top: 2rem;
+                margin-top: 3rem;
                 margin-bottom: 2rem;
                 border-radius: 5px;
                 color: var(--bg);
@@ -301,7 +301,7 @@
             .title {
                 padding-left: 5rem;
                 padding-right: 4rem;
-                padding-top: 3rem;
+                padding-top: 8rem;
                 font-family: Poppins-S;
                 font-size: 2.5em;
             }
@@ -355,7 +355,7 @@
                 gap: 1rem;
             }
 
-            input[type=text] {
+            input[type=text],input[type=email],input[type=tel] {
                 border: none;
                 border-bottom: 1px solid var(--txt);
                 border-radius: 5px;
@@ -385,7 +385,8 @@
             }
 
             input[type=submit]:hover {
-                color: var(--primary);
+                background-color: var(--primary);
+                color: var(--bg);
                 transition: 0.6s;
             }
 
