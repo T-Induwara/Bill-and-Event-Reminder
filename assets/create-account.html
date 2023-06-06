@@ -9,7 +9,6 @@
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
 
         <style>
-
             body{
                 margin:0 !important;
                 padding:0 !important;
@@ -20,100 +19,84 @@
                 justify-content:center ;
                 align-content:center ;
             }
+            .form-container{
+            display: flex;
+            align-items: center;
+            justify-content:flex-start;
+            align-content:center;
+            flex-direction: column;
 
-        .form-container{
-           display: flex;
-           align-items: center;
-           justify-content:flex-start;
-           align-content:center;
-           flex-direction: column;
-
-           }
-
-        .content{
-           display:flex ;
-           align-items:center ;
-           justify-content:space-between;
-           align-content:space-between ; 
-           flex-direction: column;      
-           margin: 1rem;   
-           filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
-           border-radius: 10px;     
-           background-color: var(--bg);
-           margin-bottom: 4rem;
-           width:85vw;
-        }
-
-       .form-title{
-          font-family:Poppins-S;
-          font-size: 2em;
-          margin-top: 2rem;
-          margin-bottom:2rem;
-        }
-
-        form{
-          margin: 1rem;
-
-        }
-
-        .password-container{
-
-          padding-bottom: 1rem;
-       }
-
-       .first-name, .last-name, .phone, .email, .password, .confirm-password{
-          display: flex;
-          flex-direction:row;
-
-         }
-
-         .login-image {
-            width: 22%;
-            position:absolute;
-            top:39rem;
-            right: 10rem; 
-
-        }
-        input[type=email],input[type=tel],input[type=text],input[type=password]{
-            border: none;
-            border-bottom: 1px solid var(--txt);
-            border-radius:5px;
+            }
+            .content{
+            display:flex ;
+            align-items:center ;
+            justify-content:space-between;
+            align-content:space-between ; 
+            flex-direction: column;      
+            margin: 1rem;   
+            filter:drop-shadow(0px 0px 10px rgb(230, 227, 227));
+            border-radius: 10px;     
             background-color: var(--bg);
-        }
+            margin-bottom: 4rem;
+            width:85vw;
+            }
+        .form-title{
+            font-family:Poppins-S;
+            font-size: 2em;
+            margin-top: 2rem;
+            margin-bottom:2rem;
+            }
+            form{
+            margin: 1rem;
 
-       input::placeholder {
-           text-align: center; 
-       }
-
-       input[type=submit]{
-          background-color:var(--cta);
-          width:13.4rem;
-          padding:0.5rem;
-          border-radius: 5px;
-          color:var(--bg);
-          border: none;
-          font-family:Poppins-S;
-          cursor: pointer;
-          transition:0.6s;
-
-        }  
-
-        input[type=submit]:hover {
-          color: var(--primary);
-          transition:0.6s;
-        }
-
-        #return-login{
-
-         font-family:Poppins-R;
-         font-size: 0.8em;
-         margin-bottom: 2rem;
-         opacity: 0.6;
-        }
-        #return-login:hover{
+            }
+            .password-container{
+                padding-bottom: 1rem;
+            }
+        .first-name, .last-name, .phone, .email, .password, .confirm-password{
+                display: flex;
+                flex-direction:row;
+            }
+            .login-image {
+                width: 22%;
+                position:absolute;
+                top:39rem;
+                right: 10rem;
+            }
+            input[type=email],input[type=tel],input[type=text],input[type=password]{
+                border: none;
+                border-bottom: 1px solid var(--txt);
+                border-radius:5px;
+                background-color: var(--bg);
+            }
+            input::placeholder {
+                text-align: center; 
+            }
+            input[type=submit]{
+                background-color:var(--cta);
+                width:13.4rem;
+                padding:0.5rem;
+                border-radius: 5px;
+                color:var(--bg);
+                border: none;
+                font-family:Poppins-S;
+                cursor: pointer;
+                transition:0.6s;
+            }  
+            input[type=submit]:hover {
+                color: var(--primary);
+                transition:0.6s;
+            }
+            #return-login{
+                font-family:Poppins-R;
+                font-size: 0.8em;
+                margin-bottom: 2rem;
+                opacity: 0.6;
+            }
+            #return-login:hover{
                 color:var(--primary);
                 opacity:1;
-        }
+            }
 
         /*remove outline on html form fields when active status*/
         textarea:focus, input:focus{
