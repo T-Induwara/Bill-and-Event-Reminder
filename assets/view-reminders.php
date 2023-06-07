@@ -61,15 +61,65 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-            .v-bill-btn,.v-evn-btn{
-                background-color: var(--bg);
-                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
-                border-radius:7px;
+            .v-rem-section{
+                padding:2rem 4rem 2rem 4rem;
+            }
+            .btn-section{
                 flex-direction: column;
                 align-items: center;
             }
+            .v-bill-btn-col,.v-evn-btn-col{
+                flex-direction: column;
+                align-items: center;
+                margin-top:2rem;
+            }
+            .v-bill-btn,.v-evn-btn{
+                background-color: var(--bg);
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                border-radius:10px;
+                flex-direction: column;
+                align-items: center;
+                padding:1.5rem;
+                transition: 0.6s;
+            }
+            .v-bill-btn:hover,.v-evn-btn:hover{
+                background-color: var(--cta);
+                cursor: pointer;
+                transition: 0.6s;
+            }
             .v-bill-btn img,.v-evn-btn img{
-                width:80px;
+                width:60px;
+            }
+            .v-bill-btn-col p,.v-evn-btn-col p{
+                font-family: Poppins-S;
+                margin-top:0.6rem;
+            }
+            .bill-window,.evn-window{
+                background-color: var(--bg);
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                padding:2rem;
+                border-radius: 10px;
+                display:none;
+            }
+            .rel-btn{
+                background-color: var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                text-align: center;
+                width:100px;
+                border:1px solid var(--primary);
+                border-radius: 7px;
+                padding:0.5rem 0rem 0.5rem 0rem;
+                transition: 0.6s;
+            }
+            .rel-btn:hover{
+                background-color: var(--bg);
+                color:var(--primary);
+                border:1px solid var(--primary);
+                padding:0.5rem 0rem 0.5rem 0rem;
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                transition: 0.6s;
+                cursor: pointer;
             }
 
 
@@ -139,7 +189,7 @@
                 <div class="nav-list" id="nav-list">
                     <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
-                    <a href="contact.html">Contact Us</a>
+                    <a href="contact.php">Contact Us</a>
                     <a href="#" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
@@ -172,20 +222,29 @@
             <div class="container-fluid v-rem-section">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="btn-section">
-                            <div class="v-bill-btn d-flex">
-                                <img src="images/user-dashboard/add-bills.webp" alt="View bills icon">
+                        <div class="btn-section d-flex">
+                            <div class="rel-btn" onClick="window.location.reload();">Refresh</div>
+                            <div class="v-bill-btn-col d-flex">
+                                <div class="v-bill-btn d-flex" id="v-bill-btn">
+                                    <img src="images/user-dashboard/add-bills.webp" alt="View bills icon">
+                                </div>
                                 <p>View Bills</p>
                             </div>
-                            <div class="v-evn-btn d-flex">
-                                <img src="images/user-dashboard/add-events.webp" alt="View events icon">
+                            <div class="v-evn-btn-col d-flex">
+                                <div class="v-evn-btn d-flex" id="v-evn-btn">
+                                    <img src="images/user-dashboard/add-events.webp" alt="View events icon">
+                                </div>
                                 <p>View Bills</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <div class="bill-window" id="evn-window"></div>
-                        <div class="evn-window" id="evn-window"></div>
+                        <div class="bill-window" id="bill-window">
+                            <p>Bill window</p>
+                        </div>
+                        <div class="evn-window" id="evn-window">
+                            <p>Event window</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,7 +259,7 @@
                     <div class="foo-list">
                         <a href="../index.html">Home</a>
                         <a href="aboutus.html">About Us</a>
-                        <a href="contact.html">Contact Us</a>
+                        <a href="contact.php">Contact Us</a>
                         <a href="#" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
@@ -223,5 +282,21 @@
             </div>
         </footer>
         <script src="js/main-script.js"></script>
+        <script>
+            var billBtn = document.getElementById("v-bill-btn");
+            var evnBtn = document.getElementById("v-evn-btn");
+            var billWindow = document.getElementById("bill-window");
+            var evnWindow = document.getElementById("evn-window");
+
+            billBtn.addEventListener("click",function(){
+                billWindow.style.display = "block";
+                evnWindow.style.display = "none";
+            })
+            evnBtn.addEventListener("click",function(){
+                billWindow.style.display = "none";
+                evnWindow.style.display = "block";
+            })
+
+        </script>
     </body>
 </html>
