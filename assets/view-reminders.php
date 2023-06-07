@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>User Dashboard - RemindMeister</title>
+        <title>View Reminders - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -61,63 +61,99 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-
-            .category{
-                margin: 0rem;
-                padding: 4rem 3rem 4rem 3rem;
-                width: 100%;
-                height: 100vh;
-                display: flex;
+            /*CSS for view reminder section on mobile*/
+            .v-rem-section{
+                padding:2rem 1rem 2rem 1rem;
+            }
+            .btn-section{
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .v-bill-btn-col,.v-evn-btn-col{
                 flex-direction: column;
-                justify-content: center;
-                
+                align-items: center;
+                margin-top:2rem;
             }
-
-            #but{
-                margin:0 3rem 0 3rem;
-                padding:0 2rem 3rem 2rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            
-
-            .subbutton{
-                margin: 0rem;
-                padding: 1rem;
-                display: flex;
+            .v-bill-btn,.v-evn-btn{
+                background-color: var(--bg);
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                border-radius:10px;
                 flex-direction: column;
-                border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-                background: var(--bg);
-                transition: 0.6s;
-
-            }
-
-            .subbutton img{
-                margin: 0rem;
+                align-items: center;
                 padding:1rem;
-                width: 100%;
+                transition: 0.6s;
             }
-
-            #dis{
-                margin:0;
-                margin-bottom: 0rem;
-                padding-top:1rem;
-                text-align: center;
-                font-family:Poppins-S;
-                
-            }
-
-            .subbutton:hover{
+            .v-bill-btn:hover,.v-evn-btn:hover{
                 background-color: var(--cta);
+                cursor: pointer;
+                transition: 0.6s;
+            }
+            .v-bill-btn img,.v-evn-btn img{
+                width:30px;
+            }
+            .v-bill-btn-col p,.v-evn-btn-col p{
+                font-family: Poppins-S;
+                margin-top:0.6rem;
+            }
+            .bill-window,.evn-window{
+                background-color: var(--bg);
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                padding:2rem;
+                border-radius: 10px;
+                display:none;
+            }
+            .rel-btn{
+                background-color: var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                text-align: center;
+                width:100px;
+                border:1px solid var(--primary);
+                border-radius: 7px;
+                padding:0.5rem 0rem 0.5rem 0rem;
+                transition: 0.6s;
+            }
+            .rel-btn:hover{
+                background-color: var(--bg);
+                color:var(--primary);
+                border:1px solid var(--primary);
+                padding:0.5rem 0rem 0.5rem 0rem;
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                transition: 0.6s;
+                cursor: pointer;
+            }
+            /*CSS for dashboard and return btns*/
+            .pg-return-btn{
+                flex-direction: row;
+                justify-content: center;
+                padding-top:4rem;
+                padding-bottom:4rem;
+            }
+            .ret-btn{
+                background-color:var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                font-size:15px;
+                padding:1rem 2rem 1rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .ret-btn:hover{
+                background-color:var(--cta);
+                color:var(--bg);
+                cursor:pointer;
                 transition: 0.6s;
             }
 
-          
-            
+            @media only screen and (max-width:767px){
+                .pg-return-btn{
+                    padding-top:4rem;
+                    padding-bottom:4rem !important;
+                }
+                
+            }
+
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -146,29 +182,33 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
-
-                .category{
-                margin: 0rem;
-                padding: 3rem 2rem 3rem 2rem;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                
+                /*CSS for view reminder section on tablet*/
+                .v-rem-section{
+                    padding:2rem 4rem 2rem 4rem;
+                }
+                .btn-section{
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                .v-bill-btn-col,.v-evn-btn-col{
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top:2rem;
+                }
+                .v-bill-btn,.v-evn-btn{
+                    background-color: var(--bg);
+                    filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                    border-radius:10px;
+                    flex-direction: column;
+                    align-items: center;
+                    padding:1.5rem;
+                    transition: 0.6s;
+                }
+                .v-bill-btn img,.v-evn-btn img{
+                    width:60px;
                 }
 
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:0 1rem 0rem 1rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-                
-                
 
                 
             }
@@ -194,32 +234,26 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
-                .category{
-                margin: 0rem;
-                padding: 5rem 7rem 8rem 7rem;
-                width: 100%;
-                height: 60vh;
-                
+                /*CSS for view reminder section on desktop*/
+                .v-rem-section{
+                    padding:2rem 4rem 2rem 4rem;
                 }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:3rem 5rem 3rem 5rem;
-                width: 100%;
-                display: flex;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
+                .btn-section{
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .v-bill-btn-col,.v-evn-btn-col{
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top:2rem;
+                }
+                .v-bill-btn,.v-evn-btn{
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .v-bill-btn img,.v-evn-btn img{
+                    width:60px;
+                }
 
 
             }
@@ -248,7 +282,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>USER DASHBOARD</h1>
+                            <h1>VIEW REMINDERS</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -262,29 +296,40 @@
                     </div>
                 </div>
             </div>
-
-            <div class="category">
-              <a id="but" href="bill-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
-                   </div>
-                   <p id="dis">Add Bills</p> 
-              </a>    
-              <a id="but" href="event-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
-                   </div>
-                   <p id="dis">Add Events</p> 
-              </a>    
-              <a id="but" href="view-reminders.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
-                   </div>
-                   <p id="dis">View Reminders</p> 
-              </a>    
-               
+            <div class="container-fluid v-rem-section">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="btn-section d-flex">
+                            <div class="rel-btn" onClick="window.location.reload();">Refresh</div>
+                            <div class="v-bill-btn-col d-flex">
+                                <div class="v-bill-btn d-flex" id="v-bill-btn">
+                                    <img src="images/user-dashboard/add-bills.webp" alt="View bills icon">
+                                </div>
+                                <p>View Bills</p>
+                            </div>
+                            <div class="v-evn-btn-col d-flex">
+                                <div class="v-evn-btn d-flex" id="v-evn-btn">
+                                    <img src="images/user-dashboard/add-events.webp" alt="View events icon">
+                                </div>
+                                <p>View Bills</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="bill-window" id="bill-window">
+                            <p>Bill window</p>
+                        </div>
+                        <div class="evn-window" id="evn-window">
+                            <p>Event window</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+            <div class="pg-return-btn d-flex">
+                <a href="user-dashboard.php">
+                    <div class="ret-btn">Dashboard</div>
+                </a>
+            </div>
         </main>
         <footer>
             <div class="footer-container">
@@ -319,5 +364,21 @@
             </div>
         </footer>
         <script src="js/main-script.js"></script>
+        <script>
+            var billBtn = document.getElementById("v-bill-btn");
+            var evnBtn = document.getElementById("v-evn-btn");
+            var billWindow = document.getElementById("bill-window");
+            var evnWindow = document.getElementById("evn-window");
+
+            billBtn.addEventListener("click",function(){
+                billWindow.style.display = "block";
+                evnWindow.style.display = "none";
+            })
+            evnBtn.addEventListener("click",function(){
+                billWindow.style.display = "none";
+                evnWindow.style.display = "block";
+            })
+
+        </script>
     </body>
 </html>
