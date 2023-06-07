@@ -23,284 +23,196 @@
             }
             @font-face{
                 font-family:Poppins-R;
-                src:url('font/Poppins-Regular.ttf');
+                src:url('./font/Poppins-Regular.ttf');
             }
             @font-face{
                 font-family:Poppins-S;
-                src:url('font/Poppins-SemiBold.ttf');
+                src:url('./font/Poppins-SemiBold.ttf');
             }
-            /*Default and mobile css*/
-            
-            main{
-                margin: 0;
-                padding: 0;
-                min-height: 110vh;
-                position: relative;      
+            .login-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .heading{
+                font-family:Poppins-S !important;
+                font-size: 3.2rem;
+                color:var(--primary);
                 text-align: center;
-                background-color: var(--bg);
             }
-           
-         .center{
-            margin-top:4rem;
-            padding: 2rem;
-            padding-bottom: 0;
-            position: absolute;
-            height: 300px;
-            left: 50%;
-            top: 100px;
-            width: 100%;
-            align-items: center;
-            transform: translate(-50%,-50%);
-            filter: drop-shadow(0px 0px 10px rgb(213, 211, 211));
-            
-         }
+            .details{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--bg);
+                border-radius: 20px;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
 
-         .center h1{
-               text-align: center;
-               justify-content: center;
-               margin-top: 2rem;
-               margin-bottom: 5rem;
-               font-size: 60px;
-               font-weight: bolder;
-               font-family:Poppins-S;
-               color: var(--primary);
-         }
+            }
+            input[type=email],input[type=password]
+            {   
 
-         .feild{
-            margin: 0rem;
-            padding: 2rem;
-            width: 100%;
-            background-color: var(--bg);
-            border-radius: 1rem;
-            text-align: center;
-            font-family:Poppins-R;
-         }
-        
-        .center form{
-            margin:0;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .loginimage img{
-            position: absolute;
-            top: 37rem;
-            left: 7rem;
-            width: 40%;
-           
-
-        }
-
-        form .textfeild{
-            margin-top:  1rem;
-            margin-bottom: 2rem;
-            padding: 0;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            border-bottom: 2px solid black;
-            border-radius: 8px;
-           
-        }
-
-        .textfeild input{
-            margin:0;
-            padding: 0 ;
-            width: 100%;
-            height: 40px;
-            display: grid;
-            justify-content: center;
-            font-size: 20px;
-            border: none;
-            background: none;
-            outline: none;
-            text-align: center;
-            font-weight: 500;
-            font-family:Poppins-R;
-
-        }
-
-        input:hover{
-            color: var(--cta);
-        }
-
-        .forgetpassword{
-           margin-top: 0.5rem;
-           margin-bottom: 1rem;
-        }
-        
-        .forgetpassword a{
-            color: var(--txt);
-            font-size: 15px;
-            opacity: 70%;
-            cursor: pointer;
-        }
-        
-        .forgetpassword a:hover{
-            text-decoration:solid;
-            color: var(--cta);
-            opacity: 100%;
-        }
-
-
-        #login2{
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            padding-top:0.5rem;
-            padding-bottom: 0.5rem;
-            width: 70%;
-            border: none;
-            background: var(--cta);
-            border-radius: 0.5rem;
-            font-family:Poppins-S;
-            font-size: 20px;
-            color: white;
-            background: #fb9134;
-            cursor: pointer;
-            outline: none;
-            opacity: 90%;
-            filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-        }
-
-        #login2:hover{
-            text-decoration:solid;
-            background: var(--cta);
-            color: azure;
-            opacity: 100%;
-        }
-
-        .create_account{
-            margin-top: 0.5rem;
-        
-        }
-
-        .create_account a{
-            color: var(--txt);
-            font-size: 15px;
-            opacity: 70%;
-            cursor: pointer;
-        }
-
-        .create_account a:hover{
-            text-decoration:solid;
-            color: var(--cta);
-            opacity: 100%;
-        }
-
-         
-            
-            /*Tablet css*/
-
-        @media only screen and (min-width:768px) {
-        
-        main{
-                margin: 0;
-                padding: 0;
-                min-height: 80vh;
+	            outline:none;
+            }
+            form{
+                margin-top: 4rem;
+                padding: 4rem 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                filter: drop-shadow(0);
                
-        }
-            
-        .center{
-            margin-top:0rem;
-            padding: 7rem;
-            height: 300px;  
-            
-         }
+            }
+            .email{
+                font-family:Poppins-R; 
+                padding: 0.5rem 1.5rem;     
+                font-size: 1.3rem;
+                text-align: center;
+                border-radius: 7px;
+                margin-bottom: 1rem;
+                color: var(--primary);
+                border-color:var(--bg) ;
+                background-color: var(--bg);
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
+               
+             }
+             .password{
+                font-family:Poppins-R; 
+                padding: 0.5rem 1.5rem;     
+                font-size: 1.3rem;
+                text-align: center;
+                border-radius: 7px;
+                background-color: var(--bg);
+                margin-bottom: 1rem;
+                border-color:var(--bg) ;
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
+             }
+             h2{
+                font-family:Poppins-R; 
+                font-size: 0.9rem;
+                color: var(--txt);
+                margin-bottom: 1rem;
+             }
+             .BTN{
+                font-family:Poppins-R; 
+                font-size: 1.5rem;
+                padding: 0.5rem 4rem;
+                border-radius: 7px;
+                background-color: var(--cta);
+                color: var(--bg);
+                cursor: pointer;
+                border: none;
+             }
+             .row1{
+                display: flex;
+                flex-direction:column-reverse;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5rem;
+             }
+             .row1 img{
+                margin-top: 3rem;
+                width: 40%;
+             }
 
-        .center h1{
-               margin-top: 1rem;
-               margin-bottom: 3rem;
-         }
+             @media only screen and (min-width:768px){
+               
+                .heading{
+                  font-size: 5rem;  
+                }
+               form{
+                    margin-top: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 4rem;
+               }
+               .email{
+                    padding: 1rem 2rem;
+                    font-size: 2rem;
+                    border-radius: 7px;
+                    margin-bottom: 2rem;
+               }
+               .details{
+                    flex-direction: row;
+                    margin-bottom: 10rem;
+                   
+               }
+               .password{
+                    padding: 1rem 2rem;
+                    font-size: 2rem;
+                    border-radius: 7px;
+                    margin-bottom: 2rem;
+               }
+               h2{
+                     font-size: 1.2rem;
+                     margin-bottom: 2rem;
+               }
+               .row1{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 5rem;
+               }
+               .row1 img{
+                    z-index: 1;
+                    position: absolute;
+                    width: 20%;
+                    left: 2.5rem;
+                    margin-top: 10rem;
+               }
+               .BTN{
+                    font-size: 2.5rem;
+                    padding:0.6rem 4rem;
+                    border-radius: 7px;
+               }
 
-         
-        .loginimage img{
-            position: absolute;
-            top: 40rem;
-            left: 18rem;
-            width: 21%;
-        }
+             }
 
-        form .textfeild{
-            margin-top:  2rem;
-            margin-bottom: 3rem;
-              
-        }
-
-        #login2{
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            padding-top:0.5rem;
-            padding-bottom: 0.5rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            width: 70%;
-            
-        }
-        
-        
-            
-        }    
-            
-            /*Desktop css*/
-
-         @media only screen and (min-width:1280px){
-
-        .center{
-            padding-top: 15rem;
-            padding: 45rem;
-            height: 800px; 
-
-        }
-
-        .center h1{
-               margin-top: 2rem;
-               margin-bottom: 4rem;
-               font-size: 80px;
-               font-weight: bolder;
-
-         }
-
-         .feild{
-            padding: 4rem;
-            width: 100%;
-            height: 40vh;
-            line-height: 3rem;
-         }
-
-        
-
-        .loginimage img{
-            position: absolute;
-            top: 29rem;
-            left: 30rem;
-            width: 13%;
-        }
-
-        #login2{
-            margin: 0;
-            padding-top:0.5rem;
-            padding-bottom: 0.5rem;
-            width: 40%;
-            font-size: 25px;
-            
-        }
-
-        form .textfeild{
-            margin-left: 5rem;
-            padding-left: 3rem;
-            padding-right: 3rem;
-            width: 80%;
-           
-        }
-
-        .feild{
-            padding: 2rem;
-            width: 100%;
-         }
-            
-        }    
+             @media only screen and (min-width:1280px){
+                .login-container{
+                    height: 90vh;
+                }
+                .heading{
+                    font-size: 4.5rem;
+                }
+                form{
+                    margin-top: 0;
+                    margin-left:auto;
+                    margin-right: auto;
+                    padding: 6rem;
+                }
+                .email,.password{
+                    padding: 1rem 4rem;
+                    font-size: 1.5rem;
+                    border-radius: 7px;
+                    margin-bottom: 2.3rem;
+                }
+                .details{
+                    margin-bottom: 10rem;
+                }
+                h2{
+                    font-size: 1.2rem;
+                }
+               .row1 img{
+                    position: absolute;
+                    z-index: 1;
+                    width: 15%;
+                    left: 22%;
+                    margin-top: 10rem;
+                }
+                .BTN{
+                    font-size: 2.5rem;
+                    padding: 0.3rem 3rem;
+                    border-radius: 7px;
+                }
+                
+             }
 
         </style>
     </head>
@@ -323,40 +235,20 @@
             </div>
         </header>
         <main>
-
-         <div class="center">
-
-            <h1 class="login">Log in</h1>
-            
-            <div class="feild">
-                <form method="post">
-                 <div class="textfeild">
-                    <input  type="text" placeholder="Email address" required="required">
-                    <span></span> 
-                    
-                 </div>
-                 <div class="textfeild">
-                    <input  type="text" placeholder="Password" required="required"> 
-                    <span></span>
-                    
-                 </div>
-                 <div class="forgetpassword">
-                    <a href="fogetpassword.html">Forget password</a>
-                 </div>
-                
-                 <input id="login2" type="submit" value="Log in">
-              
-                 <div class="create_account">
-                    <a href="create-account.html">Don't Have an account?</a>
-                 </div>
-                 </div>
-                
-                </form>
+           <div class="login-container">
+                <h1 class="heading">Log in</h1>
+                <div class="row1">
+                <img src="./images/login-signup/Saly-32.webp" alt="image">
+                <div class="details">
+                    <form action="staff-login.php" method="post">
+                        <input type="email" placeholder="E-mail address" class="email">
+                        <input type="password" placeholder="password" class="password">
+                        <h2>Forgot Password</h2>
+                        <input type="submit" id="btn" class="BTN" value="Log in">
+                    </form>
+                </div>
+                </div>
             </div>
-
-          <div class="loginimage">
-            <img src="images/login-signup/Saly-32.webp" >
-          </div>
         </main>
         <footer>
             <div class="footer-container">
