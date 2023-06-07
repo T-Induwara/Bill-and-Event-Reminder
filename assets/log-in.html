@@ -40,6 +40,7 @@
                 font-size: 3.2rem;
                 color:var(--primary);
                 text-align: center;
+                margin-bottom:4rem;
             }
             .details{
                 display: flex;
@@ -53,11 +54,10 @@
             }
             input[type=email],input[type=password]
             {   
-
 	            outline:none;
             }
             form{
-                margin-top: 4rem;
+                margin: 0rem;
                 padding: 4rem 2rem;
                 display: flex;
                 flex-direction: column;
@@ -69,7 +69,7 @@
             .email{
                 font-family:Poppins-R; 
                 padding: 0.5rem 1.5rem;     
-                font-size: 1.3rem;
+                font-size: 20px;
                 text-align: center;
                 border-radius: 7px;
                 margin-bottom: 1rem;
@@ -84,7 +84,7 @@
              .password{
                 font-family:Poppins-R; 
                 padding: 0.5rem 1.5rem;     
-                font-size: 1.3rem;
+                font-size: 20px;
                 text-align: center;
                 border-radius: 7px;
                 background-color: var(--bg);
@@ -101,14 +101,20 @@
                 margin-bottom: 1rem;
              }
              .BTN{
-                font-family:Poppins-R; 
-                font-size: 1.5rem;
+                font-family:Poppins-S; 
+                font-size: 20px;
                 padding: 0.5rem 4rem;
                 border-radius: 7px;
                 background-color: var(--cta);
                 color: var(--bg);
-                cursor: pointer;
                 border: none;
+                transition: 0.6s;
+             }
+             .BTN:hover{
+                background-color: var(--primary);
+                color: var(--bg);
+                transition: 0.6s;
+                cursor: pointer;
              }
              .row1{
                 display: flex;
@@ -125,7 +131,9 @@
              @media only screen and (min-width:768px){
                
                 .heading{
-                  font-size: 5rem;  
+                  font-size: 5rem;
+                  margin-top:2rem;
+                  margin-bottom:1rem;
                 }
                form{
                     margin-top: 0;
@@ -135,7 +143,7 @@
                }
                .email{
                     padding: 1rem 2rem;
-                    font-size: 2rem;
+                    font-size: 25px;
                     border-radius: 7px;
                     margin-bottom: 2rem;
                }
@@ -146,7 +154,7 @@
                }
                .password{
                     padding: 1rem 2rem;
-                    font-size: 2rem;
+                    font-size: 25px;
                     border-radius: 7px;
                     margin-bottom: 2rem;
                }
@@ -167,7 +175,7 @@
                     margin-top: 10rem;
                }
                .BTN{
-                    font-size: 2.5rem;
+                    font-size: 25px;
                     padding:0.6rem 4rem;
                     border-radius: 7px;
                }
@@ -175,9 +183,6 @@
              }
 
              @media only screen and (min-width:1280px){
-                .login-container{
-                    height: 90vh;
-                }
                 .heading{
                     font-size: 4.5rem;
                 }
@@ -189,7 +194,7 @@
                 }
                 .email,.password{
                     padding: 1rem 4rem;
-                    font-size: 1.5rem;
+                    font-size: 20px;
                     border-radius: 7px;
                     margin-bottom: 2.3rem;
                 }
@@ -197,7 +202,7 @@
                     margin-bottom: 10rem;
                 }
                 h2{
-                    font-size: 1.2rem;
+                    font-size: 15px;
                 }
                .row1 img{
                     position: absolute;
@@ -207,7 +212,7 @@
                     margin-top: 10rem;
                 }
                 .BTN{
-                    font-size: 2.5rem;
+                    font-size: 25px;
                     padding: 0.3rem 3rem;
                     border-radius: 7px;
                 }
