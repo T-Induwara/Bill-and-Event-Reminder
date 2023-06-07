@@ -359,8 +359,8 @@
                                                 <td>{$row['CB_Reminder_option']}</td>
                                                 <td>{$row['CB_Type']}</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href=''>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href=''>Delete</a>
+                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CB_ID']}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CB_ID']}'>Delete</a>
                                                 </td>
                                             </tr>
                                         ";
