@@ -276,7 +276,7 @@
                    </div>
                    <p id="dis">Add Events</p> 
               </a>    
-              <a id="but" href="">  
+              <a id="but" href="view-reminders.php">  
                    <div class="subbutton" >
                    <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
                    </div>

@@ -61,11 +61,13 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
+            /*CSS for view reminder section on mobile*/
             .v-rem-section{
-                padding:2rem 4rem 2rem 4rem;
+                padding:2rem 1rem 2rem 1rem;
             }
             .btn-section{
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-around;
                 align-items: center;
             }
             .v-bill-btn-col,.v-evn-btn-col{
@@ -79,7 +81,7 @@
                 border-radius:10px;
                 flex-direction: column;
                 align-items: center;
-                padding:1.5rem;
+                padding:1rem;
                 transition: 0.6s;
             }
             .v-bill-btn:hover,.v-evn-btn:hover{
@@ -88,7 +90,7 @@
                 transition: 0.6s;
             }
             .v-bill-btn img,.v-evn-btn img{
-                width:60px;
+                width:30px;
             }
             .v-bill-btn-col p,.v-evn-btn-col p{
                 font-family: Poppins-S;
@@ -147,7 +149,7 @@
             @media only screen and (max-width:767px){
                 .pg-return-btn{
                     padding-top:4rem;
-                    padding-bottom:0rem !important;
+                    padding-bottom:4rem !important;
                 }
                 
             }
@@ -180,6 +182,32 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+                /*CSS for view reminder section on tablet*/
+                .v-rem-section{
+                    padding:2rem 4rem 2rem 4rem;
+                }
+                .btn-section{
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                .v-bill-btn-col,.v-evn-btn-col{
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top:2rem;
+                }
+                .v-bill-btn,.v-evn-btn{
+                    background-color: var(--bg);
+                    filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                    border-radius:10px;
+                    flex-direction: column;
+                    align-items: center;
+                    padding:1.5rem;
+                    transition: 0.6s;
+                }
+                .v-bill-btn img,.v-evn-btn img{
+                    width:60px;
+                }
 
 
                 
@@ -206,7 +234,26 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
+                /*CSS for view reminder section on desktop*/
+                .v-rem-section{
+                    padding:2rem 4rem 2rem 4rem;
+                }
+                .btn-section{
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .v-bill-btn-col,.v-evn-btn-col{
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top:2rem;
+                }
+                .v-bill-btn,.v-evn-btn{
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .v-bill-btn img,.v-evn-btn img{
+                    width:60px;
+                }
 
 
             }
