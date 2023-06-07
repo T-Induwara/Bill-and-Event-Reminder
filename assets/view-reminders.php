@@ -61,63 +61,17 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-
-            .category{
-                margin: 0rem;
-                padding: 4rem 3rem 4rem 3rem;
-                width: 100%;
-                height: 100vh;
-                display: flex;
+            .v-bill-btn,.v-evn-btn{
+                background-color: var(--bg);
+                filter: drop-shadow(0px 0px 10px hsl(0 0% 47% / 0.3));
+                border-radius:7px;
                 flex-direction: column;
-                justify-content: center;
-                
+                align-items: center;
+            }
+            .v-bill-btn img,.v-evn-btn img{
+                width:80px;
             }
 
-            #but{
-                margin:0 3rem 0 3rem;
-                padding:0 2rem 3rem 2rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            
-
-            .subbutton{
-                margin: 0rem;
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-                background: var(--bg);
-                transition: 0.6s;
-
-            }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-            }
-
-            #dis{
-                margin:0;
-                margin-bottom: 0rem;
-                padding-top:1rem;
-                text-align: center;
-                font-family:Poppins-S;
-                
-            }
-
-            .subbutton:hover{
-                background-color: var(--cta);
-                transition: 0.6s;
-            }
-
-          
-            
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -148,28 +102,6 @@
                 }
 
 
-                .category{
-                margin: 0rem;
-                padding: 3rem 2rem 3rem 2rem;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:0 1rem 0rem 1rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-                
-                
-
                 
             }
 
@@ -195,31 +127,6 @@
                     font-size: 15px;
                 }
 
-                .category{
-                margin: 0rem;
-                padding: 5rem 7rem 8rem 7rem;
-                width: 100%;
-                height: 60vh;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:3rem 5rem 3rem 5rem;
-                width: 100%;
-                display: flex;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
 
 
             }
@@ -248,7 +155,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>USER DASHBOARD</h1>
+                            <h1>VIEW REMINDERS</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -262,29 +169,26 @@
                     </div>
                 </div>
             </div>
-
-            <div class="category">
-              <a id="but" href="bill-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
-                   </div>
-                   <p id="dis">Add Bills</p> 
-              </a>    
-              <a id="but" href="event-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
-                   </div>
-                   <p id="dis">Add Events</p> 
-              </a>    
-              <a id="but" href="">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
-                   </div>
-                   <p id="dis">View Reminders</p> 
-              </a>    
-               
+            <div class="container-fluid v-rem-section">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="btn-section">
+                            <div class="v-bill-btn d-flex">
+                                <img src="images/user-dashboard/add-bills.webp" alt="View bills icon">
+                                <p>View Bills</p>
+                            </div>
+                            <div class="v-evn-btn d-flex">
+                                <img src="images/user-dashboard/add-events.webp" alt="View events icon">
+                                <p>View Bills</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="bill-window" id="evn-window"></div>
+                        <div class="evn-window" id="evn-window"></div>
+                    </div>
+                </div>
             </div>
-
         </main>
         <footer>
             <div class="footer-container">
