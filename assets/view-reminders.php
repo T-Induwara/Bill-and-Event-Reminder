@@ -121,6 +121,36 @@
                 transition: 0.6s;
                 cursor: pointer;
             }
+            /*CSS for dashboard and return btns*/
+            .pg-return-btn{
+                flex-direction: row;
+                justify-content: center;
+                padding-top:4rem;
+                padding-bottom:4rem;
+            }
+            .ret-btn{
+                background-color:var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                font-size:15px;
+                padding:1rem 2rem 1rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+            }
+            .ret-btn:hover{
+                background-color:var(--cta);
+                color:var(--bg);
+                cursor:pointer;
+                transition: 0.6s;
+            }
+
+            @media only screen and (max-width:767px){
+                .pg-return-btn{
+                    padding-top:4rem;
+                    padding-bottom:0rem !important;
+                }
+                
+            }
 
 
             /*CSS for tablet*/
@@ -247,6 +277,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="pg-return-btn d-flex">
+                <a href="user-dashboard.php">
+                    <div class="ret-btn">Dashboard</div>
+                </a>
             </div>
         </main>
         <footer>
