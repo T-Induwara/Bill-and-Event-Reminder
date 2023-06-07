@@ -333,7 +333,6 @@
 
                                     $connectionInfo = array( "Database"=>"RemindMeister");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
-                                    echo "gg ez";
 
                                     //check connection
                                     if( $conn ) {
@@ -345,20 +344,20 @@
 
                                     //declaring sql command
                                     $sql = "SELECT * FROM Created_Bill";
-                                    $result = $conn->query($sql);
+                                    $result = sqlsrv_query($conn,$sql);
                                     if(!$result){
-                                        die("Invalid query : ". $conn->error);
+                                        die(print_r(sqlsrv_errors().true));
                                     }
                                     //read data of each row
-                                    while($row = $result->fetch_assoc()){
+                                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                                         echo "
                                             <tr>
-                                                <td>SLT Phone bill</td>
-                                                <td>Need to pay SLT phone bill</td>
-                                                <td>10:00</td>
-                                                <td>2023-01-12</td>
-                                                <td>E-mail</td>
-                                                <td>Phone</td>
+                                                <td>{$row['CB_Title']}</td>
+                                                <td>{$row['CB_Description']}</td>
+                                                <td>{$row['CB_Reminder_time']->format('H:i')}</td>
+                                                <td>{$row['CB_Reminder_date']->format('Y-m-d')}</td>
+                                                <td>{$row['CB_Reminder_option']}</td>
+                                                <td>{$row['CB_Type']}</td>
                                                 <td>
                                                     <a class='btn btn-primary btn-sm' href=''>Edit</a>
                                                     <a class='btn btn-danger btn-sm' href=''>Delete</a>
