@@ -276,8 +276,6 @@
             </div>
         </header>
         <main>
-            <?php
-            ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -318,6 +316,61 @@
                     <div class="col-lg-9">
                         <div class="bill-window" id="bill-window">
                             <p>Bill window</p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Desciption</th>
+                                        <th>Time</th>
+                                        <th>Date</th>
+                                        <th>Reminder method</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $serverName = "TIMAXX-NITRO";
+
+                                    $connectionInfo = array( "Database"=>"RemindMeister");
+                                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                                    echo "gg ez";
+
+                                    //check connection
+                                    if( $conn ) {
+                                        echo "Connection established.<br />";
+                                    }else{
+                                        echo "Connection could not be established.<br />";
+                                        die( print_r( sqlsrv_errors(), true));
+                                    }
+
+                                    //declaring sql command
+                                    $sql = "SELECT * FROM Created_Bill";
+                                    $result = $conn->query($sql);
+                                    if(!$result){
+                                        die("Invalid query : ". $conn->error);
+                                    }
+                                    //read data of each row
+                                    while($row = $result->fetch_assoc()){
+                                        echo "
+                                            <tr>
+                                                <td>SLT Phone bill</td>
+                                                <td>Need to pay SLT phone bill</td>
+                                                <td>10:00</td>
+                                                <td>2023-01-12</td>
+                                                <td>E-mail</td>
+                                                <td>Phone</td>
+                                                <td>
+                                                    <a class='btn btn-primary btn-sm' href=''>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href=''>Delete</a>
+                                                </td>
+                                            </tr>
+                                        ";
+                                    }
+
+                                    ?>
+                                    
+                                </tbody>
+                            </table>
                         </div>
                         <div class="evn-window" id="evn-window">
                             <p>Event window</p>
