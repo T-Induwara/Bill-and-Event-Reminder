@@ -267,6 +267,8 @@
                 .form-cont{
                     margin-left: 9rem;
                     margin-right: 9rem;
+                    padding-left: 4rem;
+                    padding-right: 4rem;
                 }
 
                 
