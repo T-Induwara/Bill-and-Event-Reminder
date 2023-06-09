@@ -115,8 +115,68 @@
                 background-color: var(--cta);
                 transition: 0.6s;
             }
+            .background{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: white;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                border-radius: 15px;
+            }
+            .background h1{
+                 font-family:Poppins-R;
+                 color: var(--primary);
+                 font-size: 1.5rem;
+                 margin-bottom: 1rem;
+            }
+            .title,.discription,.email,.phone{
+                font-family:Poppins-R;
+                font-size: 1rem;
+                padding: 0.5rem 2.5rem;
+                margin-bottom: 2rem;
+                border-bottom:1px solid var(--primary);
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }
+            .btn{
+                padding: 0.5rem 1rem;
+                background-color: var(--primary);
+                color: var(--bg);
+                font-family:Poppins-S;
+                font-size: 1.2rem;
+                margin-top: 2rem;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                border: none;
+            }
+            .btn1{
+                margin-top: 2rem;
+                padding: 0.5rem 1rem;
+                background-color: var(--primary);
+                color: var(--bg);
+                font-family:Poppins-S;
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                border: none;
+            }
+            input[type=text]
+            {   
 
-          
+	            outline:none;
+            }
             
 
             /*CSS for tablet*/
@@ -167,9 +227,35 @@
                 flex-direction:column ;
                 justify-content: center;
             }
-                
-                
-
+            form{
+                justify-content: space-around;
+                width: 80%;
+                padding: 3rem 3rem;
+            }
+             .row1 , .row2, .row3, .row4{
+                padding-left: 3rem;
+                padding-right: 3rem;
+                width: 100%;
+                display: flex;
+                justify-content:space-between;
+                align-items: center;
+             }
+             .background h1{
+                font-size: 1rem;
+             }  
+             .title,.discription,.email,.phone{
+                height: 2rem;
+                font-size: 0.8rem;
+               
+             } 
+             .btn{
+                font-size: 1.5rem;
+                border: none;
+             }
+             .btn1{
+                font-size: 1.5rem;
+                border: none;
+             }
                 
             }
 
@@ -220,7 +306,25 @@
                 flex-direction: row;
                 align-items: center;
             }
-
+            form{
+                width: 70%;
+                padding: 2rem 3rem;
+            }
+            .row1 , .row2, .row3, .row4{
+                padding: 1rem 3rem;
+                display: flex;
+                flex-direction: row;
+                justify-content:space-between;
+                align-items: center;
+                height: 5rem;
+            }
+            .background h1{
+                font-size: 1.3rem;
+             } 
+             .title, .discription, .email, .phone{
+                padding:1.5rem 4rem ;
+                font-size: 1.2rem;
+             } 
 
             }
         </style>
@@ -269,21 +373,21 @@
                     <h1>Edit Inquiry</h1>
                     <input type="text" class="title" placeholder="Eg:SLT Landline"> 
                 </div>
-                <div class="row">
+                <div class="row2">
                     <h1>Edit Inquiry Description</h1>
                     <input type="text" class="discription" placeholder="Eg:SLT Landline"> 
                 </div>
-                <div class="row1">
+                <div class="row3">
                     <h1>Edit Inquiry Email</h1>
                     <input type="text" class="email" placeholder="Eg:SLT Landline"> 
                 </div>
-                <div class="row1">
+                <div class="row4">
                     <h1>Edit Inquiry Phone</h1>
                     <input type="text" class="phone" placeholder="Eg:SLT Landline"> 
                 </div>
-                <input type="button" class="btn" value="Edit Inquiry">
+                <button class="btn">Edit Inquiry</button>
             </form>
-            <input type="button" class="btn1" value="Return">
+                <button class="btn1">Return</button>
           </div>
 
         </main>
