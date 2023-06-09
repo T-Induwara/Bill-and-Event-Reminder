@@ -331,7 +331,7 @@
                                     <?php
                                     $serverName = "TIMAXX-NITRO";
 
-                                    $connectionInfo = array( "Database"=>"RemindMeister");
+                                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
                                     //check connection
@@ -388,7 +388,7 @@
                                     <?php
                                     $serverName = "TIMAXX-NITRO";
 
-                                    $connectionInfo = array( "Database"=>"RemindMeister");
+                                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
                                     //check connection
