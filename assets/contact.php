@@ -396,12 +396,12 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+            <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
             <div class="nav-list" id="nav-list">
-                <a href="../index.html">Home</a>
+                <a href="../index.php">Home</a>
                 <a href="aboutus.html">About Us</a>
                 <a href="contact.php">Contact Us</a>
-                <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                <a href="log-in.php" class="nav-log-btn"><b>Log in</b></a>
             </div>
             <div class="m-nav-btn">
                 <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -423,7 +423,7 @@
                 <img src="images/contact-us/Saly-38.webp" alt="" class="man-img">
             </div>
             <div class="inquiry-form">
-                <form method="GET" action="create-account.html">
+                <form method="GET" action="create-account.php">
                     <div class="inq-summary">
                         <input type="text" placeholder="Inquiry Summary" id="inq-summary">
                     </div>
@@ -455,10 +455,10 @@
             </div>
             <div class="foo-urls">
                 <div class="foo-list">
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="log-in.php" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
             </div>

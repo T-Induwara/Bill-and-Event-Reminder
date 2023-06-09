@@ -279,9 +279,9 @@
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
                     <a href="#" class="nav-log-btn"><b>Log out</b></a>
@@ -363,7 +363,7 @@
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="../index.html">Home</a>
+                        <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
                         <a href="#" class="nav-log-btn"><b>Log out</b></a>
