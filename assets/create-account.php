@@ -101,7 +101,7 @@
 
             /*remove outline on html form fields when active status*/
             textarea:focus, input:focus{
-            outline: none;
+                outline: none;
             }
             @media only screen and (max-width:767px){
                 input{
@@ -110,9 +110,8 @@
                 }
             }
 
-           /* tablet*/
-           @media only screen and (min-width:768px){
-
+            /* tablet*/
+            @media only screen and (min-width:768px){
                 body{
                     margin:0 !important;
                     padding:0 !important;
@@ -218,9 +217,9 @@
                 textarea:focus, input:focus{
                     outline: none;
                 }
-        }
+            }
 
-          /* desktop */
+            /* desktop */
             @media only screen and (min-width:1280px){
 
                 body{
@@ -330,7 +329,6 @@
                     outline: none;
                 }
             }
-
         </style>
     </head>
     <body>
