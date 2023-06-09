@@ -373,6 +373,60 @@
                         </div>
                         <div class="evn-window" id="evn-window">
                             <p>Event window</p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Desciption</th>
+                                        <th>Time</th>
+                                        <th>Date</th>
+                                        <th>Reminder method</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $serverName = "TIMAXX-NITRO";
+
+                                    $connectionInfo = array( "Database"=>"RemindMeister");
+                                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                                    //check connection
+                                    if( $conn ) {
+                                        echo "Connection established.<br />";
+                                    }else{
+                                        echo "Connection could not be established.<br />";
+                                        die( print_r( sqlsrv_errors(), true));
+                                    }
+
+                                    //declaring sql command
+                                    $sql = "SELECT * FROM Created_Event";
+                                    $result = sqlsrv_query($conn,$sql);
+                                    if(!$result){
+                                        die(print_r(sqlsrv_errors().true));
+                                    }
+                                    //read data of each row
+                                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                        echo "
+                                            <tr>
+                                                <td>{$row['CEVN_Title']}</td>
+                                                <td>{$row['CEVN_Description']}</td>
+                                                <td>{$row['CEVN_Reminder_time']->format('H:i')}</td>
+                                                <td>{$row['CEVN_Reminder_date']->format('Y-m-d')}</td>
+                                                <td>{$row['CEVN_Reminder_option']}</td>
+                                                <td>{$row['CEVN_Type']}</td>
+                                                <td>
+                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CEVN_ID']}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CEVN_ID']}'>Delete</a>
+                                                </td>
+                                            </tr>
+                                        ";
+                                    }
+
+                                    ?>
+                                    
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
