@@ -61,15 +61,59 @@
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-            .table{
-                width: 95%;
-                padding-top: 50vh;
-                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 4rem;
-                margin-top: 3rem;
-                background-color: white;
+
+            .category{
+                margin: 0rem;
+                padding: 4rem 3rem 4rem 3rem;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+            }
+
+            #but{
+                margin:0 3rem 0 3rem;
+                padding:0 2rem 3rem 2rem;
+                display: flex;
+                width: 70%;
+                flex-direction:column ;
+                justify-content: center;
+            }
+
+            
+
+            .subbutton{
+                margin: 0rem;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
+                background: var(--bg);
+                transition: 0.6s;
+
+            }
+
+            .subbutton img{
+                margin: 0rem;
+                padding:1rem;
+                width: 100%;
+            }
+
+            #dis{
+                margin:0;
+                margin-bottom: 0rem;
+                padding-top:1rem;
+                text-align: center;
+                font-family:Poppins-S;
+                
+            }
+
+            .subbutton:hover{
+                background-color: var(--cta);
+                transition: 0.6s;
             }
 
           
@@ -102,16 +146,30 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-                .table{
-                width: 90%;
-                padding-top: 50vh;
-                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 5rem;
-                margin-top: 5rem;
-               
+
+
+                .category{
+                margin: 0rem;
+                padding: 3rem 2rem 3rem 2rem;
+                width: 100%;
+                height: 40vh;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+                }
+
+                #but{
+                margin:0 3rem 0 3rem;
+                padding:0 1rem 0rem 1rem;
+                display: flex;
+                width: 70%;
+                flex-direction:column ;
+                justify-content: center;
             }
+                
+                
+
                 
             }
 
@@ -136,11 +194,31 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-                .table{
-                width: 95%;
-                padding-top: 50vh;
-                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
 
+                .category{
+                margin: 0rem;
+                padding: 5rem 7rem 8rem 7rem;
+                width: 100%;
+                height: 60vh;
+                
+                }
+
+                #but{
+                margin:0 3rem 0 3rem;
+                padding:3rem 5rem 3rem 5rem;
+                width: 100%;
+                display: flex;
+                flex-direction:column ;
+                justify-content: center;
+            }
+
+            .subbutton img{
+                margin: 0rem;
+                padding:1rem;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
             }
 
 
@@ -170,7 +248,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>VIEW INQUIRY</h1>
+                            <h1>EDIT INQUIRY</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -184,11 +262,29 @@
                     </div>
                 </div>
             </div>
-            <div class="table">
 
-            </div>
-
-            
+          <div class="background">
+            <form>
+                <div class="row1">
+                    <h1>Edit Inquiry</h1>
+                    <input type="text" class="title" placeholder="Eg:SLT Landline"> 
+                </div>
+                <div class="row">
+                    <h1>Edit Inquiry Description</h1>
+                    <input type="text" class="discription" placeholder="Eg:SLT Landline"> 
+                </div>
+                <div class="row1">
+                    <h1>Edit Inquiry Email</h1>
+                    <input type="text" class="email" placeholder="Eg:SLT Landline"> 
+                </div>
+                <div class="row1">
+                    <h1>Edit Inquiry Phone</h1>
+                    <input type="text" class="phone" placeholder="Eg:SLT Landline"> 
+                </div>
+                <input type="button" class="btn" value="Edit Inquiry">
+            </form>
+            <input type="button" class="btn1" value="Return">
+          </div>
 
         </main>
         <footer>
