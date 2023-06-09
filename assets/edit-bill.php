@@ -299,7 +299,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>Edit Bill</h1>
+                            <h1>EDIT BILL</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
