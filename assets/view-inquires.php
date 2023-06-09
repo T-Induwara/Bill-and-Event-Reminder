@@ -62,60 +62,6 @@
                 font-size: 15px;
             }
 
-            .category{
-                margin: 0rem;
-                padding: 4rem 3rem 4rem 3rem;
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                
-            }
-
-            #but{
-                margin:0 3rem 0 3rem;
-                padding:0 2rem 3rem 2rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            
-
-            .subbutton{
-                margin: 0rem;
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
-                border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-                background: var(--bg);
-                transition: 0.6s;
-
-            }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-            }
-
-            #dis{
-                margin:0;
-                margin-bottom: 0rem;
-                padding-top:1rem;
-                text-align: center;
-                font-family:Poppins-S;
-                
-            }
-
-            .subbutton:hover{
-                background-color: var(--cta);
-                transition: 0.6s;
-            }
-
           
             
 
@@ -146,30 +92,6 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
-
-                .category{
-                margin: 0rem;
-                padding: 3rem 2rem 3rem 2rem;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:0 1rem 0rem 1rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-                
-                
-
                 
             }
 
@@ -194,32 +116,6 @@
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
-                .category{
-                margin: 0rem;
-                padding: 5rem 7rem 8rem 7rem;
-                width: 100%;
-                height: 60vh;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:3rem 5rem 3rem 5rem;
-                width: 100%;
-                display: flex;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
 
 
             }
@@ -263,27 +159,7 @@
                 </div>
             </div>
 
-            <div class="category">
-              <a id="but" href="bill-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
-                   </div>
-                   <p id="dis">Add Bills</p> 
-              </a>    
-              <a id="but" href="event-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
-                   </div>
-                   <p id="dis">Add Events</p> 
-              </a>    
-              <a id="but" href="view-reminders.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
-                   </div>
-                   <p id="dis">View Reminders</p> 
-              </a>    
-               
-            </div>
+            
 
         </main>
         <footer>
