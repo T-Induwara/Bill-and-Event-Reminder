@@ -279,9 +279,9 @@
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
                     <a href="#" class="nav-log-btn"><b>Log out</b></a>
@@ -299,7 +299,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>Edit Event</h1>
+                            <h1>EDIT EVENT</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -343,7 +343,7 @@
                                     <label for="email">E-mail</label>
                                 </div>
                             </div>
-                            <input type="submit" value="Edit event" class="frm-sub-btn">
+                            <input type="submit" value="Edit Event" class="frm-sub-btn">
                         </form>
 
                 </div>
@@ -363,7 +363,7 @@
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="../index.html">Home</a>
+                        <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
                         <a href="#" class="nav-log-btn"><b>Log out</b></a>

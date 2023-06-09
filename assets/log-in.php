@@ -226,12 +226,12 @@
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="create-account.php" class="nav-log-btn"><b>Sign up</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -263,10 +263,10 @@
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="../index.html">Home</a>
+                        <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="create-account.php" class="nav-log-btn"><b>Sign up</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>

@@ -873,12 +873,12 @@
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="index.html">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="index.php">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="index.html" style="color:#f8f8f8;">Home</a>
+                    <a href="index.php" style="color:#f8f8f8;">Home</a>
                     <a href="assets/aboutus.html" style="color:#f8f8f8;">About Us</a>
                     <a href="assets/contact.php" style="color:#f8f8f8;">Contact Us</a>
-                    <a href="assets/log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="assets/log-in.php" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="/assets/images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -1040,10 +1040,10 @@
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                         <a href="assets/aboutus.html">About Us</a>
                         <a href="assets/contact.php">Contact Us</a>
-                        <a href="assets/log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="assets/log-in.php" class="nav-log-btn"><b>Log in</b></a>
                     </div>
                     <img src="assets/images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>

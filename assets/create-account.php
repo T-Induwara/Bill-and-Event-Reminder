@@ -101,7 +101,7 @@
 
             /*remove outline on html form fields when active status*/
             textarea:focus, input:focus{
-            outline: none;
+                outline: none;
             }
             @media only screen and (max-width:767px){
                 input{
@@ -110,9 +110,8 @@
                 }
             }
 
-           /* tablet*/
-           @media only screen and (min-width:768px){
-
+            /* tablet*/
+            @media only screen and (min-width:768px){
                 body{
                     margin:0 !important;
                     padding:0 !important;
@@ -218,9 +217,9 @@
                 textarea:focus, input:focus{
                     outline: none;
                 }
-        }
+            }
 
-          /* desktop */
+            /* desktop */
             @media only screen and (min-width:1280px){
 
                 body{
@@ -330,18 +329,17 @@
                     outline: none;
                 }
             }
-
         </style>
     </head>
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="../index.html">Home</a>
+                    <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                    <a href="log-in.php" class="nav-log-btn"><b>Log in</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -381,7 +379,7 @@
                         </div>
                         <input type="submit" value="Create Account">
                     </form>
-                 <a id="return-login" href="log-in.html">Have an account?</a>
+                 <a id="return-login" href="log-in.php">Have an account?</a>
                 </div>
                 <img src="images/login-signup/Saly-35.webp" alt="login-image" class="login-image">
             </div>
@@ -395,10 +393,10 @@
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="../index.html">Home</a>
+                        <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="log-in.html" class="nav-log-btn"><b>Log in</b></a>
+                        <a href="log-in.php" class="nav-log-btn"><b>Log in</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
