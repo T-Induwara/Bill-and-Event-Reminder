@@ -28,6 +28,9 @@
                 font-family:Poppins-S;
                 src:url('font/Poppins-SemiBold.ttf');
             }
+
+           
+
             /*Default css for mobile*/
             .dashboard-header{
                 padding:2em 3em 2em 3em;
@@ -62,12 +65,127 @@
                 font-size: 15px;
             }
 
+            .main-content{
+                padding:4rem 1rem 4rem 1rem;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
-          
 
-        
-          
-            
+
+            .form-cont{
+                flex-direction: column;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                background-color: var(--bg);
+                border-radius:10px;
+                padding:3rem 1.5rem 3rem 1.5rem;
+            }
+
+            form{
+                margin-top:2rem;
+            }
+            form label,.frm-divs p{
+                font-family:Poppins-R;
+                margin-right:2rem;
+            }
+            .frm-divs{
+                flex-direction:column;
+                justify-content: space-between;
+                align-items: center;
+                margin-top:2rem;
+            }
+            .frm-divs input{
+                margin-top:1rem;
+            }
+            input{
+                width:300px;
+                text-align: center;
+            }
+            input[type=text],input[type=date],input[type=time]{
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary);
+                background-color: var(--bg);
+                border-radius:5px;
+                padding:0.5rem 1.5rem 0.5rem 1.5rem;
+            }
+            input[type=text],input[type=date],input[type=time]:focus{
+                outline:none;
+            }
+            .rad-btns{
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            .rad-btns input{
+                margin-right:0.5rem;
+            }
+            input[type=radio]{
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                width:20px;
+                height:20px;
+                /* Define the custom radio button design */
+                border-radius: 50%;
+                border: 1px solid var(--primary);
+            }
+            input[type=radio]:checked{
+                background-color: var(--cta);
+            }
+            .frm-sub-btn{
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+                margin-top:2rem;
+                font-family: Poppins-S;
+                color:var(--bg);
+                background-color: var(--primary);
+                padding:0.7rem 2rem 0.7rem 2rem;
+                border-radius:7px;
+                transition: 0.6s;
+                border:none;
+            }
+            .frm-sub-btn:hover{
+                background-color: var(--cta);
+                transition: 0.6s;
+            }
+            .frm-outer-container{
+                display:none;
+            }
+
+            .return{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .return-but{
+                margin: 4rem 1rem 1rem 1rem;
+                padding: 0.5rem 3rem 0.5rem 3rem;
+                text-align: center;
+                font-family: Poppins-S;
+                color:var(--bg);
+                background-color: var(--primary);
+                border-radius:7px;
+                transition: 0.6s;
+                border:none;
+                
+            }
+
+            .return-but:hover{
+                background-color: var(--cta);
+                transition: 0.6s;
+            }
+
+           
+
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -95,12 +213,27 @@
                 .usr-mail{
                     margin-top:-1rem;
                     font-size: 15px;
+                } 
+
+                .form-cont{
+                    margin-left: 3rem;
+                    margin-right: 3rem;
+                
+                }
+                
+                .frm-container{
+                    padding:2rem 3rem 2rem 3rem;
+                }
+                .frm-divs{
+                    margin-top:2rem;
+                }
+                .frm-divs input{
+                    margin-top:0rem;
                 }
 
-
-
-                
-                
+                .frm-divs{
+                flex-direction:row;
+            }
 
                 
             }
@@ -127,8 +260,16 @@
                     font-size: 15px;
                 }
 
-               
+                .main-content{
+                padding:2rem 10rem 2rem 10rem;
+                }
 
+                .form-cont{
+                    margin-left: 9rem;
+                    margin-right: 9rem;
+                }
+
+                
 
             }
         </style>
@@ -151,7 +292,66 @@
         </header>
         <main>
             <?php
-            ?>   
+            ?> 
+            <div class="container-fluid dashboard-header">
+                <div class="row">
+                    <div class="col-md-6 pg-title">
+                        <div class="title-col">
+                            <h1>Edit Bill</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pg-usr-window">
+                        <div class="usr-col d-flex">
+                            <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
+                            <div class="usr-col-details d-flex">
+                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
+                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="main-content">
+                <div class="form-cont">
+                        <form action="success-b.php" method="post">
+                            <div class="frm-divs d-flex">
+                                <label for="eventTitle">Add bill title</label>
+                                <input type="text" name="eventTitle" placeholder="Bill tittle">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="eventDesc">Add bill description</label>
+                                <input type="text" name="eventDesc" placeholder="Bill description">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="time">Set reminder time</label>
+                                <input type="time" name="time">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <label for="date">Set reminder date</label>
+                                <input type="date" name="date">
+                            </div>
+                            <div class="frm-divs d-flex">
+                                <p>Select reminder method</p>
+                                <div class="rad-btns d-flex">
+                                    <input type="radio" name="eventRemMethod" value="SMS">
+                                    <label for="sms">SMS</label>
+                                    <input type="radio" name="eventRemMethod" value="Email">
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <input type="submit" value="Edit bill" class="frm-sub-btn">
+                        </form>
+
+                </div>
+                <div class="return">
+                <a href="view-reminders.php" >
+                <input type="submit" value="Return" class="return-but">
+                </a>
+                </div>
+            </div>
+              
         </main>
         <footer>
             <div class="footer-container">
