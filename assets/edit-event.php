@@ -343,7 +343,7 @@
                                     <label for="email">E-mail</label>
                                 </div>
                             </div>
-                            <input type="submit" value="Edit event" class="frm-sub-btn">
+                            <input type="submit" value="Edit Event" class="frm-sub-btn">
                         </form>
 
                 </div>
