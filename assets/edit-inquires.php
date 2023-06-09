@@ -368,7 +368,7 @@
             </div>
 
           <div class="background">
-            <form>
+            <form action="edit-inquires.php" method="post">
                 <div class="row1">
                     <h1>Edit Inquiry</h1>
                     <input type="text" class="title" placeholder="Eg:SLT Landline"> 
