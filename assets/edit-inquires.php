@@ -148,6 +148,7 @@
                 border-top: none;
                 border-left: none;
                 border-right: none;
+                text-align: center;
             }
             .btn{
                 padding: 0.5rem 1rem;
@@ -177,7 +178,16 @@
 
 	            outline:none;
             }
-            
+            @media only screen and (max-width:767px){
+                input{
+                    text-align: center;
+                    width: 100%;
+                }
+                .background h1{
+                    text-align: center;
+                    width: 100%;
+                }
+            }
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
