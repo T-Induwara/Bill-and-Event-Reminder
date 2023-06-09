@@ -266,19 +266,19 @@
             <div class="category">
               <a id="but" href="bill-types.php">  
                    <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
+                   <img id="img1" alt="image" src="images/user-dashboard/add-bills.webp">
                    </div>
                    <p id="dis">Add Bills</p> 
               </a>    
               <a id="but" href="event-types.php">  
                    <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
+                   <img id="img1" alt="image" src="images/user-dashboard/add-events.webp">
                    </div>
                    <p id="dis">Add Events</p> 
               </a>    
               <a id="but" href="view-reminders.php">  
                    <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/view-reminders.webp">
+                   <img id="img1" alt="image" src="images/user-dashboard/view-reminders.webp">
                    </div>
                    <p id="dis">View Reminders</p> 
               </a>    
