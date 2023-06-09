@@ -299,7 +299,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>Edit Event</h1>
+                            <h1>EDIT EVENT</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
