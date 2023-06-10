@@ -275,7 +275,7 @@ if (!isset($_SESSION['Email'])) {
                     <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -317,7 +317,7 @@ if (!isset($_SESSION['Email'])) {
                                 <div class="v-evn-btn d-flex" id="v-evn-btn">
                                     <img src="images/user-dashboard/add-events.webp" alt="View events icon">
                                 </div>
-                                <p>View Bills</p>
+                                <p>View Events</p>
                             </div>
                         </div>
                     </div>
@@ -342,6 +342,9 @@ if (!isset($_SESSION['Email'])) {
                                     $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
+                                    //Get logged in user's id
+                                    $uID = $_SESSION["U_ID"];
+
                                     //check connection
                                     if( $conn ) {
                                         echo "Connection established.<br />";
@@ -351,7 +354,7 @@ if (!isset($_SESSION['Email'])) {
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Bill";
+                                    $sql = "SELECT * FROM Created_Bill WHERE U_ID = $uID";
                                     $result = sqlsrv_query($conn,$sql);
                                     if(!$result){
                                         die(print_r(sqlsrv_errors().true));
@@ -399,6 +402,8 @@ if (!isset($_SESSION['Email'])) {
                                     $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
+                                    $uID = $_SESSION["U_ID"];
+
                                     //check connection
                                     if( $conn ) {
                                         echo "Connection established.<br />";
@@ -408,7 +413,7 @@ if (!isset($_SESSION['Email'])) {
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Event";
+                                    $sql = "SELECT * FROM Created_Event WHERE U_ID = $uID";
                                     $result = sqlsrv_query($conn,$sql);
                                     if(!$result){
                                         die(print_r(sqlsrv_errors().true));
@@ -456,7 +461,7 @@ if (!isset($_SESSION['Email'])) {
                         <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                        <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
