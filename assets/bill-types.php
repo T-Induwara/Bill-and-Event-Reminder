@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -378,8 +386,43 @@
             </div>
         </header>
         <main>
-            <?php
-            ?>
+        <?php
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Get the form data
+            $title = $_POST["eventTitle"];
+            $description = $_POST["eventDesc"];
+            $reminderTime = $_POST["time"];
+            $reminderDate = $_POST["date"];
+            $reminderOption = $_POST["eventRemMethod"];
+
+            // Validate the form data
+            if (empty($title) || empty($description) || empty($reminderTime) || empty($reminderDate) || empty($reminderOption)) {
+                // Display an error message if any field is empty
+                echo "All fields are required.";
+            } else {
+                // Connect to the SQL Server database using Windows authentication
+                $serverName = "TIMAXX-NITRO";
+                $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                $conn = sqlsrv_connect($serverName, $connectionInfo);
+
+                if ($conn === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                // Insert the data into the database
+                $sql = "INSERT INTO Created_Bill (CB_Title, CB_Description, CB_Reminder_time, CB_Reminder_date, CB_Reminder_option) VALUES (?, ?, ?, ?, ?)";
+                $params = array($title, $description, $reminderTime, $reminderDate, $reminderOption);
+                $stmt = sqlsrv_query($conn, $sql, $params);
+
+                if ($stmt === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                
+            }
+        }
+        ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">

@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?><!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">

@@ -1,5 +1,123 @@
 <?php
+// Initialize the session
 session_start();
+
+// logged in users are redirected to the orders page
+if(isset($_SESSION["authenticated"])){
+    header("location: user-dashboard.php");
+    exit;
+}
+
+$first_name = "";
+$last_name = "";
+$phone = "";
+$email = "";
+
+$error = "";
+if (isset($_POST['first_name'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $password_confirmation = $_POST['password_confirmation'];
+
+    //this do-while allows us to cancel the loop if any validation fails
+    do {
+        /************************* validate first_name *************************/
+        if (empty($first_name)) {
+            $error = "First name is required";
+            break;
+        }
+
+        /************************** validate last_name *************************/
+        if (empty($last_name)) {
+            $error = "Last name is required";
+            break;
+        }
+
+        /********* validate email: check that email is not already used ********/
+
+        //check email format
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error = "Email format is not valid";
+            break;
+        }
+
+        //server: localhost, mysql_user: root, password: 0000, database: shop
+        $dbConnection = new mysqli("localhost", "root", "0000", "shop");
+
+        //Let use prepared statements to avoid "sql injection attacks"
+        $statement = $dbConnection->prepare("SELECT id FROM users WHERE email = ?");
+
+        // Bind variables to the prepared statement as parameters
+        $statement->bind_param('s', $email);
+
+        // execute statement
+        $statement->execute();
+
+        // check if email is already in the database
+        $statement->store_result();
+        if ($statement->num_rows > 0) {
+            $error = "Email is already used";
+            break;
+        }
+
+        //close this statement otherwise we cannot prepare another statement
+        $statement->close();
+
+
+        /**************************** validate phone ***************************/
+        if (strlen($phone) < 6) {
+            $error = "Phone must have at least 6 characters";
+            break;
+        }
+
+        /************************** validate password **************************/
+        if (strlen($password) < 6) {
+            $error = "Password must have at least 6 characters";
+            break;
+        }
+
+        /******************** validate password_confirmation *******************/
+        if ($password_confirmation != $password) {
+            $error = "Password confirmation does not match";
+            break;
+        }
+
+        /************** All fields are valide: create a new user ***************/
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $created_at = date('Y-m-d H:i:s');
+
+        //Let use prepared statements to avoid "sql injection attacks"
+        $statement = $dbConnection->prepare("INSERT INTO users (first_name, last_name, email, phone, password, created_at) VALUES (?, ?, ?, ?, ?, ?)");
+
+        // Bind variables to the prepared statement as parameters
+        $statement->bind_param('ssssss', $first_name, $last_name, $email, $phone, $hashed_password, $created_at);
+
+        // execute statement
+        $statement->execute();
+
+        $insert_id = $statement->insert_id;
+        $statement->close();
+
+        /********** A new account is created **********/   
+		
+        // Save session data
+        $_SESSION["authenticated"] = true;
+        $_SESSION["id"] = $insert_id;
+        $_SESSION["first_name"] = $first_name;
+        $_SESSION["last_name"] = $last_name;
+        $_SESSION["email"] = $email;
+        $_SESSION["phone"] = $phone;
+        $_SESSION["hashed_password"] = $hashed_password;
+        $_SESSION["created_at"] = $created_at;
+        
+        // Redirect user to orders page
+        header("location: user-dashboard.php");
+        exit;
+    } while(false);
+}
 
 ?>
 <!DOCTYPE html>

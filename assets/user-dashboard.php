@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -233,7 +241,7 @@
                     <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -255,8 +263,8 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -297,7 +305,7 @@
                         <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                        <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
