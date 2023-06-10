@@ -370,8 +370,8 @@ if (!isset($_SESSION['Email'])) {
                                                 <td>{$row['CB_Reminder_option']}</td>
                                                 <td>{$row['CB_Type']}</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CB_ID']}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CB_ID']}'>Delete</a>
+                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row["CB_ID"]}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row["CB_ID"]}'>Delete</a>
                                                 </td>
                                             </tr>
                                         ";
@@ -429,8 +429,8 @@ if (!isset($_SESSION['Email'])) {
                                                 <td>{$row['CEVN_Reminder_option']}</td>
                                                 <td>{$row['CEVN_Type']}</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CEVN_ID']}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CEVN_ID']}'>Delete</a>
+                                                    <a class='btn btn-primary btn-sm' href='edit-event.php?id={$row['CEVN_ID']}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-event.php?id={$row['CEVN_ID']}'>Delete</a>
                                                 </td>
                                             </tr>
                                         ";
