@@ -219,14 +219,25 @@ if (!isset($_SESSION['Email'])) {
                 flex-direction:column ;
                 justify-content: center;
             }
+            .subbutton{
+                padding: 0;
+            }
 
             .subbutton img{
-                margin: 0rem;
                 padding:1rem;
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
+                width: 90px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            @media only screen and (min-width:1600px){
+                .subbutton img{
+                    padding:2rem;
+                    width: 150px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
             }
 
 
