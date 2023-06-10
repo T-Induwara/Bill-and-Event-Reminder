@@ -197,7 +197,7 @@
                 transition: 0.6s;
             }
             .frm-outer-container{
-                /*display:none;*/
+                display:none;
             }
             /*CSS for dashboard and return btns*/
             .pg-return-btn{
