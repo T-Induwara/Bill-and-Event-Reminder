@@ -1,10 +1,11 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['Email'])) {
-    header("Location: log-in.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
+    if (!isset($_SESSION['Email'])) {
+        header("Location: log-in.php"); // Redirect to login page
+        exit(); // Stop further execution of the current script
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -377,7 +378,7 @@ if (!isset($_SESSION['Email'])) {
                     <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -386,43 +387,7 @@ if (!isset($_SESSION['Email'])) {
             </div>
         </header>
         <main>
-        <?php
-        // Check if the form is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Get the form data
-            $title = $_POST["eventTitle"];
-            $description = $_POST["eventDesc"];
-            $reminderTime = $_POST["time"];
-            $reminderDate = $_POST["date"];
-            $reminderOption = $_POST["eventRemMethod"];
-
-            // Validate the form data
-            if (empty($title) || empty($description) || empty($reminderTime) || empty($reminderDate) || empty($reminderOption)) {
-                // Display an error message if any field is empty
-                echo "All fields are required.";
-            } else {
-                // Connect to the SQL Server database using Windows authentication
-                $serverName = "TIMAXX-NITRO";
-                $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                $conn = sqlsrv_connect($serverName, $connectionInfo);
-
-                if ($conn === false) {
-                    die(print_r(sqlsrv_errors(), true));
-                }
-
-                // Insert the data into the database
-                $sql = "INSERT INTO Created_Bill (CB_Title, CB_Description, CB_Reminder_time, CB_Reminder_date, CB_Reminder_option) VALUES (?, ?, ?, ?, ?)";
-                $params = array($title, $description, $reminderTime, $reminderDate, $reminderOption);
-                $stmt = sqlsrv_query($conn, $sql, $params);
-
-                if ($stmt === false) {
-                    die(print_r(sqlsrv_errors(), true));
-                }
-
-                
-            }
-        }
-        ?>
+            
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -434,8 +399,8 @@ if (!isset($_SESSION['Email'])) {
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -514,7 +479,8 @@ if (!isset($_SESSION['Email'])) {
                         <div class="frm-title" id="frm-title">
                             <h1 class="title-main" id="title-main">Weddings</h1>
                         </div>
-                        <form action="success-b.php" method="post">
+                        <form action="" method="post">
+                            <input type="hidden" name="eventType" value="" id="title-main-value">
                             <div class="frm-divs d-flex">
                                 <label for="eventTitle">Add bill title</label>
                                 <input type="text" name="eventTitle" placeholder="My event...">
@@ -541,6 +507,15 @@ if (!isset($_SESSION['Email'])) {
                                 </div>
                             </div>
                             <input type="submit" value="Add reminder" class="frm-sub-btn">
+                            <div class="error-messages">
+                            <?php if (!empty($errors)) {
+                                echo "<ul>";
+                                foreach ($errors as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul>";
+                            } ?>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -650,6 +625,11 @@ if (!isset($_SESSION['Email'])) {
                 frmOutContainer.style.display = "none";
             })
             
+            // Get the value of the element with id="title-main"
+            var eventTypeValue = document.getElementById("title-main").innerHTML;
+            
+            // Set the value of the hidden input field
+            document.getElementById("title-main-value").value = eventTypeValue;
         </script>
     </body>
 </html>

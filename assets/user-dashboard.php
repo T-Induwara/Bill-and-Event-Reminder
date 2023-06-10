@@ -263,7 +263,7 @@ if (!isset($_SESSION['Email'])) {
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?></h2>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
                                 <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>

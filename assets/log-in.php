@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row) {
         // User is valid, set session variables and redirect to user dashboard page
         $_SESSION["loggedin"] = true;
+        $_SESSION["U_ID"] = $row['U_ID'];
         $_SESSION['Email'] = $row['Email'];
         $_SESSION['First_name'] = $row['First_name'];
         $_SESSION['Last_name'] = $row['Last_name'];
