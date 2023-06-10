@@ -381,19 +381,19 @@
             <form action="edit-inquires.php" method="post">
                 <div class="row1">
                     <h1>Edit Inquiry</h1>
-                    <input type="text" class="title" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="title" class="title" placeholder="Eg:SLT Landline"> 
                 </div>
                 <div class="row2">
                     <h1>Edit Inquiry Description</h1>
-                    <input type="text" class="discription" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="description" class="discription" placeholder="Eg:SLT Landline"> 
                 </div>
                 <div class="row3">
                     <h1>Edit Inquiry Email</h1>
-                    <input type="text" class="email" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="email" class="email" placeholder="Eg:SLT Landline"> 
                 </div>
                 <div class="row4">
                     <h1>Edit Inquiry Phone</h1>
-                    <input type="text" class="phone" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="phone" class="phone" placeholder="Eg:SLT Landline"> 
                 </div>
                 <button class="btn">Edit Inquiry</button>
             </form>

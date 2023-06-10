@@ -175,8 +175,8 @@
                 <h1 class="heading">Staff Log in</h1>
                 <div class="details">
                     <form action="staff-login.php" method="post">
-                        <input type="email" placeholder="Staff E-mail address" class="email">
-                        <input type="password" placeholder="Staff password" class="password">
+                        <input type="email" name="email" placeholder="Staff E-mail address" class="email">
+                        <input type="password" name="password" placeholder="Staff password" class="password">
                         <h2>Forgot Password</h2>
                         <input type="submit" id="btn" class="BTN" value="Log in">
                     </form>
