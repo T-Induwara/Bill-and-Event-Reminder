@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['Email'])) {
+        header("Location: log-in.php"); // Redirect to login page
+        exit(); // Stop further execution of the current script
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -369,7 +378,7 @@
                     <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -378,8 +387,7 @@
             </div>
         </header>
         <main>
-            <?php
-            ?>
+            
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -391,8 +399,8 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -469,35 +477,102 @@
                 <div class="event-frm-section d-flex" id="evn-frm-section">
                     <div class="frm-container d-flex">
                         <div class="frm-title" id="frm-title">
-                            <h1 class="title-main" id="title-main">Weddings</h1>
+                            <h1 class="title-main" id="title-main"></h1>
                         </div>
-                        <form action="success-b.php" method="post">
+                        <?php
+                            $serverName = "TIMAXX-NITRO";
+                            $connectionOptions = array(
+                                "Database" => "RemindMeisterV2"
+                            );
+
+                            // Create a connection to the SQL Server
+                            $conn = sqlsrv_connect($serverName, $connectionOptions);
+
+
+                            $uID = $_SESSION["U_ID"];
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                // Retrieve form data
+                                $billTitle = $_POST["billTitle"];
+                                $billDesc = $_POST["billDesc"];
+                                $time = $_POST["time"];
+                                $date = $_POST["date"];
+                                $remMethod = $_POST["billRemMethod"];
+                                $billType = $_POST["billType"];
+                                
+                                // Perform validation
+                                $errors = array();
+                                if (empty($billTitle)) {
+                                    $errors[] = "Bill title is required";
+                                }
+                                if (empty($billDesc)) {
+                                    $errors[] = "Bill description is required";
+                                }
+                                if (empty($time)) {
+                                    $errors[] = "Time is required";
+                                }
+                                if (empty($date)) {
+                                    $errors[] = "Date is required";
+                                }
+                                if (empty($remMethod)) {
+                                    $errors[] = "Reminder method is required";
+                                }
+                                
+                                // If there are no validation errors, insert the data into the table
+                                if (empty($errors)) {
+                                    $sql = "INSERT INTO Created_Bill (CB_Title, CB_Description, CB_Reminder_time, CB_Reminder_date, CB_Reminder_option, CB_Type, U_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
+                                    $params = array($billTitle, $billDesc, $time, $date, $remMethod, $billType, $uID );
+                                    $stmt = sqlsrv_query($conn, $sql, $params);
+                                    
+                                    if ($stmt === false) {
+                                        die(print_r(sqlsrv_errors(), true));
+                                    }
+                                    
+                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                    echo '<script>';
+                                    echo 'window.location.href="success-b.php";';
+                                    echo '</script>';
+                                    exit();
+                                }
+                            }
+                        ?>
+                        <form action="" method="post">
+                        <?php if (!empty($errors)) : ?>
+                            <ul class="errors">
+                                <?php foreach ($errors as $error) : ?>
+                                <li><?php echo $error; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                            <input type="hidden" name="billType" value="" id="title-main-value">
                             <div class="frm-divs d-flex">
-                                <label for="eventTitle">Add bill title</label>
-                                <input type="text" name="eventTitle" placeholder="My event...">
+                                <label for="billTitle">Add bill title</label>
+                                <input type="text" name="billTitle" placeholder="My bill..." required>
                             </div>
                             <div class="frm-divs d-flex">
-                                <label for="eventDesc">Add bill description</label>
-                                <input type="text" name="eventDesc" placeholder="My event is about...">
+                                <label for="billDesc">Add bill description</label>
+                                <input type="text" name="billDesc" placeholder="My bill is about..." required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="time">Set reminder time</label>
-                                <input type="time" name="time">
+                                <input type="time" name="time" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="date">Set reminder date</label>
-                                <input type="date" name="date">
+                                <input type="date" name="date" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <p>Select reminder method</p>
                                 <div class="rad-btns d-flex">
-                                    <input type="radio" name="eventRemMethod" value="SMS">
+                                    <input type="radio" name="billRemMethod" value="SMS" required>
                                     <label for="sms">SMS</label>
-                                    <input type="radio" name="eventRemMethod" value="Email">
+                                    <input type="radio" name="billRemMethod" value="Email" required>
                                     <label for="email">E-mail</label>
                                 </div>
                             </div>
-                            <input type="submit" value="Add reminder" class="frm-sub-btn">
+                            <input type="submit" value="Add reminder" class="frm-sub-btn" id="btn-frm-submit">
+                            
                         </form>
                     </div>
                 </div>
@@ -571,7 +646,7 @@
                     c.style.transition = "0.6s"
                 });
                 c.addEventListener('click', function () {
-                    pgName.innerHTML = "Add Events";
+                    pgName.innerHTML = "Add Bills";
                     eventSection.style.display = "none";
                     frmOutContainer.style.display = "block";
                 });
@@ -606,6 +681,17 @@
                 eventSection.style.display = "block";
                 frmOutContainer.style.display = "none";
             })
+            
+            var bFrmBtn = document.getElementById("btn-frm-submit");
+            bFrmBtn.onclick = function(){
+                // Get the value of the element with id="title-main"
+                var eventTypeValue = document.getElementById("title-main").innerHTML;
+                
+                // Set the value of the hidden input field
+                document.getElementById("title-main-value").value = eventTypeValue;
+            }
+
+            
             
         </script>
     </body>

@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?><!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -349,7 +356,7 @@
                 <div class="event-frm-section d-flex" id="evn-frm-section">
                     <div class="frm-container d-flex">
                         <div class="frm-title" id="frm-title">
-                            <h1 class="title-main" id="title-main">Congratulations!</h1>
+                            <h1 class="title-main" id="title-main">Success!</h1>
                         </div>
                         <div class="center-title">
                             <p>Your bill reminder added successfully!</p>

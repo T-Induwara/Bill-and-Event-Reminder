@@ -1,3 +1,61 @@
+<?php
+// Database configuration
+$serverName = "TIMAXX-NITRO";
+$connectionInfo = array(
+    "Database" => "RemindMeisterV2"
+);
+
+// Start session
+session_start();
+
+if (isset($_SESSION['Email'])) {
+    header("Location: user-dashboard.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+
+// Check if the login form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the entered email and password
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Validate the user
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+
+    if ($conn === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
+    $params = array($email,$password);
+    $stmt = sqlsrv_query($conn, $sql, $params);
+
+    if ($stmt === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+    if ($row) {
+        // User is valid, set session variables and redirect to user dashboard page
+        $_SESSION["loggedin"] = true;
+        $_SESSION["U_ID"] = $row['U_ID'];
+        $_SESSION['Email'] = $row['Email'];
+        $_SESSION['First_name'] = $row['First_name'];
+        $_SESSION['Last_name'] = $row['Last_name'];
+        header("location: user-dashboard.php");
+        exit();
+    } else {
+        // Invalid email or password, show error message
+        $error = "Invalid email or password.";
+    }
+
+    // Clean up resources
+    sqlsrv_free_stmt($stmt);
+    sqlsrv_close($conn);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -127,6 +185,10 @@
                 margin-top: 3rem;
                 width: 40%;
              }
+             .login-err
+             {
+                color: red;
+             }
 
              @media only screen and (min-width:768px){
                
@@ -245,11 +307,19 @@
                 <div class="row1">
                 <img src="./images/login-signup/Saly-32.webp" alt="image">
                 <div class="details">
-                    <form action="staff-login.php" method="post">
-                        <input type="email" placeholder="E-mail address" class="email">
-                        <input type="password" placeholder="password" class="password">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <input type="email" name="email" placeholder="E-mail address" class="email" required>
+                        <input type="password" name="password" placeholder="password" class="password" required>
                         <h2>Forgot Password</h2>
                         <input type="submit" id="btn" class="BTN" value="Log in">
+                        <br>
+                        <!-- Display error message if any -->
+                        <?php if (isset($error)) { ?>
+                            <p class="login-err">
+                                <?php echo $error; ?>
+                            </p>
+                            <?php
+                        } ?>
                     </form>
                 </div>
                 </div>

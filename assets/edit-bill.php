@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -306,8 +314,8 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -317,31 +325,89 @@
 
             <div class="main-content">
                 <div class="form-cont">
-                        <form action="success-b.php" method="post">
+                    <?php
+                        if(isset($_GET["id"])){
+                            $id = $_GET["id"];
+                    
+                            $serverName = "TIMAXX-NITRO";
+
+                            $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                            $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                            echo $id;
+                            $sql = "SELECT * FROM Created_Bill WHERE CB_ID = $id";
+                            $result = sqlsrv_query($conn,$sql);
+                            if(!$result){
+                                die(print_r(sqlsrv_errors().true));
+                            }
+                            //read data of each row
+                            while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                $CB_Title = $row['CB_Title'];
+                                $CB_Description = $row['CB_Description'];
+                                $CB_Reminder_time = $row['CB_Reminder_time']->format('H:i');
+                                $CB_Reminder_date = $row['CB_Reminder_date']->format('Y-m-d');
+                                $CB_Reminder_option = $row['CB_Reminder_option'];
+                                $CB_Type = $row['CB_Type'];
+                            }
+                        } 
+                        // Check if the form is submitted
+                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                            // Retrieve form data
+                            $billTitle = $_POST["billTitle"];
+                            $billDesc = $_POST["billDesc"];
+                            $time = $_POST["time"];
+                            $date = $_POST["date"];
+                            
+                            // Perform validation
+                            $errors = array();
+                            if (empty($billTitle)) {
+                                $errors[] = "Bill title is required";
+                            }
+                            if (empty($billDesc)) {
+                                $errors[] = "Bill description is required";
+                            }
+                            if (empty($time)) {
+                                $errors[] = "Time is required";
+                            }
+                            if (empty($date)) {
+                                $errors[] = "Date is required";
+                            }
+                            
+                            // If there are no validation errors, insert the data into the table
+                            if (empty($errors)) {
+                                $sql = "UPDATE Created_Bill set CB_Title = '$billTitle', CB_Description = '$billDesc', CB_Reminder_time = '$time', CB_Reminder_date = '$date' WHERE CB_ID = $id";
+                                $stmt = sqlsrv_query($conn, $sql);
+                                
+                                if ($stmt === false) {
+                                    die(print_r(sqlsrv_errors(), true));
+                                }
+                                
+                                // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                echo '<script>';
+                                echo 'window.location.href="view-reminders.php";';
+                                echo '</script>';
+                                exit();
+                            }
+                        }  
+
+                    ?>
+                        <form action="" method="post">
                             <div class="frm-divs d-flex">
-                                <label for="eventTitle">Add bill title</label>
-                                <input type="text" name="eventTitle" placeholder="Bill tittle">
+                                <label for="billTitle">Add bill title</label>
+                                <input type="text" name="billTitle" placeholder="Bill tittle" value="<?php echo "$CB_Title" ?>">
                             </div>
                             <div class="frm-divs d-flex">
-                                <label for="eventDesc">Add bill description</label>
-                                <input type="text" name="eventDesc" placeholder="Bill description">
+                                <label for="billDesc">Add bill description</label>
+                                <input type="text" name="billDesc" placeholder="Bill description" value="<?php echo "$CB_Description" ?>">
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="time">Set reminder time</label>
-                                <input type="time" name="time">
+                                <input type="time" name="time" value="<?php echo "$CB_Reminder_time" ?>">
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="date">Set reminder date</label>
-                                <input type="date" name="date">
-                            </div>
-                            <div class="frm-divs d-flex">
-                                <p>Select reminder method</p>
-                                <div class="rad-btns d-flex">
-                                    <input type="radio" name="eventRemMethod" value="SMS">
-                                    <label for="sms">SMS</label>
-                                    <input type="radio" name="eventRemMethod" value="Email">
-                                    <label for="email">E-mail</label>
-                                </div>
+                                <input type="date" name="date" value="<?php echo "$CB_Reminder_date" ?>">
                             </div>
                             <input type="submit" value="Edit Bill" class="frm-sub-btn">
                         </form>

@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['Email'])) {
-    header("Location: log-in.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -69,63 +61,48 @@ if (!isset($_SESSION['Email'])) {
                 font-family: Poppins-R;
                 font-size: 15px;
             }
-
-            .category{
-                margin: 0rem;
-                padding: 4rem 3rem 4rem 3rem;
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                
-            }
-
-            #but{
-                margin:0 3rem 0 3rem;
-                padding:0 2rem 3rem 2rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
-            }
-
-            
-
-            .subbutton{
-                margin: 0rem;
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
+            .table{
+                width: 95%;
+                padding-top: 4rem;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 4rem;
+                margin-top: 2rem;
+                background-color: white;
                 border-radius: 10px;
-                filter: drop-shadow(0px 0px 10px rgb(230, 227, 227));
-                background: var(--bg);
+            }
+            /*CSS for dashboard and return btns*/
+            .pg-return-btn{
+                flex-direction: row;
+                justify-content: center;
+                padding-bottom:8rem;
+            }
+            .ret-btn{
+                background-color:var(--primary);
+                color:var(--bg);
+                font-family: Poppins-S;
+                font-size:15px;
+                padding:1rem 2rem 1rem 2rem;
+                border-radius:7px;
                 transition: 0.6s;
-
             }
-
-            .subbutton img{
-                margin: 0rem;
-                padding:1rem;
-                width: 100%;
+            .ret-btn:hover{
+                background-color:var(--cta);
+                color:var(--bg);
+                cursor:pointer;
+                transition: 0.6s;
             }
-
-            #dis{
-                margin:0;
-                margin-bottom: 0rem;
-                padding-top:1rem;
-                text-align: center;
-                font-family:Poppins-S;
+            @media only screen and (max-width:767px){
+                .row-sub{
+                    margin-top:2rem;
+                }
+                .pg-return-btn{
+                    padding-top:4rem;
+                    padding-bottom:0rem !important;
+                }
                 
             }
-
-            .subbutton:hover{
-                background-color: var(--cta);
-                transition: 0.6s;
-            }
-
-          
-            
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
@@ -154,30 +131,16 @@ if (!isset($_SESSION['Email'])) {
                     margin-top:-1rem;
                     font-size: 15px;
                 }
-
-
-                .category{
-                margin: 0rem;
-                padding: 3rem 2rem 3rem 2rem;
-                width: 100%;
-                height: 40vh;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:0 1rem 0rem 1rem;
-                display: flex;
-                width: 70%;
-                flex-direction:column ;
-                justify-content: center;
+                .table{
+                width: 90%;
+                padding-top: 50vh;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 5rem;
+                margin-top: 3rem;
+               
             }
-                
-                
-
                 
             }
 
@@ -202,42 +165,11 @@ if (!isset($_SESSION['Email'])) {
                     margin-top:-1rem;
                     font-size: 15px;
                 }
+                .table{
+                width: 95%;
+                padding-top: 50vh;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
 
-                .category{
-                margin: 0rem;
-                padding: 5rem 7rem 8rem 7rem;
-                width: 100%;
-                height: 60vh;
-                
-                }
-
-                #but{
-                margin:0 3rem 0 3rem;
-                padding:3rem 5rem 3rem 5rem;
-                width: 100%;
-                display: flex;
-                flex-direction:column ;
-                justify-content: center;
-            }
-            .subbutton{
-                padding: 0;
-            }
-
-            .subbutton img{
-                padding:1rem;
-                width: 90px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            @media only screen and (min-width:1600px){
-                .subbutton img{
-                    padding:2rem;
-                    width: 150px;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
             }
 
 
@@ -247,12 +179,12 @@ if (!isset($_SESSION['Email'])) {
     <body>
         <header>
             <div class="nav-container">
-                <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
+                <div class="nav-logo"><a href="../index.html">REMINDMEISTER</a></div>
                 <div class="nav-list" id="nav-list">
-                    <a href="../index.php">Home</a>
+                    <a href="../index.html">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -267,42 +199,29 @@ if (!isset($_SESSION['Email'])) {
                 <div class="row">
                     <div class="col-md-6 pg-title">
                         <div class="title-col">
-                            <h1>USER DASHBOARD</h1>
+                            <h1>VIEW INQUIRY</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
-                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
+                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
+                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="category">
-              <a id="but" href="bill-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="images/user-dashboard/add-bills.webp">
-                   </div>
-                   <p id="dis">Add Bills</p> 
-              </a>    
-              <a id="but" href="event-types.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="images/user-dashboard/add-events.webp">
-                   </div>
-                   <p id="dis">Add Events</p> 
-              </a>    
-              <a id="but" href="view-reminders.php">  
-                   <div class="subbutton" >
-                   <img id="img1" alt="image" src="images/user-dashboard/view-reminders.webp">
-                   </div>
-                   <p id="dis">View Reminders</p> 
-              </a>    
-               
+            <div class="table">
             </div>
+            <div class="pg-return-btn d-flex">
+                <a href="user-dashboard.php">
+                    <div class="ret-btn" id="ret-btn-frm">Return</div>
+                </a>
+            </div>
+
+            
 
         </main>
         <footer>
@@ -313,10 +232,10 @@ if (!isset($_SESSION['Email'])) {
                 </div>
                 <div class="foo-urls">
                     <div class="foo-list">
-                        <a href="../index.php">Home</a>
+                        <a href="../index.html">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
+                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>

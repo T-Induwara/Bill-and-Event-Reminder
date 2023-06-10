@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -267,7 +275,7 @@
                     <a href="../index.php">Home</a>
                     <a href="aboutus.html">About Us</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                    <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                 </div>
                 <div class="m-nav-btn">
                     <img src="images/header/m-open.webp" alt="m open btn" class="op-btn" id="op-btn">
@@ -287,8 +295,8 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -309,7 +317,7 @@
                                 <div class="v-evn-btn d-flex" id="v-evn-btn">
                                     <img src="images/user-dashboard/add-events.webp" alt="View events icon">
                                 </div>
-                                <p>View Bills</p>
+                                <p>View Events</p>
                             </div>
                         </div>
                     </div>
@@ -334,6 +342,9 @@
                                     $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
+                                    //Get logged in user's id
+                                    $uID = $_SESSION["U_ID"];
+
                                     //check connection
                                     if( $conn ) {
                                         echo "Connection established.<br />";
@@ -343,7 +354,7 @@
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Bill";
+                                    $sql = "SELECT * FROM Created_Bill WHERE U_ID = $uID";
                                     $result = sqlsrv_query($conn,$sql);
                                     if(!$result){
                                         die(print_r(sqlsrv_errors().true));
@@ -359,8 +370,8 @@
                                                 <td>{$row['CB_Reminder_option']}</td>
                                                 <td>{$row['CB_Type']}</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CB_ID']}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CB_ID']}'>Delete</a>
+                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row["CB_ID"]}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row["CB_ID"]}'>Delete</a>
                                                 </td>
                                             </tr>
                                         ";
@@ -391,6 +402,8 @@
                                     $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
+                                    $uID = $_SESSION["U_ID"];
+
                                     //check connection
                                     if( $conn ) {
                                         echo "Connection established.<br />";
@@ -400,7 +413,7 @@
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Event";
+                                    $sql = "SELECT * FROM Created_Event WHERE U_ID = $uID";
                                     $result = sqlsrv_query($conn,$sql);
                                     if(!$result){
                                         die(print_r(sqlsrv_errors().true));
@@ -416,8 +429,8 @@
                                                 <td>{$row['CEVN_Reminder_option']}</td>
                                                 <td>{$row['CEVN_Type']}</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row['CEVN_ID']}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row['CEVN_ID']}'>Delete</a>
+                                                    <a class='btn btn-primary btn-sm' href='edit-event.php?id={$row['CEVN_ID']}'>Edit</a>
+                                                    <a class='btn btn-danger btn-sm' href='delete-event.php?id={$row['CEVN_ID']}'>Delete</a>
                                                 </td>
                                             </tr>
                                         ";
@@ -448,7 +461,7 @@
                         <a href="../index.php">Home</a>
                         <a href="aboutus.html">About Us</a>
                         <a href="contact.php">Contact Us</a>
-                        <a href="#" class="nav-log-btn"><b>Log out</b></a>
+                        <a href="logout.php" class="nav-log-btn"><b>Log out</b></a>
                     </div>
                     <img src="images/footer/Saly-12.webp" alt="footer image" class="footer-img">
                 </div>
