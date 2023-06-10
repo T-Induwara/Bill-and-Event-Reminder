@@ -347,7 +347,7 @@
                 transition: 0.6s;
             }
                 .faq-img{
-                    width:60%;
+                    width:70%;
                     display: block;
                     margin-left: auto;
                     margin-right: auto;
@@ -358,7 +358,6 @@
                   align-items: center;
                 }
                 .faq-window{
-                    border:1px solid var(--bg);
                     padding: 4rem 2rem;
                 }
                 .faq-section{
@@ -371,7 +370,29 @@
                     padding-bottom: 3rem;
                     margin-top:4rem;
                     font-size:40px;
-              } 
+                }
+                .table{
+                    color:var(--primary);
+                }
+                .tbl-row{
+                    flex-direction: column;
+                    margin-top:1rem;
+                    background-color: var(--bg);
+                    border-radius: 7px;
+                    padding:1rem;
+                    text-align: center;
+                }
+                .table td{
+                    border:none;
+                }
+                .faq-h{
+                    font-family: Poppins-S;
+                    font-size:15px;
+                }
+                .faq-c{
+                    font-family: Poppins-R;
+                    font-size:12px;
+                }
             
 
             @media only screen and (max-width:767px){
@@ -596,7 +617,7 @@
                     transition: 0.6s;
                 }
                 .faq-img{
-                    width:30%;
+                    width:50%;
                     display: block;
                     margin-left: auto;
                     margin-right: auto;
@@ -607,7 +628,6 @@
                   align-items: center;
                 }
                 .faq-window{
-                    border:1px solid var(--bg);
                     padding: 4rem 2rem;
                 }
                 .faq-section{
@@ -620,7 +640,21 @@
                     padding-bottom: 3rem;
                     margin-top:4rem;
                     font-size: 40px;
-              }  
+                } 
+                .tbl-row{
+                    flex-direction: column;
+                    margin-top:1rem;
+                    background-color: var(--bg);
+                    border-radius: 7px;
+                    padding:1rem;
+                    text-align: center;
+                }
+                .faq-h{
+                    font-size:20px;
+                }
+                .faq-c{
+                    font-size:15px;
+                } 
             }
             
             @media only screen and (max-width:1179px){
@@ -841,8 +875,11 @@
                     border-radius:7px;
                     transition: 0.6s;
                 }
+                .faq-title{
+                    margin-top:6rem;
+                }
                 .faq-img{
-                    width:60%;
+                    width:80%;
                     display: block;
                     margin-left: auto;
                     margin-right: auto;
@@ -853,7 +890,6 @@
                   align-items: center;
                 }
                 .faq-window{
-                    border:1px solid var(--bg);
                     padding: 4rem 2rem;
                 }
                 .faq-section{
@@ -865,7 +901,23 @@
                     text-align: center;
                     padding-bottom: 2rem;
                     padding-left: 5rem;
-              }  
+                }
+                .tbl-row{
+                    flex-direction: column;
+                    margin-top:1rem;
+                    background-color: var(--bg);
+                    border-radius: 7px;
+                    padding:1rem;
+                }
+                .table td{
+                    border:none;
+                }
+                .faq-h{
+                    font-size:15px;
+                }
+                .faq-c{
+                    font-size:12px;
+                }  
             }
 
         </style>
@@ -1023,7 +1075,44 @@
             <div class="container-fluid faq-section">
                 <div class="row">
                     <div class="col-lg-7 d-flex faqs">
-                        <div class="faq-window" id="faq-window"></div>
+                        <div class="faq-window" id="faq-window">
+                            <table class="table">
+                                    <tbody>
+                                        <?php
+                                        $serverName = "TIMAXX-NITRO";
+
+                                        $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                                        $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                                        //check connection
+                                        if( $conn ) {
+                                            //echo "Connection established.<br />";
+                                        }else{
+                                            echo "Connection could not be established.<br />";
+                                            die( print_r( sqlsrv_errors(), true));
+                                        }
+
+                                        //declaring sql command
+                                        $sql = "SELECT * FROM FAQ";
+                                        $result = sqlsrv_query($conn,$sql);
+                                        if(!$result){
+                                            die(print_r(sqlsrv_errors().true));
+                                        }
+                                        //read data of each row
+                                        while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                            echo "
+                                                <tr class='d-flex tbl-row'>
+                                                    <td class='faq-h'>{$row['Question']}</td>
+                                                    <td class='faq-c'>{$row['Answer']}</td>
+                                                </tr>
+                                            ";
+                                        }
+
+                                        ?>
+                                        
+                                    </tbody>
+                                </table>
+                        </div>
                     </div>
                     <div class="col-lg-5 faq-title">
                         <h1 class="faq-title">F.A.Qs</h1>
