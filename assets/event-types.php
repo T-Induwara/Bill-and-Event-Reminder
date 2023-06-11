@@ -479,33 +479,99 @@ if (!isset($_SESSION['Email'])) {
                         <div class="frm-title" id="frm-title">
                             <h1 class="title-main" id="title-main">Weddings</h1>
                         </div>
-                        <form action="success.php" method="post">
+                        <?php
+                            $serverName = "TIMAXX-NITRO";
+                            $connectionOptions = array(
+                                "Database" => "RemindMeisterV2"
+                            );
+
+                            // Create a connection to the SQL Server
+                            $conn = sqlsrv_connect($serverName, $connectionOptions);
+
+
+                            $uID = $_SESSION["U_ID"];
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                // Retrieve form data
+                                $eventTitle = $_POST["eventTitle"];
+                                $eventDesc = $_POST["eventDesc"];
+                                $time = $_POST["time"];
+                                $date = $_POST["date"];
+                                $remMethod = $_POST["eventRemMethod"];
+                                $eventType = $_POST["eventType"];
+                                
+                                // Perform validation
+                                $errors = array();
+                                if (empty($eventTitle)) {
+                                    $errors[] = "Event title is required";
+                                }
+                                if (empty($eventDesc)) {
+                                    $errors[] = "Event description is required";
+                                }
+                                if (empty($time)) {
+                                    $errors[] = "Time is required";
+                                }
+                                if (empty($date)) {
+                                    $errors[] = "Date is required";
+                                }
+                                if (empty($remMethod)) {
+                                    $errors[] = "Reminder method is required";
+                                }
+                                
+                                // If there are no validation errors, insert the data into the table
+                                if (empty($errors)) {
+                                    $sql = "INSERT INTO Created_Event (CEVN_Title, CEVN_Description, CEVN_Reminder_time, CEVN_Reminder_date, CEVN_Reminder_option, CEVN_Type, U_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
+                                    $params = array($eventTitle, $eventDesc, $time, $date, $remMethod, $eventType, $uID );
+                                    $stmt = sqlsrv_query($conn, $sql, $params);
+                                    
+                                    if ($stmt === false) {
+                                        die(print_r(sqlsrv_errors(), true));
+                                    }
+                                    
+                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                    echo '<script>';
+                                    echo 'window.location.href="success.php";';
+                                    echo '</script>';
+                                    exit();
+                                }
+                            }
+                        ?>
+                        <form action="" method="post">
+                        <?php if (!empty($errors)) : ?>
+                            <ul class="errors">
+                                <?php foreach ($errors as $error) : ?>
+                                <li><?php echo $error; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                            <input type="hidden" name="eventType" value="" id="title-main-value">    
                             <div class="frm-divs d-flex">
                                 <label for="eventTitle">Add event title</label>
-                                <input type="text" name="eventTitle" placeholder="My event...">
+                                <input type="text" name="eventTitle" placeholder="My event..." required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="eventDesc">Add event description</label>
-                                <input type="text" name="eventDesc" placeholder="My event is about...">
+                                <input type="text" name="eventDesc" placeholder="My event is about..." required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="time">Set reminder time</label>
-                                <input type="time" name="time">
+                                <input type="time" name="time" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="date">Set reminder date</label>
-                                <input type="date" name="date">
+                                <input type="date" name="date" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <p>Select reminder method</p>
                                 <div class="rad-btns d-flex">
-                                    <input type="radio" name="eventRemMethod" value="SMS">
+                                    <input type="radio" name="eventRemMethod" value="SMS" required>
                                     <label for="sms">SMS</label>
-                                    <input type="radio" name="eventRemMethod" value="Email">
+                                    <input type="radio" name="eventRemMethod" value="Email" required>
                                     <label for="email">E-mail</label>
                                 </div>
                             </div>
-                            <input type="submit" value="Add reminder" class="frm-sub-btn">
+                            <input type="submit" value="Add reminder" class="frm-sub-btn" id="btn-frm-submit">
                         </form>
                     </div>
                 </div>
@@ -613,6 +679,15 @@ if (!isset($_SESSION['Email'])) {
                 eventSection.style.display = "block";
                 frmOutContainer.style.display = "none";
             })
+
+            var bFrmBtn = document.getElementById("btn-frm-submit");
+            bFrmBtn.onclick = function(){
+                // Get the value of the element with id="title-main"
+                var eventTypeValue = document.getElementById("title-main").innerHTML;
+                
+                // Set the value of the hidden input field
+                document.getElementById("title-main-value").value = eventTypeValue;
+            }
             
         </script>
     </body>

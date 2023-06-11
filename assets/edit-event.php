@@ -301,8 +301,6 @@ if (!isset($_SESSION['Email'])) {
             </div>
         </header>
         <main>
-            <?php
-            ?> 
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -325,32 +323,95 @@ if (!isset($_SESSION['Email'])) {
 
             <div class="main-content">
                 <div class="form-cont">
-                        <form action="success-b.php" method="post">
+                <?php
+                        if(isset($_GET["id"])){
+                            $id = $_GET["id"];
+                    
+                            $serverName = "TIMAXX-NITRO";
+
+                            $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                            $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                            
+                            $sql = "SELECT * FROM Created_Event WHERE CEVN_ID = $id";
+                            $result = sqlsrv_query($conn,$sql);
+                            if(!$result){
+                                die(print_r(sqlsrv_errors().true));
+                            }
+                            //read data of each row
+                            while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                $CEVN_Title = $row['CEVN_Title'];
+                                $CEVN_Description = $row['CEVN_Description'];
+                                $CEVN_Reminder_time = $row['CEVN_Reminder_time']->format('H:i');
+                                $CEVN_Reminder_date = $row['CEVN_Reminder_date']->format('Y-m-d');
+                                $CEVN_Reminder_option = $row['CEVN_Reminder_option'];
+                                $CEVN_Type = $row['CEVN_Type'];
+                            }
+                        } 
+                        // Check if the form is submitted
+                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                            // Retrieve form data
+                            $eventTitle = $_POST["eventTitle"];
+                            $eventDesc = $_POST["eventDesc"];
+                            $time = $_POST["time"];
+                            $date = $_POST["date"];
+                            
+                            // Perform validation
+                            $errors = array();
+                            if (empty($eventTitle)) {
+                                $errors[] = "Event title is required";
+                            }
+                            if (empty($eventDesc)) {
+                                $errors[] = "Event description is required";
+                            }
+                            if (empty($time)) {
+                                $errors[] = "Time is required";
+                            }
+                            if (empty($date)) {
+                                $errors[] = "Date is required";
+                            }
+                            
+                            // If there are no validation errors, insert the data into the table
+                            if (empty($errors)) {
+                                $sql = "UPDATE Created_Event set CEVN_Title = '$eventTitle', CEVN_Description = '$eventDesc', CEVN_Reminder_time = '$time', CEVN_Reminder_date = '$date' WHERE CEVN_ID = $id";
+                                $stmt = sqlsrv_query($conn, $sql);
+                                
+                                if ($stmt === false) {
+                                    die(print_r(sqlsrv_errors(), true));
+                                }
+                                
+                                // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                
+                                echo '<script>';
+                                echo 'alert ("Event Edited Successfully");';
+                                echo 'window.location.href="view-reminders.php"';
+                                echo '</script>';
+                                exit();
+                            }
+                        }  
+
+                    ?>
+                    
+
+                        <form action="" method="post">
                             <div class="frm-divs d-flex">
                                 <label for="eventTitle">Add event title</label>
-                                <input type="text" name="eventTitle" placeholder="Event tittle">
+                                <input type="text" name="eventTitle" placeholder="Event tittle" value="<?php echo "$CEVN_Title" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="eventDesc">Add event description</label>
-                                <input type="text" name="eventDesc" placeholder="Event description">
+                                <input type="text" name="eventDesc" placeholder="Event description" value="<?php echo "$CEVN_Description" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="time">Set reminder time</label>
-                                <input type="time" name="time">
+                                <input type="time" name="time" value="<?php echo "$CEVN_Reminder_time" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="date">Set reminder date</label>
-                                <input type="date" name="date">
+                                <input type="date" name="date" value="<?php echo "$CEVN_Reminder_date" ?>" required>
                             </div>
-                            <div class="frm-divs d-flex">
-                                <p>Select reminder method</p>
-                                <div class="rad-btns d-flex">
-                                    <input type="radio" name="eventRemMethod" value="SMS">
-                                    <label for="sms">SMS</label>
-                                    <input type="radio" name="eventRemMethod" value="Email">
-                                    <label for="email">E-mail</label>
-                                </div>
-                            </div>
+                
                             <input type="submit" value="Edit Event" class="frm-sub-btn">
                         </form>
 

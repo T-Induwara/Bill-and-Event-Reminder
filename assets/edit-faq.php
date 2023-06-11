@@ -1,9 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Manage FAQ - RemindMeister</title>
+        <title>Edit FAQ - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -34,7 +42,7 @@
             }
             .pg-title{
                 flex-direction: row;
-                justify-content: start;
+                justify-content: center;
                 align-items: center;
             }
             .usr-col{
@@ -101,7 +109,7 @@
             .dash-btn{
                 background-color: var(--bg);
                 color:var(--primary);
-                padding:1rem 2rem 1rem 2rem;
+                padding:0.8rem 1.5rem 0.8rem 1.5rem;
                 border:1px solid var(--primary);
                 font-family: Poppins-S;
                 font-size:20px;
@@ -129,11 +137,100 @@
                 transition: 0.6s;
                 cursor: pointer;
             }
-          
+            .login-container{
+                margin-top:2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom:2rem;
+            }
+            .heading{
+                font-family:Poppins-S !important;
+                font-size: 3.2rem;
+                color:var(--primary);
+                text-align: center;
+            }
+            .details{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--bg);
+                border-radius: 20px;
+                filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+
+            }
+            input[type=email],input[type=password]
+            {   
+
+	            outline:none;
+            }
+            form{
+                padding: 4rem 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                filter: drop-shadow(0);
+               
+            }
+            .email{
+                font-family:Poppins-R; 
+                padding: 0.5rem 1.5rem;     
+                font-size: 15px;
+                text-align: center;
+                border-radius: 7px;
+                margin-bottom: 1rem;
+                color: var(--primary);
+                border-color:var(--bg) ;
+                background-color: var(--bg);
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
+               
+             }
+             .password{
+                font-family:Poppins-R; 
+                padding: 0.5rem 1.5rem;     
+                font-size: 15px;
+                text-align: center;
+                border-radius: 7px;
+                background-color: var(--bg);
+                margin-bottom: 1rem;
+                border-color:var(--bg) ;
+                outline:none;
+                border:none;
+                border-bottom:1px solid var(--primary)
+             }
+             h2{
+                font-family:Poppins-R; 
+                font-size: 0.9rem;
+                color: var(--txt);
+                margin-bottom: 1rem;
+             }
+             .BTN{
+                font-family:Poppins-R; 
+                font-size: 20px;
+                padding: 0.5rem 4rem;
+                border-radius: 7px;
+                background-color: var(--cta);
+                color: var(--bg);
+                cursor: pointer;
+                border: none;
+                margin-top:2rem;
+             }
+             .login-err{
+                font-family: Poppins-R;
+                color:red;
+             }
             
 
             /*CSS for tablet*/
             @media only screen and (min-width:768px){
+                .pg-title{
+                    justify-content: start;
+                }
                 .dashboard-header{
                     padding:2em 2em 2em 2em;
                 }
@@ -179,6 +276,31 @@
                     margin-top:2rem;
                     margin-bottom:4rem;
                 }
+                form{
+                    padding: 4rem;
+               }
+               .email{
+                    padding: 1rem 2rem;
+                    font-size: 15px;
+                    border-radius: 7px;
+                    margin-bottom: 2rem;
+               }
+               .password{
+                    padding: 1rem 2rem;
+                    font-size: 15px;
+                    border-radius: 7px;
+                    margin-bottom: 2rem;
+               }
+               h2{
+                     font-size: 1.2rem;
+                     margin-bottom: 2rem;
+               }
+               .BTN{
+                    font-size: 20px;
+                    padding:0.8rem 6rem;
+                    border-radius: 7px;
+                    margin-top:2rem;
+               }
             }
 
             /*CSS for desktop*/
@@ -205,9 +327,24 @@
                 .usr-clear{
                     margin-top:-1rem;
                 }
-                .faq-pholder{
-                    height:60vh;
+                form{
+                    padding: 3rem;
                 }
+                .email,.password{
+                    padding: 1rem 4rem;
+                    font-size: 15px;
+                    border-radius: 7px;
+                    margin-bottom: 2.3rem;
+                }
+                h2{
+                    font-size: 1.2rem;
+                }
+                .BTN{
+                    font-size: 20px;
+                    padding: 0.4rem 8rem;
+                    border-radius: 7px;
+                }
+
             }
         </style>
     </head>
@@ -219,7 +356,7 @@
                 <div class="row">
                     <div class="col-md-6 pg-title d-flex">
                         <div class="title-col">
-                            <h1>MANAGE F.A.Qs</h1>
+                            <h1>EDIT F.A.Q</h1>
                         </div>
                     </div>
                     <div class="col-md-6 pg-usr-window">
@@ -234,68 +371,84 @@
                     </div>
                 </div>
             </div>
-            <div class="faq-pholder d-flex">
-                <!--This placeholder to show the database faq table content-->
-                <div class="faq-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Question</th>
-                                <th>Answer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+            <div class="login-container">
+                <div class="details">
+                <?php
+                        if(isset($_GET["id"])){
+                            $id = $_GET["id"];
+                    
                             $serverName = "TIMAXX-NITRO";
 
                             $connectionInfo = array( "Database"=>"RemindMeisterV2");
                             $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-                            //check connection
-                            if( $conn ) {
-                                echo "Connection established.<br />";
-                            }else{
-                                echo "Connection could not be established.<br />";
-                                die( print_r( sqlsrv_errors(), true));
-                            }
-
-                            //declaring sql command
-                            $sql = "SELECT * FROM FAQ ";
+                            $sql = "SELECT * FROM FAQ WHERE FAQ_ID = $id";
                             $result = sqlsrv_query($conn,$sql);
                             if(!$result){
                                 die(print_r(sqlsrv_errors().true));
                             }
                             //read data of each row
                             while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                echo "
-                                    <tr>
-                                        <td>{$row['Question']}</td>
-                                        <td>{$row['Answer']}</td>
-                                        <td>
-                                            <a class='btn btn-primary btn-sm' href='edit-faq.php?id={$row["FAQ_ID"]}'>Edit</a>
-                                            <a class='btn btn-danger btn-sm' href='delete-faq.php?id={$row["FAQ_ID"]}'>Delete</a>
-                                        </td>
-                                    </tr>
-                                ";
+                                $question = $row['Question'];
+                                $answer = $row['Answer'];
+  
                             }
-
-                            ?>
+                        } 
+                        // Check if the form is submitted
+                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                            // Retrieve form data
+                            $subQuestion = $_POST["quest"];
+                            $subAnswer = $_POST["ans"];
                             
-                        </tbody>
-                    </table>
-               </div>
+                            // Perform validation
+                            $errors = array();
+                            if (empty($subQuestion)) {
+                                $errors[] = "Question is required";
+                            }
+                            if (empty($subAnswer)) {
+                                $errors[] = "Answer is required";
+                            }
+                            
+                            // If there are no validation errors, insert the data into the table
+                            if (empty($errors)) {
+                                $sql = "UPDATE FAQ set Question = '$subQuestion', Answer= '$subAnswer' WHERE FAQ_ID = $id";
+                                $stmt = sqlsrv_query($conn, $sql);
+                                
+                                if ($stmt === false) {
+                                    die(print_r(sqlsrv_errors(), true));
+                                }
+                                
+                                // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                echo '<script>';
+                                echo 'alert ("FAQ Edited Successfully");';
+                                echo 'window.location.href="manage-faq.php"';
+                                echo '</script>';
+                                exit();
+                            }
+                        }  
+
+                    ?>
+                    <form action="" method="post">
+                        <input type="text" placeholder="Question" class="email" name="quest" value="<?php echo "$question" ?>" required>
+                        <input type="textarea" placeholder="Answer" class="password" name="ans" value="<?php echo "$answer" ?>" required>
+                        <input type="submit" id="btn" class="BTN" value="Edit">
+                        <br>
+                        <!-- Display error message if any -->
+                        <?php if (isset($error)) { ?>
+                            <p class="login-err">
+                                <?php echo $error; ?>
+                            </p>
+                            <?php
+                        } ?>
+                    </form>
+                </div>
             </div>
             <div class="bottom-btns d-flex">
-                <a href="staff-dashboard.php">
+                <a href="manage-faq.php">
                     <div class="dash-btn d-flex">
                         <img src="images/junior-support-dashboard/dashboard.webp" alt="dashboard btn">
-                        <p>Dashboard</p>
-                    </div>
-                </a>
-                <a href="add-faq.php">
-                    <div class="add-btn d-flex">
-                        <img src="images/junior-support-dashboard/add.webp" alt="add btn">
-                        <p>Add</p>
+                        <p>Return</p>
                     </div>
                 </a>
             </div>

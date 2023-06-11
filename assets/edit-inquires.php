@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -351,7 +359,7 @@
              } 
 
             }
-        </style>
+        </style> 
     </head>
     <body>
         <header>
@@ -370,8 +378,6 @@
             </div>
         </header>
         <main>
-            <?php
-            ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -383,8 +389,8 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -392,26 +398,74 @@
             </div>
 
           <div class="background">
-            <form action="edit-inquires.php" method="post">
+          <?php
+                if(isset($_GET["id"])){
+                    $id = $_GET["id"];
+            
+                    $serverName = "TIMAXX-NITRO";
+
+                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                    $sql = "SELECT * FROM Inquiry WHERE INQ_ID = $id";
+                    $result = sqlsrv_query($conn,$sql);
+                    if(!$result){
+                        die(print_r(sqlsrv_errors().true));
+                    }
+                    //read data of each row
+                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                        $inqTitle = $row['Inquiry_Title'];
+                        $inqDesc = $row['Inquiry_Description'];
+                    }
+                } 
+                // Check if the form is submitted
+                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                    // Retrieve form data
+                    $nInqTitle = $_POST["title"];
+                    $nInqDesc = $_POST["description"];
+
+                    // Perform validation
+                    $errors = array();
+                    if (empty($nInqTitle)) {
+                        $errors[] = "New inquiry title is required";
+                    }
+                    if (empty($nInqDesc)) {
+                        $errors[] = "New inquiry description is required";
+                    }
+                    
+                    // If there are no validation errors, insert the data into the table
+                    if (empty($errors)) {
+                        $sql = "UPDATE Inquiry set Inquiry_Title = '$nInqTitle', Inquiry_Description = '$nInqDesc' WHERE INQ_ID = $id";
+                        $stmt = sqlsrv_query($conn, $sql);
+                        
+                        if ($stmt === false) {
+                            die(print_r(sqlsrv_errors(), true));
+                        }
+                        
+                        // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                        echo '<script>';
+                        echo 'alert ("Inquiry Edited Successfully");';
+                        echo 'window.location.href="view-inquires.php"';
+                        echo '</script>';
+                        exit();
+                    }
+                }  
+
+            ?>
+            <form action="" method="post">
                 <div class="row1">
                     <h1>Edit Inquiry</h1>
-                    <input type="text" name="title" class="title" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="title" class="title" placeholder="Eg:SLT Landline" value="<?php echo "$inqTitle" ?>" required> 
                 </div>
                 <div class="row2">
                     <h1>Edit Inquiry Description</h1>
-                    <input type="text" name="description" class="discription" placeholder="Eg:SLT Landline"> 
+                    <input type="text" name="description" class="discription" placeholder="Eg:SLT Landline" value="<?php echo "$inqDesc" ?>" required> 
                 </div>
-                <div class="row3">
-                    <h1>Edit Inquiry Email</h1>
-                    <input type="email" name="email" class="email" placeholder="Eg:SLT Landline"> 
-                </div>
-                <div class="row4">
-                    <h1>Edit Inquiry Phone</h1>
-                    <input type="tel" name="phone" class="phone" placeholder="Eg:SLT Landline"> 
-                </div>
-                <input typs="submit" class="btn" value="Edit">
+                <input type="submit" class="btn" value="Edit inquiry">
             </form>
-                <button class="btn1">Return</button>
+                <a href="view-inquires.php">
+                    <button class="btn1">Return</button>
+                </a>
           </div>
 
         </main>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -115,7 +116,7 @@
                 transition: 0.6s;
             }
             #but p{
-                font-family: Poppins-R;
+                font-family: Poppins-S;
             }
             .bottom-btns{
                 flex-direction: row;
