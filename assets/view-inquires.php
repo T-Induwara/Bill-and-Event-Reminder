@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['Email'])) {
+    header("Location: log-in.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,8 +71,9 @@
             }
             .table{
                 width: 95%;
-                padding-top: 4rem;
+                padding: 4rem 0rem;
                 filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
+                background-color: var(--bg);
                 margin-left: auto;
                 margin-right: auto;
                 margin-bottom: 4rem;
@@ -92,6 +101,12 @@
                 color:var(--bg);
                 cursor:pointer;
                 transition: 0.6s;
+            }
+            .table{
+                padding:3rem 2rem 3rem 2rem;
+            }
+            .table table{
+                width:100%;
             }
             @media only screen and (max-width:767px){
                 .row-sub{
@@ -133,7 +148,6 @@
                 }
                 .table{
                 width: 90%;
-                padding-top: 50vh;
                 filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
                 margin-left: auto;
                 margin-right: auto;
@@ -167,7 +181,6 @@
                 }
                 .table{
                 width: 95%;
-                padding-top: 50vh;
                 filter:drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.19));
 
             }
@@ -206,14 +219,67 @@
                         <div class="usr-col d-flex">
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ravi Jay</h2>
-                                <p class="usr-mail" id="usr-mail">ravi.jay@gmail.com</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Inquiry Title</th>
+                            <th>Inquiry Desciption</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $serverName = "TIMAXX-NITRO";
+
+                        $connectionInfo = array( "Database"=>"RemindMeisterV2");
+                        $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+                        //Get logged in user's id
+                        $uID = $_SESSION["U_ID"];
+
+                        //check connection
+                        if( $conn ) {
+                            //echo "Connection established.<br />";
+                        }else{
+                            echo "Connection could not be established.<br />";
+                            die( print_r( sqlsrv_errors(), true));
+                        }
+
+                        //declaring sql command
+                        $sql = "SELECT * FROM Inquiry WHERE U_ID = $uID";
+                        $result = sqlsrv_query($conn,$sql);
+                        if(!$result){
+                            die(print_r(sqlsrv_errors().true));
+                        }
+                        //read data of each row
+                        while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                            echo "
+                                <tr>
+                                    <td>{$row['Inquiry_Title']}</td>
+                                    <td>{$row['Inquiry_Description']}</td>
+                                    <td>{$row['Email']}</td>
+                                    <td>{$row['Phone']}</td>
+                                    <td>
+                                        <a class='btn btn-primary btn-sm' href='edit-inquires.php?id={$row["INQ_ID"]}'>Edit</a>
+                                        <a class='btn btn-danger btn-sm' href='delete-inquires.php?id={$row["INQ_ID"]}'>Delete</a>
+                                    </td>
+                                </tr>
+                            ";
+                        }
+
+                        ?>
+                        
+                    </tbody>
+                </table>
             </div>
             <div class="pg-return-btn d-flex">
                 <a href="user-dashboard.php">

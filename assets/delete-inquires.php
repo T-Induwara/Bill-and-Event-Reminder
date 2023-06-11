@@ -14,7 +14,7 @@
         }
 
         if (empty($errors)) {
-            $sql = "DELETE FROM FAQ WHERE FAQ_ID = $id";
+            $sql = "DELETE FROM Inquiry WHERE INQ_ID = $id";
             $stmt = sqlsrv_query($conn, $sql);
             
             if ($stmt === false) {
@@ -24,8 +24,8 @@
             // Data inserted successfully, redirect to a success page or perform any other necessary actions
             //echo "Bill reminder added successfully. <br> Please Log in now.";
             echo '<script>';
-            echo 'alert("FAQ Deleted!");';
-            echo 'window.location.href="manage-faq.php"';
+            echo 'alert("Inquiry Deleted!");';
+            echo 'window.location.href="view-inquires.php"';
             echo '</script>';
             exit();
         }

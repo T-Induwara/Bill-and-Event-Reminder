@@ -74,7 +74,6 @@ if (!isset($_SESSION['Email'])) {
                 margin: 0rem;
                 padding: 4rem 3rem 4rem 3rem;
                 width: 100%;
-                height: 100vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -123,7 +122,13 @@ if (!isset($_SESSION['Email'])) {
                 background-color: var(--cta);
                 transition: 0.6s;
             }
-
+            
+            .inq-btn{
+                width:200px !important;
+            }
+            .cat-extra{
+                padding: 0rem 3rem 2rem 3rem;
+            }
           
             
 
@@ -160,7 +165,6 @@ if (!isset($_SESSION['Email'])) {
                 margin: 0rem;
                 padding: 3rem 2rem 3rem 2rem;
                 width: 100%;
-                height: 40vh;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -175,7 +179,10 @@ if (!isset($_SESSION['Email'])) {
                 flex-direction:column ;
                 justify-content: center;
             }
-                
+             
+            .inq-btn{
+                width:140px !important;
+            }   
                 
 
                 
@@ -205,9 +212,8 @@ if (!isset($_SESSION['Email'])) {
 
                 .category{
                 margin: 0rem;
-                padding: 5rem 7rem 8rem 7rem;
+                padding: 0rem 7rem 5rem 7rem;
                 width: 100%;
-                height: 60vh;
                 
                 }
 
@@ -230,6 +236,10 @@ if (!isset($_SESSION['Email'])) {
                 margin-left: auto;
                 margin-right: auto;
             }
+            .inq-btn{
+                width:260px !important;
+            }
+
             @media only screen and (min-width:1600px){
                 .subbutton img{
                     padding:2rem;
@@ -302,6 +312,14 @@ if (!isset($_SESSION['Email'])) {
                    <p id="dis">View Reminders</p> 
               </a>    
                
+            </div>
+            <div class="category cat-extra">
+                <a id="but" href="view-inquires.php" class="inq-btn">  
+                    <div class="subbutton cus-btn" >
+                        <img id="img1" alt="image" src="images/user-dashboard/support-btn.webp">
+                    </div>
+                    <p id="dis">View Inquires</p> 
+                </a>
             </div>
 
         </main>

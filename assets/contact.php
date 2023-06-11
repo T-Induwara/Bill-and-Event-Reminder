@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -411,8 +414,7 @@
         </div>
     </header>
     <main>
-        <?php
-        ?>
+       
         <div class="content">
             <div class="title">
                 Connect with Us: Reach Out and Let's Make RemindMeister Even Better!
@@ -424,19 +426,72 @@
                 <img src="images/contact-us/Saly-38.webp" alt="" class="man-img">
             </div>
             <div class="inquiry-form">
-                <form method="GET" action="create-account.php">
+                <?php
+                    $serverName = "TIMAXX-NITRO";
+                    $connectionOptions = array(
+                        "Database" => "RemindMeisterV2"
+                    );
+
+                    // Create a connection to the SQL Server
+                    $conn = sqlsrv_connect($serverName, $connectionOptions);
+
+
+                    $uID = $_SESSION["U_ID"];
+                    // Check if the form is submitted
+                    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                        // Retrieve form data
+                        $inqSummary = $_POST["summary"];
+                        $inq= $_POST["inquiry"];
+                        $email = $_POST["email"];
+                        $phone = $_POST["phone"];
+                       
+                        
+                        // Perform validation
+                        $errors = array();
+                        if (empty($inqSummary)) {
+                            $errors[] = "Inquiry summary is required";
+                        }
+                        if (empty($inq)) {
+                            $errors[] = "Summary is required";
+                        }
+                        if (empty($email)) {
+                            $errors[] = "Email is required";
+                        }
+                       
+                        
+                        // If there are no validation errors, insert the data into the table
+                        if (empty($errors)) {
+                            $sql = "INSERT INTO Inquiry (Inquiry_Title, Inquiry_Description,Email, Phone, U_ID) VALUES (?, ?, ?, ?, ?)";
+                            $params = array($inqSummary, $inq, $email, $phone, $uID );
+                            $stmt = sqlsrv_query($conn, $sql, $params);
+                            
+                            if ($stmt === false) {
+                                die(print_r(sqlsrv_errors(), true));
+                            }
+                            
+                            // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                            //echo "Bill reminder added successfully. <br> Please Log in now.";
+                            echo '<script>';
+                            echo 'alert ("Inquiry Sent Successfully");';
+                            echo 'window.location.href="contact.php"';
+                            echo '</script>';
+                            exit();
+                        }
+                    }
+                ?>
+                <form method="POST" action="">
                     <div class="inq-summary">
-                        <input type="text" placeholder="Inquiry Summary" id="inq-summary">
+                        <input type="text" placeholder="Inquiry Summary" id="inq-summary" name="summary" required>
                     </div>
                     <div class="inquiry">
-                        <input type="text" placeholder="inquiry" id="inquiry">
+                        <input type="text" placeholder="inquiry" id="inquiry" name="inquiry" required>
                     </div>
                     <div class="contact-detail">
                         <div class="email">
-                            <input type="email" placeholder="Email" id="email">
+                            <input type="email" placeholder="Email" id="email" name="email" required>
                         </div>
                         <div class="Phone">
-                            <input type="tel" placeholder="Phone number" id="phone">
+                            <input type="tel" placeholder="Phone number" id="phone" name="phone">
                         </div>
                     </div>
                     <input type="submit" value="Send">
