@@ -492,7 +492,7 @@ if (!isset($_SESSION['Email'])) {
                             $uID = $_SESSION["U_ID"];
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                // Retrieve form data
+                                //gettting form data
                                 $eventTitle = $_POST["eventTitle"];
                                 $eventDesc = $_POST["eventDesc"];
                                 $time = $_POST["time"];
@@ -527,9 +527,7 @@ if (!isset($_SESSION['Email'])) {
                                     if ($stmt === false) {
                                         die(print_r(sqlsrv_errors(), true));
                                     }
-                                    
-                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
-                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                   
                                     echo '<script>';
                                     echo 'window.location.href="success.php";';
                                     echo '</script>';

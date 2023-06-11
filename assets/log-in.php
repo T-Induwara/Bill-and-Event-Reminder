@@ -1,11 +1,14 @@
 <?php
 // Database configuration
+//To create this database configuration we watched this Youtube video https://youtu.be/VZpzQLqm8Uw?t=369 .
+//Also we studied this website to write this code. https://www.php.net/manual/en/function.sqlsrv-connect.php
 $serverName = "TIMAXX-NITRO";
 $connectionInfo = array(
     "Database" => "RemindMeisterV2"
 );
 
 // Start session
+//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
 session_start();
 
 if (isset($_SESSION['Email'])) {
@@ -19,8 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Validate the user
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    $conn = sqlsrv_connect($serverName, $connectionInfo);//We used SQL Server and windows authentication to connect with the database
 
     if ($conn === false) {
         die(print_r(sqlsrv_errors(), true));
@@ -50,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Invalid email or password.";
     }
 
-    // Clean up resources
+
     sqlsrv_free_stmt($stmt);
     sqlsrv_close($conn);
 }

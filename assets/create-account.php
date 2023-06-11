@@ -2,8 +2,7 @@
     // Initialize the session
     session_start();
 
-    // logged in users are redirected to the orders page
-    if(isset($_SESSION["Email"])){
+    if(isset($_SESSION["Email"])){//if user loggedin this code will redirect user to dashboard
         header("location: user-dashboard.php");
         exit;
     }

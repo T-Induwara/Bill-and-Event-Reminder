@@ -235,7 +235,6 @@
                 </div>
             </div>
             <div class="faq-pholder d-flex">
-                <!--This placeholder to show the database faq table content-->
                 <div class="faq-container">
                     <table class="table">
                         <thead>
@@ -253,7 +252,6 @@
 
                             //check connection
                             if( $conn ) {
-                                echo "Connection established.<br />";
                             }else{
                                 echo "Connection could not be established.<br />";
                                 die( print_r( sqlsrv_errors(), true));

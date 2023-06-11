@@ -396,7 +396,7 @@ if (!isset($_SESSION['Email'])) {
                         } 
                         // Check if the form is submitted
                         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                            // Retrieve form data
+                            //Get form data
                             $subQuestion = $_POST["quest"];
                             $subAnswer = $_POST["ans"];
                             
@@ -418,8 +418,6 @@ if (!isset($_SESSION['Email'])) {
                                     die(print_r(sqlsrv_errors(), true));
                                 }
                                 
-                                // Data inserted successfully, redirect to a success page or perform any other necessary actions
-                                //echo "Bill reminder added successfully. <br> Please Log in now.";
                                 echo '<script>';
                                 echo 'alert ("FAQ Edited Successfully");';
                                 echo 'window.location.href="manage-faq.php"';

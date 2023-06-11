@@ -371,16 +371,16 @@
                                 "Database" => "RemindMeisterV2"
                             );
 
-                            // Create a connection to the SQL Server
+                            // Create the connection to the SQL Server
                             $conn = sqlsrv_connect($serverName, $connectionOptions);
 
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                // Retrieve form data
+                                //getting form data
                                 $question = $_POST["quest"];
                                 $answer = $_POST["ans"];
                                 
-                                // Perform validation
+                                //simple validation part to check the form is empty or not.
                                 $errors = array();
                                 if (empty($question)) {
                                     $errors[] = "Question is required";
@@ -400,8 +400,7 @@
                                         die(print_r(sqlsrv_errors(), true));
                                     }
                                     
-                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
-                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                    //Showing user feedback alerts
                                     echo '<script>';
                                     echo 'alert ("FAQ Added Successfully");';
                                     echo 'window.location.href="manage-faq.php"';

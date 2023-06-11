@@ -420,7 +420,7 @@ if (!isset($_SESSION['Email'])) {
                 } 
                 // Check if the form is submitted
                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                    // Retrieve form data
+                    //Getting form data
                     $nInqTitle = $_POST["title"];
                     $nInqDesc = $_POST["description"];
 
@@ -442,7 +442,6 @@ if (!isset($_SESSION['Email'])) {
                             die(print_r(sqlsrv_errors(), true));
                         }
                         
-                        // Data inserted successfully, redirect to a success page or perform any other necessary actions
                         echo '<script>';
                         echo 'alert ("Inquiry Edited Successfully");';
                         echo 'window.location.href="view-inquires.php"';

@@ -1,4 +1,5 @@
 <?php
+//We used this file to check connection with the database 
 $serverName = "TIMAXX-NITRO";
 
 $connectionInfo = array( "Database"=>"RemindMeister");

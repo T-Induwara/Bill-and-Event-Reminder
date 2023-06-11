@@ -2,8 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['Email'])) {
-        header("Location: log-in.php"); // Redirect to login page
-        exit(); // Stop further execution of the current script
+        header("Location: log-in.php"); // Redirect to login page if not loggedin
     }
     
     if(isset($_GET["id"])){
@@ -27,9 +26,7 @@
                 die(print_r(sqlsrv_errors(), true));
             }
             
-            // Data inserted successfully, redirect to a success page or perform any other necessary actions
-            //echo "Bill reminder added successfully. <br> Please Log in now.";
-            echo '<script>';
+            
             echo 'window.location.href="view-reminders.php";';
             echo '</script>';
             exit();
