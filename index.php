@@ -1084,9 +1084,8 @@
                                         $connectionInfo = array( "Database"=>"RemindMeisterV2");
                                         $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-                                        //check connection
+                                        //check connection status.
                                         if( $conn ) {
-                                            //echo "Connection established.<br />";
                                         }else{
                                             echo "Connection could not be established.<br />";
                                             die( print_r( sqlsrv_errors(), true));
@@ -1098,7 +1097,9 @@
                                         if(!$result){
                                             die(print_r(sqlsrv_errors().true));
                                         }
+
                                         //read data of each row
+                                        //Watched a Youtube video to do this part. https://youtu.be/NqP0-UkIQS4 Video is about MySql. Also, used this type of code on entire website when listing current database table items
                                         while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                                             echo "
                                                 <tr class='d-flex tbl-row'>
