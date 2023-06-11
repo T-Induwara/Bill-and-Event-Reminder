@@ -365,6 +365,50 @@
             </div>
             <div class="login-container">
                 <div class="details">
+                <?php
+                            $serverName = "TIMAXX-NITRO";
+                            $connectionOptions = array(
+                                "Database" => "RemindMeisterV2"
+                            );
+
+                            // Create a connection to the SQL Server
+                            $conn = sqlsrv_connect($serverName, $connectionOptions);
+
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                                // Retrieve form data
+                                $question = $_POST["quest"];
+                                $answer = $_POST["ans"];
+                                
+                                // Perform validation
+                                $errors = array();
+                                if (empty($question)) {
+                                    $errors[] = "Question is required";
+                                }
+                                if (empty($answer)) {
+                                    $errors[] = "Answer is required";
+                                }
+
+                                
+                                // If there are no validation errors, insert the data into the table
+                                if (empty($errors)) {
+                                    $sql = "INSERT INTO FAQ (Question,Answer) VALUES (?, ?)";
+                                    $params = array($question,$answer);
+                                    $stmt = sqlsrv_query($conn, $sql, $params);
+                                    
+                                    if ($stmt === false) {
+                                        die(print_r(sqlsrv_errors(), true));
+                                    }
+                                    
+                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
+                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
+                                    echo '<script>';
+                                    echo 'alert ("FAQ Added Successfully");';
+                                    echo '</script>';
+                                    exit();
+                                }
+                            }
+                        ?>
                     <form action="" method="post">
                         <input type="text" placeholder="Question" class="email" name="quest" required>
                         <input type="textarea" placeholder="Answer" class="password" name="ans" required>
