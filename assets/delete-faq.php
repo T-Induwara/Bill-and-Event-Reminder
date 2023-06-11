@@ -25,6 +25,7 @@
             //echo "Bill reminder added successfully. <br> Please Log in now.";
             echo '<script>';
             echo 'window.location.href="manage-faq.php";';
+            echo 'window.location.href="manage-faq.php"';
             echo '</script>';
             exit();
         }

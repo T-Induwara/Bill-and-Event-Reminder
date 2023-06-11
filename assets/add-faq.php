@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Manage FAQ - RemindMeister</title>
+        <title>Add FAQ - RemindMeister</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
@@ -404,6 +404,7 @@
                                     //echo "Bill reminder added successfully. <br> Please Log in now.";
                                     echo '<script>';
                                     echo 'alert ("FAQ Added Successfully");';
+                                    echo 'window.location.href="manage-faq.php"';
                                     echo '</script>';
                                     exit();
                                 }
