@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +13,6 @@
                 --txt: #333333;
                 --cta: #ff851b;
             }
-        
             body{
                 margin:0 !important;
                 padding:0 !important;
@@ -107,6 +107,16 @@
                 cursor: pointer;
                 border: none;
              }
+             .login-err{
+                font-family: Poppins-R;
+                color:red;
+             }
+             .title-col{
+                width:100vw;
+             }
+             .title-col h1{
+                text-align: center;
+             }
 
              @media only screen and (min-width:768px){
                 .heading{
@@ -169,16 +179,22 @@
     </head>
     <body>
         <main>
-            <?php
-            ?>
             <div class="login-container">
                 <h1 class="heading">Staff Log in</h1>
                 <div class="details">
-                    <form action="staff-login.php" method="post">
-                        <input type="email" placeholder="Staff E-mail address" class="email">
-                        <input type="password" placeholder="Staff password" class="password">
+                    <form action="" method="post">
+                        <input type="email" placeholder="Staff E-mail address" class="email" name="email" required>
+                        <input type="password" placeholder="Staff password" class="password" name="password" required>
                         <h2>Forgot Password</h2>
                         <input type="submit" id="btn" class="BTN" value="Log in">
+                        <br>
+                        <!-- Display error message if any -->
+                        <?php if (isset($error)) { ?>
+                            <p class="login-err">
+                                <?php echo $error; ?>
+                            </p>
+                            <?php
+                        } ?>
                     </form>
                 </div>
             </div>
