@@ -334,7 +334,7 @@ if (!isset($_SESSION['Email'])) {
                             $connectionInfo = array( "Database"=>"RemindMeisterV2");
                             $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-                            echo $id;
+                            
                             $sql = "SELECT * FROM Created_Bill WHERE CB_ID = $id";
                             $result = sqlsrv_query($conn,$sql);
                             if(!$result){
@@ -385,7 +385,8 @@ if (!isset($_SESSION['Email'])) {
                                 // Data inserted successfully, redirect to a success page or perform any other necessary actions
                                 //echo "Bill reminder added successfully. <br> Please Log in now.";
                                 echo '<script>';
-                                echo 'window.location.href="view-reminders.php";';
+                                echo 'alert ("Bill Edited Successfully");';
+                                echo 'window.location.href="view-reminders.php"';
                                 echo '</script>';
                                 exit();
                             }
@@ -395,19 +396,19 @@ if (!isset($_SESSION['Email'])) {
                         <form action="" method="post">
                             <div class="frm-divs d-flex">
                                 <label for="billTitle">Add bill title</label>
-                                <input type="text" name="billTitle" placeholder="Bill tittle" value="<?php echo "$CB_Title" ?>">
+                                <input type="text" name="billTitle" placeholder="Bill tittle" value="<?php echo "$CB_Title" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="billDesc">Add bill description</label>
-                                <input type="text" name="billDesc" placeholder="Bill description" value="<?php echo "$CB_Description" ?>">
+                                <input type="text" name="billDesc" placeholder="Bill description" value="<?php echo "$CB_Description" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="time">Set reminder time</label>
-                                <input type="time" name="time" value="<?php echo "$CB_Reminder_time" ?>">
+                                <input type="time" name="time" value="<?php echo "$CB_Reminder_time" ?>" required>
                             </div>
                             <div class="frm-divs d-flex">
                                 <label for="date">Set reminder date</label>
-                                <input type="date" name="date" value="<?php echo "$CB_Reminder_date" ?>">
+                                <input type="date" name="date" value="<?php echo "$CB_Reminder_date" ?>" required>
                             </div>
                             <input type="submit" value="Edit Bill" class="frm-sub-btn">
                         </form>

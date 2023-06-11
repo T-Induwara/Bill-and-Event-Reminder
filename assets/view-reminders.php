@@ -323,7 +323,7 @@ if (!isset($_SESSION['Email'])) {
                     </div>
                     <div class="col-lg-9">
                         <div class="bill-window" id="bill-window">
-                            <p>Bill window</p>
+                          
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -347,7 +347,7 @@ if (!isset($_SESSION['Email'])) {
 
                                     //check connection
                                     if( $conn ) {
-                                        echo "Connection established.<br />";
+                                        //echo "Connection established.<br />";
                                     }else{
                                         echo "Connection could not be established.<br />";
                                         die( print_r( sqlsrv_errors(), true));
@@ -383,7 +383,7 @@ if (!isset($_SESSION['Email'])) {
                             </table>
                         </div>
                         <div class="evn-window" id="evn-window">
-                            <p>Event window</p>
+                            
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -406,7 +406,7 @@ if (!isset($_SESSION['Email'])) {
 
                                     //check connection
                                     if( $conn ) {
-                                        echo "Connection established.<br />";
+                                        //echo "Connection established.<br />";
                                     }else{
                                         echo "Connection could not be established.<br />";
                                         die( print_r( sqlsrv_errors(), true));
