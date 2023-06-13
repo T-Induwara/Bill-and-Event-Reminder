@@ -283,7 +283,7 @@ if (!($_SESSION["stfLoggedin"] == true)) {
                         <div class="usr-col d-flex">
                             <img src="images/junior-support-dashboard/usr-image.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['stf_Fname']; ?>   <?php echo $_SESSION['stf_L_name']; ?></h2>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['stf_Fname']; ?>   <?php echo $_SESSION['stf_Lname']; ?></h2>
                                 <p class="usr-mail" id="usr-mail">Agent Email : <?php echo $_SESSION['stf_Email']; ?></p>
                                 <p class="usr-mail usr-clear" id="usr-clearance">Clearance : <?php echo $_SESSION['stf_Position']; ?></p>
                             </div>
@@ -307,7 +307,9 @@ if (!($_SESSION["stfLoggedin"] == true)) {
                
             </div>
             <div class="bottom-btns d-flex">
-                <div class="log-o-btn">Log out</div>
+                <a href="staff-logout.php">
+                    <div class="log-o-btn">Log out</div>
+                </a>
             </div>
 
         </main>
