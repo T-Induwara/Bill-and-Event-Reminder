@@ -1,4 +1,63 @@
+<?php
+// Database configuration
+//To create this database configuration we watched this Youtube video https://youtu.be/VZpzQLqm8Uw?t=369 .
+//Also we studied this website to write this code. https://www.php.net/manual/en/function.sqlsrv-connect.php
+$serverName = "TIMAXX-NITRO";
+$connectionInfo = array(
+    "Database" => "RemindMeisterV2"
+);
 
+// Start session
+//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
+session_start();
+
+if (isset($_SESSION['Email'])) {
+    header("Location: user-dashboard.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+
+// Check if the login form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the entered email and password
+    $stfEmail = $_POST["email"];
+    $stfPassword = $_POST["password"];
+
+    $conn = sqlsrv_connect($serverName, $connectionInfo);//We used SQL Server and windows authentication to connect with the database
+
+    if ($conn === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
+    $params = array($email,$password);
+    $stmt = sqlsrv_query($conn, $sql, $params);
+
+    if ($stmt === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+    if ($row) {
+        // User is valid, set session variables and redirect to user dashboard page
+        $_SESSION["loggedin"] = true;
+        $_SESSION["U_ID"] = $row['U_ID'];
+        $_SESSION['Email'] = $row['Email'];
+        $_SESSION['First_name'] = $row['First_name'];
+        $_SESSION['Last_name'] = $row['Last_name'];
+        header("location: user-dashboard.php");
+        exit();
+    } else {
+        // Invalid email or password, show error message
+        $error = "Invalid email or password.";
+    }
+
+
+    sqlsrv_free_stmt($stmt);
+    sqlsrv_close($conn);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -177,7 +236,7 @@
 
         </style>
     </head>
-    <body>
+    <body> 
         <main>
             <div class="login-container">
                 <h1 class="heading">Staff Log in</h1>
