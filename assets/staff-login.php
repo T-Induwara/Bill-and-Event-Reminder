@@ -1,4 +1,13 @@
 <?php
+// Start session
+//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
+session_start();
+
+if (isset($_SESSION["stfLoggedin"])) {
+    header("Location:staff-dashboard.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+
 // Database configuration
 //To create this database configuration we watched this Youtube video https://youtu.be/VZpzQLqm8Uw?t=369 .
 //Also we studied this website to write this code. https://www.php.net/manual/en/function.sqlsrv-connect.php
@@ -6,15 +15,6 @@ $serverName = "TIMAXX-NITRO";
 $connectionInfo = array(
     "Database" => "RemindMeisterV2"
 );
-
-// Start session
-//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
-session_start();
-
-if (isset($_SESSION['Email'])) {
-    header("Location: user-dashboard.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
 
 // Check if the login form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
-    $params = array($email,$password);
+    $sql = "SELECT * FROM Staff WHERE Staff_email = ? AND Password = ?";
+    $params = array($stfEmail,$stfPassword);
     $stmt = sqlsrv_query($conn, $sql, $params);
 
     if ($stmt === false) {
@@ -39,17 +39,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
     if ($row) {
-        // User is valid, set session variables and redirect to user dashboard page
-        $_SESSION["loggedin"] = true;
-        $_SESSION["U_ID"] = $row['U_ID'];
-        $_SESSION['Email'] = $row['Email'];
-        $_SESSION['First_name'] = $row['First_name'];
-        $_SESSION['Last_name'] = $row['Last_name'];
-        header("location: user-dashboard.php");
+        // User is valid, set session variables and redirect to staff dashboard page
+        $_SESSION["stfLoggedin"] = true;
+        $_SESSION["stf_ID"] = $row['Staff_ID'];
+        $_SESSION['stf_Email'] = $row['Staff_email'];
+        $_SESSION['stf_Position'] = $row['Position'];
+        $_SESSION['stf_Fname'] = $row['First_name'];
+        $_SESSION['stf_Lname'] = $row['Last_name'];
+        header("location: staff-dashboard.php");
         exit();
     } else {
         // Invalid email or password, show error message
-        $error = "Invalid email or password.";
+        $error = "Invalid staff email or password.";
     }
 
 
