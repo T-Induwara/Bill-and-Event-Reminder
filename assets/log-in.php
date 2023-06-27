@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT * FROM Users WHERE email = $email AND password = $password";
     //$params = array($email,$password);
-    $stmt = sqlsrv_query($conn, $sql, $params);
+    $stmt = sqlsrv_query($conn, $sql);
 
     if ($stmt === false) {
         die(print_r(sqlsrv_errors(), true));
