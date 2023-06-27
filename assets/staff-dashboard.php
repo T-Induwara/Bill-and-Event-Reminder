@@ -294,13 +294,13 @@ if (!($_SESSION["stfLoggedin"] == true)) {
             <div class="category">
               <a id="but" href="bill-types.php">  
                    <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-bills.webp">
+                   <img id="img1" alt="image" src="/images/user-dashboard/add-bills.webp">
                    </div>
                    <p id="dis">View user inquiries</p> 
               </a>    
               <a id="but" href="manage-faq.php">  
                    <div class="subbutton" >
-                   <img id="img1" alt="image" src="/assets/images/user-dashboard/add-events.webp">
+                   <img id="img1" alt="image" src="/images/user-dashboard/add-events.webp">
                    </div>
                    <p id="dis">Manage F.A.Qs</p> 
               </a>  
