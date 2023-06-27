@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    $sql = "SELECT * FROM Users WHERE email = $email AND password = $password";
-    //$params = array($email,$password);
-    $stmt = sqlsrv_query($conn, $sql);
+    $sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
+    $params = array($email,$password);
+    $stmt = sqlsrv_query($conn, $sql, $params);
 
     if ($stmt === false) {
         die(print_r(sqlsrv_errors(), true));
