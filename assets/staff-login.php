@@ -1,4 +1,64 @@
+<?php
+// Start session
+//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
+session_start();
 
+if (isset($_SESSION["stfLoggedin"])) {
+    header("Location:staff-dashboard.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+
+// Database configuration
+//To create this database configuration we watched this Youtube video https://youtu.be/VZpzQLqm8Uw?t=369 .
+//Also we studied this website to write this code. https://www.php.net/manual/en/function.sqlsrv-connect.php
+$serverName = "TIMAXX-NITRO";
+$connectionInfo = array(
+    "Database" => "RemindMeisterV2"
+);
+
+// Check if the login form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the entered email and password
+    $stfEmail = $_POST["email"];
+    $stfPassword = $_POST["password"];
+
+    $conn = sqlsrv_connect($serverName, $connectionInfo);//We used SQL Server and windows authentication to connect with the database
+
+    if ($conn === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $sql = "SELECT * FROM Staff WHERE Staff_email = ? AND Password = ?";
+    $params = array($stfEmail,$stfPassword);
+    $stmt = sqlsrv_query($conn, $sql, $params);
+
+    if ($stmt === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+    if ($row) {
+        // User is valid, set session variables and redirect to staff dashboard page
+        $_SESSION["stfLoggedin"] = true;
+        $_SESSION["stf_ID"] = $row['Staff_ID'];
+        $_SESSION['stf_Email'] = $row['Staff_email'];
+        $_SESSION['stf_Position'] = $row['Position'];
+        $_SESSION['stf_Fname'] = $row['First_name'];
+        $_SESSION['stf_Lname'] = $row['Last_name'];
+        header("location: staff-dashboard.php");
+        exit();
+    } else {
+        // Invalid email or password, show error message
+        $error = "Invalid staff email or password.";
+    }
+
+
+    sqlsrv_free_stmt($stmt);
+    sqlsrv_close($conn);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -177,7 +237,7 @@
 
         </style>
     </head>
-    <body>
+    <body> 
         <main>
             <div class="login-container">
                 <h1 class="heading">Staff Log in</h1>

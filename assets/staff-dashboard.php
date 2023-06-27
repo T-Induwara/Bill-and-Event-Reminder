@@ -1,4 +1,13 @@
+<?php
 
+session_start();
+
+if (!($_SESSION["stfLoggedin"] == true)) {
+    header("Location: staff-login.php"); // Redirect to login page
+    exit(); // Stop further execution of the current script
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -274,9 +283,9 @@
                         <div class="usr-col d-flex">
                             <img src="images/junior-support-dashboard/usr-image.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
-                                <h2 class="usr-name" id="usr-name">Ashley Williams</h2>
-                                <p class="usr-mail" id="usr-mail">Agent ID : OBE-JA01</p>
-                                <p class="usr-mail usr-clear" id="usr-clearance">Clearance : Junior</p>
+                                <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['stf_Fname']; ?>   <?php echo $_SESSION['stf_Lname']; ?></h2>
+                                <p class="usr-mail" id="usr-mail">Agent Email : <?php echo $_SESSION['stf_Email']; ?></p>
+                                <p class="usr-mail usr-clear" id="usr-clearance">Clearance : <?php echo $_SESSION['stf_Position']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -298,7 +307,9 @@
                
             </div>
             <div class="bottom-btns d-flex">
-                <div class="log-o-btn">Log out</div>
+                <a href="staff-logout.php">
+                    <div class="log-o-btn">Log out</div>
+                </a>
             </div>
 
         </main>
