@@ -1079,36 +1079,44 @@
                             <table class="table">
                                     <tbody>
                                         <?php
-                                        $serverName = "TIMAXX-NITRO";
+                                        //$serverName = "TIMAXX-NITRO";
+                                        $con = new mysqli("localhost","timax","Masseffect34c1#@","RemindMeister");
 
-                                        $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                                        $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                                        //$connectionInfo = array( "Database"=>"RemindMeisterV2");
+                                        //$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
                                         //check connection status.
-                                        if( $conn ) {
-                                        }else{
+                                        if( $con->connect_error) {
                                             echo "Connection could not be established.<br />";
                                             die( print_r( sqlsrv_errors(), true));
+                                        }
+                                        else{
+                                            echo "Connection established.<br />";
                                         }
 
                                         //declaring sql command
                                         $sql = "SELECT * FROM FAQ";
-                                        $result = sqlsrv_query($conn,$sql);
-                                        if(!$result){
+                                        $result = $con->query($sql);
+                                        if($con->query($sql)){
+                                            echo "Query ran successfully!";
+
+                                            //read data of each row
+                                            //Watched a Youtube video to do this part. https://youtu.be/NqP0-UkIQS4 Video is about MySql. Also, used this type of code on entire website when listing current database table items
+                                            while($row = $result->fetch_assoc()){
+                                                echo "
+                                                    <tr class='d-flex tbl-row'>
+                                                        <td class='faq-h'>{$row['Question']}</td>
+                                                        <td class='faq-c'>{$row['Answer']}</td>
+                                                    </tr>
+                                                ";
+                                            }
+                                            $result->close();
+                                        }
+                                        else{
                                             die(print_r(sqlsrv_errors().true));
                                         }
 
-                                        //read data of each row
-                                        //Watched a Youtube video to do this part. https://youtu.be/NqP0-UkIQS4 Video is about MySql. Also, used this type of code on entire website when listing current database table items
-                                        while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                            echo "
-                                                <tr class='d-flex tbl-row'>
-                                                    <td class='faq-h'>{$row['Question']}</td>
-                                                    <td class='faq-c'>{$row['Answer']}</td>
-                                                </tr>
-                                            ";
-                                        }
-
+                                        $con->close();
                                         ?>
                                         
                                     </tbody>
