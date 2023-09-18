@@ -1091,7 +1091,7 @@
                                             die( print_r( sqlsrv_errors(), true));
                                         }
                                         else{
-                                            echo "Connection established.<br />";
+                                            echo "Connection established Tharusha.<br />";
                                         }
 
                                         //declaring sql command
