@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RemindMeister - Your Bill & Event Reminder Assistant</title>
+        <link rel="icon" type="image/x-icon" href="../assets/images/remindmeister-favicon-250px.png">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <script type="text/js" src="assets/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">

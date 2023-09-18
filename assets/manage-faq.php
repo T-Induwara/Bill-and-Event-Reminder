@@ -14,6 +14,7 @@ if (!($_SESSION["stfLoggedin"] == true)) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Manage FAQ - RemindMeister</title>
+        <link rel="icon" type="image/x-icon" href="../assets/images/remindmeister-favicon-250px.png">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script type="text/js" src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main-style.css">
