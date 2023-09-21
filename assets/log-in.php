@@ -12,7 +12,7 @@ if ($con === false) {
     die(print_r(sqlsrv_errors(), true));
 }
 else{
-    echo "Connection established!";
+    //echo "Connection established!";
 }
 
 // Check if the login form is submitted
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM registered_user WHERE email = ?";
+    $sql = "SELECT * FROM registered_user WHERE Email = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s",$email);
     $stmt->execute();

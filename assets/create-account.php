@@ -1,10 +1,55 @@
 <?php
-    // Initialize the session
     session_start();
 
-    if(isset($_SESSION["Email"])){//if user loggedin this code will redirect user to dashboard
+    if(isset($_SESSION["email"])){//if user loggedin this code will redirect user to dashboard
         header("location: user-dashboard.php");
         exit;
+    }
+
+    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+    if ($con === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+    else{
+        //echo "Connection established!";
+    }
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Retrieve form data
+        $firstName = $_POST["firstname"];
+        $lastName = $_POST["lastname"];
+        $phone = $_POST["phone"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $confirmPassword = $_POST["con_password"];
+        
+        // Perform validation
+        $errors = array();
+        if ($password !== $confirmPassword) {
+            $errors[] = "Passwords do not match";
+        }
+        
+        // If there are no validation errors, insert the data into the table
+        if (empty($errors)) {
+            $sql = "INSERT INTO registered_user (Email, First_name, Last_name, Password) VALUES (?, ?, ?, ?)";
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("ssss",$email, $firstName, $lastName, $password);
+            $stmt->execute();
+            
+            // Data inserted successfully, redirect to a success page or perform any other necessary actions
+            echo '<script>';
+            echo 'alert ("Account created successfully. Please Log in now.");';
+            echo 'window.location.href = "../assets/log-in.php"';
+            echo '</script>';
+            exit();
+
+            
+            // Close the database connection
+            $stmt->close();
+            $con->close();
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -362,62 +407,6 @@
             <div class="form-container">
                 <div class="form-title">Create Account</div>
                 <div class="content">
-                <?php
-                    $serverName = "TIMAXX-NITRO";
-                    $connectionOptions = array(
-                        "Database" => "RemindMeisterV2"
-                    );
-
-                    // Create a connection to the SQL Server
-                    $conn = sqlsrv_connect($serverName, $connectionOptions);
-
-                    // Check if the form is submitted
-                    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                        // Retrieve form data
-                        $firstName = $_POST["firstname"];
-                        $lastName = $_POST["lastname"];
-                        $phone = $_POST["phone"];
-                        $email = $_POST["email"];
-                        $password = $_POST["password"];
-                        $confirmPassword = $_POST["con_password"];
-                        
-                        // Perform validation
-                        $errors = array();
-                        if (empty($firstName)) {
-                            $errors[] = "First name is required";
-                        }
-                        if (empty($lastName)) {
-                            $errors[] = "Last name is required";
-                        }
-                        if (empty($phone)) {
-                            $errors[] = "Phone is required";
-                        }
-                        if (empty($email)) {
-                            $errors[] = "Email is required";
-                        }
-                        if (empty($password)) {
-                            $errors[] = "Password is required";
-                        }
-                        if ($password !== $confirmPassword) {
-                            $errors[] = "Passwords do not match";
-                        }
-                        
-                        // If there are no validation errors, insert the data into the table
-                        if (empty($errors)) {
-                            $sql = "INSERT INTO Users (Email, First_name, Last_name, Password) VALUES (?, ?, ?, ?)";
-                            $params = array($email, $firstName, $lastName, $password);
-                            $stmt = sqlsrv_query($conn, $sql, $params);
-                            
-                            if ($stmt === false) {
-                                die(print_r(sqlsrv_errors(), true));
-                            }
-                            
-                            // Data inserted successfully, redirect to a success page or perform any other necessary actions
-                            echo "Account created successfully. <br> Please Log in now.";
-                            exit();
-                        }
-                    }
-                ?>
                     <form action="" method="POST">
                     <?php if (!empty($errors)) : ?>
                         <ul class="errors">
@@ -428,26 +417,26 @@
                     <?php endif; ?>
                         <div class="full-name">
                             <div class="first-name">
-                                <input type="text" placeholder="First name" name="firstname">                                
+                                <input type="text" placeholder="First name" name="firstname" required>                                
                             </div>
                             <div class="last-name">
-                                <input type="text" placeholder="Last name" name="lastname">                                 
+                                <input type="text" placeholder="Last name" name="lastname" required>                                 
                             </div>
                         </div>
                         <div class="contact-detail">
                             <div class="phone">
-                                <input type="tel" placeholder="Phone" name="phone">                                
+                                <input type="tel" placeholder="Phone" name="phone" required>                                
                             </div>
                             <div class="email">
-                                <input type="email" placeholder="E-mail" name="email">                                  
+                                <input type="email" placeholder="E-mail" name="email" required>                                  
                             </div>
                         </div>
                         <div class="password-container">
                             <div class="password">
-                                <input type="password" placeholder="Password" name="password">                                
+                                <input type="password" placeholder="Password" name="password" required>                                
                             </div>
                             <div class="confirm-password">
-                                <input type="password" placeholder="Confirm Password"  name="con_password">                                  
+                                <input type="password" placeholder="Confirm Password"  name="con_password" required>                                  
                             </div>
                         </div>
                         <input type="submit" value="Create Account">
