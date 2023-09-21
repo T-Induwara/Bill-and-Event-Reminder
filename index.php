@@ -1080,13 +1080,8 @@
                             <table class="table">
                                     <tbody>
                                         <?php
-                                        //$serverName = "TIMAXX-NITRO";
                                         $con = new mysqli("localhost","timax","Masseffect34c1#@","RemindMeister");
 
-                                        //$connectionInfo = array( "Database"=>"RemindMeisterV2");
-                                        //$conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-                                        //check connection status.
                                         if( $con->connect_error) {
                                             echo "Connection could not be established.<br />";
                                             die( print_r( sqlsrv_errors(), true));

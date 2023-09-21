@@ -1,14 +1,4 @@
 <?php
-// Database configuration
-//To create this database configuration we watched this Youtube video https://youtu.be/VZpzQLqm8Uw?t=369 .
-//Also we studied this website to write this code. https://www.php.net/manual/en/function.sqlsrv-connect.php
-$serverName = "TIMAXX-NITRO";
-$connectionInfo = array(
-    "Database" => "RemindMeisterV2"
-);
-
-// Start session
-//When creating sessions we watched this Youtube video. https://youtu.be/eCTtIG_tvw0 
 session_start();
 
 if (isset($_SESSION['Email'])) {

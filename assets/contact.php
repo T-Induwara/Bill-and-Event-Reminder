@@ -436,7 +436,7 @@ session_start();
                     } else {
                         echo "Connection established.<br />";
                     }
-
+                    $uID = "";
                     $uID = $_SESSION["U_ID"];
                     if (isset($_POST["submit"])){
                         // Retrieve form data
