@@ -1,54 +1,7 @@
 <?php
-session_start();
-
-$con = new mysqli("localhost","timax","Masseffect34c1#@","RemindMeister");
-
-// Check the connection
-if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-} else {
-    echo "Connection established.<br />";
-}
-$uID = "";
-$uID = $_SESSION["U_ID"];
-if (isset($_POST["submit"])){
-    // Retrieve form data
-    $inqSummary = $_POST["summary"];
-    $inq = $_POST["inquiry"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-
-    // Perform validation
-    $errors = array();
-
-    if (empty($inqSummary)) {
-        $errors[] = "Inquiry summary is required";
-    }
-    if (empty($inq)) {
-        $errors[] = "Summary is required";
-    }
-    if (empty($email)) {
-        $errors[] = "Email is required";
-    }
-
-    // If there are no validation errors, insert the data into the table
-    if (empty($errors)) {
-        // Use prepared statement to avoid SQL injection
-        $sql = "INSERT INTO Inquiry (Inquiry_Title, Inquiry_Description, Email, Phone, RU_ID) VALUES ($inqSummary, $inq, $email, $phone, $uID)";
-        
-        $con->query($sql);
-
-        echo '<script>';
-        echo 'alert ("Inquiry Sent Successfully");';
-        echo 'window.location.href="contact.php"';
-        echo '</script>';
-        
-    }
-}
-
-
-$con->close();
+    session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -446,6 +399,53 @@ $con->close();
 </head>
 
 <body>
+    <?php
+
+    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+    // Check the connection
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    } else {
+        //echo "Connection established.<br />";
+    }
+
+    $uID = $_SESSION["U_ID"];
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data and sanitize
+        $inqSummary = $_POST["summary"];
+        $inq = $_POST["inquiry"];
+        $email = $_POST["email"];
+        $phone = $_POST["phone"];
+
+        // Use prepared statement to avoid SQL injection
+        $sql = "INSERT INTO Inquiry (Inquiry_Title, Inquiry_Description, Email, Phone, RU_ID) VALUES (?, ?, ?, ?, ?)";
+        
+        $stmt = $con->prepare($sql);
+
+        if ($stmt) {
+            //s = string | i = integer
+            $stmt->bind_param("ssssi", $inqSummary, $inq, $email, $phone, $uID);
+            
+            if ($stmt->execute()) {
+                echo '<script>';
+                echo 'alert("Inquiry Sent Successfully");';
+                echo 'window.location.href="contact.php";';
+                echo '</script>';
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+
+            $stmt->close();
+        } else {
+            echo "Error in prepared statement: " . $con->error;
+        }
+    }
+
+    $con->close();
+    ?>
+
     <header>
         <div class="nav-container">
             <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
