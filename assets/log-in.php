@@ -1,12 +1,68 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 
 if (isset($_SESSION['email'])) {
     header("Location: user-dashboard.php"); // Redirect to login page
     exit(); // Stop further execution of the current script
+}
+
+$con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+if ($con === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+else{
+    echo "Connection established!";
+}
+
+// Check if the login form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the entered email and password
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM registered_user WHERE email = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s",$email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    // Check if a user with the provided email exists
+    if ($stmt->num_rows === 1) {
+        // Bind the result variables
+        $stmt->bind_result($uID, $userEmail, $fname, $lname, $userPassword, $subID);
+        $stmt->fetch();
+    
+        // Verify the password
+        if ($password==$userPassword) {
+        // Password is correct, create a session
+        
+        $_SESSION["loggedin"] = true;
+        $_SESSION["U_ID"] = $uID;
+        $_SESSION["email"] = $userEmail;
+        $_SESSION['First_name'] = $fname;
+        $_SESSION['Last_name'] = $lname;
+        
+        // Redirect to a protected page or dashboard
+        header("location: user-dashboard.php");
+
+        }
+        else {
+            echo '<script>';
+            echo 'alert ("Incorrect password. Please try again.");';
+            echo '</script>';
+        }
+    }
+    else {
+        echo '<script>';
+        echo 'alert ("No user with that email address found.");';
+        echo '</script>';
+    }
+        
+    // Close the database connection
+    $stmt->close();
+    $con->close();
+
 }
 
 ?>
@@ -242,70 +298,6 @@ if (isset($_SESSION['email'])) {
 
 
     <body>
-        <?php
-
-        $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
-
-        if ($con === false) {
-            die(print_r(sqlsrv_errors(), true));
-        }
-        else{
-            echo "Connection established!";
-        }
-
-        // Check if the login form is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Get the entered email and password
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-
-            $sql = "SELECT * FROM registered_user WHERE email = ?";
-            $stmt = $con->prepare($sql);
-            $stmt->bind_param("s",$email);
-            $stmt->execute();
-            $stmt->store_result();
-
-            // Check if a user with the provided email exists
-            if ($stmt->num_rows === 1) {
-                // Bind the result variables
-                $stmt->bind_result($uID, $userEmail, $fname, $lname, $userPassword, $subID);
-                $stmt->fetch();
-            
-                // Verify the password
-                if ($password==$userPassword) {
-                // Password is correct, create a session
-                
-                $_SESSION["loggedin"] = true;
-                $_SESSION["U_ID"] = $uID;
-                $_SESSION["email"] = $userEmail;
-                $_SESSION['First_name'] = $fname;
-                $_SESSION['Last_name'] = $lname;
-                
-                // Redirect to a protected page or dashboard
-                header("location: user-dashboard.php");
-                exit();
-
-                }
-                else {
-                    echo '<script>';
-                    echo 'alert ("Incorrect password. Please try again.");';
-                    echo '</script>';
-                }
-            }
-            else {
-                echo '<script>';
-                echo 'alert ("No user with that email address found.");';
-                echo '</script>';
-            }
-                
-            // Close the database connection
-            $stmt->close();
-            $con->close();
-
-        }
-
-        ?>
-
         <header>
             <div class="nav-container">
                 <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
