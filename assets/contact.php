@@ -1,6 +1,53 @@
 <?php
 session_start();
 
+$con = new mysqli("localhost","timax","Masseffect34c1#@","RemindMeister");
+
+// Check the connection
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+} else {
+    echo "Connection established.<br />";
+}
+$uID = "";
+$uID = $_SESSION["U_ID"];
+if (isset($_POST["submit"])){
+    // Retrieve form data
+    $inqSummary = $_POST["summary"];
+    $inq = $_POST["inquiry"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+
+    // Perform validation
+    $errors = array();
+
+    if (empty($inqSummary)) {
+        $errors[] = "Inquiry summary is required";
+    }
+    if (empty($inq)) {
+        $errors[] = "Summary is required";
+    }
+    if (empty($email)) {
+        $errors[] = "Email is required";
+    }
+
+    // If there are no validation errors, insert the data into the table
+    if (empty($errors)) {
+        // Use prepared statement to avoid SQL injection
+        $sql = "INSERT INTO Inquiry (Inquiry_Title, Inquiry_Description, Email, Phone, RU_ID) VALUES ($inqSummary, $inq, $email, $phone, $uID)";
+        
+        $con->query($sql);
+
+        echo '<script>';
+        echo 'alert ("Inquiry Sent Successfully");';
+        echo 'window.location.href="contact.php"';
+        echo '</script>';
+        
+    }
+}
+
+
+$con->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -427,55 +474,6 @@ session_start();
                 <img src="images/contact-us/Saly-38.webp" alt="" class="man-img">
             </div>
             <div class="inquiry-form">
-                <?php
-                    $con = new mysqli("localhost","timax","Masseffect34c1#@","RemindMeister");
-
-                    // Check the connection
-                    if ($con->connect_error) {
-                        die("Connection failed: " . $con->connect_error);
-                    } else {
-                        echo "Connection established.<br />";
-                    }
-                    $uID = "";
-                    $uID = $_SESSION["U_ID"];
-                    if (isset($_POST["submit"])){
-                        // Retrieve form data
-                        $inqSummary = $_POST["summary"];
-                        $inq = $_POST["inquiry"];
-                        $email = $_POST["email"];
-                        $phone = $_POST["phone"];
-
-                        // Perform validation
-                        $errors = array();
-
-                        if (empty($inqSummary)) {
-                            $errors[] = "Inquiry summary is required";
-                        }
-                        if (empty($inq)) {
-                            $errors[] = "Summary is required";
-                        }
-                        if (empty($email)) {
-                            $errors[] = "Email is required";
-                        }
-
-                        // If there are no validation errors, insert the data into the table
-                        if (empty($errors)) {
-                            // Use prepared statement to avoid SQL injection
-                            $sql = "INSERT INTO Inquiry (Inquiry_Title, Inquiry_Description, Email, Phone, RU_ID) VALUES ($inqSummary, $inq, $email, $phone, $uID)";
-                            
-                            $con->query($sql);
-
-                            echo '<script>';
-                            echo 'alert ("Inquiry Sent Successfully");';
-                            echo 'window.location.href="contact.php"';
-                            echo '</script>';
-                            
-                        }
-                    }
-                    
-
-                    $con->close();
-                ?>
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="inq-summary">
                         <input type="text" placeholder="Inquiry Summary" id="inq-summary" name="summary" required>
