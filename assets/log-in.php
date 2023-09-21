@@ -1,53 +1,16 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-if (isset($_SESSION['Email'])) {
+
+if (isset($_SESSION['email'])) {
     header("Location: user-dashboard.php"); // Redirect to login page
     exit(); // Stop further execution of the current script
 }
 
-// Check if the login form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the entered email and password
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    $conn = sqlsrv_connect($serverName, $connectionInfo);//We used SQL Server and windows authentication to connect with the database
-
-    if ($conn === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-
-    $sql = "SELECT * FROM Users WHERE email = ? AND password = ?";
-    $params = array($email,$password);
-    $stmt = sqlsrv_query($conn, $sql, $params);
-
-    if ($stmt === false) {
-        die(print_r(sqlsrv_errors(), true));
-    }
-
-    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-
-    if ($row) {
-        // User is valid, set session variables and redirect to user dashboard page
-        $_SESSION["loggedin"] = true;
-        $_SESSION["U_ID"] = $row['U_ID'];
-        $_SESSION['Email'] = $row['Email'];
-        $_SESSION['First_name'] = $row['First_name'];
-        $_SESSION['Last_name'] = $row['Last_name'];
-        header("location: user-dashboard.php");
-        exit();
-    } else {
-        // Invalid email or password, show error message
-        $error = "Invalid email or password.";
-    }
-
-
-    sqlsrv_free_stmt($stmt);
-    sqlsrv_close($conn);
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -279,6 +242,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <body>
+        <?php
+
+        $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+        if ($con === false) {
+            die(print_r(sqlsrv_errors(), true));
+        }
+        else{
+            echo "Connection established!";
+        }
+
+        // Check if the login form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Get the entered email and password
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+
+            $sql = "SELECT * FROM registered_user WHERE email = ?";
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("s",$email);
+            $stmt->execute();
+            $stmt->store_result();
+
+            // Check if a user with the provided email exists
+            if ($stmt->num_rows === 1) {
+                // Bind the result variables
+                $stmt->bind_result($uID, $userEmail, $fname, $lname, $userPassword, $subID);
+                $stmt->fetch();
+            
+                // Verify the password
+                if ($password==$userPassword) {
+                // Password is correct, create a session
+                
+                $_SESSION["loggedin"] = true;
+                $_SESSION["U_ID"] = $uID;
+                $_SESSION["email"] = $userEmail;
+                $_SESSION['First_name'] = $fname;
+                $_SESSION['Last_name'] = $lname;
+                
+                // Redirect to a protected page or dashboard
+                header("location: user-dashboard.php");
+                exit();
+
+                }
+                else {
+                    echo '<script>';
+                    echo 'alert ("Incorrect password. Please try again.");';
+                    echo '</script>';
+                }
+            }
+            else {
+                echo '<script>';
+                echo 'alert ("No user with that email address found.");';
+                echo '</script>';
+            }
+                
+            // Close the database connection
+            $stmt->close();
+            $con->close();
+
+        }
+
+        ?>
+
         <header>
             <div class="nav-container">
                 <div class="nav-logo"><a href="../index.php">REMINDMEISTER</a></div>
@@ -306,13 +333,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <h2>Forgot Password</h2>
                         <input type="submit" id="btn" class="BTN" value="Log in">
                         <br>
-                        <!-- Display error message if any -->
-                        <?php if (isset($error)) { ?>
-                            <p class="login-err">
-                                <?php echo $error; ?>
-                            </p>
-                            <?php
-                        } ?>
                     </form>
                 </div>
                 </div>
