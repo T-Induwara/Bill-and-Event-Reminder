@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['Email'])) {
+if (!isset($_SESSION['email'])) {
     header("Location: log-in.php"); // Redirect to login page
     exit(); // Stop further execution of the current script
 }
