@@ -1,10 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['email'])) {
-    header("Location: log-in.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
+    if (!isset($_SESSION['email'])) {
+        header("Location: log-in.php"); // Redirect to login page
+        exit(); // Stop further execution of the current script
+    }
+
+    //Get logged in user's id
+    $uID = $_SESSION["U_ID"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -338,43 +342,37 @@ if (!isset($_SESSION['email'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $serverName = "TIMAXX-NITRO";
+                                    
+                                    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-                                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-                                    //Get logged in user's id
-                                    $uID = $_SESSION["U_ID"];
-
-                                    //check connection
-                                    if( $conn ) {
-                                    }else{
-                                        echo "Connection could not be established.<br />";
-                                        die( print_r( sqlsrv_errors(), true));
+                                    // Check the connection
+                                    if ($con->connect_error) {
+                                        die("Connection failed: " . $con->connect_error);
+                                    } else {
+                                        //echo "Connection established.<br />";
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Bill WHERE U_ID = $uID";
-                                    $result = sqlsrv_query($conn,$sql);
-                                    if(!$result){
-                                        die(print_r(sqlsrv_errors().true));
-                                    }
-                                    //read data of each row
-                                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                        echo "
+                                    $sql = "SELECT * FROM Created_Bill WHERE RU_ID = $uID";
+                                    $result = mysqli_query($con,$sql);
+
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo '
+                                        <tbody class="search-item">
                                             <tr>
-                                                <td>{$row['CB_Title']}</td>
-                                                <td>{$row['CB_Description']}</td>
-                                                <td>{$row['CB_Reminder_time']->format('H:i')}</td>
-                                                <td>{$row['CB_Reminder_date']->format('Y-m-d')}</td>
-                                                <td>{$row['CB_Reminder_option']}</td>
-                                                <td>{$row['CB_Type']}</td>
+                                                <td>'.$row['CB_Title'].'</td>
+                                                <td>'.$row['CB_Description'].'</td>
+                                                <td>'.date('H:i', strtotime($row['CB_Reminder_time'])).'</td>
+                                                <td>'.date('Y-m-d', strtotime($row['CB_Reminder_date'])).'</td>
+                                                <td>'.$row['CB_Reminder_option'].'</td>
+                                                <td>'.$row['CB_Type'].'</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-bill.php?id={$row["CB_ID"]}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-bill.php?id={$row["CB_ID"]}'>Delete</a>
+                                                    <a class="btn btn-primary btn-sm" href="edit-bill.php?id='.$row["CB_ID"].'">Edit</a>
+                                                    <a class="btn btn-danger btn-sm" href="delete-bill.php?id='.$row["CB_ID"].'">Delete</a>
                                                 </td>
                                             </tr>
-                                        ";
+                                        </tbody>
+                                        ';
                                     }
 
                                     ?>
@@ -397,42 +395,37 @@ if (!isset($_SESSION['email'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $serverName = "TIMAXX-NITRO";
 
-                                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                                    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-                                    $uID = $_SESSION["U_ID"];
-
-                                    //check connection
-                                    if( $conn ) {
-                                    }else{
-                                        echo "Connection could not be established.<br />";
-                                        die( print_r( sqlsrv_errors(), true));
+                                    // Check the connection
+                                    if ($con->connect_error) {
+                                        die("Connection failed: " . $con->connect_error);
+                                    } else {
+                                        //echo "Connection established.<br />";
                                     }
 
                                     //declaring sql command
-                                    $sql = "SELECT * FROM Created_Event WHERE U_ID = $uID";
-                                    $result = sqlsrv_query($conn,$sql);
-                                    if(!$result){
-                                        die(print_r(sqlsrv_errors().true));
-                                    }
-                                    //read data of each row
-                                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                        echo "
+                                    $sql = "SELECT * FROM Created_Event WHERE RU_ID = $uID";
+                                    $result = mysqli_query($con,$sql);
+
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo '
+                                        <tbody class="search-item">
                                             <tr>
-                                                <td>{$row['CEVN_Title']}</td>
-                                                <td>{$row['CEVN_Description']}</td>
-                                                <td>{$row['CEVN_Reminder_time']->format('H:i')}</td>
-                                                <td>{$row['CEVN_Reminder_date']->format('Y-m-d')}</td>
-                                                <td>{$row['CEVN_Reminder_option']}</td>
-                                                <td>{$row['CEVN_Type']}</td>
+                                                <td>'.$row['CEVN_Title'].'</td>
+                                                <td>'.$row['CEVN_Description'].'</td>
+                                                <td>'.date('H:i', strtotime($row['CEVN_Reminder_time'])).'</td>
+                                                <td>'.date('Y-m-d', strtotime($row['CEVN_Reminder_date'])).'</td>
+                                                <td>'.$row['CEVN_Reminder_option'].'</td>
+                                                <td>'.$row['CEVN_Type'].'</td>
                                                 <td>
-                                                    <a class='btn btn-primary btn-sm' href='edit-event.php?id={$row['CEVN_ID']}'>Edit</a>
-                                                    <a class='btn btn-danger btn-sm' href='delete-event.php?id={$row['CEVN_ID']}'>Delete</a>
+                                                    <a class="btn btn-primary btn-sm" href="edit-event.php?id='.$row["CEVN_ID"].'">Edit</a>
+                                                    <a class="btn btn-danger btn-sm" href="delete-event.php?id='.$row["CEVN_ID"].'">Delete</a>
                                                 </td>
                                             </tr>
-                                        ";
+                                        </tbody>
+                                        ';
                                     }
 
                                     ?>
