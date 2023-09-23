@@ -516,13 +516,6 @@
                             <h1 class="title-main" id="title-main"></h1>
                         </div>
                         <form action="" method="post">
-                        <?php if (!empty($errors)) : ?>
-                            <ul class="errors">
-                                <?php foreach ($errors as $error) : ?>
-                                <li><?php echo $error; ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
                             <input type="hidden" name="billType" value="" id="title-main-value" required>
                             <div class="frm-divs d-flex">
                                 <label for="billTitle">Add bill title</label>

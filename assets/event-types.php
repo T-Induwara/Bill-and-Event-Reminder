@@ -1,10 +1,47 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['email'])) {
-    header("Location: log-in.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
+    if (!isset($_SESSION['email'])) {
+        header("Location: log-in.php"); // Redirect to login page
+        exit(); // Stop further execution of the current script
+    }
+
+    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+    // Check the connection
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    } else {
+        //echo "Connection established.<br />";
+    }
+
+    $uID = $_SESSION["U_ID"];
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Retrieve form data
+        $eventTitle = $_POST["eventTitle"];
+        $eventDesc = $_POST["eventDesc"];
+        $time = $_POST["time"];
+        $date = $_POST["date"];
+        $remMethod = $_POST["eventRemMethod"];
+        $eventType = $_POST["eventType"];
+        
+        $sql = "INSERT INTO Created_Event (CEVN_Title, CEVN_Description, CEVN_Reminder_time, CEVN_Reminder_date, CEVN_Reminder_option, CEVN_Type, RU_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("ssssssi",$eventTitle, $eventDesc, $time, $date, $remMethod, $eventType, $uID );
+        $stmt->execute();
+        
+        // Data inserted successfully, redirect to a success page or perform any other necessary actions
+        echo '<script>';
+        echo 'window.location.href="../assets/success.php";';
+        echo '</script>';
+        exit();
+
+        
+        // Close the database connection
+        $stmt->close();
+        $con->close();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -387,8 +424,6 @@ if (!isset($_SESSION['email'])) {
             </div>
         </header>
         <main>
-            <?php
-            ?>
             <div class="container-fluid dashboard-header">
                 <div class="row">
                     <div class="col-md-6 pg-title">
@@ -480,71 +515,8 @@ if (!isset($_SESSION['email'])) {
                         <div class="frm-title" id="frm-title">
                             <h1 class="title-main" id="title-main">Weddings</h1>
                         </div>
-                        <?php
-                            $serverName = "TIMAXX-NITRO";
-                            $connectionOptions = array(
-                                "Database" => "RemindMeisterV2"
-                            );
-
-                            // Create a connection to the SQL Server
-                            $conn = sqlsrv_connect($serverName, $connectionOptions);
-
-
-                            $uID = $_SESSION["U_ID"];
-                            // Check if the form is submitted
-                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                //gettting form data
-                                $eventTitle = $_POST["eventTitle"];
-                                $eventDesc = $_POST["eventDesc"];
-                                $time = $_POST["time"];
-                                $date = $_POST["date"];
-                                $remMethod = $_POST["eventRemMethod"];
-                                $eventType = $_POST["eventType"];
-                                
-                                // Perform validation
-                                $errors = array();
-                                if (empty($eventTitle)) {
-                                    $errors[] = "Event title is required";
-                                }
-                                if (empty($eventDesc)) {
-                                    $errors[] = "Event description is required";
-                                }
-                                if (empty($time)) {
-                                    $errors[] = "Time is required";
-                                }
-                                if (empty($date)) {
-                                    $errors[] = "Date is required";
-                                }
-                                if (empty($remMethod)) {
-                                    $errors[] = "Reminder method is required";
-                                }
-                                
-                                // If there are no validation errors, insert the data into the table
-                                if (empty($errors)) {
-                                    $sql = "INSERT INTO Created_Event (CEVN_Title, CEVN_Description, CEVN_Reminder_time, CEVN_Reminder_date, CEVN_Reminder_option, CEVN_Type, U_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
-                                    $params = array($eventTitle, $eventDesc, $time, $date, $remMethod, $eventType, $uID );
-                                    $stmt = sqlsrv_query($conn, $sql, $params);
-                                    
-                                    if ($stmt === false) {
-                                        die(print_r(sqlsrv_errors(), true));
-                                    }
-                                   
-                                    echo '<script>';
-                                    echo 'window.location.href="success.php";';
-                                    echo '</script>';
-                                    exit();
-                                }
-                            }
-                        ?>
                         <form action="" method="post">
-                        <?php if (!empty($errors)) : ?>
-                            <ul class="errors">
-                                <?php foreach ($errors as $error) : ?>
-                                <li><?php echo $error; ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                            <input type="hidden" name="eventType" value="" id="title-main-value">    
+                            <input type="hidden" name="eventType" value="" id="title-main-value" required>    
                             <div class="frm-divs d-flex">
                                 <label for="eventTitle">Add event title</label>
                                 <input type="text" name="eventTitle" placeholder="My event..." required>
