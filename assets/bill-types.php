@@ -5,6 +5,42 @@
         header("Location: log-in.php"); // Redirect to login page
     }
 
+    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
+
+    // Check the connection
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    } else {
+        //echo "Connection established.<br />";
+    }
+
+    $uID = $_SESSION["U_ID"];
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Retrieve form data
+        $billTitle = $_POST["billTitle"];
+        $billDesc = $_POST["billDesc"];
+        $time = $_POST["time"];
+        $date = $_POST["date"];
+        $remMethod = $_POST["billRemMethod"];
+        $billType = $_POST["billType"];
+        
+        $sql = "INSERT INTO Created_Bill (CB_Title, CB_Description, CB_Reminder_time, CB_Reminder_date, CB_Reminder_option, CB_Type, RU_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("ssssssi",$billTitle, $billDesc, $time, $date, $remMethod, $billType, $uID );
+        $stmt->execute();
+        
+        // Data inserted successfully, redirect to a success page or perform any other necessary actions
+        echo '<script>';
+        echo 'window.location.href="../assets/success-b.php";';
+        echo '</script>';
+        exit();
+
+        
+        // Close the database connection
+        $stmt->close();
+        $con->close();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -479,64 +515,6 @@
                         <div class="frm-title" id="frm-title">
                             <h1 class="title-main" id="title-main"></h1>
                         </div>
-                        <?php
-                            $serverName = "TIMAXX-NITRO";
-                            $connectionOptions = array(
-                                "Database" => "RemindMeisterV2"
-                            );
-
-                            // Create a connection to the SQL Server
-                            $conn = sqlsrv_connect($serverName, $connectionOptions);
-
-
-                            $uID = $_SESSION["U_ID"];
-                            // Check if the form is submitted
-                            if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                                // Retrieve form data
-                                $billTitle = $_POST["billTitle"];
-                                $billDesc = $_POST["billDesc"];
-                                $time = $_POST["time"];
-                                $date = $_POST["date"];
-                                $remMethod = $_POST["billRemMethod"];
-                                $billType = $_POST["billType"];
-                                
-                                // Perform validation
-                                $errors = array();
-                                if (empty($billTitle)) {
-                                    $errors[] = "Bill title is required";
-                                }
-                                if (empty($billDesc)) {
-                                    $errors[] = "Bill description is required";
-                                }
-                                if (empty($time)) {
-                                    $errors[] = "Time is required";
-                                }
-                                if (empty($date)) {
-                                    $errors[] = "Date is required";
-                                }
-                                if (empty($remMethod)) {
-                                    $errors[] = "Reminder method is required";
-                                }
-                                
-                                // If there are no validation errors, insert the data into the table
-                                if (empty($errors)) {
-                                    $sql = "INSERT INTO Created_Bill (CB_Title, CB_Description, CB_Reminder_time, CB_Reminder_date, CB_Reminder_option, CB_Type, U_ID) VALUES (?, ?, ?, ?, ?, ?,?)";
-                                    $params = array($billTitle, $billDesc, $time, $date, $remMethod, $billType, $uID );
-                                    $stmt = sqlsrv_query($conn, $sql, $params);
-                                    
-                                    if ($stmt === false) {
-                                        die(print_r(sqlsrv_errors(), true));
-                                    }
-                                    
-                                    // Data inserted successfully, redirect to a success page or perform any other necessary actions
-                                    //echo "Bill reminder added successfully. <br> Please Log in now.";
-                                    echo '<script>';
-                                    echo 'window.location.href="success-b.php";';
-                                    echo '</script>';
-                                    exit();
-                                }
-                            }
-                        ?>
                         <form action="" method="post">
                         <?php if (!empty($errors)) : ?>
                             <ul class="errors">
@@ -545,7 +523,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         <?php endif; ?>
-                            <input type="hidden" name="billType" value="" id="title-main-value">
+                            <input type="hidden" name="billType" value="" id="title-main-value" required>
                             <div class="frm-divs d-flex">
                                 <label for="billTitle">Add bill title</label>
                                 <input type="text" name="billTitle" placeholder="My bill..." required>

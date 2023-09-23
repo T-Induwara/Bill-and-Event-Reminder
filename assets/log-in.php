@@ -8,11 +8,11 @@ if (isset($_SESSION['email'])) {
 
 $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-if ($con === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-else{
-    //echo "Connection established!";
+// Check the connection
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+} else {
+    //echo "Connection established.<br />";
 }
 
 // Check if the login form is submitted
