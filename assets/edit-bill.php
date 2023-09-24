@@ -316,7 +316,7 @@ if (!isset($_SESSION['email'])) {
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
                                 <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
-                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -329,24 +329,27 @@ if (!isset($_SESSION['email'])) {
                     <?php
                         if(isset($_GET["id"])){
                             $id = $_GET["id"];
-                    
-                            $serverName = "TIMAXX-NITRO";
 
-                            $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                            $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                            $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
+                            // Check the connection
+                            if ($con->connect_error) {
+                                die("Connection failed: " . $con->connect_error);
+                            } else {
+                                echo "Connection established.<br />";
+                            }
                             
                             $sql = "SELECT * FROM Created_Bill WHERE CB_ID = $id";
-                            $result = sqlsrv_query($conn,$sql);
+                            $result = mysqli_query($con,$sql);
                             if(!$result){
-                                die(print_r(sqlsrv_errors().true));
+                                die(print_r(mysqli_error($con).true));
                             }
                             //read data of each row
-                            while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                            while($row = mysqli_fetch_assoc($result)){
                                 $CB_Title = $row['CB_Title'];
                                 $CB_Description = $row['CB_Description'];
-                                $CB_Reminder_time = $row['CB_Reminder_time']->format('H:i');
-                                $CB_Reminder_date = $row['CB_Reminder_date']->format('Y-m-d');
+                                $CB_Reminder_time = date('H:i', strtotime($row['CB_Reminder_time']));
+                                $CB_Reminder_date = date('Y-m-d', strtotime($row['CB_Reminder_date']));
                                 $CB_Reminder_option = $row['CB_Reminder_option'];
                                 $CB_Type = $row['CB_Type'];
                             }
@@ -359,36 +362,18 @@ if (!isset($_SESSION['email'])) {
                             $time = $_POST["time"];
                             $date = $_POST["date"];
                             
-                            // Perform validation
-                            $errors = array();
-                            if (empty($billTitle)) {
-                                $errors[] = "Bill title is required";
-                            }
-                            if (empty($billDesc)) {
-                                $errors[] = "Bill description is required";
-                            }
-                            if (empty($time)) {
-                                $errors[] = "Time is required";
-                            }
-                            if (empty($date)) {
-                                $errors[] = "Date is required";
+                            $sql = "UPDATE Created_Bill set CB_Title = '$billTitle', CB_Description = '$billDesc', CB_Reminder_time = '$time', CB_Reminder_date = '$date' WHERE CB_ID = $id";
+                            $stmt = mysqli_query($con, $sql);
+                            
+                            if ($stmt === false) {
+                                die(print_r(mysqli_error($con), true));
                             }
                             
-                            // If there are no validation errors, insert the data into the table
-                            if (empty($errors)) {
-                                $sql = "UPDATE Created_Bill set CB_Title = '$billTitle', CB_Description = '$billDesc', CB_Reminder_time = '$time', CB_Reminder_date = '$date' WHERE CB_ID = $id";
-                                $stmt = sqlsrv_query($conn, $sql);
-                                
-                                if ($stmt === false) {
-                                    die(print_r(sqlsrv_errors(), true));
-                                }
-                                
-                                echo '<script>';
-                                echo 'alert ("Bill Edited Successfully");';
-                                echo 'window.location.href="view-reminders.php"';
-                                echo '</script>';
-                                exit();
-                            }
+                            echo '<script>';
+                            echo 'alert ("Bill Edited Successfully");';
+                            echo 'window.location.href="view-reminders.php"';
+                            echo '</script>';
+                            exit();
                         }  
 
                     ?>
