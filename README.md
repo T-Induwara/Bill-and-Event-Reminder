@@ -1,4 +1,5 @@
 # Bill and Event Reminder - REMINDMEISTER
+![localImage](https://i.ibb.co/ScygN3G/image.png)
 RemindMeister: An online platform for bill and event reminders. Easily create customized reminders, ensuring timely payments and never missing important occasions. Collaborate on GitHub to enhance this valuable tool.
 
 Project group ID : MET_WD_01.01_07
