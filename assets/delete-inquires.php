@@ -1,30 +1,28 @@
 <?php
-    
+    session_start();
+
+    if (!isset($_SESSION['email'])) {
+        header("Location: log-in.php"); // Redirect to login page if not loggedin
+    }
+
     if(isset($_GET["id"])){
         $id = $_GET["id"];
 
-        $serverName = "TIMAXX-NITRO";
-        $connectionOptions = array(
-            "Database" => "RemindMeisterV2"
-        );
+        $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-        $conn = sqlsrv_connect($serverName, $connectionOptions);
-        if ($conn === false) {
-            die(print_r(sqlsrv_errors(), true));
+        // Check the connection
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        } else {
+            //echo "Connection established.<br />";
         }
 
-        if (empty($errors)) {
-            $sql = "DELETE FROM Inquiry WHERE INQ_ID = $id";
-            $stmt = sqlsrv_query($conn, $sql);
-            
-            if ($stmt === false) {
-                die(print_r(sqlsrv_errors(), true));
-            }
-            
-            echo '<script>';
-            echo 'alert("Inquiry Deleted!");';
-            echo 'window.location.href="view-inquires.php"';
-            echo '</script>';
-            exit();
-        }
+        $sql = "DELETE FROM Inquiry WHERE INQ_ID = $id";
+        $stmt = mysqli_query($con, $sql);
+        
+        echo '<script>';
+        echo 'alert("Inquiry Deleted!");';
+        echo 'window.location.href="view-inquires.php"';
+        echo '</script>';
+        exit();
     }
