@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM registered_user WHERE Email = ?";
+    $sql = "SELECT * FROM Registered_User WHERE Email = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s",$email);
     $stmt->execute();

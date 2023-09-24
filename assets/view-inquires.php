@@ -249,7 +249,7 @@
                         if ($con->connect_error) {
                             die("Connection failed: " . $con->connect_error);
                         } else {
-                            echo "Connection established.<br />";
+                            //echo "Connection established.<br />";
                         }
 
                         //declaring sql command

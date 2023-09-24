@@ -33,7 +33,7 @@
         
         // If there are no validation errors, insert the data into the table
         if (empty($errors)) {
-            $sql = "INSERT INTO registered_user (Email, First_name, Last_name, Password) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO Registered_User (Email, First_name, Last_name, Password) VALUES (?, ?, ?, ?)";
             $stmt = $con->prepare($sql);
             $stmt->bind_param("ssss",$email, $firstName, $lastName, $password);
             $stmt->execute();
