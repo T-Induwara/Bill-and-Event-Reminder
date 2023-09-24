@@ -336,7 +336,7 @@ if (!isset($_SESSION['email'])) {
                             if ($con->connect_error) {
                                 die("Connection failed: " . $con->connect_error);
                             } else {
-                                echo "Connection established.<br />";
+                                //echo "Connection established.<br />";
                             }
                             
                             $sql = "SELECT * FROM Created_Bill WHERE CB_ID = $id";
@@ -362,8 +362,10 @@ if (!isset($_SESSION['email'])) {
                             $time = $_POST["time"];
                             $date = $_POST["date"];
                             
-                            $sql = "UPDATE Created_Bill set CB_Title = '$billTitle', CB_Description = '$billDesc', CB_Reminder_time = '$time', CB_Reminder_date = '$date' WHERE CB_ID = $id";
-                            $stmt = mysqli_query($con, $sql);
+                            $sql = "UPDATE Created_Bill set CB_Title = ?, CB_Description = ?, CB_Reminder_time = ?, CB_Reminder_date = ? WHERE CB_ID = $id";
+                            $stmt = $con->prepare($sql);
+                            $stmt->bind_param("ssss",$billTitle,$billDesc,$time,$date);
+                            $stmt->execute();
                             
                             if ($stmt === false) {
                                 die(print_r(mysqli_error($con), true));
