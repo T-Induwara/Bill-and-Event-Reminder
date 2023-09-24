@@ -1,10 +1,14 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['email'])) {
-    header("Location: log-in.php"); // Redirect to login page
-    exit(); // Stop further execution of the current script
-}
+    if (!isset($_SESSION['email'])) {
+        header("Location: log-in.php"); // Redirect to login page
+        exit(); // Stop further execution of the current script
+    }
+
+    //Get logged in user's id
+    $uID = $_SESSION["U_ID"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -239,41 +243,33 @@ if (!isset($_SESSION['email'])) {
                     </thead>
                     <tbody>
                         <?php
-                        $serverName = "TIMAXX-NITRO";
+                        $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-                        $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                        $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-                        //Get logged in user's id
-                        $uID = $_SESSION["U_ID"];
-
-                        //check connection
-                        if( $conn ) {
-                        }else{
-                            echo "Connection could not be established.<br />";
-                            die( print_r( sqlsrv_errors(), true));
+                        // Check the connection
+                        if ($con->connect_error) {
+                            die("Connection failed: " . $con->connect_error);
+                        } else {
+                            echo "Connection established.<br />";
                         }
 
                         //declaring sql command
-                        $sql = "SELECT * FROM Inquiry WHERE U_ID = $uID";
-                        $result = sqlsrv_query($conn,$sql);
-                        if(!$result){
-                            die(print_r(sqlsrv_errors().true));
-                        }
+                        $sql = "SELECT * FROM Inquiry WHERE RU_ID = $uID";
+                        $result = mysqli_query($con,$sql);
+                        
                         //read data of each row
-                        while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                            echo "
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '
                                 <tr>
-                                    <td>{$row['Inquiry_Title']}</td>
-                                    <td>{$row['Inquiry_Description']}</td>
-                                    <td>{$row['Email']}</td>
-                                    <td>{$row['Phone']}</td>
+                                    <td>'.$row['Inquiry_Title'].'</td>
+                                    <td>'.$row['Inquiry_Description'].'</td>
+                                    <td>'.$row['Email'].'</td>
+                                    <td>'.$row['Phone'].'</td>
                                     <td>
-                                        <a class='btn btn-primary btn-sm' href='edit-inquires.php?id={$row["INQ_ID"]}'>Edit</a>
-                                        <a class='btn btn-danger btn-sm' href='delete-inquires.php?id={$row["INQ_ID"]}'>Delete</a>
+                                        <a class="btn btn-primary btn-sm" href="edit-inquires.php?id={$row["INQ_ID"]}">Edit</a>
+                                        <a class="btn btn-danger btn-sm" href="delete-inquires.php?id={$row["INQ_ID"]}">Delete</a>
                                     </td>
                                 </tr>
-                            ";
+                            ';
                         }
 
                         ?>
