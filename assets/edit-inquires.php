@@ -391,7 +391,7 @@ if (!isset($_SESSION['email'])) {
                             <img src="images/usr-img/Ellipse 1.webp" alt="dashboard user image" class="usr-image">
                             <div class="usr-col-details d-flex">
                                 <h2 class="usr-name" id="usr-name"><?php echo $_SESSION['First_name']; ?>   <?php echo $_SESSION['Last_name']; ?></h2>
-                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['Email']; ?></p>
+                                <p class="usr-mail" id="usr-mail"><?php echo $_SESSION['email']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -403,18 +403,23 @@ if (!isset($_SESSION['email'])) {
                 if(isset($_GET["id"])){
                     $id = $_GET["id"];
             
-                    $serverName = "TIMAXX-NITRO";
+                    $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-                    $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                    // Check the connection
+                    if ($con->connect_error) {
+                        die("Connection failed: " . $con->connect_error);
+                    } else {
+                        echo "Connection established.<br />";
+                    }
 
                     $sql = "SELECT * FROM Inquiry WHERE INQ_ID = $id";
-                    $result = sqlsrv_query($conn,$sql);
+                    $result = mysqli_query($con,$sql);
                     if(!$result){
-                        die(print_r(sqlsrv_errors().true));
+                        die(print_r(mysqli_error($con).true));
                     }
+
                     //read data of each row
-                    while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                    while($row = mysqli_fetch_assoc($result)){
                         $inqTitle = $row['Inquiry_Title'];
                         $inqDesc = $row['Inquiry_Description'];
                     }
@@ -424,31 +429,21 @@ if (!isset($_SESSION['email'])) {
                     //Getting form data
                     $nInqTitle = $_POST["title"];
                     $nInqDesc = $_POST["description"];
-
-                    // Perform validation
-                    $errors = array();
-                    if (empty($nInqTitle)) {
-                        $errors[] = "New inquiry title is required";
-                    }
-                    if (empty($nInqDesc)) {
-                        $errors[] = "New inquiry description is required";
+                    
+                    $sql = "UPDATE Inquiry set Inquiry_Title = ?, Inquiry_Description = ? WHERE INQ_ID = $id";
+                    $stmt = $con->prepare($sql);
+                    $stmt->bind_param("ss",$nInqTitle,$nInqDesc);
+                    $stmt->execute();
+                    
+                    if ($stmt === false) {
+                        die(print_r(mysqli_error($con), true));
                     }
                     
-                    // If there are no validation errors, insert the data into the table
-                    if (empty($errors)) {
-                        $sql = "UPDATE Inquiry set Inquiry_Title = '$nInqTitle', Inquiry_Description = '$nInqDesc' WHERE INQ_ID = $id";
-                        $stmt = sqlsrv_query($conn, $sql);
-                        
-                        if ($stmt === false) {
-                            die(print_r(sqlsrv_errors(), true));
-                        }
-                        
-                        echo '<script>';
-                        echo 'alert ("Inquiry Edited Successfully");';
-                        echo 'window.location.href="view-inquires.php"';
-                        echo '</script>';
-                        exit();
-                    }
+                    echo '<script>';
+                    echo 'alert ("Inquiry Edited Successfully");';
+                    echo 'window.location.href="view-inquires.php"';
+                    echo '</script>';
+                    exit();
                 }  
 
             ?>

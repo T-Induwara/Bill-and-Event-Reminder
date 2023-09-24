@@ -265,8 +265,8 @@
                                     <td>'.$row['Email'].'</td>
                                     <td>'.$row['Phone'].'</td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="edit-inquires.php?id={$row["INQ_ID"]}">Edit</a>
-                                        <a class="btn btn-danger btn-sm" href="delete-inquires.php?id={$row["INQ_ID"]}">Delete</a>
+                                        <a class="btn btn-primary btn-sm" href="edit-inquires.php?id='.$row["INQ_ID"].'">Edit</a>
+                                        <a class="btn btn-danger btn-sm" href="delete-inquires.php?id='.$row["INQ_ID"].'">Delete</a>
                                     </td>
                                 </tr>
                             ';
