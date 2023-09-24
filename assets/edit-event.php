@@ -328,23 +328,28 @@ if (!isset($_SESSION['email'])) {
                         if(isset($_GET["id"])){
                             $id = $_GET["id"];
                     
-                            $serverName = "TIMAXX-NITRO";
+                            $con = new mysqli("localhost", "timax", "Masseffect34c1#@", "RemindMeister");
 
-                            $connectionInfo = array( "Database"=>"RemindMeisterV2");
-                            $conn = sqlsrv_connect( $serverName, $connectionInfo);
-
+                            // Check the connection
+                            if ($con->connect_error) {
+                                die("Connection failed: " . $con->connect_error);
+                            } else {
+                                //echo "Connection established.<br />";
+                            }
                             
                             $sql = "SELECT * FROM Created_Event WHERE CEVN_ID = $id";
-                            $result = sqlsrv_query($conn,$sql);
+                            
+                            $result = mysqli_query($con,$sql);
                             if(!$result){
-                                die(print_r(sqlsrv_errors().true));
+                                die(print_r(mysqli_error($con).true));
                             }
+
                             //read data of each row
-                            while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                            while($row = mysqli_fetch_assoc($result)){
                                 $CEVN_Title = $row['CEVN_Title'];
                                 $CEVN_Description = $row['CEVN_Description'];
-                                $CEVN_Reminder_time = $row['CEVN_Reminder_time']->format('H:i');
-                                $CEVN_Reminder_date = $row['CEVN_Reminder_date']->format('Y-m-d');
+                                $CEVN_Reminder_time = date('H:i', strtotime($row['CEVN_Reminder_time']));
+                                $CEVN_Reminder_date = date('Y-m-d', strtotime($row['CEVN_Reminder_date']));
                                 $CEVN_Reminder_option = $row['CEVN_Reminder_option'];
                                 $CEVN_Type = $row['CEVN_Type'];
                             }
@@ -357,36 +362,16 @@ if (!isset($_SESSION['email'])) {
                             $time = $_POST["time"];
                             $date = $_POST["date"];
                             
-                            // Perform validation
-                            $errors = array();
-                            if (empty($eventTitle)) {
-                                $errors[] = "Event title is required";
-                            }
-                            if (empty($eventDesc)) {
-                                $errors[] = "Event description is required";
-                            }
-                            if (empty($time)) {
-                                $errors[] = "Time is required";
-                            }
-                            if (empty($date)) {
-                                $errors[] = "Date is required";
-                            }
+                            $sql = "UPDATE Created_Event set CEVN_Title = ?, CEVN_Description = ?, CEVN_Reminder_time = ?, CEVN_Reminder_date = ? WHERE CEVN_ID = $id";
+                            $stmt = $con->prepare($sql);
+                            $stmt->bind_param("ssss",$eventTitle,$eventDesc,$time,$date);
+                            $stmt->execute();
                             
-                            // If there are no validation errors, insert the data into the table
-                            if (empty($errors)) {
-                                $sql = "UPDATE Created_Event set CEVN_Title = '$eventTitle', CEVN_Description = '$eventDesc', CEVN_Reminder_time = '$time', CEVN_Reminder_date = '$date' WHERE CEVN_ID = $id";
-                                $stmt = sqlsrv_query($conn, $sql);
-                                
-                                if ($stmt === false) {
-                                    die(print_r(sqlsrv_errors(), true));
-                                }
-                                
-                                echo '<script>';
-                                echo 'alert ("Event Edited Successfully");';
-                                echo 'window.location.href="view-reminders.php"';
-                                echo '</script>';
-                                exit();
-                            }
+                            echo '<script>';
+                            echo 'alert ("Event Edited Successfully");';
+                            echo 'window.location.href="view-reminders.php"';
+                            echo '</script>';
+                            exit();
                         }  
 
                     ?>
